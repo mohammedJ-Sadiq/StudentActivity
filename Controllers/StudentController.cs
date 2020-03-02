@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,21 +11,23 @@ namespace StudentActivity.Controllers
     public class StudentController : Controller
     {
         // GET: Student
-        public ActionResult Index()
-        {
-            var students = GetStudent();
+        private ApplicationDbContext _context;
 
-            return View(students);
+        public StudentController()
+        {
+            _context = new ApplicationDbContext();
         }
 
-        private IEnumerable<Student> GetStudent()
+        protected override void Dispose(bool disposing)
         {
-            return new List<Student>
-            {
-                new Student{ Id = 36110580 , Name = "Mohammed j. Sadiq", MobileNo = "0547158828",Email = "diamoh0@gmail.com"},
-                new Student{ Id = 36110379 , Name = "Ahmed m. Alsaleh" , MobileNo = "0557724451", Email = "ahmad.amadiii@gmail.com"},
-                new Student{ Id = 36115552 , Name = "Marwan h. talody" , MobileNo = "0544442285", Email = "marwanOrg1@yahoo.com"}
-            };
+            _context.Dispose();
+        }
+
+        public ActionResult Index()
+        {
+            var students = _context.Students.ToList();
+
+            return View(students);
         }
     }
 }

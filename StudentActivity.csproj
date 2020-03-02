@@ -176,6 +176,59 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003021743351_intialModel.cs" />
+    <Compile Include="Migrations\202003021743351_intialModel.Designer.cs">
+      <DependentUpon>202003021743351_intialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003021803378_AddingDatabaseDbSets.cs" />
+    <Compile Include="Migrations\202003021803378_AddingDatabaseDbSets.Designer.cs">
+      <DependentUpon>202003021803378_AddingDatabaseDbSets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003021817249_AddingConstrucDistruc.cs" />
+    <Compile Include="Migrations\202003021817249_AddingConstrucDistruc.Designer.cs">
+      <DependentUpon>202003021817249_AddingConstrucDistruc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003021827071_CreatingTheDbSet.cs" />
+    <Compile Include="Migrations\202003021827071_CreatingTheDbSet.Designer.cs">
+      <DependentUpon>202003021827071_CreatingTheDbSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003021832593_PopulateStudentTable.cs" />
+    <Compile Include="Migrations\202003021832593_PopulateStudentTable.Designer.cs">
+      <DependentUpon>202003021832593_PopulateStudentTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003021840186_ChangingStudentsVariablesValues.cs" />
+    <Compile Include="Migrations\202003021840186_ChangingStudentsVariablesValues.Designer.cs">
+      <DependentUpon>202003021840186_ChangingStudentsVariablesValues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003021842492_PopulateStudentTable1.cs" />
+    <Compile Include="Migrations\202003021842492_PopulateStudentTable1.Designer.cs">
+      <DependentUpon>202003021842492_PopulateStudentTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003021856080_AddingClubDbSet.cs" />
+    <Compile Include="Migrations\202003021856080_AddingClubDbSet.Designer.cs">
+      <DependentUpon>202003021856080_AddingClubDbSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003021900108_CreatingStudentFK.cs" />
+    <Compile Include="Migrations\202003021900108_CreatingStudentFK.Designer.cs">
+      <DependentUpon>202003021900108_CreatingStudentFK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003021904465_AddingRequiredAttriInClub.cs" />
+    <Compile Include="Migrations\202003021904465_AddingRequiredAttriInClub.Designer.cs">
+      <DependentUpon>202003021904465_AddingRequiredAttriInClub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003021912343_PopulateClubTable.cs" />
+    <Compile Include="Migrations\202003021912343_PopulateClubTable.Designer.cs">
+      <DependentUpon>202003021912343_PopulateClubTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003021936337_ChangingAnotationForProgram.cs" />
+    <Compile Include="Migrations\202003021936337_ChangingAnotationForProgram.Designer.cs">
+      <DependentUpon>202003021936337_ChangingAnotationForProgram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003022056186_PopulateProgramTable.cs" />
+    <Compile Include="Migrations\202003022056186_PopulateProgramTable.Designer.cs">
+      <DependentUpon>202003022056186_PopulateProgramTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Club.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -261,6 +314,47 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202003021743351_intialModel.resx">
+      <DependentUpon>202003021743351_intialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003021803378_AddingDatabaseDbSets.resx">
+      <DependentUpon>202003021803378_AddingDatabaseDbSets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003021817249_AddingConstrucDistruc.resx">
+      <DependentUpon>202003021817249_AddingConstrucDistruc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003021827071_CreatingTheDbSet.resx">
+      <DependentUpon>202003021827071_CreatingTheDbSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003021832593_PopulateStudentTable.resx">
+      <DependentUpon>202003021832593_PopulateStudentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003021840186_ChangingStudentsVariablesValues.resx">
+      <DependentUpon>202003021840186_ChangingStudentsVariablesValues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003021842492_PopulateStudentTable1.resx">
+      <DependentUpon>202003021842492_PopulateStudentTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003021856080_AddingClubDbSet.resx">
+      <DependentUpon>202003021856080_AddingClubDbSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003021900108_CreatingStudentFK.resx">
+      <DependentUpon>202003021900108_CreatingStudentFK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003021904465_AddingRequiredAttriInClub.resx">
+      <DependentUpon>202003021904465_AddingRequiredAttriInClub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003021912343_PopulateClubTable.resx">
+      <DependentUpon>202003021912343_PopulateClubTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003021936337_ChangingAnotationForProgram.resx">
+      <DependentUpon>202003021936337_ChangingAnotationForProgram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003022056186_PopulateProgramTable.resx">
+      <DependentUpon>202003022056186_PopulateProgramTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

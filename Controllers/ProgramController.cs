@@ -10,33 +10,23 @@ namespace StudentActivity.Controllers
     public class ProgramController : Controller
     {
         // GET: Program
+        private ApplicationDbContext _context;
+
+        public ProgramController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         public ActionResult Index()
         {
-            var programs = GetProgram();
+            var programs = _context.Programs.ToList();
 
             return View(programs);
-        }
-        private IEnumerable<Program> GetProgram()
-        {
-            return new List<Program>
-            {
-                new Program{Id = 1, Title = "Cyber Security",Time = "9:00",
-                    StartDate = "12-3-2020", EndDate = "14-3-2020",
-                    MaximumStudentNumber = "30", AdminName = "Rashed Alqhtani",
-                    CertifiactionType = "Attendance", ClubName = "Computer Sceince",
-                    EvaluationType = "Program"
-                },
-
-                new Program{Id = 2, Title = "Photo Shooting",Time = "1:00",
-                    StartDate = "20-3-2020", EndDate = "25-3-2020",
-                    MaximumStudentNumber = "15", AdminName = "Yousef Alghamdi",
-                    CertifiactionType = "Voluntarily", ClubName = "Photography",
-                    EvaluationType = "Activity"
-                }
-
-
-
-            };
         }
     }
 }

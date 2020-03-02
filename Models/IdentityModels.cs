@@ -20,6 +20,10 @@ namespace StudentActivity.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Program> Programs { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Club> Clubs { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

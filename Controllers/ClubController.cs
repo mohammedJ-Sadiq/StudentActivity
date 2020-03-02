@@ -10,10 +10,22 @@ namespace StudentActivity.Controllers
     public class ClubController : Controller
     {
         // GET: Club
-        public ActionResult Index()
+        private ApplicationDbContext _context;
+
+        public ClubController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
+       /* public ActionResult Index()
         {
             return View();
-        }
+        }*/
 
     }
 }

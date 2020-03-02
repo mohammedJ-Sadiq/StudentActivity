@@ -1,15 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Web;
 
 namespace StudentActivity.Models
 {
     public class Student
     {
-        public int Id { get; set; }
+        [StringLength(14)]
+
+        public String Id { get; set; }
+        
+        [Required]
         public string Name { get; set; }
+
+        [Required]
         public string MobileNo { get; set; }
+
+        [Required]
         public string Email { get; set; }
 
     }
