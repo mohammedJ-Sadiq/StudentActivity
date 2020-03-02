@@ -1,0 +1,29 @@
+﻿@model IEnumerable<StudentActivity.Models.Student>
+@{
+    ViewBag.Title = "Student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered table-hover" style="margin-top:40px">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Mobile number</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+
+    <h2>Students</h2>
+    @foreach (var student in Model)
+    {
+        <tbody>
+        <tr>
+            <td>@student.Id</td>
+            <td>@student.Name</td>
+            <td>@student.MobileNo</td>
+            <td>@student.Email</td>
+        </tr>
+        </tbody>
+    }
+</table>

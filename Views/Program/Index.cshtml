@@ -1,0 +1,39 @@
+﻿@using StudentActivity.Models
+@model IEnumerable<StudentActivity.Models.Program>
+@{
+    ViewBag.Title = "Programs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Available Programs</h2>
+
+<table class="table table-bordered table-hover" style="margin-top:40px">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Time</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Maximum Student's number</th>
+        <th>Club" Name</th>
+        <th>Certification's Type</th>
+    </tr>
+    </thead>
+
+    @foreach (var program in Model)
+    {
+        <tbody>
+        <tr>
+            <td>@program.Id</td>
+            <td>@program.Title</td>
+            <td>@program.Time</td>
+            <td>@program.StartDate</td>
+            <td>@program.EndDate</td>
+            <td>@program.MaximumStudentNumber</td>
+            <td>@program.ClubName</td>
+            <td>@program.CertifiactionType</td>
+        </tr>
+        </tbody>
+    }
+</table>
