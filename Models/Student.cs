@@ -9,6 +9,7 @@ namespace StudentActivity.Models
 {
     public class Student
     {
+        
         [StringLength(14)]
 
         public String Id { get; set; }
@@ -22,6 +23,8 @@ namespace StudentActivity.Models
 
         [Required]
         public string Email { get; set; }
+
+        public IList<Program> Programs { get; set; }
 
     }
 }

@@ -8,6 +8,7 @@ namespace StudentActivity.Models
 {
     public class Program
     {
+        
         public int Id { get; set; }
 
         [Required]
@@ -26,13 +27,12 @@ namespace StudentActivity.Models
         public string MaximumStudentNumber { get; set; }
         public string AdminName { get; set; }
         public string EvaluationType { get; set; }
-        public Club ClubName { get; set; }
 
-        [Required]
-        public int ClubId { get; set; }
         public string CertifiactionType { get; set; }
 
-
-
+        public ICollection<Student> Students { get; set; }
+        
+        public Club Club { get; set; }
+        
     }
 }

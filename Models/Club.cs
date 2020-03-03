@@ -19,5 +19,7 @@ namespace StudentActivity.Models
         
         [Required]
         public String StudentId { get; set; }
+
+        public ICollection<Program> Programs { get; set; }
     }
 }

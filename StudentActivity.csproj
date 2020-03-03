@@ -228,6 +228,18 @@
     <Compile Include="Migrations\202003022056186_PopulateProgramTable.Designer.cs">
       <DependentUpon>202003022056186_PopulateProgramTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003031653484_ManyToMany.cs" />
+    <Compile Include="Migrations\202003031653484_ManyToMany.Designer.cs">
+      <DependentUpon>202003031653484_ManyToMany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003031703303_AddingClubFkAgain.cs" />
+    <Compile Include="Migrations\202003031703303_AddingClubFkAgain.Designer.cs">
+      <DependentUpon>202003031703303_AddingClubFkAgain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003031708517_AddingClubFkAgai.cs" />
+    <Compile Include="Migrations\202003031708517_AddingClubFkAgai.Designer.cs">
+      <DependentUpon>202003031708517_AddingClubFkAgai.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Club.cs" />
@@ -354,6 +366,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003022056186_PopulateProgramTable.resx">
       <DependentUpon>202003022056186_PopulateProgramTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003031653484_ManyToMany.resx">
+      <DependentUpon>202003031653484_ManyToMany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003031703303_AddingClubFkAgain.resx">
+      <DependentUpon>202003031703303_AddingClubFkAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003031708517_AddingClubFkAgai.resx">
+      <DependentUpon>202003031708517_AddingClubFkAgai.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
