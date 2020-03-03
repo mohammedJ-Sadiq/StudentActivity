@@ -14,6 +14,7 @@ namespace StudentActivity.Models
         public String Id { get; set; }
         
         [Required]
+        [Display(Name = "Student Name")]
         public string Name { get; set; }
 
         [Required]

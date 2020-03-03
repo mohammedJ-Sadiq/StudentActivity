@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -24,7 +25,7 @@ namespace StudentActivity.Controllers
 
         public ActionResult Index()
         {
-            var programs = _context.Programs.ToList();
+            var programs = _context.Programs.Include(p => p.ClubName).ToList();
 
             return View(programs);
         }

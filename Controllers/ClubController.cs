@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using StudentActivity.Models;
+using System.Data.Entity;
 
 namespace StudentActivity.Controllers
 {
@@ -22,10 +23,11 @@ namespace StudentActivity.Controllers
             _context.Dispose();
         }
 
-       /* public ActionResult Index()
+        public ActionResult Index()
         {
-            return View();
-        }*/
+            var clubs = _context.Clubs.Include(c => c.CoordinatorName).ToList();
+            return View(clubs);
+        }
 
     }
 }
