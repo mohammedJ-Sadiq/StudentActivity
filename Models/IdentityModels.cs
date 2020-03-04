@@ -23,6 +23,7 @@ namespace StudentActivity.Models
         public DbSet<Program> Programs { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Club> Clubs { get; set; }
+        public DbSet<Admin> Admins { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

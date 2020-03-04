@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ClubController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -240,8 +241,17 @@
     <Compile Include="Migrations\202003031708517_AddingClubFkAgai.Designer.cs">
       <DependentUpon>202003031708517_AddingClubFkAgai.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003040540014_AddingAdminTable.cs" />
+    <Compile Include="Migrations\202003040540014_AddingAdminTable.Designer.cs">
+      <DependentUpon>202003040540014_AddingAdminTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003040543181_AddingRequiredToAdmin.cs" />
+    <Compile Include="Migrations\202003040543181_AddingRequiredToAdmin.Designer.cs">
+      <DependentUpon>202003040543181_AddingRequiredToAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Club.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -313,6 +323,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -375,6 +386,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003031708517_AddingClubFkAgai.resx">
       <DependentUpon>202003031708517_AddingClubFkAgai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003040540014_AddingAdminTable.resx">
+      <DependentUpon>202003040540014_AddingAdminTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003040543181_AddingRequiredToAdmin.resx">
+      <DependentUpon>202003040543181_AddingRequiredToAdmin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
