@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using StudentActivity.Models;
+using StudentActivity.ViewModel;
 
 namespace StudentActivity.Controllers
 {
@@ -28,6 +29,18 @@ namespace StudentActivity.Controllers
             var programs = _context.Programs.Include(p =>p.Club).ToList();
 
             return View(programs);
+        }
+        
+        public ActionResult Registration()
+        {
+            var programs = _context.Programs.ToList();
+            var viewModels = new StudentProgram()
+            {
+                Student = new Student(),
+                Program = programs
+
+            };
+            return View("RegistrationForm", viewModels);
         }
     }
 }

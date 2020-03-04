@@ -33,6 +33,8 @@ namespace StudentActivity.Models
         public ICollection<Student> Students { get; set; }
         
         public Club Club { get; set; }
-        
+
+        public ICollection<Admin> Admins { get; set; }
+
     }
 }

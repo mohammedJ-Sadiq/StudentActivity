@@ -249,6 +249,22 @@
     <Compile Include="Migrations\202003040543181_AddingRequiredToAdmin.Designer.cs">
       <DependentUpon>202003040543181_AddingRequiredToAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003041103494_AddingAdminProgramRelationshipTable.cs" />
+    <Compile Include="Migrations\202003041103494_AddingAdminProgramRelationshipTable.Designer.cs">
+      <DependentUpon>202003041103494_AddingAdminProgramRelationshipTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003041107419_PopulateAdminTable.cs" />
+    <Compile Include="Migrations\202003041107419_PopulateAdminTable.Designer.cs">
+      <DependentUpon>202003041107419_PopulateAdminTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003041111554_PopulateStudentProgramTable.cs" />
+    <Compile Include="Migrations\202003041111554_PopulateStudentProgramTable.Designer.cs">
+      <DependentUpon>202003041111554_PopulateStudentProgramTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003041117061_programAdmins.cs" />
+    <Compile Include="Migrations\202003041117061_programAdmins.Designer.cs">
+      <DependentUpon>202003041117061_programAdmins.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -257,6 +273,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Program.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="ViewModel\StudentProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -320,6 +337,7 @@
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Club\Index.cshtml" />
     <Content Include="Views\Program\Index.cshtml" />
+    <Content Include="Views\Program\RegistrationForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -392,6 +410,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003040543181_AddingRequiredToAdmin.resx">
       <DependentUpon>202003040543181_AddingRequiredToAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003041103494_AddingAdminProgramRelationshipTable.resx">
+      <DependentUpon>202003041103494_AddingAdminProgramRelationshipTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003041107419_PopulateAdminTable.resx">
+      <DependentUpon>202003041107419_PopulateAdminTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003041111554_PopulateStudentProgramTable.resx">
+      <DependentUpon>202003041111554_PopulateStudentProgramTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003041117061_programAdmins.resx">
+      <DependentUpon>202003041117061_programAdmins.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

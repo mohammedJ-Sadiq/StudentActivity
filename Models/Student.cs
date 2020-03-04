@@ -26,5 +26,6 @@ namespace StudentActivity.Models
 
         public IList<Program> Programs { get; set; }
 
+
     }
 }
