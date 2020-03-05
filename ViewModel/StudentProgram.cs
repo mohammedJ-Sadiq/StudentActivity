@@ -8,7 +8,7 @@ namespace StudentActivity.ViewModel
 {
     public class StudentProgram
     {
-        public Student_Program StudentPrograms { get; set; }
+        public Student Student { get; set; }
         public IEnumerable<Program> Program { get; set; }
     }
 }

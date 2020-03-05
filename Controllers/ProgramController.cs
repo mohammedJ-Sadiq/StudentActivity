@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -35,52 +34,13 @@ namespace StudentActivity.Controllers
         public ActionResult Registration()
         {
             var programs = _context.Programs.ToList();
-            var studentProgram = new Student_Program();
-            return View("RegistrationForm");
-        }
-
-        [HttpPost]
-        
-        public ActionResult Save(Student_Program studentProgram)
-        {
-
-
-            
-            _context.StudentPrograms.Add(studentProgram);
-
-            _context.SaveChanges();
-            
-                
-            
-            return RedirectToAction("Index", "Program");
-        }
-
-        public ActionResult addProgram()
-        {
-            
-            var viewModels = new ProgramViewModel()
+            var viewModels = new StudentProgram()
             {
-                program = new Program(),
-                
+                Student = new Student(),
+                Program = programs
+
             };
-            
-
-            return View("ProgramForm");
+            return View("RegistrationForm", viewModels);
         }
-
-        [HttpPost]
-        public ActionResult SavePrg(Program program)
-        {
-
-
-
-            _context.Programs.Add(program);
-
-
-            _context.SaveChanges();
-
-            return RedirectToAction("Index", "Program");
-        }
-
     }
 }

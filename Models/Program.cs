@@ -30,12 +30,11 @@ namespace StudentActivity.Models
 
         public string CertifiactionType { get; set; }
 
+        public ICollection<Student> Students { get; set; }
         
         public Club Club { get; set; }
 
-
         public ICollection<Admin> Admins { get; set; }
-        public IList<Student_Program> StudentPrograms { get; set; }
 
     }
 }

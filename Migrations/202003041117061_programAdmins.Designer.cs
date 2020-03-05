@@ -7,13 +7,13 @@ namespace StudentActivity.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class connectionRelation : IMigrationMetadata
+    public sealed partial class programAdmins : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(connectionRelation));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(programAdmins));
         
         string IMigrationMetadata.Id
         {
-            get { return "202003050812393_connectionRelation"; }
+            get { return "202003041117061_programAdmins"; }
         }
         
         string IMigrationMetadata.Source

@@ -23,9 +23,8 @@ namespace StudentActivity.Models
 
         [Required]
         public string Email { get; set; }
-        public IList<Student_Program> StudentPrograms { get; set; }
 
-        
+        public IList<Program> Programs { get; set; }
 
 
     }

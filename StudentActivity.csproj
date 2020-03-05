@@ -257,25 +257,13 @@
     <Compile Include="Migrations\202003041107419_PopulateAdminTable.Designer.cs">
       <DependentUpon>202003041107419_PopulateAdminTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003050546546_justTrying.cs" />
-    <Compile Include="Migrations\202003050546546_justTrying.Designer.cs">
-      <DependentUpon>202003050546546_justTrying.cs</DependentUpon>
+    <Compile Include="Migrations\202003041111554_PopulateStudentProgramTable.cs" />
+    <Compile Include="Migrations\202003041111554_PopulateStudentProgramTable.Designer.cs">
+      <DependentUpon>202003041111554_PopulateStudentProgramTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003050812393_connectionRelation.cs" />
-    <Compile Include="Migrations\202003050812393_connectionRelation.Designer.cs">
-      <DependentUpon>202003050812393_connectionRelation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003050826338_any.cs" />
-    <Compile Include="Migrations\202003050826338_any.Designer.cs">
-      <DependentUpon>202003050826338_any.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003050828057_StudentProgramAgain.cs" />
-    <Compile Include="Migrations\202003050828057_StudentProgramAgain.Designer.cs">
-      <DependentUpon>202003050828057_StudentProgramAgain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003050831122_deleteingOldStudentProgramTable.cs" />
-    <Compile Include="Migrations\202003050831122_deleteingOldStudentProgramTable.Designer.cs">
-      <DependentUpon>202003050831122_deleteingOldStudentProgramTable.cs</DependentUpon>
+    <Compile Include="Migrations\202003041117061_programAdmins.cs" />
+    <Compile Include="Migrations\202003041117061_programAdmins.Designer.cs">
+      <DependentUpon>202003041117061_programAdmins.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -285,8 +273,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Program.cs" />
     <Compile Include="Models\Student.cs" />
-    <Compile Include="Models\Student_Program.cs" />
-    <Compile Include="ViewModel\ProgramViewModel.cs" />
     <Compile Include="ViewModel\StudentProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -352,7 +338,6 @@
     <Content Include="Views\Club\Index.cshtml" />
     <Content Include="Views\Program\Index.cshtml" />
     <Content Include="Views\Program\RegistrationForm.cshtml" />
-    <Content Include="Views\Program\ProgramForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -432,20 +417,11 @@
     <EmbeddedResource Include="Migrations\202003041107419_PopulateAdminTable.resx">
       <DependentUpon>202003041107419_PopulateAdminTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003050546546_justTrying.resx">
-      <DependentUpon>202003050546546_justTrying.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003041111554_PopulateStudentProgramTable.resx">
+      <DependentUpon>202003041111554_PopulateStudentProgramTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003050812393_connectionRelation.resx">
-      <DependentUpon>202003050812393_connectionRelation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003050826338_any.resx">
-      <DependentUpon>202003050826338_any.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003050828057_StudentProgramAgain.resx">
-      <DependentUpon>202003050828057_StudentProgramAgain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003050831122_deleteingOldStudentProgramTable.resx">
-      <DependentUpon>202003050831122_deleteingOldStudentProgramTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003041117061_programAdmins.resx">
+      <DependentUpon>202003041117061_programAdmins.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
