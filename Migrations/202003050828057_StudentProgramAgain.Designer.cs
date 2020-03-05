@@ -7,13 +7,13 @@ namespace StudentActivity.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class PopulateStudentProgramTable : IMigrationMetadata
+    public sealed partial class StudentProgramAgain : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PopulateStudentProgramTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(StudentProgramAgain));
         
         string IMigrationMetadata.Id
         {
-            get { return "202003041111554_PopulateStudentProgramTable"; }
+            get { return "202003050828057_StudentProgramAgain"; }
         }
         
         string IMigrationMetadata.Source

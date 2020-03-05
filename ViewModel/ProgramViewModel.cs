@@ -6,9 +6,9 @@ using StudentActivity.Models;
 
 namespace StudentActivity.ViewModel
 {
-    public class StudentProgram
+    public class ProgramViewModel
     {
-        public Student_Program StudentPrograms { get; set; }
-        public IEnumerable<Program> Program { get; set; }
+        public Program program { get; set; }
+        public IEnumerable<Club> club { get; set; }
     }
 }
