@@ -20,14 +20,26 @@ namespace StudentActivity.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Program> Programs { get; set; }
-        public DbSet<Student> Students { get; set; }
-        public DbSet<Club> Clubs { get; set; }
-        public DbSet<Admin> Admins { get; set; }
+        
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+        }
+        public DbSet<Program> Programs { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Club> Clubs { get; set; }
+        public DbSet<Admin> Admins { get; set; }
+        public DbSet<Student_Program> StudentPrograms { get; set; }
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Student_Program>().ToTable("Student_Program");
+            modelBuilder.Entity<Student_Program>()
+                .HasKey(sp => new {sp.StudentId, sp.ProgramId});
+
         }
 
         public static ApplicationDbContext Create()

@@ -1,0 +1,43 @@
+﻿@model StudentActivity.ViewModel.ProgramViewModel
+@{
+    ViewBag.Title = "ProgramForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ProgramForm</h2>
+
+@using (Html.BeginForm("SavePrg", "Program"))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.program.Title)
+        @Html.TextBoxFor(m => m.program.Title, new { @class = "form-control" })
+        @*Html.ValidationMessageFor(m => m.Customer.Name)*@
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.program.Time)
+        @Html.TextBoxFor(m => m.program.Time, new { @class = "form-control" })
+        @*Html.ValidationMessageFor(m => m.Customer.Name)*@
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.program.StartDate)
+        @Html.TextBoxFor(m => m.program.StartDate, new { @class = "form-control" })
+        @*Html.ValidationMessageFor(m => m.Customer.Name)*@
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.program.EndDate)
+        @Html.TextBoxFor(m => m.program.EndDate, new { @class = "form-control" })
+        @*Html.ValidationMessageFor(m => m.Customer.Name)*@
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.program.MaximumStudentNumber)
+        @Html.TextBoxFor(m => m.program.MaximumStudentNumber, new { @class = "form-control" })
+        @*Html.ValidationMessageFor(m => m.Customer.Name)*@
+    </div>
+    
+    @Html.HiddenFor(m => m.program.Id)
+
+    <button type="submit" class="btn btn-primary">
+        Save
+    </button>
+}
