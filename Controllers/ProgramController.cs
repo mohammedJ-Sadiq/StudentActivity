@@ -29,24 +29,29 @@ namespace StudentActivity.Controllers
         {
             var programs = _context.Programs.Include(p =>p.Club).ToList();
 
-            return View(programs);
+            return View();
         }
         
         public ActionResult Registration()
         {
-            var programs = _context.Programs.ToList();
-            var studentProgram = new Student_Program();
-            return View("RegistrationForm");
+            var Programs = _context.Programs.ToList();
+            var viewModels = new StudentProgram()
+            {
+                StudentPrograms = new Student_Program(),
+                Program = Programs
+            };
+            
+            return View("RegistrationForm", viewModels);
         }
 
         [HttpPost]
         
-        public ActionResult Save(Student_Program studentProgram)
+        public ActionResult Save(StudentProgram studentProgram)
         {
 
 
             
-            _context.StudentPrograms.Add(studentProgram);
+            _context.StudentPrograms.Add(studentProgram.StudentPrograms);
 
             _context.SaveChanges();
             
@@ -57,22 +62,22 @@ namespace StudentActivity.Controllers
 
         public ActionResult addProgram()
         {
-            
+            var clubs = _context.Clubs.ToList();
             var viewModels = new ProgramViewModel()
             {
                 program = new Program(),
-                
+                club = clubs          
             };
             
 
-            return View("ProgramForm");
+            return View("ProgramForm",viewModels);
         }
 
         [HttpPost]
         public ActionResult SavePrg(Program program)
         {
 
-
+            
 
             _context.Programs.Add(program);
 

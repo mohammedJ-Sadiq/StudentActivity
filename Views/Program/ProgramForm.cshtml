@@ -34,7 +34,11 @@
         @Html.TextBoxFor(m => m.program.MaximumStudentNumber, new { @class = "form-control" })
         @*Html.ValidationMessageFor(m => m.Customer.Name)*@
     </div>
-    
+    <div class="form-group">
+        @Html.LabelFor(m => m.program.ClubId)
+        @Html.DropDownListFor(m =>m.program.ClubId, new SelectList(Model.club, "Id", "Name"), "Select a Club", new { @class = "form-control" })
+    </div>
+
     @Html.HiddenFor(m => m.program.Id)
 
     <button type="submit" class="btn btn-primary">

@@ -277,6 +277,14 @@
     <Compile Include="Migrations\202003050831122_deleteingOldStudentProgramTable.Designer.cs">
       <DependentUpon>202003050831122_deleteingOldStudentProgramTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003051325095_deletingOldProgramAdmin.cs" />
+    <Compile Include="Migrations\202003051325095_deletingOldProgramAdmin.Designer.cs">
+      <DependentUpon>202003051325095_deletingOldProgramAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003051328365_FixingClubProgramRelationship.cs" />
+    <Compile Include="Migrations\202003051328365_FixingClubProgramRelationship.Designer.cs">
+      <DependentUpon>202003051328365_FixingClubProgramRelationship.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -350,9 +358,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Club\Index.cshtml" />
-    <Content Include="Views\Program\Index.cshtml" />
     <Content Include="Views\Program\RegistrationForm.cshtml" />
     <Content Include="Views\Program\ProgramForm.cshtml" />
+    <Content Include="Views\Program\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -446,6 +454,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003050831122_deleteingOldStudentProgramTable.resx">
       <DependentUpon>202003050831122_deleteingOldStudentProgramTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003051325095_deletingOldProgramAdmin.resx">
+      <DependentUpon>202003051325095_deletingOldProgramAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003051328365_FixingClubProgramRelationship.resx">
+      <DependentUpon>202003051328365_FixingClubProgramRelationship.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

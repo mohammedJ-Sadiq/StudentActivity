@@ -14,12 +14,11 @@ namespace StudentActivity.Models
         [Display(Name = "Club Name")]
         public string Name { get; set; }
 
-        
         public Student CoordinatorName { get; set; }
         
         [Required]
         public String StudentId { get; set; }
 
-        public ICollection<Program> Programs { get; set; }
+        public virtual ICollection<Program> Programs { get; set; }
     }
 }

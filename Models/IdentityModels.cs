@@ -40,6 +40,12 @@ namespace StudentActivity.Models
             modelBuilder.Entity<Student_Program>()
                 .HasKey(sp => new {sp.StudentId, sp.ProgramId});
 
+            modelBuilder.Entity<Program>()
+                .HasRequired<Club>(p => p.Club)
+                .WithMany(c => c.Programs)
+                .WillCascadeOnDelete(false);
+           
+
         }
 
         public static ApplicationDbContext Create()

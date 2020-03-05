@@ -13,7 +13,6 @@ namespace StudentActivity.Models
         [Required]
         public string Name { get; set; }
 
-        public ICollection<Program> Programs { get; set; }
 
 
     }

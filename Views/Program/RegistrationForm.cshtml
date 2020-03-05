@@ -1,4 +1,4 @@
-﻿@model StudentActivity.Models.Student_Program
+﻿@model  StudentActivity.ViewModel.StudentProgram
 @{
     ViewBag.Title = "RegistrationForm";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,17 +11,16 @@
 {
     @Html.ValidationSummary()
     <div class="form-group">
-        @Html.LabelFor(m => m.StudentId)
-        @Html.TextBoxFor(m => m.StudentId, new { @class = "form-control" })
+        @Html.LabelFor(m => m.StudentPrograms.StudentId)
+        @Html.TextBoxFor(m => m.StudentPrograms.StudentId, new { @class = "form-control" })
         @*Html.ValidationMessageFor(m => m.Customer.Name)*@
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Program.Title)
-        @Html.TextBoxFor(m => m.ProgramId, new { @class = "form-control" })
-
+        @Html.LabelFor(m => m.StudentPrograms.Program.Title)
+        @Html.DropDownListFor(m => m.StudentPrograms.ProgramId, new SelectList(Model.Program, "Id","Title"), "Select a program"  ,new { @class = "form-control" })
     </div>
 
-    @Html.HiddenFor(m => m.ProgramId)
+    @Html.HiddenFor(m => m.StudentPrograms.ProgramId)
 
     <button type="submit" class="btn btn-primary">
         Save
