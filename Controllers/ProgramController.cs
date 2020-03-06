@@ -29,7 +29,7 @@ namespace StudentActivity.Controllers
         {
             var programs = _context.Programs.Include(p =>p.Club).ToList();
 
-            return View();
+            return View(programs);
         }
         
         public ActionResult Registration()

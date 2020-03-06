@@ -285,14 +285,24 @@
     <Compile Include="Migrations\202003051328365_FixingClubProgramRelationship.Designer.cs">
       <DependentUpon>202003051328365_FixingClubProgramRelationship.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003061215113_AddingStudentClubRelationshipManytoMany.cs" />
+    <Compile Include="Migrations\202003061215113_AddingStudentClubRelationshipManytoMany.Designer.cs">
+      <DependentUpon>202003061215113_AddingStudentClubRelationshipManytoMany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003061234242_AddingAdminProgramRelationshipManytoMany.cs" />
+    <Compile Include="Migrations\202003061234242_AddingAdminProgramRelationshipManytoMany.Designer.cs">
+      <DependentUpon>202003061234242_AddingAdminProgramRelationshipManytoMany.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Admin_Program.cs" />
     <Compile Include="Models\Club.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Program.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Student_Club.cs" />
     <Compile Include="Models\Student_Program.cs" />
     <Compile Include="ViewModel\ProgramViewModel.cs" />
     <Compile Include="ViewModel\StudentProgram.cs" />
@@ -460,6 +470,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003051328365_FixingClubProgramRelationship.resx">
       <DependentUpon>202003051328365_FixingClubProgramRelationship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003061215113_AddingStudentClubRelationshipManytoMany.resx">
+      <DependentUpon>202003061215113_AddingStudentClubRelationshipManytoMany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003061234242_AddingAdminProgramRelationshipManytoMany.resx">
+      <DependentUpon>202003061234242_AddingAdminProgramRelationshipManytoMany.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

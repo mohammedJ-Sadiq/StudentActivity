@@ -32,19 +32,35 @@ namespace StudentActivity.Models
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Student_Program> StudentPrograms { get; set; }
 
+        public DbSet<Student_Club> StudentClubs { get; set; }
+
+        public DbSet<Admin_Program> AdminPrograms { get; set; }
+
+
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Student_Program>().ToTable("Student_Program");
             modelBuilder.Entity<Student_Program>()
-                .HasKey(sp => new {sp.StudentId, sp.ProgramId});
+                .HasKey(sp => new { sp.StudentId, sp.ProgramId });
 
             modelBuilder.Entity<Program>()
                 .HasRequired<Club>(p => p.Club)
                 .WithMany(c => c.Programs)
                 .WillCascadeOnDelete(false);
-           
+
+            modelBuilder.Entity<Student_Club>().ToTable("Student_Club");
+            modelBuilder.Entity<Student_Club>()
+                .HasKey(sc => new { sc.StudentId, sc.ClubId });
+
+            modelBuilder.Entity<Admin_Program>().ToTable("Admin_Program");
+            modelBuilder.Entity<Admin_Program>()
+                .HasKey(ap => new { ap.AdminId, ap.ProgramId });
+
+
+
 
         }
 

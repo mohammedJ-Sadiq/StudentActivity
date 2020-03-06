@@ -37,5 +37,7 @@ namespace StudentActivity.Models
 
         public IList<Student_Program> StudentPrograms { get; set; }
 
+        public IList<Admin_Program> AdminProgram { get; set; }
+
     }
 }

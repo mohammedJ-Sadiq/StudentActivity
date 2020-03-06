@@ -13,6 +13,8 @@ namespace StudentActivity.Models
         [Required]
         public string Name { get; set; }
 
+        public IList<Admin_Program> AdminProgram { get; set; }
+
 
 
     }

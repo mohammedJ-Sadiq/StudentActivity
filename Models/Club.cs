@@ -20,5 +20,7 @@ namespace StudentActivity.Models
         public String StudentId { get; set; }
 
         public virtual ICollection<Program> Programs { get; set; }
+
+        public IList<Student_Club> StudentClub { get; set; }
     }
 }
