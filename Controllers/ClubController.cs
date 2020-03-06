@@ -25,8 +25,26 @@ namespace StudentActivity.Controllers
 
         public ActionResult Index()
         {
-            var clubs = _context.Clubs.Include(c => c.CoordinatorName).ToList();
+            var clubs = _context.Clubs.Include(c => c.Student).ToList();
             return View(clubs);
+        }
+
+        public ActionResult AddClub()
+        {
+            var Club = new Club();
+
+            return View("ClubForm");
+        }
+
+        [HttpPost]
+
+        public ActionResult Save(Club club)
+        {
+            _context.Clubs.Add(club);
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Club");
         }
 
     }

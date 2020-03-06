@@ -1,0 +1,36 @@
+﻿@model StudentActivity.Models.Student
+@{
+    ViewBag.Title = "StudentForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>StudentForm</h2>
+
+@using (Html.BeginForm("Save", "Student"))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Id)
+        @Html.TextBoxFor(m => m.Id, new { @class = "form-control" })
+        @*Html.ValidationMessageFor(m => m.Customer.Name)*@
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @*Html.ValidationMessageFor(m => m.Customer.Name)*@
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.MobileNo)
+        @Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control" })
+        @*Html.ValidationMessageFor(m => m.Customer.Name)*@
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        @*Html.ValidationMessageFor(m => m.Customer.Name)*@
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Save
+    </button>
+}

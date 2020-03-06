@@ -371,6 +371,8 @@
     <Content Include="Views\Program\RegistrationForm.cshtml" />
     <Content Include="Views\Program\ProgramForm.cshtml" />
     <Content Include="Views\Program\Index.cshtml" />
+    <Content Include="Views\Club\ClubForm.cshtml" />
+    <Content Include="Views\Student\StudentForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

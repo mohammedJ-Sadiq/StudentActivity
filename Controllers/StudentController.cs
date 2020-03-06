@@ -29,5 +29,22 @@ namespace StudentActivity.Controllers
 
             return View(students);
         }
+
+        public ActionResult addStudent()
+        {
+            var Student = new Student();
+            return View("StudentForm");
+        }
+
+        [HttpPost]
+
+        public ActionResult Save(Student student)
+        {
+            _context.Students.Add(student);
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Student");
+        }
     }
 }

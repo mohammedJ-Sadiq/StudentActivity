@@ -14,7 +14,7 @@ namespace StudentActivity.Models
         [Display(Name = "Club Name")]
         public string Name { get; set; }
 
-        public Student CoordinatorName { get; set; }
+        public Student Student { get; set; }
         
         [Required]
         public String StudentId { get; set; }
