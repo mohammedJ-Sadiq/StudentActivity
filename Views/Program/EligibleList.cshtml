@@ -1,0 +1,35 @@
+﻿@model IEnumerable<StudentActivity.Models.Student_Program>
+
+@{
+    ViewBag.Title = "EligibleList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>EligibleList</h2>
+
+<p>
+    @Html.ActionLink("Add Student", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.Name)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.Name)
+        </td>
+        
+    </tr>
+}
+
+</table>

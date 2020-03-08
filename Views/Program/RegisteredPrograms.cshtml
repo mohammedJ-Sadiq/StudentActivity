@@ -1,0 +1,62 @@
+﻿
+
+@model IEnumerable<StudentActivity.Models.Program>
+
+@{
+    ViewBag.Title = "Programs";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Registered Programs</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaximumStudentNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Club.Name)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.ActionLink(item.Title, "EligibleList", "Program", new{id = item.Id},null)
+    </td>
+    <td>
+        @item.Time
+    </td>
+    <td>
+        @item.StartDate
+    </td>
+    <td>
+        @item.EndDate
+    </td>
+    <td>
+        @item.MaximumStudentNumber
+    </td>
+    <td>
+        @item.Club.Name
+    </td>
+
+</tr>
+}
+
+</table>

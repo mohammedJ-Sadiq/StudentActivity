@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
@@ -30,6 +31,19 @@ namespace StudentActivity.Controllers
             var programs = _context.Programs.Include(p =>p.Club).ToList();
 
             return View(programs);
+        }
+
+        public ActionResult RegisteredPrograms()
+        {
+            var eligList = _context.Programs.Include(c => c.Club).ToList();
+
+            return View(eligList);
+        }
+
+        public ActionResult EligibleList(int id)
+        {
+            var students = _context.StudentPrograms.Include(s => s.Student).Where(p => p.ProgramId == id);
+            return View(students);
         }
         
         public ActionResult Registration()
