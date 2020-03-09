@@ -10,5 +10,6 @@ namespace StudentActivity.ViewModel
     {
         public Student_Program StudentPrograms { get; set; }
         public IEnumerable<Program> Program { get; set; }
+
     }
 }

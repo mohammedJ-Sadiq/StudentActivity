@@ -20,5 +20,6 @@ namespace StudentActivity.Models
         [Required]
         [Display(Name = "Program Title")]
         public int ProgramId { get; set; }
+
     }
 }

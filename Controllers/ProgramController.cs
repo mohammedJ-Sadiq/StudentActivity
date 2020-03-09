@@ -26,6 +26,7 @@ namespace StudentActivity.Controllers
             _context.Dispose();
         }
 
+        
         public ActionResult Index()
         {
             var programs = _context.Programs.Include(p =>p.Club).ToList();
@@ -79,6 +80,7 @@ namespace StudentActivity.Controllers
             return RedirectToAction("Index", "Program");
         }
 
+
         public ActionResult addProgram()
         {
             var clubs = _context.Clubs.ToList();
@@ -105,12 +107,39 @@ namespace StudentActivity.Controllers
 
                 return View("ProgramForm", viewModels);
             }
-            _context.Programs.Add(program);
+            if(program.Id == 0)
+            {
+                _context.Programs.Add(program);
+            }
+            else
+            {
+                var programInDb = _context.Programs.Single(p => p.Id == program.Id);
+                programInDb.Title = program.Title;
+                programInDb.Time = program.Time;
+                programInDb.StartDate = program.StartDate;
+                programInDb.EndDate = program.EndDate;
+                programInDb.MaximumStudentNumber = program.MaximumStudentNumber;
+                programInDb.ClubId = program.ClubId;
+            }
 
             _context.SaveChanges();
-
             return RedirectToAction("Index", "Program");
         }
 
+        public ActionResult ProgramEdit(int id)
+        {
+            var program = _context.Programs.SingleOrDefault(p => p.Id == id);
+            if (program == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new ProgramViewModel
+            {
+                program = program,
+                club = _context.Clubs.ToList()
+            };
+            return View("ProgramForm", viewModel);
+        }
     }
 }

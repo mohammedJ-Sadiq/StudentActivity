@@ -10,7 +10,7 @@
 <h2>Registered Programs</h2>
 
 
-<table class="table">
+<table class="table table-striped table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -30,15 +30,14 @@
         <th>
             @Html.DisplayNameFor(model => model.Club.Name)
         </th>
-
-
         <th></th>
+
     </tr>
 
 @foreach (var item in Model) {
 <tr>
     <td>
-        @Html.ActionLink(item.Title, "EligibleList", "Program", new{id = item.Id},null)
+        @item.Title
     </td>
     <td>
         @item.Time
@@ -54,6 +53,9 @@
     </td>
     <td>
         @item.Club.Name
+    </td>
+    <td>
+        @Html.ActionLink("Students List", "EligibleList", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
     </td>
 
 </tr>

@@ -30,3 +30,19 @@ textarea {
 .input-validation-error{
     border: 2px solid red;
 }
+
+.btn-left{
+    width: 20%;
+}
+
+.btn-blue {
+    color: #ffffff;
+    background-color: #3f7aab;
+    border-color: #3f7aab;
+}
+
+.btn-blue:hover {
+    color: #ffffff;
+    background-color: #356a96;
+    border-color: #356a96;
+}

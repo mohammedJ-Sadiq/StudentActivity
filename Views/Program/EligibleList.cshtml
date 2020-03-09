@@ -8,7 +8,7 @@
 <h2>EligibleList</h2>
 
 <p>
-    @Html.ActionLink("Add Student", "Create")
+    @Html.ActionLink("+ Add Student", "Registration","Program",new {@class = "btn btn-blue btn-left" } )
 </p>
 <table class="table">
     <tr>
@@ -21,15 +21,13 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.Id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.Name)
-        </td>
-        
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Student.Id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Student.Name)
+    </td>
+</tr>
 }
-
 </table>
