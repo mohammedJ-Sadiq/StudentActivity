@@ -13,5 +13,7 @@ namespace StudentActivity.Controllers
         {
             return View();
         }
+
+        
     }
 }

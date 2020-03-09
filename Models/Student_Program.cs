@@ -10,11 +10,15 @@ namespace StudentActivity.Models
     {
         
         public Student Student { get; set; }
+
         [Required]
+        [Display(Name = "Student Id")]
         public string StudentId { get; set; }
         
         public Program Program { get; set; }
+
         [Required]
+        [Display(Name = "Program Title")]
         public int ProgramId { get; set; }
     }
 }

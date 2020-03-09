@@ -62,14 +62,19 @@ namespace StudentActivity.Controllers
         
         public ActionResult Save(StudentProgram studentProgram)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModels = new StudentProgram()
+                {
+                    StudentPrograms = new Student_Program(),
+                    Program = _context.Programs.ToList()
+                };
 
-
-            
+                return View("RegistrationForm", viewModels);
+            }
             _context.StudentPrograms.Add(studentProgram.StudentPrograms);
 
             _context.SaveChanges();
-            
-                
             
             return RedirectToAction("Index", "Program");
         }
@@ -90,11 +95,17 @@ namespace StudentActivity.Controllers
         [HttpPost]
         public ActionResult SavePrg(Program program)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModels = new ProgramViewModel()
+                {
+                    program = new Program(),
+                    club = _context.Clubs.ToList()
+                };
 
-            
-
+                return View("ProgramForm", viewModels);
+            }
             _context.Programs.Add(program);
-
 
             _context.SaveChanges();
 

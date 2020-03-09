@@ -11,7 +11,7 @@ namespace StudentActivity.Models
     {
         
         [StringLength(14)]
-
+        [Required]
         public String Id { get; set; }
         
         [Required]

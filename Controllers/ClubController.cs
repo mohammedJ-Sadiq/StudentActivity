@@ -40,6 +40,13 @@ namespace StudentActivity.Controllers
 
         public ActionResult Save(Club club)
         {
+            if (!ModelState.IsValid)
+            {
+                var Club = new Club();
+
+                return View("ClubForm");
+
+            }
             _context.Clubs.Add(club);
 
             _context.SaveChanges();

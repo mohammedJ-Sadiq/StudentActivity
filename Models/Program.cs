@@ -18,12 +18,15 @@ namespace StudentActivity.Models
         public string Time { get; set; }
 
         [Required]
+        [Display(Name = "Start Date")]
         public string StartDate { get; set; }
 
         [Required]
+        [Display(Name = "End Date")]
         public string EndDate { get; set; }
 
         [Required]
+        [Display(Name = "Maximum Students Number")]
         public string MaximumStudentNumber { get; set; }
         public string AdminName { get; set; }
         public string EvaluationType { get; set; }
@@ -33,6 +36,7 @@ namespace StudentActivity.Models
         public Club Club { get; set; }
 
         [Required]
+        [Display(Name = "Club Name")]
         public int ClubId { get; set; }
 
         public IList<Student_Program> StudentPrograms { get; set; }

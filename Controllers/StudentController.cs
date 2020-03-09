@@ -40,6 +40,12 @@ namespace StudentActivity.Controllers
 
         public ActionResult Save(Student student)
         {
+            if (!ModelState.IsValid)
+            {
+                var Student = new Student();
+
+                return View("StudentForm");
+            }
             _context.Students.Add(student);
 
             _context.SaveChanges();
