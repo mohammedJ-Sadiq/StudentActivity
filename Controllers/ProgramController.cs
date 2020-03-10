@@ -103,7 +103,7 @@ namespace StudentActivity.Controllers
 
             _context.SaveChanges();
 
-            return RedirectToAction("RegisteredPrograms", "Program");
+            return RedirectToAction("EligibleList", "Program", new {id = studentProgram.ProgramId });
         }
 
         // To add a new program * only for admin

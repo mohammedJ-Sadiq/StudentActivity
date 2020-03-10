@@ -5,36 +5,42 @@
 }
 
 <h2></h2>
+
 @if (!Model.Any())
 {
+    int id = Convert.ToInt32(Url.RequestContext.RouteData.Values["id"]);
     <h1>There are no student registered in this program</h1>
+
+    @Html.ActionLink("+ Add Student", "RegistrationFromAdmin", "Program", new { id = id }, new { @class = "btn btn-blue btn-left" })
 }
 
-else { 
-<p>
-    @Html.ActionLink("+ Add Student", "RegistrationFromAdmin", "Program", new {Model.First().ProgramId } ,new { @class = "btn btn-blue btn-left" })
-</p>
+else
+{
+    int id = Convert.ToInt32(Url.RequestContext.RouteData.Values["id"]);
+    <p>
+        @Html.ActionLink("+ Add Student", "RegistrationFromAdmin", "Program", new { id = id}, new { @class = "btn btn-blue btn-left" })
+    </p>
 
-<table class="table table-striped table-hover">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Student.Id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Student.Name)
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+    <table class="table table-striped table-hover">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Student.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Student.Name)
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Student.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student.Name)
+            </th>
         </tr>
-    }
-</table>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.Name)
+                </td>
+            </tr>
+        }
+    </table>
 }
