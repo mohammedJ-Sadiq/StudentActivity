@@ -306,6 +306,7 @@
     <Compile Include="Models\Student_Program.cs" />
     <Compile Include="ViewModel\eligibleListViewModel.cs" />
     <Compile Include="ViewModel\ProgramViewModel.cs" />
+    <Compile Include="ViewModel\StudentClubViewModel.cs" />
     <Compile Include="ViewModel\StudentProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -380,6 +381,8 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_StudentLayout.cshtml" />
     <Content Include="Views\Program\RegistrationFormAdmin.cshtml" />
+    <Content Include="Views\Program\StuPrograms.cshtml" />
+    <Content Include="Views\Club\StuClubsForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using StudentActivity.Models;
 using System.Data.Entity;
+using StudentActivity.ViewModel;
 
 namespace StudentActivity.Controllers
 {
@@ -22,7 +23,8 @@ namespace StudentActivity.Controllers
         {
             _context.Dispose();
         }
-
+    
+    // ADMIN ACTIONS
         public ActionResult Index()
         {
             var clubs = _context.Clubs.Include(c => c.Student).ToList();
@@ -52,6 +54,20 @@ namespace StudentActivity.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Club");
+        }
+
+        // END OF ADMIN ACTIONS
+
+        public ActionResult AddStuClubs()
+        {
+            var clubs = _context.Clubs.ToList();
+            var viewModels = new StudentClubViewModel()
+            {
+                StudentClub = new Student_Club(),
+                Clubs = clubs
+            };
+
+            return View("StuClubsForm", viewModels);
         }
 
     }

@@ -1,0 +1,26 @@
+﻿@model StudentActivity.ViewModel.StudentClubViewModel
+@{
+    ViewBag.Title = "StuClubsForm";
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
+}
+
+<h2></h2>
+
+@using (Html.BeginForm("SaveStuClub", "Club"))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.StudentClub.StudentId)
+        @Html.TextBoxFor(m => m.StudentClub.StudentId, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StudentClub.StudentId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.StudentClub.ClubId)
+        @Html.DropDownListFor(m => m.StudentClub.ClubId,new SelectList(Model.Clubs, "Id", "Name"), "Select a Club" ,new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StudentClub.ClubId)
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Save
+    </button>
+}

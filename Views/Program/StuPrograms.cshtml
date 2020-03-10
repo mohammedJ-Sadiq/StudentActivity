@@ -1,0 +1,53 @@
+﻿@model IEnumerable<StudentActivity.Models.Student_Program>
+@{
+    ViewBag.Title = "StuPrograms";
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
+}
+
+@if (!Model.Any())
+{
+    <h1>There are no programs registered yet !</h1>
+}
+
+else { 
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Program.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Program.Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Program.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Program.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Program.Club.Name)
+            </th>
+        </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Program.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Program.Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Program.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Program.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Program.Club.Name)
+        </td>
+    </tr>
+    }
+    </table>
+}

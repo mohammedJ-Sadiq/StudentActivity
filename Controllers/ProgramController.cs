@@ -25,8 +25,7 @@ namespace StudentActivity.Controllers
         {
             _context.Dispose();
         }
-
-        
+    // ADMIN ACTIONS   
         public ActionResult Index()
         {
             var programs = _context.Programs.Include(p =>p.Club).ToList();
@@ -106,7 +105,7 @@ namespace StudentActivity.Controllers
             return RedirectToAction("EligibleList", "Program", new {id = studentProgram.ProgramId });
         }
 
-        // To add a new program * only for admin
+        // To add a new program 
         public ActionResult addProgram()
         {
             var clubs = _context.Clubs.ToList();
@@ -167,6 +166,15 @@ namespace StudentActivity.Controllers
                 club = _context.Clubs.ToList()
             };
             return View("ProgramForm", viewModel);
+        }
+    // END OF ADMIN ACTIONS
+    
+    // STUDENT ACTIONS
+        // To show registered programs for student
+        public ActionResult StuPrograms(string id)
+        {
+            var programs = _context.StudentPrograms.Include(p => p.Program).Include(c => c.Program.Club).Where(s => s.StudentId == id);
+            return View(programs);
         }
     }
 }
