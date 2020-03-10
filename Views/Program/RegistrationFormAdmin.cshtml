@@ -1,25 +1,21 @@
-﻿@model StudentActivity.Models.Club
+﻿@model StudentActivity.Models.Student_Program
 @{
-    ViewBag.Title = "ClubForm";
+    ViewBag.Title = "RegistrationFormAdmin";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h2></h2>
 
-@using (Html.BeginForm("Save", "Club"))
-{
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Name)
-    </div>
+@using (Html.BeginForm("SaveFromAdmin", "Program"))
+{
     <div class="form-group">
         @Html.LabelFor(m => m.StudentId)
         @Html.TextBoxFor(m => m.StudentId, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.StudentId)
     </div>
-    @Html.HiddenFor(m => m.Id)
+
+    @Html.HiddenFor(m => m.ProgramId)
 
     <button type="submit" class="btn btn-primary">
         Save

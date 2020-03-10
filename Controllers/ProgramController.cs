@@ -46,7 +46,8 @@ namespace StudentActivity.Controllers
             var students = _context.StudentPrograms.Include(s => s.Student).Where(p => p.ProgramId == id);
             return View(students);
         }
-        
+
+        // To let the student register for a program
         public ActionResult Registration()
         {
             var Programs = _context.Programs.ToList();
@@ -59,8 +60,16 @@ namespace StudentActivity.Controllers
             return View("RegistrationForm", viewModels);
         }
 
+        // To add new student registered manually from the admin
+        public ActionResult RegistrationFromAdmin(int id)
+        {
+            var StudentPrograms = new Student_Program(id);
+            
+            return View("RegistrationFormAdmin", StudentPrograms);
+        }
+
+        // To save new student register for a program
         [HttpPost]
-        
         public ActionResult Save(StudentProgram studentProgram)
         {
             if (!ModelState.IsValid)
@@ -73,6 +82,7 @@ namespace StudentActivity.Controllers
 
                 return View("RegistrationForm", viewModels);
             }
+            
             _context.StudentPrograms.Add(studentProgram.StudentPrograms);
 
             _context.SaveChanges();
@@ -80,7 +90,23 @@ namespace StudentActivity.Controllers
             return RedirectToAction("Index", "Program");
         }
 
+        // To save added to student_program table from the admin
+        public ActionResult SaveFromAdmin(Student_Program studentProgram)
+        {
+            if (!ModelState.IsValid)
+            {
+                var StudentPrograms = new Student_Program(studentProgram.ProgramId);
 
+                return View("RegistrationFormAdmin", StudentPrograms);
+            }
+            _context.StudentPrograms.Add(studentProgram);
+
+            _context.SaveChanges();
+
+            return RedirectToAction("RegisteredPrograms", "Program");
+        }
+
+        // To add a new program * only for admin
         public ActionResult addProgram()
         {
             var clubs = _context.Clubs.ToList();
@@ -94,6 +120,7 @@ namespace StudentActivity.Controllers
             return View("ProgramForm",viewModels);
         }
 
+        // To save the added program
         [HttpPost]
         public ActionResult SavePrg(Program program)
         {

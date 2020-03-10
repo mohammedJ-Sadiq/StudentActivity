@@ -21,5 +21,14 @@ namespace StudentActivity.Models
         [Display(Name = "Program Title")]
         public int ProgramId { get; set; }
 
+        public Student_Program()
+        {
+            
+        }
+
+        public Student_Program(int id)
+        {
+            ProgramId = id;
+        }
     }
 }

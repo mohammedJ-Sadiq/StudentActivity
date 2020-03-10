@@ -11,5 +11,14 @@ namespace StudentActivity.ViewModel
         public Student_Program StudentPrograms { get; set; }
         public IEnumerable<Program> Program { get; set; }
 
+        public StudentProgram()
+        {
+
+        }
+
+        public StudentProgram(int id)
+        {
+            StudentPrograms.ProgramId = id;
+        }
     }
 }
