@@ -17,6 +17,7 @@ namespace StudentActivity.Models
         public Student Student { get; set; }
         
         [Required]
+        [Display(Name ="Club Coordinator")]
         public String StudentId { get; set; }
 
         public virtual ICollection<Program> Programs { get; set; }

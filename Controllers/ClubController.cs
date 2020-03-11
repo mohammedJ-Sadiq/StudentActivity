@@ -40,7 +40,7 @@ namespace StudentActivity.Controllers
 
         [HttpPost]
 
-        public ActionResult Save(Club club)
+        public ActionResult SaveClub(Club club)
         {
             if (!ModelState.IsValid)
             {
@@ -49,14 +49,37 @@ namespace StudentActivity.Controllers
                 return View("ClubForm");
 
             }
-            _context.Clubs.Add(club);
+
+            if(club.Id == 0)
+            {
+                _context.Clubs.Add(club);
+            }
+            else
+            {
+                var ClubInDb = _context.Clubs.Single(c => c.Id == club.Id);
+                ClubInDb.Name = club.Name;
+                ClubInDb.StudentId = club.StudentId;
+            }
 
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Club");
         }
 
-        // END OF ADMIN ACTIONS
+        public ActionResult EditClub(int id)
+        {
+            var club = _context.Clubs.Include(s =>s.Student).SingleOrDefault(c => c.Id == id);
+            if (club == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View("ClubForm", club);
+        }
+
+    // END OF ADMIN ACTIONS
+        
+    // STUDENT ACTIONS
 
         public ActionResult AddStuClubs()
         {
@@ -70,5 +93,33 @@ namespace StudentActivity.Controllers
             return View("StuClubsForm", viewModels);
         }
 
+        public ActionResult SaveStuClub(Student_Club studentClub)
+        {
+            if (!ModelState.IsValid)
+            {
+                var clubs = _context.Clubs.ToList();
+                var viewModels = new StudentClubViewModel()
+                {
+                    StudentClub = new Student_Club(),
+                    Clubs = clubs
+                };
+
+            }
+            _context.StudentClubs.Add(studentClub);
+
+            _context.SaveChanges();
+
+            return RedirectToAction("ShowClubs", "Club");
+        }
+
+        // To show all clubs registered by a specific student
+        // NOT COMPLETED, must pass student id when the session is created
+        public ActionResult ShowClubs(string id)
+        {
+            var clubs = _context.StudentClubs.Include(c => c.Club).Where(s => s.StudentId == id);
+            return View("ShowClubs", clubs);
+        }
+
+    // END OF STUDENT ACTIONS
     }
 }

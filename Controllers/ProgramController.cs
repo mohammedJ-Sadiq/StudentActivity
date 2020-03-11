@@ -152,7 +152,7 @@ namespace StudentActivity.Controllers
             return RedirectToAction("Index", "Program");
         }
 
-        public ActionResult ProgramEdit(int id)
+        public ActionResult EditProgram(int id)
         {
             var program = _context.Programs.SingleOrDefault(p => p.Id == id);
             if (program == null)
