@@ -301,6 +301,10 @@
     <Compile Include="Migrations\202003111245502_OptimizingStringLength.Designer.cs">
       <DependentUpon>202003111245502_OptimizingStringLength.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003111254352_ChangingProgramDetailsToDescription.cs" />
+    <Compile Include="Migrations\202003111254352_ChangingProgramDetailsToDescription.Designer.cs">
+      <DependentUpon>202003111254352_ChangingProgramDetailsToDescription.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -392,6 +396,8 @@
     <Content Include="Views\Program\StuPrograms.cshtml" />
     <Content Include="Views\Club\StuClubsForm.cshtml" />
     <Content Include="Views\Club\ShowClubs.cshtml" />
+    <Content Include="Views\Program\ProgramDetailsAdmin.cshtml" />
+    <Content Include="Views\Program\ProgramDetailsStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -502,6 +508,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003111245502_OptimizingStringLength.resx">
       <DependentUpon>202003111245502_OptimizingStringLength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003111254352_ChangingProgramDetailsToDescription.resx">
+      <DependentUpon>202003111254352_ChangingProgramDetailsToDescription.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

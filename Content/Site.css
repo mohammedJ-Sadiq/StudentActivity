@@ -46,3 +46,7 @@ textarea {
     background-color: #356a96;
     border-color: #356a96;
 }
+
+.table-short{
+    width:25%;
+}

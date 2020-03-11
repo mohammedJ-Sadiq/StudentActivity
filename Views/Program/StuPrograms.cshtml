@@ -27,6 +27,7 @@ else {
             <th>
                 @Html.DisplayNameFor(model => model.Program.Club.Name)
             </th>
+            <th>
         </tr>
 
     @foreach (var item in Model)
@@ -46,6 +47,9 @@ else {
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Program.Club.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "ProgramDetailsStudent", "Program", new { id = item.ProgramId }, new { @class = "btn btn-primary" })
         </td>
     </tr>
     }

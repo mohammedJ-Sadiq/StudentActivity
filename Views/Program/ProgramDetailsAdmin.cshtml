@@ -1,0 +1,32 @@
+﻿@model StudentActivity.Models.Program
+@{
+    ViewBag.Title = "ProgramDetailsAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<table class="table table-bordered table-hover table-short" >
+    <th>@Model.Title</th>
+
+    <tr class="danger">
+        <td>@Model.Time</td>
+    </tr>
+
+    <tr>
+        <td>@Model.StartDate</td>
+    </tr">
+
+    <tr class="danger">
+        <td>@Model.EndDate</td>
+    </tr>
+
+    <tr>
+        <td>@Model.MaximumStudentNumber</td>
+    </tr>
+    @if(Model.Description!= null){ 
+    <tr class="danger">
+        <td>@Model.Description</td>
+    </tr>
+    }
+</table>

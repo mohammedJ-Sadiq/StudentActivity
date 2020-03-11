@@ -146,6 +146,7 @@ namespace StudentActivity.Controllers
                 programInDb.EndDate = program.EndDate;
                 programInDb.MaximumStudentNumber = program.MaximumStudentNumber;
                 programInDb.ClubId = program.ClubId;
+                programInDb.Description = program.Description;
             }
 
             _context.SaveChanges();
@@ -167,6 +168,13 @@ namespace StudentActivity.Controllers
             };
             return View("ProgramForm", viewModel);
         }
+
+        public ActionResult ProgramDetailsAdmin(int id)
+        {
+            var program = _context.Programs.Include(c => c.Club).SingleOrDefault(p => p.Id == id);
+            return View(program);
+        }
+
     // END OF ADMIN ACTIONS
     
     // STUDENT ACTIONS
@@ -176,5 +184,14 @@ namespace StudentActivity.Controllers
             var programs = _context.StudentPrograms.Include(p => p.Program).Include(c => c.Program.Club).Where(s => s.StudentId == id);
             return View(programs);
         }
+
+        public ActionResult ProgramDetailsStudent(int id)
+        {
+            var program = _context.Programs.Include(c => c.Club).SingleOrDefault(p => p.Id == id);
+            return View(program);
+        }
+    
+    // END OF STUDENT ACTION
+
     }
 }

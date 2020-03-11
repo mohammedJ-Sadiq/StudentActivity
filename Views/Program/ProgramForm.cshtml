@@ -39,6 +39,10 @@
         @Html.DropDownListFor(m => m.program.ClubId, new SelectList(Model.club, "Id", "Name"), "Select a Club", new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.program.ClubId)
     </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.program.Description)
+        @Html.TextAreaFor(m => m.program.Description, new { @class = "form-control" })
+    </div>
 
     @Html.HiddenFor(m => m.program.Id)
 

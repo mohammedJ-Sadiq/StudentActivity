@@ -34,7 +34,7 @@ namespace StudentActivity.Models
         public int MaximumStudentNumber { get; set; }
 
         [StringLength(1000)]
-        public string Details { get; set; }
+        public string Description { get; set; }
         public string AdminName { get; set; }
         public string EvaluationType { get; set; }
 
