@@ -16,12 +16,15 @@ namespace StudentActivity.Models
         
         [Required]
         [Display(Name = "Student Name")]
+        [StringLength(60)]
         public string Name { get; set; }
 
         [Required]
+        [StringLength(10)]
         public string MobileNo { get; set; }
 
         [Required]
+        [StringLength(40)]
         public string Email { get; set; }
         public IList<Student_Program> StudentPrograms { get; set; }
 

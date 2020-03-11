@@ -12,22 +12,29 @@ namespace StudentActivity.Models
         public int Id { get; set; }
 
         [Required]
+        [StringLength(60)]
         public string Title { get; set; }
 
         [Required]
+        [StringLength(8)]
         public string Time { get; set; }
 
         [Required]
         [Display(Name = "Start Date")]
+        [StringLength(10)]
         public string StartDate { get; set; }
 
         [Required]
         [Display(Name = "End Date")]
+        [StringLength(10)]
         public string EndDate { get; set; }
 
         [Required]
         [Display(Name = "Maximum Students Number")]
-        public string MaximumStudentNumber { get; set; }
+        public int MaximumStudentNumber { get; set; }
+
+        [StringLength(1000)]
+        public string Details { get; set; }
         public string AdminName { get; set; }
         public string EvaluationType { get; set; }
 

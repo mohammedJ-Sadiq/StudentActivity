@@ -12,6 +12,7 @@ namespace StudentActivity.Models
 
         [Required]
         [Display(Name = "Club Name")]
+        [StringLength(60)]
         public string Name { get; set; }
 
         public Student Student { get; set; }

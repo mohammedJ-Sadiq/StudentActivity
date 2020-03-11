@@ -293,6 +293,14 @@
     <Compile Include="Migrations\202003061234242_AddingAdminProgramRelationshipManytoMany.Designer.cs">
       <DependentUpon>202003061234242_AddingAdminProgramRelationshipManytoMany.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003111234001_ChangingMaxStuNumToInt_AndAddDetailsToProgram.cs" />
+    <Compile Include="Migrations\202003111234001_ChangingMaxStuNumToInt_AndAddDetailsToProgram.Designer.cs">
+      <DependentUpon>202003111234001_ChangingMaxStuNumToInt_AndAddDetailsToProgram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003111245502_OptimizingStringLength.cs" />
+    <Compile Include="Migrations\202003111245502_OptimizingStringLength.Designer.cs">
+      <DependentUpon>202003111245502_OptimizingStringLength.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -488,6 +496,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003061234242_AddingAdminProgramRelationshipManytoMany.resx">
       <DependentUpon>202003061234242_AddingAdminProgramRelationshipManytoMany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003111234001_ChangingMaxStuNumToInt_AndAddDetailsToProgram.resx">
+      <DependentUpon>202003111234001_ChangingMaxStuNumToInt_AndAddDetailsToProgram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003111245502_OptimizingStringLength.resx">
+      <DependentUpon>202003111245502_OptimizingStringLength.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
