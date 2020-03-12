@@ -28,6 +28,7 @@ namespace StudentActivity.Controllers
     // ADMIN ACTIONS   
         public ActionResult Index()
         {
+            
             var programs = _context.Programs.Include(p =>p.Club).ToList();
 
             return View(programs);

@@ -21,6 +21,9 @@ namespace StudentActivity.Models
         [Display(Name = "Program Title")]
         public int ProgramId { get; set; }
 
+        [Display(Name = "Eligible")]
+        public bool IsEligible { get; set; }
+
         public Student_Program()
         {
             

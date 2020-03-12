@@ -305,6 +305,10 @@
     <Compile Include="Migrations\202003111254352_ChangingProgramDetailsToDescription.Designer.cs">
       <DependentUpon>202003111254352_ChangingProgramDetailsToDescription.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003112340345_AddingIsEligibleAttributeInStudentProgram.cs" />
+    <Compile Include="Migrations\202003112340345_AddingIsEligibleAttributeInStudentProgram.Designer.cs">
+      <DependentUpon>202003112340345_AddingIsEligibleAttributeInStudentProgram.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -511,6 +515,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003111254352_ChangingProgramDetailsToDescription.resx">
       <DependentUpon>202003111254352_ChangingProgramDetailsToDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003112340345_AddingIsEligibleAttributeInStudentProgram.resx">
+      <DependentUpon>202003112340345_AddingIsEligibleAttributeInStudentProgram.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

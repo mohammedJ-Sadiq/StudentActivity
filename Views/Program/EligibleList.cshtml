@@ -18,29 +18,42 @@ else
 {
     int id = Convert.ToInt32(Url.RequestContext.RouteData.Values["id"]);
     <p>
-        @Html.ActionLink("+ Add Student", "RegistrationFromAdmin", "Program", new { id = id}, new { @class = "btn btn-blue btn-left" })
+        @Html.ActionLink("+ Add Student", "RegistrationFromAdmin", "Program", new { id = id }, new { @class = "btn btn-blue btn-left" })
     </p>
-
-    <table class="table table-striped table-hover">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Student.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Student.Name)
-            </th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+    using (Html.BeginForm("SaveEligibility", "Admin"))
+    {
+        <table class="table table-striped table-hover">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Student.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Student.Name)
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Student.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Student.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsEligible)
+                </th>
             </tr>
-        }
-    </table>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Student.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Student.Name)
+                    </td>
+                    <td>
+                        @Html.CheckBoxFor(modelItem => item.IsEligible)
+                    </td>
+                </tr>
+            }
+        </table>
+
+        // Todo
+        <button type="submit" class="btn btn-primary">
+            Save
+        </button>
+    }
 }
