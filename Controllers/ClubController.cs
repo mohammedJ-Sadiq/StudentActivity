@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using StudentActivity.Models;
 using System.Data.Entity;
 using StudentActivity.ViewModel;
+using System.Data.Entity.Infrastructure;
+using System.Windows.Forms;
 
 namespace StudentActivity.Controllers
 {
@@ -39,7 +41,7 @@ namespace StudentActivity.Controllers
         }
 
         [HttpPost]
-
+        [ValidateAntiForgeryToken]
         public ActionResult SaveClub(Club club)
         {
             if (!ModelState.IsValid)
@@ -61,7 +63,15 @@ namespace StudentActivity.Controllers
                 ClubInDb.StudentId = club.StudentId;
             }
 
-            _context.SaveChanges();
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                MessageBox.Show("The Club you are " +
+                    "trying to add is already Exist");
+            }
 
             return RedirectToAction("Index", "Club");
         }
@@ -93,6 +103,7 @@ namespace StudentActivity.Controllers
             return View("StuClubsForm", viewModels);
         }
 
+        [ValidateAntiForgeryToken]
         public ActionResult SaveStuClub(Student_Club studentClub)
         {
             if (!ModelState.IsValid)
@@ -107,7 +118,15 @@ namespace StudentActivity.Controllers
             }
             _context.StudentClubs.Add(studentClub);
 
-            _context.SaveChanges();
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                MessageBox.Show("The club you are " +
+                    "trying to join,\nyou are already part of it", "Existence Error");
+            }
 
             return RedirectToAction("ShowClubs", "Club");
         }

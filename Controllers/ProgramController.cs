@@ -6,6 +6,7 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Windows.Forms;
 using StudentActivity.Models;
 using StudentActivity.ViewModel;
 
@@ -47,18 +48,7 @@ namespace StudentActivity.Controllers
             return View(students);
         }
 
-        // To let the student register for a program
-        public ActionResult Registration()
-        {
-            var Programs = _context.Programs.ToList();
-            var viewModels = new StudentProgram()
-            {
-                StudentPrograms = new Student_Program(),
-                Program = Programs
-            };
-            
-            return View("RegistrationForm", viewModels);
-        }
+        
 
         // To add new student registered manually from the admin
         public ActionResult RegistrationFromAdmin(int id)
@@ -68,29 +58,9 @@ namespace StudentActivity.Controllers
             return View("RegistrationFormAdmin", StudentPrograms);
         }
 
-        // To save new student register for a program
-        [HttpPost]
-        public ActionResult Save(StudentProgram studentProgram)
-        {
-            if (!ModelState.IsValid)
-            {
-                var viewModels = new StudentProgram()
-                {
-                    StudentPrograms = new Student_Program(),
-                    Program = _context.Programs.ToList()
-                };
-
-                return View("RegistrationForm", viewModels);
-            }
-            
-            _context.StudentPrograms.Add(studentProgram.StudentPrograms);
-
-            _context.SaveChanges();
-            
-            return RedirectToAction("Index", "Program");
-        }
-
         // To save added to student_program table from the admin
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult SaveFromAdmin(Student_Program studentProgram)
         {
             if (!ModelState.IsValid)
@@ -100,8 +70,16 @@ namespace StudentActivity.Controllers
                 return View("RegistrationFormAdmin", StudentPrograms);
             }
             _context.StudentPrograms.Add(studentProgram);
-
-            _context.SaveChanges();
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                MessageBox.Show("The student you are " +
+                    "trying to register a program\nfor him is already registered in that program.\n\n" +
+                    "Or This student did not register in the website","Existence Error");
+            }
 
             return RedirectToAction("EligibleList", "Program", new {id = studentProgram.ProgramId });
         }
@@ -122,6 +100,7 @@ namespace StudentActivity.Controllers
 
         // To save the added program
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult SavePrg(Program program)
         {
             if (!ModelState.IsValid)
@@ -150,7 +129,15 @@ namespace StudentActivity.Controllers
                 programInDb.Description = program.Description;
             }
 
-            _context.SaveChanges();
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                MessageBox.Show("The program you are " +
+                    "trying to add is already added","Existence Error");
+            }
             return RedirectToAction("Index", "Program");
         }
 
@@ -186,13 +173,59 @@ namespace StudentActivity.Controllers
             return View(programs);
         }
 
+        // To show the details of a registered program in the student view
         public ActionResult ProgramDetailsStudent(int id)
         {
             var program = _context.Programs.Include(c => c.Club).SingleOrDefault(p => p.Id == id);
             return View(program);
         }
-    
-    // END OF STUDENT ACTION
+
+        // To let the student register for a program
+        public ActionResult Registration()
+        {
+            var Programs = _context.Programs.ToList();
+            var viewModels = new StudentProgram()
+            {
+                StudentPrograms = new Student_Program(),
+                Program = Programs
+            };
+
+            return View("RegistrationForm", viewModels);
+        }
+
+        // To save new student register for a program
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(StudentProgram studentProgram)
+        {
+            if (!ModelState.IsValid)
+            {
+                var viewModels = new StudentProgram()
+                {
+                    StudentPrograms = new Student_Program(),
+                    Program = _context.Programs.ToList()
+                };
+
+                return View("RegistrationForm", viewModels);
+            }
+
+            _context.StudentPrograms.Add(studentProgram.StudentPrograms);
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                MessageBox.Show("The program you are " +
+                    "trying to register is already registered","Existence Error");
+                return RedirectToAction("Registration", "Program");
+            }
+            
+
+            return RedirectToAction("StuPrograms", "Program", new {id = studentProgram.StudentPrograms.StudentId });
+        }
+
+        // END OF STUDENT ACTION
 
     }
 }
