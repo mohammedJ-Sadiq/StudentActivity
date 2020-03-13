@@ -8,6 +8,6 @@ namespace StudentActivity.ViewModel
 {
     public class eligibleListViewModel
     {
-        public IEnumerable<Student>  Student { get; set; }
+        public IEnumerable<Student_Program> EligStuPrg { get; set; }
     }
 }

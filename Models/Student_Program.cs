@@ -22,7 +22,9 @@ namespace StudentActivity.Models
         public int ProgramId { get; set; }
 
         [Display(Name = "Eligible")]
+
         public bool IsEligible { get; set; }
+        public List<bool> Eligible { get; set; }
 
         public Student_Program()
         {

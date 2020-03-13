@@ -35,7 +35,7 @@ namespace StudentActivity.Controllers
         {
             var Club = new Club();
 
-            return View("ClubForm");
+            return View("ClubForm",Club);
         }
 
         [HttpPost]
