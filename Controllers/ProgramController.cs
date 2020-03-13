@@ -181,35 +181,27 @@ namespace StudentActivity.Controllers
         }
 
         // To let the student register for a program
-        public ActionResult Registration()
+        public ActionResult Registration(int id)
         {
-            var Programs = _context.Programs.ToList();
-            var viewModels = new StudentProgram()
-            {
-                StudentPrograms = new Student_Program(),
-                Program = Programs
-            };
+            var StudentPrograms = new Student_Program(id);
 
-            return View("RegistrationForm", viewModels);
+            return View("RegistrationForm", StudentPrograms);
         }
 
         // To save new student register for a program
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(StudentProgram studentProgram)
+        public ActionResult Save(Student_Program studentProgram)
         {
             if (!ModelState.IsValid)
             {
-                var viewModels = new StudentProgram()
-                {
-                    StudentPrograms = new Student_Program(),
-                    Program = _context.Programs.ToList()
-                };
 
-                return View("RegistrationForm", viewModels);
+                var StudentPrograms = new Student_Program();
+                 
+                return View("RegistrationForm", StudentPrograms);
             }
 
-            _context.StudentPrograms.Add(studentProgram.StudentPrograms);
+            _context.StudentPrograms.Add(studentProgram);
             try
             {
                 _context.SaveChanges();
@@ -222,8 +214,18 @@ namespace StudentActivity.Controllers
             }
             
 
-            return RedirectToAction("StuPrograms", "Program", new {id = studentProgram.StudentPrograms.StudentId });
+            return RedirectToAction("StuPrograms", "Program", new {id = studentProgram.StudentId });
         }
+
+        // Show all available programs for the student
+        public ActionResult ShowPrgStu()
+        {
+            var programs = _context.Programs.Include(p => p.Club).ToList();
+
+            return View(programs);
+        }
+
+
 
         // END OF STUDENT ACTION
 

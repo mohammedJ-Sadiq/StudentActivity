@@ -6,27 +6,34 @@
 
 <h2>Details</h2>
 
-<table class="table table-bordered table-hover table-short" >
-    <th>@Model.Title</th>
+<table class="table table-bordered table-hover table-short">
+    <th class="row-center">@Html.DisplayNameFor(Model => Model.Title)</th>
+    <th class="row-center">@Model.Title</th>
 
     <tr class="danger">
-        <td>@Model.Time</td>
+        <td class="row-center">@Html.DisplayNameFor(Model => Model.Time)</td>
+        <td class="row-center">@Model.Time</td>
     </tr>
 
     <tr>
-        <td>@Model.StartDate</td>
-    </tr">
+        <td class="row-center">@Html.DisplayNameFor(Model => Model.StartDate)</td>
+        <td class="row-center">@Model.StartDate</td>
+        </tr">
 
     <tr class="danger">
-        <td>@Model.EndDate</td>
+        <td class="row-center">@Html.DisplayNameFor(Model => Model.EndDate)</td>
+        <td class="row-center">@Model.EndDate</td>
     </tr>
 
     <tr>
-        <td>@Model.MaximumStudentNumber</td>
+        <td class="row-center">@Html.DisplayNameFor(Model => Model.MaximumStudentNumber)</td>
+        <td class="row-center" style="padding-top:27px">@Model.MaximumStudentNumber</td>
     </tr>
-    @if(Model.Description!= null){ 
-    <tr class="danger">
-        <td>@Model.Description</td>
-    </tr>
+    @if (Model.Description != null)
+    {
+        <tr class="danger">
+            <td class="row-center" style="padding-top:35px">@Html.DisplayNameFor(Model => Model.Description)</td>
+            <td>@Model.Description</td>
+        </tr>
     }
 </table>

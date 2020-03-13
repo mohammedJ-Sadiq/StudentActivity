@@ -403,6 +403,7 @@
     <Content Include="Views\Club\ShowClubs.cshtml" />
     <Content Include="Views\Program\ProgramDetailsAdmin.cshtml" />
     <Content Include="Views\Program\ProgramDetailsStudent.cshtml" />
+    <Content Include="Views\Program\ShowPrgStu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

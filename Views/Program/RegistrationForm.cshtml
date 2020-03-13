@@ -1,4 +1,4 @@
-﻿@model  StudentActivity.ViewModel.StudentProgram
+﻿@model  StudentActivity.Models.Student_Program
 @{
     ViewBag.Title = "RegistrationForm";
     Layout = "~/Views/Shared/_StudentLayout.cshtml";
@@ -6,27 +6,22 @@
 
 <h2></h2>
 
-
 @using (Html.BeginForm("Save", "Program"))
 {
     <div class="form-group">
-        @Html.LabelFor(m => m.StudentPrograms.StudentId)
-        @Html.TextBoxFor(m => m.StudentPrograms.StudentId, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.StudentPrograms.StudentId)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.StudentPrograms.Program.Title)
-        @Html.DropDownListFor(m => m.StudentPrograms.ProgramId, new SelectList(Model.Program, "Id", "Title"), "Select a program", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.StudentPrograms.ProgramId)
+        @Html.LabelFor(m => m.StudentId)
+        @Html.TextBoxFor(m => m.StudentId, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StudentId)
     </div>
 
-    @Html.HiddenFor(m => m.StudentPrograms.ProgramId)
+    @Html.HiddenFor(m => m.ProgramId)
     @Html.AntiForgeryToken()
 
     <button type="submit" class="btn btn-primary">
         Save
     </button>
 }
+
 
 @section scripts
 {
