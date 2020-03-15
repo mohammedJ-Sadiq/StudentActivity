@@ -310,6 +310,10 @@
     <Compile Include="Migrations\202003112340345_AddingIsEligibleAttributeInStudentProgram.Designer.cs">
       <DependentUpon>202003112340345_AddingIsEligibleAttributeInStudentProgram.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003141411140_AddingBoolIsDeletedToProgram.cs" />
+    <Compile Include="Migrations\202003141411140_AddingBoolIsDeletedToProgram.Designer.cs">
+      <DependentUpon>202003141411140_AddingBoolIsDeletedToProgram.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -404,6 +408,7 @@
     <Content Include="Views\Program\ProgramDetailsAdmin.cshtml" />
     <Content Include="Views\Program\ProgramDetailsStudent.cshtml" />
     <Content Include="Views\Program\ShowPrgStu.cshtml" />
+    <Content Include="Views\Program\RetrievePrg.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -520,6 +525,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003112340345_AddingIsEligibleAttributeInStudentProgram.resx">
       <DependentUpon>202003112340345_AddingIsEligibleAttributeInStudentProgram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003141411140_AddingBoolIsDeletedToProgram.resx">
+      <DependentUpon>202003141411140_AddingBoolIsDeletedToProgram.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

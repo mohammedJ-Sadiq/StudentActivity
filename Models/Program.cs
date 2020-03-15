@@ -46,6 +46,8 @@ namespace StudentActivity.Models
         [Display(Name = "Club Name")]
         public int ClubId { get; set; }
 
+        public bool IsDeleted { get; set; }
+
         public IList<Student_Program> StudentPrograms { get; set; }
 
         public IList<Admin_Program> AdminProgram { get; set; }

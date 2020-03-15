@@ -47,6 +47,23 @@ textarea {
     border-color: #356a96;
 }
 
+.btn-retrieve {
+    width: 24.5%;
+}
+
+.btn-redish {
+    color: #ffffff;
+    background-color: #f23860;
+    border-color: #f23860;
+}
+
+.btn-redish:hover {
+    color: #ffffff;
+    background-color: #de2f54;
+    border-color: #de2f54;
+}
+
+
 .table-short{
     width:35%;
 }
