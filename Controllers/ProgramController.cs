@@ -18,8 +18,8 @@ namespace StudentActivity.Controllers
         private ApplicationDbContext _context;
 
         // Attributes of delete pop warning message box 
-        string DeleteMsgContent = "Are you sure you want to delete this field ?";
-        string DeleteMsgTitle = "Delete field";
+        string DeleteMsgContent = "Are you sure you want to delete this Program ?";
+        string DeleteMsgTitle = "Delete Program";
         MessageBoxButtons DeleteMsgButtons = MessageBoxButtons.YesNo;
 
         public ProgramController()
@@ -148,37 +148,6 @@ namespace StudentActivity.Controllers
             return RedirectToAction("Index", "Program");
         }
 
-        public ActionResult SaveRetrievePrg(Program program)
-        {
-            var flag1 = false; 
-            var flag2 = false;
-            foreach (var prg in _context.Programs)
-            {
-                if (program.Title == prg.Title && prg.IsDeleted == true)
-                {
-                    prg.IsDeleted = false;
-                    flag1 = true;
-                }
-
-                else if (program.Title == prg.Title && prg.IsDeleted == false)
-                    flag2 = true;
-            }
-
-            if(flag1 == false && flag2 == false)
-            {
-                MessageBox.Show("The program you are " +
-                    "trying to retrieve is not existed", "Existence Error");
-            }
-            else if(flag2 == true)
-            {
-                MessageBox.Show("The program you are " +
-                    "trying to retrieve is already available", "Existence Error");
-            }
-
-            _context.SaveChanges();
-
-            return RedirectToAction("Index", "Program");
-        }
 
         public ActionResult EditProgram(int id)
         {
@@ -214,6 +183,39 @@ namespace StudentActivity.Controllers
         public ActionResult RetrievePrg()
         {
             return View();
+        }
+
+        // To save the program retrieve by admin 
+        public ActionResult SaveRetrievePrg(Program program)
+        {
+            var flag1 = false;
+            var flag2 = false;
+            foreach (var prg in _context.Programs)
+            {
+                if (program.Title == prg.Title && prg.IsDeleted == true)
+                {
+                    prg.IsDeleted = false;
+                    flag1 = true;
+                }
+
+                else if (program.Title == prg.Title && prg.IsDeleted == false)
+                    flag2 = true;
+            }
+
+            if (flag1 == false && flag2 == false)
+            {
+                MessageBox.Show("The program you are " +
+                    "trying to retrieve is not existed", "Existence Error");
+            }
+            else if (flag2 == true)
+            {
+                MessageBox.Show("The program you are " +
+                    "trying to retrieve is already available", "Existence Error");
+            }
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Program");
         }
 
         public ActionResult ProgramDetailsAdmin(int id)
@@ -274,6 +276,22 @@ namespace StudentActivity.Controllers
             
 
             return RedirectToAction("StuPrograms", "Program", new {id = studentProgram.StudentId });
+        }
+
+        public ActionResult DeleteStuPrg(String studentId, int programId)
+        {
+            var StuPrg = _context.StudentPrograms.Where
+                (s => s.StudentId == studentId)
+                .Single(p => p.ProgramId == programId);
+
+            DialogResult result = MessageBox.Show(DeleteMsgContent, DeleteMsgTitle, DeleteMsgButtons);
+            if (result == DialogResult.Yes)
+            {
+                _context.StudentPrograms.Remove(StuPrg);
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("StuPrograms", "Program", new { id = StuPrg.StudentId });
         }
 
         // Show all available programs for the student

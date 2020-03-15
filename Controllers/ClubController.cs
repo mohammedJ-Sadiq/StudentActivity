@@ -14,6 +14,10 @@ namespace StudentActivity.Controllers
     public class ClubController : Controller
     {
         // GET: Club
+        string DeleteMsgContent = "Are you sure you want to delete this field ?";
+        string DeleteMsgTitle = "Delete field";
+        MessageBoxButtons DeleteMsgButtons = MessageBoxButtons.YesNo;
+
         private ApplicationDbContext _context;
 
         public ClubController()
@@ -87,6 +91,19 @@ namespace StudentActivity.Controllers
             return View("ClubForm", club);
         }
 
+        // To let the admin delete a club permanently - not only from view
+        public ActionResult DeleteClub(int id)
+        {
+            var club = _context.Clubs.SingleOrDefault(c => c.Id == id);
+            DialogResult result = MessageBox.Show(DeleteMsgContent, DeleteMsgTitle, DeleteMsgButtons);
+            if (result == DialogResult.Yes)
+            {
+                _context.Clubs.Remove(club);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("Index","Club");
+        }
+
     // END OF ADMIN ACTIONS
         
     // STUDENT ACTIONS
@@ -128,7 +145,7 @@ namespace StudentActivity.Controllers
                     "trying to join,\nyou are already part of it", "Existence Error");
             }
 
-            return RedirectToAction("ShowClubs", "Club");
+            return RedirectToAction("ShowClubs", "Club", new { id = studentClub.StudentId });
         }
 
         // To show all clubs registered by a specific student
@@ -137,6 +154,23 @@ namespace StudentActivity.Controllers
         {
             var clubs = _context.StudentClubs.Include(c => c.Club).Where(s => s.StudentId == id);
             return View("ShowClubs", clubs);
+        }
+
+        public ActionResult DeleteStuClub(String studentId, int clubId)
+        {
+            var studentClub = _context.StudentClubs.Where
+                (s => s.StudentId == studentId)
+                .Single(c => c.ClubId == clubId);
+
+            DialogResult result = MessageBox.Show("Are you sure " +
+                " you want to leave this club", DeleteMsgTitle, DeleteMsgButtons);
+            if (result == DialogResult.Yes)
+            {
+                _context.StudentClubs.Remove(studentClub);
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("ShowClubs", "Club", new { id = studentClub.StudentId});
         }
 
     // END OF STUDENT ACTIONS

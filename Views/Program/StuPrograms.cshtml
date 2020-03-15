@@ -50,6 +50,7 @@ else {
         </td>
         <td>
             @Html.ActionLink("Details", "ProgramDetailsStudent", "Program", new { id = item.ProgramId }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Delete", "DeleteStuPrg", "Program", new { studentId = item.StudentId, programId = item.ProgramId }, new { @class = "btn btn-primary" })
         </td>
     </tr>
     }

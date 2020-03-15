@@ -14,6 +14,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Club.Name)
         </th>
+        <th></th>
     </tr>
 
     @foreach (var item in Model)
@@ -21,6 +22,9 @@
         <tr>
             <td>
                 @item.Club.Name
+            </td>
+            <td>
+                @Html.ActionLink("Leave", "DeleteStuClub", "Club", new { studentId = item.StudentId, clubId = item.ClubId }, new { @class = "btn btn-primary" })
             </td>
         </tr>
     }
