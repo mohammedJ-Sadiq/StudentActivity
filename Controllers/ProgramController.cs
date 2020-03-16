@@ -205,7 +205,7 @@ namespace StudentActivity.Controllers
             if (flag1 == false && flag2 == false)
             {
                 MessageBox.Show("The program you are " +
-                    "trying to retrieve is not existed", "Existence Error");
+                    "trying to retrieve does not exist", "Existence Error");
             }
             else if (flag2 == true)
             {
@@ -269,8 +269,7 @@ namespace StudentActivity.Controllers
             }
             catch (DbUpdateException)
             {
-                MessageBox.Show("The program you are " +
-                    "trying to register is already registered","Existence Error");
+                MessageBox.Show("You are already registered in this program","Existence Error");
                 return RedirectToAction("Registration", "Program");
             }
             
@@ -301,8 +300,6 @@ namespace StudentActivity.Controllers
 
             return View(programs);
         }
-
-
 
         // END OF STUDENT ACTION
 

@@ -79,6 +79,20 @@ namespace StudentActivity.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [StringLength(14)]
+        [Required]
+        [Display(Name = "Student Id")]
+        public string StudentId { get; set; }
+
+        [Required]
+        [Display(Name = "Student Name")]
+        [StringLength(60)]
+        public string Name { get; set; }
+
+        [Required]
+        [StringLength(10)]
+        public string MobileNo { get; set; }
     }
 
     public class ResetPasswordViewModel

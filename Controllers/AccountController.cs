@@ -12,14 +12,18 @@ using StudentActivity.Models;
 
 namespace StudentActivity.Controllers
 {
+    
     [Authorize]
     public class AccountController : Controller
     {
+
+        private ApplicationDbContext _context;
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
         public AccountController()
         {
+            _context = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -151,8 +155,20 @@ namespace StudentActivity.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+               
+                var user = new ApplicationUser { UserName = model.Name, Email = model.Email, studentId = model.StudentId, Name = model.Name, MobileNo = model.MobileNo  };
                 var result = await UserManager.CreateAsync(user, model.Password);
+                var student = new Student { Id = model.StudentId, Name = model.Name, Email = model.Email, MobileNo = model.MobileNo };
+                _context.Students.Add(student);
+                try
+                {
+                    _context.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+                
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);

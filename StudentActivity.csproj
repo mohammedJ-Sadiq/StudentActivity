@@ -314,6 +314,30 @@
     <Compile Include="Migrations\202003141411140_AddingBoolIsDeletedToProgram.Designer.cs">
       <DependentUpon>202003141411140_AddingBoolIsDeletedToProgram.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003161337378_addingStudentFieldToAspnetUser.cs" />
+    <Compile Include="Migrations\202003161337378_addingStudentFieldToAspnetUser.Designer.cs">
+      <DependentUpon>202003161337378_addingStudentFieldToAspnetUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003161342463_FixingTheStudentIdIssue.cs" />
+    <Compile Include="Migrations\202003161342463_FixingTheStudentIdIssue.Designer.cs">
+      <DependentUpon>202003161342463_FixingTheStudentIdIssue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003161909122_AddingStudentAttributesToIdentityModels.cs" />
+    <Compile Include="Migrations\202003161909122_AddingStudentAttributesToIdentityModels.Designer.cs">
+      <DependentUpon>202003161909122_AddingStudentAttributesToIdentityModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003161916091_AddingMobileNoAttributeToAspNetUser.cs" />
+    <Compile Include="Migrations\202003161916091_AddingMobileNoAttributeToAspNetUser.Designer.cs">
+      <DependentUpon>202003161916091_AddingMobileNoAttributeToAspNetUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003161922557_AddingStudentIdAttributeToAspNetUser.cs" />
+    <Compile Include="Migrations\202003161922557_AddingStudentIdAttributeToAspNetUser.Designer.cs">
+      <DependentUpon>202003161922557_AddingStudentIdAttributeToAspNetUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003161924344_AddingIdToAspNetUser.cs" />
+    <Compile Include="Migrations\202003161924344_AddingIdToAspNetUser.Designer.cs">
+      <DependentUpon>202003161924344_AddingIdToAspNetUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -528,6 +552,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003141411140_AddingBoolIsDeletedToProgram.resx">
       <DependentUpon>202003141411140_AddingBoolIsDeletedToProgram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003161337378_addingStudentFieldToAspnetUser.resx">
+      <DependentUpon>202003161337378_addingStudentFieldToAspnetUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003161342463_FixingTheStudentIdIssue.resx">
+      <DependentUpon>202003161342463_FixingTheStudentIdIssue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003161909122_AddingStudentAttributesToIdentityModels.resx">
+      <DependentUpon>202003161909122_AddingStudentAttributesToIdentityModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003161916091_AddingMobileNoAttributeToAspNetUser.resx">
+      <DependentUpon>202003161916091_AddingMobileNoAttributeToAspNetUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003161922557_AddingStudentIdAttributeToAspNetUser.resx">
+      <DependentUpon>202003161922557_AddingStudentIdAttributeToAspNetUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003161924344_AddingIdToAspNetUser.resx">
+      <DependentUpon>202003161924344_AddingIdToAspNetUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
