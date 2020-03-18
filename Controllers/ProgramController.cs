@@ -32,6 +32,8 @@ namespace StudentActivity.Controllers
             _context.Dispose();
         }
     // ADMIN ACTIONS   
+
+        [Authorize(Roles ="CanManagePrograms")]
         public ActionResult Index()
         {
             
@@ -40,21 +42,25 @@ namespace StudentActivity.Controllers
             return View(programs);
         }
 
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult RegisteredPrograms()
         {
             var eligList = _context.Programs.Include(c => c.Club).ToList().Where(p => p.IsDeleted == false);
             return View(eligList);
         }
 
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult EligibleList(int id)
         {
             var students = _context.StudentPrograms.Include(s => s.Student).Where(p => p.ProgramId == id);
             return View(students);
         }
 
-        
+
 
         // To add new student registered manually from the admin
+
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult RegistrationFromAdmin(int id)
         {
             var StudentPrograms = new Student_Program(id);
@@ -65,6 +71,7 @@ namespace StudentActivity.Controllers
         // To save added to student_program table from the admin
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult SaveFromAdmin(Student_Program studentProgram)
         {
             if (!ModelState.IsValid)
@@ -89,6 +96,7 @@ namespace StudentActivity.Controllers
         }
 
         // To add a new program 
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult addProgram()
         {
             var clubs = _context.Clubs.ToList();
@@ -105,6 +113,7 @@ namespace StudentActivity.Controllers
         // To save the added program
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult SavePrg(Program program)
         {
             if (!ModelState.IsValid)
@@ -147,7 +156,7 @@ namespace StudentActivity.Controllers
             return RedirectToAction("Index", "Program");
         }
 
-
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult EditProgram(int id)
         {
             var program = _context.Programs.SingleOrDefault(p => p.Id == id);
@@ -164,6 +173,7 @@ namespace StudentActivity.Controllers
             return View("ProgramForm", viewModel);
         }
 
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult DeleteProgram(int id)
         {
             var program = _context.Programs.Single(p => p.Id == id);
@@ -179,12 +189,14 @@ namespace StudentActivity.Controllers
             return RedirectToAction("Index", "Program");
         }
 
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult RetrievePrg()
         {
             return View();
         }
 
-        // To save the program retrieve by admin 
+        // To save the program retrieve by admin
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult SaveRetrievePrg(Program program)
         {
             var flag1 = false;
@@ -217,6 +229,7 @@ namespace StudentActivity.Controllers
             return RedirectToAction("Index", "Program");
         }
 
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult ProgramDetailsAdmin(int id)
         {
             var program = _context.Programs.Include(c => c.Club).SingleOrDefault(p => p.Id == id);

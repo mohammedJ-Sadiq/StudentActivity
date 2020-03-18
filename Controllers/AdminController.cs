@@ -23,6 +23,8 @@ namespace StudentActivity.Controllers
         {
             _context.Dispose();
         }
+
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult Index()
         {
             return View();

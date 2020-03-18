@@ -50,7 +50,7 @@ namespace StudentActivity.Models
     {
         [StringLength(14)]
         [Required]
-        [Display(Name = "Student Id")]
+        [Display(Name = "Id")]
         public string StudentId { get; set; }
 
         [Required]

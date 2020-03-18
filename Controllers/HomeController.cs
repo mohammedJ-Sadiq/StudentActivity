@@ -9,12 +9,26 @@ namespace StudentActivity.Controllers
     [AllowAnonymous]
     public class HomeController : Controller
     {
+        public ActionResult Home()
+        {
+            if (User.IsInRole("CanManagePrograms"))
+                return View("AdminHome");
+
+            return View("StudentHome");
+        }
+
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Admin()
+        public ActionResult StudentHome()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "CanManagePrograms")]
+        public ActionResult AdminHome()
         {
             return View();
         }

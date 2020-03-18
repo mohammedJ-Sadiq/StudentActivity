@@ -413,17 +413,14 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Club\Index.cshtml" />
     <Content Include="Views\Program\RegistrationForm.cshtml" />
     <Content Include="Views\Program\ProgramForm.cshtml" />
     <Content Include="Views\Program\Index.cshtml" />
     <Content Include="Views\Club\ClubForm.cshtml" />
-    <Content Include="Views\Student\StudentForm.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Program\RegisteredPrograms.cshtml" />
     <Content Include="Views\Program\EligibleList.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_StudentLayout.cshtml" />
     <Content Include="Views\Program\RegistrationFormAdmin.cshtml" />
     <Content Include="Views\Program\StuPrograms.cshtml" />
@@ -433,9 +430,13 @@
     <Content Include="Views\Program\ProgramDetailsStudent.cshtml" />
     <Content Include="Views\Program\ShowPrgStu.cshtml" />
     <Content Include="Views\Program\RetrievePrg.cshtml" />
+    <Content Include="Views\Home\AdminHome.cshtml" />
+    <Content Include="Views\Home\StudentHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Student\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

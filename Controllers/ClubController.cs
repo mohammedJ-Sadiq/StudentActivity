@@ -29,14 +29,17 @@ namespace StudentActivity.Controllers
         {
             _context.Dispose();
         }
-    
-    // ADMIN ACTIONS
+
+        // ADMIN ACTIONS
+
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult Index()
         {
             var clubs = _context.Clubs.Include(c => c.Student).ToList();
             return View(clubs);
         }
 
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult AddClub()
         {
             var Club = new Club();
@@ -46,6 +49,7 @@ namespace StudentActivity.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult SaveClub(Club club)
         {
             if (!ModelState.IsValid)
@@ -80,6 +84,7 @@ namespace StudentActivity.Controllers
             return RedirectToAction("Index", "Club");
         }
 
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult EditClub(int id)
         {
             var club = _context.Clubs.Include(s =>s.Student).SingleOrDefault(c => c.Id == id);
@@ -92,6 +97,7 @@ namespace StudentActivity.Controllers
         }
 
         // To let the admin delete a club permanently - not only from view
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult DeleteClub(int id)
         {
             var club = _context.Clubs.SingleOrDefault(c => c.Id == id);
