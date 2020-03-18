@@ -8,12 +8,8 @@
 
 @using (Html.BeginForm("Save", "Program"))
 {
-    <div class="form-group">
-        @Html.LabelFor(m => m.StudentId)
-        @Html.TextBoxFor(m => m.StudentId, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.StudentId)
-    </div>
 
+    @Html.HiddenFor(m => m.StudentId)
     @Html.HiddenFor(m => m.ProgramId)
     @Html.AntiForgeryToken()
 

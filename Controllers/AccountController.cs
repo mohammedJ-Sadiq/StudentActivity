@@ -79,12 +79,13 @@ namespace StudentActivity.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.StudentId, model.Password, model.RememberMe, shouldLockout: false);
+            Session["Id"] = model.StudentId;
             switch (result)
             {
                 case SignInStatus.Success:
                     return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
+                case SignInStatus.LockedOut: 
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
@@ -93,6 +94,7 @@ namespace StudentActivity.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
+            
         }
 
         //
@@ -156,7 +158,14 @@ namespace StudentActivity.Controllers
             if (ModelState.IsValid)
             {
                
-                var user = new ApplicationUser { UserName = model.Name, Email = model.Email, studentId = model.StudentId, Name = model.Name, MobileNo = model.MobileNo  };
+                var user = new ApplicationUser 
+                { 
+                  UserName = model.StudentId,
+                  Email = model.Email,
+                  studentId = model.StudentId,
+                  Name = model.Name,
+                  MobileNo = model.MobileNo
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 var student = new Student { Id = model.StudentId, Name = model.Name, Email = model.Email, MobileNo = model.MobileNo };
                 _context.Students.Add(student);

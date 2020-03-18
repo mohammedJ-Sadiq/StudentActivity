@@ -35,5 +35,12 @@ namespace StudentActivity.Models
         {
             ProgramId = id;
         }
+
+        public Student_Program(int programId ,string studentId)
+        {
+            ProgramId = programId;
+            StudentId = studentId;
+
+        }
     }
 }

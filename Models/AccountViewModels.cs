@@ -48,10 +48,10 @@ namespace StudentActivity.Models
 
     public class LoginViewModel
     {
+        [StringLength(14)]
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "Student Id")]
+        public string StudentId { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

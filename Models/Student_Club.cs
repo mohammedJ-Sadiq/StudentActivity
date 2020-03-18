@@ -18,5 +18,13 @@ namespace StudentActivity.Models
         [Required]
         public int ClubId { get; set; }
 
+        public Student_Club()
+        {
+
+        }
+        public Student_Club(string studentId)
+        {
+            StudentId = studentId;
+        }
     }
 }

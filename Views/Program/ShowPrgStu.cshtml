@@ -58,7 +58,7 @@ else
                 </td>
                 <td>
                     @Html.ActionLink("Details", "ProgramDetailsStudent", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
-                    @Html.ActionLink("Register", "Registration", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Register", "Registration", "Program", new { programId = item.Id }, new { @class = "btn btn-primary" })
                 </td>
             </tr>
         }

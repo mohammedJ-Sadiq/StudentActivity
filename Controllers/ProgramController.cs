@@ -43,7 +43,6 @@ namespace StudentActivity.Controllers
         public ActionResult RegisteredPrograms()
         {
             var eligList = _context.Programs.Include(c => c.Club).ToList().Where(p => p.IsDeleted == false);
-
             return View(eligList);
         }
 
@@ -222,16 +221,18 @@ namespace StudentActivity.Controllers
         {
             var program = _context.Programs.Include(c => c.Club).SingleOrDefault(p => p.Id == id);
             return View(program);
+
         }
 
     // END OF ADMIN ACTIONS
     
     // STUDENT ACTIONS
         // To show registered programs for student
-        public ActionResult StuPrograms(string id)
+        public ActionResult StuPrograms()
         {
-            var programs = _context.StudentPrograms.Include(p => p.Program).Include(c => c.Program.Club).Where(s => s.StudentId == id);
-            return View(programs);
+            var id = Session["Id"];
+            var programs = _context.StudentPrograms.Include(p => p.Program).Include(c => c.Program.Club).Where(s => s.StudentId == id.ToString());
+            return View(programs); 
         }
 
         // To show the details of a registered program in the student view
@@ -242,11 +243,12 @@ namespace StudentActivity.Controllers
         }
 
         // To let the student register for a program
-        public ActionResult Registration(int id)
+        public ActionResult Registration(int programId)
         {
-            var StudentPrograms = new Student_Program(id);
-
-            return View("RegistrationForm", StudentPrograms);
+            var studentId = Session["Id"].ToString();
+            var StudentPrograms = new Student_Program(programId , studentId);
+      
+            return View("RegistrationForm",StudentPrograms);
         }
 
         // To save new student register for a program
@@ -254,13 +256,13 @@ namespace StudentActivity.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Save(Student_Program studentProgram)
         {
-            if (!ModelState.IsValid)
+           /* if (!ModelState.IsValid)
             {
 
                 var StudentPrograms = new Student_Program();
                  
                 return View("RegistrationForm", StudentPrograms);
-            }
+            }*/
 
             _context.StudentPrograms.Add(studentProgram);
             try
@@ -274,7 +276,7 @@ namespace StudentActivity.Controllers
             }
             
 
-            return RedirectToAction("StuPrograms", "Program", new {id = studentProgram.StudentId });
+            return RedirectToAction("StuPrograms", "Program");
         }
 
         public ActionResult DeleteStuPrg(String studentId, int programId)

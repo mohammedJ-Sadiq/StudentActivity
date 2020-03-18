@@ -111,9 +111,10 @@ namespace StudentActivity.Controllers
         public ActionResult AddStuClubs()
         {
             var clubs = _context.Clubs.ToList();
+            //var studentId = Session["Id"].ToString();
             var viewModels = new StudentClubViewModel()
             {
-                StudentClub = new Student_Club(),
+                StudentClub = new Student_Club(Session["Id"].ToString()),
                 Clubs = clubs
             };
 
@@ -128,7 +129,7 @@ namespace StudentActivity.Controllers
                 var clubs = _context.Clubs.ToList();
                 var viewModels = new StudentClubViewModel()
                 {
-                    StudentClub = new Student_Club(),
+                    StudentClub = new Student_Club(Session["Id"].ToString()),
                     Clubs = clubs
                 };
 
@@ -145,13 +146,14 @@ namespace StudentActivity.Controllers
                     "trying to join,\nyou are already part of it", "Existence Error");
             }
 
-            return RedirectToAction("ShowClubs", "Club", new { id = studentClub.StudentId });
+            return RedirectToAction("ShowClubs", "Club");
         }
 
         // To show all clubs registered by a specific student
         // NOT COMPLETED, must pass student id when the session is created
-        public ActionResult ShowClubs(string id)
+        public ActionResult ShowClubs()
         {
+            var id = Session["Id"].ToString();
             var clubs = _context.StudentClubs.Include(c => c.Club).Where(s => s.StudentId == id);
             return View("ShowClubs", clubs);
         }
@@ -170,7 +172,7 @@ namespace StudentActivity.Controllers
                 _context.SaveChanges();
             }
 
-            return RedirectToAction("ShowClubs", "Club", new { id = studentClub.StudentId});
+            return RedirectToAction("ShowClubs", "Club");
         }
 
     // END OF STUDENT ACTIONS
