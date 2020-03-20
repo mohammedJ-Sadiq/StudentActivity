@@ -24,8 +24,7 @@ namespace StudentActivity.Models
         [Display(Name = "Eligible")]
 
         public bool IsEligible { get; set; }
-        public List<bool> Eligible { get; set; }
-
+     
         public Student_Program()
         {
             
@@ -42,5 +41,6 @@ namespace StudentActivity.Models
             StudentId = studentId;
 
         }
+
     }
 }

@@ -349,7 +349,6 @@
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Student_Club.cs" />
     <Compile Include="Models\Student_Program.cs" />
-    <Compile Include="ViewModel\eligibleListViewModel.cs" />
     <Compile Include="ViewModel\ProgramViewModel.cs" />
     <Compile Include="ViewModel\StudentClubViewModel.cs" />
     <Compile Include="ViewModel\StudentProgram.cs" />

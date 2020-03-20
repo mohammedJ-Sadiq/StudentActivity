@@ -31,26 +31,27 @@ namespace StudentActivity.Controllers
         }
         
         // To Save the value of eligibility check box in eligilble list
-      /*  [HttpPost]
+        [HttpPost]
         public ActionResult SaveEligibility(Student_Program studentProgram)
         {
-            
             var StuPrgInDb = _context.StudentPrograms.ToList().Where(p => p.ProgramId == studentProgram.ProgramId);
-            foreach(var stu in StuPrgInDb)te
+
+            var id = Request.Form[""];
+            
+            foreach (var item in StuPrgInDb)
             {
-                ViewBag.SubmittedValue = Request.Form["IsEligible"];
-
-                if (studentProgram.IsEligible ==true)
-                    stu.IsEligible = true ;
-                
+                id = Request.Form[item.StudentId.ToString()];
+                if ("true" == id)
+                    item.IsEligible = true;
+                else
+                    item.IsEligible = false;
+                    
             }
-
-            
-            
             _context.SaveChanges();
 
             return RedirectToAction("EligibleList", "Program", new { id = studentProgram.ProgramId });
+           
         }
-        */
+        
     }
 }
