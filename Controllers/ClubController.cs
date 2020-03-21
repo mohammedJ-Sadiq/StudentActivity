@@ -156,7 +156,6 @@ namespace StudentActivity.Controllers
         }
 
         // To show all clubs registered by a specific student
-        // NOT COMPLETED, must pass student id when the session is created
         public ActionResult ShowClubs()
         {
             var id = Session["Id"].ToString();
@@ -181,6 +180,8 @@ namespace StudentActivity.Controllers
             return RedirectToAction("ShowClubs", "Club");
         }
 
-    // END OF STUDENT ACTIONS
+        // END OF STUDENT ACTIONS
+
+
     }
 }

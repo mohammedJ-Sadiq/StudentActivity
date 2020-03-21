@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace StudentActivity.Controllers
 {
-    [AllowAnonymous]
+    
     public class HomeController : Controller
     {
         public ActionResult Home()
@@ -17,6 +17,7 @@ namespace StudentActivity.Controllers
             return View("StudentHome");
         }
 
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
@@ -29,6 +30,12 @@ namespace StudentActivity.Controllers
 
         [Authorize(Roles = "CanManagePrograms")]
         public ActionResult AdminHome()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult ClubCorHome()
         {
             return View();
         }
