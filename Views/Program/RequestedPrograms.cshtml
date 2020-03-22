@@ -1,7 +1,19 @@
 ﻿@model IEnumerable<StudentActivity.Models.Program>
-@{
-    ViewBag.Title = "RequestedPrograms";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+@if (User.IsInRole("CanManageClubs"))
+{
+    ViewBag.Title = "ShowPrgStu";
+    Layout = "~/Views/Shared/_ClubCorLayout.cshtml";
+
+    <h2></h2>
+    <p>
+        @Html.ActionLink("+ Request Program", "RequestProgram", "Program", new { @class = "btn  btn-blue btn-left" })
+    </p>
+
+}
+else if(User.IsInRole("CanManagePrograms"))
+{
+    ViewBag.Title = "ShowPrgStu";
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
 }
 @if (!Model.Any())
 {
@@ -56,10 +68,14 @@ else
                 <td>
                     @item.Club.Name
                 </td>
-                <td>
-                    @Html.ActionLink("Approve", "ApproveProgram", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
-                    @Html.ActionLink("Reject", "RejectProgram", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
-                </td>
+                @if (User.IsInRole("CanManagePrograms"))
+                {
+                    <td>
+                        @Html.ActionLink("Approve", "ApproveProgram", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Reject", "RejectProgram", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    </td>
+                }
+                
             </tr>
         }
 

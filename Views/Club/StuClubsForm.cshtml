@@ -1,6 +1,12 @@
 ﻿@model StudentActivity.ViewModel.StudentClubViewModel
-@{
-    ViewBag.Title = "StuClubsForm";
+@if (User.IsInRole("CanManageClubs"))
+{
+    ViewBag.Title = "ShowPrgStu";
+    Layout = "~/Views/Shared/_ClubCorLayout.cshtml";
+}
+else
+{
+    ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/_StudentLayout.cshtml";
 }
 

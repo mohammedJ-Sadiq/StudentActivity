@@ -8,6 +8,10 @@ using System.Data.Entity;
 using StudentActivity.ViewModel;
 using System.Data.Entity.Infrastructure;
 using System.Windows.Forms;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Threading.Tasks;
 
 namespace StudentActivity.Controllers
 {
@@ -19,12 +23,43 @@ namespace StudentActivity.Controllers
         MessageBoxButtons DeleteMsgButtons = MessageBoxButtons.YesNo;
 
         private ApplicationDbContext _context;
+        private ApplicationSignInManager _signInManager;
+        private ApplicationUserManager _userManager;
 
         public ClubController()
         {
             _context = new ApplicationDbContext();
         }
 
+        public ClubController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        {
+            UserManager = userManager;
+            SignInManager = signInManager;
+        }
+
+        public ApplicationSignInManager SignInManager
+        {
+            get
+            {
+                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+            }
+            private set
+            {
+                _signInManager = value;
+            }
+        }
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();
@@ -50,7 +85,7 @@ namespace StudentActivity.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "CanManagePrograms")]
-        public ActionResult SaveClub(Club club)
+        public async Task<ActionResult> SaveClub(Club club)
         {
             if (!ModelState.IsValid)
             {
@@ -63,6 +98,13 @@ namespace StudentActivity.Controllers
             if(club.Id == 0)
             {
                 _context.Clubs.Add(club);
+                var student = _context.Users.SingleOrDefault(c => c.UserName == club.StudentId);
+                var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                var roleManager = new RoleManager<IdentityRole>(roleStore);
+                await roleManager.CreateAsync(new IdentityRole("CanManageClubs"));
+                await UserManager.AddToRoleAsync(student.Id, "CanManageClubs");
+                //SignInManager.SignIn(student, isPersistent: false, rememberBrowser: false);
+
             }
             else
             {

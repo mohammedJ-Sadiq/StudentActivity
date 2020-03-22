@@ -1,6 +1,13 @@
 ﻿@model IEnumerable<StudentActivity.Models.Student_Club>
-@{
-    ViewBag.Title = "ShowClubs";
+
+@if (User.IsInRole("CanManageClubs"))
+{
+    ViewBag.Title = "ShowPrgStu";
+    Layout = "~/Views/Shared/_ClubCorLayout.cshtml";
+}
+else
+{
+    ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/_StudentLayout.cshtml";
 }
 

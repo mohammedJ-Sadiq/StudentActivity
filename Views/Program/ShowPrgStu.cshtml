@@ -1,9 +1,14 @@
 ﻿@model IEnumerable<StudentActivity.Models.Program>
-@{
+@if(User.IsInRole("CanManageClubs"))
+{
+    ViewBag.Title = "ShowPrgStu";
+    Layout = "~/Views/Shared/_ClubCorLayout.cshtml";
+}
+else
+{
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/_StudentLayout.cshtml";
 }
-
 <h2></h2>
 @if (!Model.Any())
 {

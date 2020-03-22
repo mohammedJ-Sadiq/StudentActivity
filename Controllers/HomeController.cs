@@ -13,7 +13,8 @@ namespace StudentActivity.Controllers
         {
             if (User.IsInRole("CanManagePrograms"))
                 return View("AdminHome");
-
+            else if (User.IsInRole("CanManageClubs"))
+                return View("ClubCorHome");
             return View("StudentHome");
         }
 
@@ -34,7 +35,7 @@ namespace StudentActivity.Controllers
             return View();
         }
 
-        [AllowAnonymous]
+        [Authorize(Roles ="CanManageClubs")]
         public ActionResult ClubCorHome()
         {
             return View();

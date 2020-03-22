@@ -237,6 +237,7 @@ namespace StudentActivity.Controllers
 
         }
 
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult RequestedPrograms()
         {
             var programs = _context.Programs.Include(p => p.Club).ToList().Where(p => p.IsDeleted == false).Where(p => p.IsVisible == false);
@@ -244,6 +245,7 @@ namespace StudentActivity.Controllers
             return View(programs);
         }
 
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult ApproveProgram(int id)
         {
             var program = _context.Programs.Single(p => p.Id == id);
@@ -260,6 +262,7 @@ namespace StudentActivity.Controllers
             return RedirectToAction("RequestedPrograms", "Program");
         }
 
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult RejectProgram(int id)
         {
             var program = _context.Programs.Single(p => p.Id == id);
@@ -359,6 +362,7 @@ namespace StudentActivity.Controllers
 
         // CLUB COORDINATOR ACTIONS
 
+        [Authorize(Roles = "CanManageClubs")]
         public ActionResult RequestProgram()
         {
             var clubs = _context.Clubs.ToList();
@@ -374,6 +378,7 @@ namespace StudentActivity.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "CanManageClubs")]
         public ActionResult SaveReqPrg(Program program)
         {
             if (!ModelState.IsValid)
