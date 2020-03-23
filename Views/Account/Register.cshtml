@@ -30,7 +30,7 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Password)
-        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        @Html.PasswordFor(m => m.Password ,new { @class = "form-control", @placeholder = "Require capital letter, symbol and degit" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.ConfirmPassword)

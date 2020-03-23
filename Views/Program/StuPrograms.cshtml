@@ -18,6 +18,8 @@ else
 
 else
 {
+    <h2>Registered Programs</h2>
+    <h2></h2>
     <table class="table table-striped table-hover">
         <tr>
             <th>
@@ -57,7 +59,7 @@ else
                     @Html.DisplayFor(modelItem => item.Program.Club.Name)
                 </td>
                 <td>
-                    @Html.ActionLink("Details", "ProgramDetailsStudent", "Program", new { id = item.ProgramId }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Details", "ProgramDetails", "Program", new { id = item.ProgramId }, new { @class = "btn btn-primary" })
                     @Html.ActionLink("Delete", "DeleteStuPrg", "Program", new { studentId = item.StudentId, programId = item.ProgramId }, new { @class = "btn btn-primary" })
                 </td>
             </tr>

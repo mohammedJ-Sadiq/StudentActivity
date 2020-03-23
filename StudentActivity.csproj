@@ -355,7 +355,6 @@
     <Compile Include="Models\Student_Program.cs" />
     <Compile Include="ViewModel\ProgramViewModel.cs" />
     <Compile Include="ViewModel\StudentClubViewModel.cs" />
-    <Compile Include="ViewModel\StudentProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -429,8 +428,7 @@
     <Content Include="Views\Program\StuPrograms.cshtml" />
     <Content Include="Views\Club\StuClubsForm.cshtml" />
     <Content Include="Views\Club\ShowClubs.cshtml" />
-    <Content Include="Views\Program\ProgramDetailsAdmin.cshtml" />
-    <Content Include="Views\Program\ProgramDetailsStudent.cshtml" />
+    <Content Include="Views\Program\ProgramDetails.cshtml" />
     <Content Include="Views\Program\ShowPrgStu.cshtml" />
     <Content Include="Views\Program\RetrievePrg.cshtml" />
     <Content Include="Views\Home\AdminHome.cshtml" />

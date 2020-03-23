@@ -1,5 +1,12 @@
 ﻿@model IEnumerable<StudentActivity.Models.Program>
-@if (User.IsInRole("CanManageClubs"))
+
+@if(User.IsInRole("CanManagePrograms"))
+{
+    ViewBag.Title = "ShowPrgStu";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+else if (User.IsInRole("CanManageClubs"))
 {
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/_ClubCorLayout.cshtml";
@@ -10,11 +17,7 @@
     </p>
 
 }
-else if(User.IsInRole("CanManagePrograms"))
-{
-    ViewBag.Title = "ShowPrgStu";
-    Layout = "~/Views/Shared/_StudentLayout.cshtml";
-}
+
 @if (!Model.Any())
 {
     <h2>There Are no pending programs</h2>
@@ -75,7 +78,7 @@ else
                         @Html.ActionLink("Reject", "RejectProgram", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
                     </td>
                 }
-                
+
             </tr>
         }
 

@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<StudentActivity.Models.Program>
+
 @if(User.IsInRole("CanManageClubs"))
 {
     ViewBag.Title = "ShowPrgStu";
@@ -12,7 +13,7 @@ else
 <h2></h2>
 @if (!Model.Any())
 {
-    <h1>There are no student registered in this program</h1>
+    <h1>There are no available programs!</h1>
 }
 
 else
@@ -62,7 +63,7 @@ else
                     @item.Club.Name
                 </td>
                 <td>
-                    @Html.ActionLink("Details", "ProgramDetailsStudent", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Details", "ProgramDetails", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
                     @Html.ActionLink("Register", "Registration", "Program", new { programId = item.Id }, new { @class = "btn btn-primary" })
                 </td>
             </tr>

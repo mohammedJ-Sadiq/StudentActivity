@@ -1,5 +1,13 @@
 ﻿@model  StudentActivity.Models.Student_Program
-@{
+
+@if (User.IsInRole("CanManageClubs"))
+{
+    ViewBag.Title = "RegistrationForm";
+    Layout = "~/Views/Shared/_ClubCorLayout.cshtml";
+}
+
+else
+{
     ViewBag.Title = "RegistrationForm";
     Layout = "~/Views/Shared/_StudentLayout.cshtml";
 }

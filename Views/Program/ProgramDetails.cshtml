@@ -1,7 +1,21 @@
 ﻿@model StudentActivity.Models.Program
-@{
-    ViewBag.Title = "ProgramDetailsAdmin";
+
+@if(User.IsInRole("CanManagePrograms"))
+{
+    ViewBag.Title = "ProgramDetails";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+else if (User.IsInRole("CanManageClubs"))
+{
+    ViewBag.Title = "ProgramDetails";
+    Layout = "~/Views/Shared/_ClubCorLayout.cshtml";
+}
+
+else
+{
+    ViewBag.Title = "ProgramDetails";
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
 }
 
 <h2>Details</h2>
