@@ -80,12 +80,4 @@ body {
     background-image: linear-gradient(to right,rgba(255,0,0,0), rgba(219,64,110,0.115));
 }
 
-.cus-images {
-    max-height:100%;
-    max-width: 100%;
-    margin:auto;
-    height:400px;
-    width: 400px;
-    overflow:hidden;
-    
-}
+

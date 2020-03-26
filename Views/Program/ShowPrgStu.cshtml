@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<StudentActivity.Models.Program>
 
-@if(User.IsInRole("CanManageClubs"))
+@if (User.IsInRole("CanManageClubs"))
 {
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/_ClubCorLayout.cshtml";
@@ -10,14 +10,21 @@ else
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/_StudentLayout.cshtml";
 }
-<h2></h2>
 @if (!Model.Any())
 {
-    <h1>There are no available programs!</h1>
+    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+        <h1>There are no available programs!</h1>
+        <br />
+    </div>
+    
 }
 
 else
 {
+    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+        <h2 >Choose a program to register in</h2>
+        <br />
+    </div>
     <table class="table table-striped table-hover">
         <tr>
             <th>
