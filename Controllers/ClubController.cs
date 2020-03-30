@@ -75,7 +75,16 @@ namespace StudentActivity.Controllers
             ChangingLanguageFunction(language);
             
             var clubs = _context.Clubs.Include(c => c.Student).ToList();
-            return View(clubs);
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicClub/Index.cshtml",clubs);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishClub/Index.cshtml",clubs);
+            }
         }
 
         [Authorize(Roles = "CanManagePrograms")]
@@ -85,7 +94,15 @@ namespace StudentActivity.Controllers
 
             var Club = new Club();
 
-            return View("ClubForm",Club);
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicClub/ClubForm.cshtml", Club);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishClub/ClubForm.cshtml", Club);
+            }
         }
 
         [HttpPost]
@@ -95,14 +112,26 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            if (!ModelState.IsValid)
+            if (language.Equals("ar"))
             {
-                var Club = new Club();
+                if (!ModelState.IsValid)
+                {
+                    var Club = new Club();
 
-                return View("ClubForm");
-
+                    return View("~/Views/ArabicViews/ArabicClub/ClubForm.cshtml");
+                }
             }
 
+            else
+            {
+                if (!ModelState.IsValid)
+                {
+                    var Club = new Club();
+
+                    return View("~/Views/EnglishViews/EnglishClub/ClubForm.cshtml");
+                }
+            }
+            
             if(club.Id == 0)
             {
                 _context.Clubs.Add(club);
@@ -144,7 +173,16 @@ namespace StudentActivity.Controllers
                 return HttpNotFound();
             }
 
-            return View("ClubForm", club);
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicClub/ClubForm.cshtml", club);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishClub/ClubForm.cshtml", club);
+            }
+
         }
 
         // To let the admin delete a club permanently - not only from view
@@ -179,7 +217,15 @@ namespace StudentActivity.Controllers
                 Clubs = clubs
             };
 
-            return View("StuClubsForm", viewModels);
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicClub/StuClubsForm.cshtml", viewModels);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishClub/StuClubsForm.cshtml", viewModels);
+            }
         }
 
         [ValidateAntiForgeryToken]
@@ -218,7 +264,17 @@ namespace StudentActivity.Controllers
 
             var id = Session["Id"].ToString();
             var clubs = _context.StudentClubs.Include(c => c.Club).Where(s => s.StudentId == id);
-            return View("ShowClubs", clubs);
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicClub/ShowClubs.cshtml", clubs);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishClub/ShowClubs.cshtml", clubs);
+            }
+
         }
 
         public ActionResult DeleteStuClub(String studentId, int clubId, string language)

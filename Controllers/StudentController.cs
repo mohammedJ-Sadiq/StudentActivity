@@ -31,15 +31,33 @@ namespace StudentActivity.Controllers
 
             var students = _context.Students.ToList();
 
-            return View(students);
+            if (language.Equals("ar"))
+            {
+                return View(students);
+            }
+
+            else
+            {
+                return View(students);
+            } 
+
         }
 
         public ActionResult addStudent(string language)
         {
             ChangingLanguageFunction(language);
-
+            
             var Student = new Student();
-            return View("StudentForm");
+
+            if (language.Equals("ar"))
+            {
+                return View("StudentForm");
+            }
+
+            else
+            {
+                return View("StudentForm");
+            }
         }
 
         [HttpPost]
@@ -48,17 +66,37 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            if (!ModelState.IsValid)
+            if (language.Equals("ar"))
             {
-                var Student = new Student();
 
-                return View("StudentForm");
+                if (!ModelState.IsValid)
+                {
+                    var Student = new Student();
+
+                    return View("StudentForm");
+                }
+                _context.Students.Add(student);
+
+                _context.SaveChanges();
+
+                return RedirectToAction("Index", "Student");
             }
-            _context.Students.Add(student);
 
-            _context.SaveChanges();
+            else
+            {
+                if (!ModelState.IsValid)
+                {
+                    var Student = new Student();
 
-            return RedirectToAction("Index", "Student");
+                    return View("StudentForm");
+                }
+                _context.Students.Add(student);
+
+                _context.SaveChanges();
+
+                return RedirectToAction("Index", "Student");
+            }
+
         }
 
         public void ChangingLanguageFunction(string language)

@@ -66,7 +66,16 @@ namespace StudentActivity.Controllers
             ChangingLanguageFunction(language);
 
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicAccount/Login.cshtml");
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishAccount/Login.cshtml");
+            }
         }
 
         //
@@ -78,10 +87,23 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            if (!ModelState.IsValid)
+            if (language.Equals("ar"))
             {
-                return View(model);
+                if (!ModelState.IsValid)
+                {
+                    return View("~/Views/ArabicViews/ArabicAccount/Login.cshtml", model);
+                }
             }
+
+            else
+            {
+                if (!ModelState.IsValid)
+                {
+                    return View("~/Views/EnglishViews/EnglishAccount/Login.cshtml", model);
+                }
+
+            }
+            
             
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
@@ -98,7 +120,15 @@ namespace StudentActivity.Controllers
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", StudentActivity.Resources.Language.Invalid_login);
-                    return View(model);
+                    if (language.Equals("ar"))
+                    {
+                        return View("~/Views/ArabicViews/ArabicAccount/Login.cshtml", model);
+                    }
+
+                    else
+                    {
+                        return View("~/Views/EnglishViews/EnglishAccount/Login.cshtml", model);
+                    }
             }
             
         }
@@ -115,7 +145,16 @@ namespace StudentActivity.Controllers
             {
                 return View("Error");
             }
-            return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicAccount/VerifyCode.cshtml", new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishAccount/VerifyCode.cshtml", new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
+            }
         }
 
         //
@@ -127,9 +166,20 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            if (!ModelState.IsValid)
+            if (language.Equals("ar"))
             {
-                return View(model);
+                if (!ModelState.IsValid)
+                {
+                    return View("~/Views/ArabicViews/ArabicAccount/VerifyCode.cshtml", model);
+                }
+            }
+
+            else
+            {
+                if (!ModelState.IsValid)
+                {
+                    return View("~/Views/EnglishViews/EnglishAccount/VerifyCode.cshtml", model);
+                }
             }
 
             // The following code protects for brute force attacks against the two factor codes. 
@@ -146,7 +196,16 @@ namespace StudentActivity.Controllers
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", StudentActivity.Resources.Language.Invalid_code);
-                    return View(model);
+
+                    if (language.Equals("ar"))
+                    {
+                        return View("~/Views/ArabicViews/ArabicAccount/VerifyCode.cshtml", model);
+                    }
+
+                    else
+                    {
+                        return View("~/Views/EnglishViews/EnglishAccount/VerifyCode.cshtml", model);
+                    }
             }
         }
 
@@ -157,7 +216,15 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            return View();
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicAccount/Register.cshtml");
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishAccount/Register.cshtml");
+            }
         }
 
         //
@@ -214,7 +281,16 @@ namespace StudentActivity.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicAccount/Register.cshtml", model);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishAccount/Register.cshtml", model);
+            }
         }
 
         //
@@ -239,7 +315,15 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            return View();
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicAccount/ConfirmEmail.cshtml");
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishAccount/ConfirmEmail.cshtml");
+            }
         }
 
         //
@@ -257,7 +341,16 @@ namespace StudentActivity.Controllers
                 if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
                 {
                     // Don't reveal that the user does not exist or is not confirmed
-                    return View("ForgotPasswordConfirmation");
+
+                    if (language.Equals("ar"))
+                    {
+                        return View("~/Views/ArabicViews/ArabicAccount/ForgotPasswordConfirmation.cshtml");
+                    }
+
+                    else
+                    {
+                        return View("~/Views/EnglishViews/EnglishAccount/ForgotPasswordConfirmation.cshtml");
+                    }
                 }
 
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
@@ -269,7 +362,16 @@ namespace StudentActivity.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicAccount/ForgotPassword.cshtml", model);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishAccount/ForgotPassword.cshtml", model);
+            }
         }
 
         //
@@ -279,7 +381,15 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            return View();
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicAccount/ForgotPasswordConfirmation.cshtml");
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishAccount/ForgotPasswordConfirmation.cshtml");
+            }
         }
 
         //
@@ -289,7 +399,15 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            return code == null ? View("Error") : View();
+            if (language.Equals("ar"))
+            {
+                return code == null ? View("Error") : View("~/Views/ArabicViews/ArabicAccount/ResetPassword.cshtml");
+            }
+
+            else
+            {
+                return code == null ? View("Error") : View("~/Views/EnglishViews/EnglishAccount/ResetPassword.cshtml");
+            }
         }
 
         //
@@ -301,10 +419,23 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            if (!ModelState.IsValid)
+            if (language.Equals("ar"))
             {
-                return View(model);
+                if (!ModelState.IsValid)
+                {
+                    return View("~/Views/ArabicViews/ArabicAccount/ResetPassword.cshtml", model);
+                }
             }
+
+            else
+            {
+                if (!ModelState.IsValid)
+                {
+                    return View("~/Views/EnglishViews/EnglishAccount/ResetPassword.cshtml", model);
+                }
+            }
+
+            
             var user = await UserManager.FindByNameAsync(model.Email);
             if (user == null)
             {
@@ -317,7 +448,16 @@ namespace StudentActivity.Controllers
                 return RedirectToAction("ResetPasswordConfirmation", "Account");
             }
             AddErrors(result);
-            return View();
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicAccount/ResetPassword.cshtml");
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishAccount/ResetPassword.cshtml");
+            }
         }
 
         //
@@ -327,7 +467,15 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            return View();
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicAccount/ResetPasswordConfirmation.cshtml");
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishAccount/ResetPasswordConfirmation.cshtml");
+            }
         }
 
         //
@@ -357,7 +505,16 @@ namespace StudentActivity.Controllers
             }
             var userFactors = await UserManager.GetValidTwoFactorProvidersAsync(userId);
             var factorOptions = userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
-            return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicAccount/SendCode.cshtml", new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishAccount/SendCode.cshtml", new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
+            }
         }
 
         //
@@ -369,10 +526,23 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            if (!ModelState.IsValid)
+            if (language.Equals("ar"))
             {
-                return View();
+                if (!ModelState.IsValid)
+                {
+                    return View("~/Views/ArabicViews/ArabicAccount/SendCode.cshtml");
+                }
             }
+
+            else
+            {
+                if (!ModelState.IsValid)
+                {
+                    return View("~/Views/EnglishViews/EnglishAccount/SendCode.cshtml");
+                }
+            }
+
+            
 
             // Generate the token and send it
             if (!await SignInManager.SendTwoFactorCodeAsync(model.SelectedProvider))
@@ -410,7 +580,16 @@ namespace StudentActivity.Controllers
                     // If the user does not have an account, then prompt the user to create an account
                     ViewBag.ReturnUrl = returnUrl;
                     ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+
+                    if (language.Equals("ar"))
+                    {
+                        return View("~/Views/ArabicViews/ArabicAccount/ExternalLoginConfirmation.cshtml", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                    }
+
+                    else
+                    {
+                        return View("~/Views/EnglishViews/EnglishAccount/ExternalLoginConfirmation.cshtml", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                    }
             }
         }
 
@@ -434,8 +613,17 @@ namespace StudentActivity.Controllers
                 var info = await AuthenticationManager.GetExternalLoginInfoAsync();
                 if (info == null)
                 {
-                    return View("ExternalLoginFailure");
+                    if (language.Equals("ar"))
+                    {
+                        return View("~/Views/ArabicViews/ArabicAccount/ExternalLoginFailure.cshtml");
+                    }
+
+                    else
+                    {
+                        return View("~/Views/EnglishViews/EnglishAccount/ExternalLoginFailure.cshtml");
+                    }
                 }
+
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
@@ -451,7 +639,16 @@ namespace StudentActivity.Controllers
             }
 
             ViewBag.ReturnUrl = returnUrl;
-            return View(model);
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicAccount/ExternalLoginConfirmation.cshtml", model);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishAccount/ExternalLoginConfirmation.cshtml", model);
+            }
         }
 
         //
@@ -473,7 +670,15 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            return View();
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicAccount/ExternalLoginFailure.cshtml");
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishAccount/ExternalLoginFailure.cshtml");
+            }
         }
 
         protected override void Dispose(bool disposing)

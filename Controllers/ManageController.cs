@@ -76,7 +76,16 @@ namespace StudentActivity.Controllers
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
-            return View(model);
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicManage/Index.cshtml", model);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishManage/Index.cshtml", model);
+            }
         }
 
         //
@@ -111,7 +120,15 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            return View();
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicManage/AddPhoneNumber.cshtml");
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishManage/AddPhoneNumber.cshtml");
+            }
         }
 
         //
@@ -122,10 +139,22 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            if (!ModelState.IsValid)
+            if (language.Equals("ar"))
             {
-                return View(model);
+                if (!ModelState.IsValid)
+                {
+                    return View("~/Views/ArabicViews/ArabicManage/AddPhoneNumber.cshtml", model);
+                }
             }
+
+            else
+            {
+                if (!ModelState.IsValid)
+                {
+                    return View("~/Views/EnglishViews/EnglishManage/AddPhoneNumber.cshtml", model);
+                }
+            }
+
             // Generate the token and send it
             var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), model.Number);
             if (UserManager.SmsService != null)
@@ -182,7 +211,16 @@ namespace StudentActivity.Controllers
 
             var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), phoneNumber);
             // Send an SMS through the SMS provider to verify the phone number
-            return phoneNumber == null ? View("Error") : View(new VerifyPhoneNumberViewModel { PhoneNumber = phoneNumber });
+
+            if (language.Equals("ar"))
+            {
+                return phoneNumber == null ? View("Error") : View("~/Views/ArabicViews/ArabicManage/VerifyPhoneNumber.cshtml", new VerifyPhoneNumberViewModel { PhoneNumber = phoneNumber });
+            }
+
+            else
+            {
+                return phoneNumber == null ? View("Error") : View("~/Views/EnglishViews/EnglishManage/VerifyPhoneNumber.cshtml", new VerifyPhoneNumberViewModel { PhoneNumber = phoneNumber });
+            }
         }
 
         //
@@ -193,10 +231,23 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            if (!ModelState.IsValid)
+            if (language.Equals("ar"))
             {
-                return View(model);
+                if (!ModelState.IsValid)
+                {
+                    return View("~/Views/ArabicViews/ArabicManage/VerifyPhoneNumber.cshtml", model);
+                }
             }
+
+            else
+            {
+                if (!ModelState.IsValid)
+                {
+                    return View("~/Views/EnglishViews/EnglishManage/VerifyPhoneNumber.cshtml", model);
+                }
+                
+            }
+
             var result = await UserManager.ChangePhoneNumberAsync(User.Identity.GetUserId(), model.PhoneNumber, model.Code);
             if (result.Succeeded)
             {
@@ -209,7 +260,16 @@ namespace StudentActivity.Controllers
             }
             // If we got this far, something failed, redisplay form
             ModelState.AddModelError("", StudentActivity.Resources.Language.Verify_phone_failed);
-            return View(model);
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicManage/VerifyPhoneNumber.cshtml", model);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishManage/VerifyPhoneNumber.cshtml", model);
+            }
         }
 
         //
@@ -239,7 +299,15 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            return View();
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicManage/ChangePassword.cshtml");
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishManage/ChangePassword.cshtml");
+            }
         }
 
         //
@@ -250,10 +318,24 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            if (!ModelState.IsValid)
+            if (language.Equals("ar"))
             {
-                return View(model);
+                if (!ModelState.IsValid)
+                {
+                    return View("~/Views/ArabicViews/ArabicManage/ChangePassword.cshtml", model);
+                }
+                
             }
+
+            else
+            {
+                if (!ModelState.IsValid)
+                {
+                    return View("~/Views/EnglishViews/EnglishManage/ChangePassword.cshtml", model);
+                }
+                
+            }
+
             var result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
             if (result.Succeeded)
             {
@@ -265,7 +347,16 @@ namespace StudentActivity.Controllers
                 return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
             }
             AddErrors(result);
-            return View(model);
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicManage/ChangePassword.cshtml", model);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishManage/ChangePassword.cshtml", model);
+            }
         }
 
         //
@@ -274,7 +365,15 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            return View();
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicManage/SetPassword.cshtml");
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishManage/SetPassword.cshtml");
+            }
         }
 
         //
@@ -301,7 +400,16 @@ namespace StudentActivity.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicManage/SetPassword.cshtml", model);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishManage/SetPassword.cshtml", model);
+            }
         }
 
         //
@@ -322,11 +430,24 @@ namespace StudentActivity.Controllers
             var userLogins = await UserManager.GetLoginsAsync(User.Identity.GetUserId());
             var otherLogins = AuthenticationManager.GetExternalAuthenticationTypes().Where(auth => userLogins.All(ul => auth.AuthenticationType != ul.LoginProvider)).ToList();
             ViewBag.ShowRemoveButton = user.PasswordHash != null || userLogins.Count > 1;
-            return View(new ManageLoginsViewModel
+
+            if (language.Equals("ar"))
             {
-                CurrentLogins = userLogins,
-                OtherLogins = otherLogins
-            });
+                return View("~/Views/ArabicViews/ArabicManage/ManageLogins.cshtml", new ManageLoginsViewModel
+                {
+                    CurrentLogins = userLogins,
+                    OtherLogins = otherLogins
+                });
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishManage/ManageLogins.cshtml", new ManageLoginsViewModel
+                {
+                    CurrentLogins = userLogins,
+                    OtherLogins = otherLogins
+                });
+            }
         }
 
         //

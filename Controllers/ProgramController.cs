@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Web;
@@ -42,7 +45,15 @@ namespace StudentActivity.Controllers
 
             var programs = _context.Programs.Include(p =>p.Club).ToList().Where(p => p.IsDeleted == false).Where(p => p.IsVisible == true);
 
-            return View(programs);
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicProgram/Index.cshtml",programs);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishProgram/Index.cshtml", programs);
+            }
         }
 
         [Authorize(Roles = "CanManagePrograms")]
@@ -51,7 +62,16 @@ namespace StudentActivity.Controllers
             ChangingLanguageFunction(language);
 
             var eligList = _context.Programs.Include(c => c.Club).ToList().Where(p => p.IsDeleted == false).Where(p => p.IsVisible == true);
-            return View(eligList);
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicProgram/RegisteredPrograms.cshtml", eligList);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishProgram/RegisteredPrograms.cshtml", eligList);
+            }
         }
 
         [Authorize(Roles = "CanManagePrograms")]
@@ -60,7 +80,17 @@ namespace StudentActivity.Controllers
             ChangingLanguageFunction(language);
 
             var students = _context.StudentPrograms.Include(s => s.Student).Where(p => p.ProgramId == id);
-            return View(students);
+
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicProgram/EligibleList.cshtml", students);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishProgram/EligibleList.cshtml", students);
+            }
         }
 
 
@@ -73,8 +103,16 @@ namespace StudentActivity.Controllers
             ChangingLanguageFunction(language);
 
             var StudentPrograms = new Student_Program(id);
-            
-            return View("RegistrationFormAdmin", StudentPrograms);
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicProgram/RegistrationFormAdmin.cshtml", StudentPrograms);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishProgram/RegistrationFormAdmin.cshtml", StudentPrograms);
+            }
         }
 
         // To save added to student_program table from the admin
@@ -85,12 +123,26 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            if (!ModelState.IsValid)
+            if (language.Equals("ar"))
             {
-                var StudentPrograms = new Student_Program(studentProgram.ProgramId);
+                if (!ModelState.IsValid)
+                {
+                    var StudentPrograms = new Student_Program(studentProgram.ProgramId);
 
-                return View("RegistrationFormAdmin", StudentPrograms);
+                    return View("~/Views/ArabicViews/ArabicProgram/RegistrationFormAdmin.cshtml", StudentPrograms);
+                }
             }
+
+            else
+            {
+                if (!ModelState.IsValid)
+                {
+                    var StudentPrograms = new Student_Program(studentProgram.ProgramId);
+
+                    return View("~/Views/EnglishViews/EnglishProgram/RegistrationFormAdmin.cshtml", StudentPrograms);
+                }
+            }
+
             _context.StudentPrograms.Add(studentProgram);
             try
             {
@@ -116,9 +168,16 @@ namespace StudentActivity.Controllers
                 program = new Program(),
                 club = clubs          
             };
-            
 
-            return View("ProgramForm",viewModels);
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicProgram/ProgramForm.cshtml", viewModels);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishProgram/ProgramForm.cshtml", viewModels);
+            }
         }
 
         // To save the added program
@@ -129,16 +188,34 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            if (!ModelState.IsValid)
+            if (language.Equals("ar"))
             {
-                var viewModels = new ProgramViewModel()
+                if (!ModelState.IsValid)
                 {
-                    program = new Program(),
-                    club = _context.Clubs.ToList()
-                };
+                    var viewModels = new ProgramViewModel()
+                    {
+                        program = new Program(),
+                        club = _context.Clubs.ToList()
+                    };
 
-                return View("ProgramForm", viewModels);
+                    return View("~/Views/ArabicViews/ArabicProgram/ProgramForm.cshtml", viewModels);
+                }
             }
+
+            else
+            {
+                if (!ModelState.IsValid)
+                {
+                    var viewModels = new ProgramViewModel()
+                    {
+                        program = new Program(),
+                        club = _context.Clubs.ToList()
+                    };
+
+                    return View("~/Views/EnglishViews/EnglishProgram/ProgramForm.cshtml", viewModels);
+                }
+            }
+            
             // To retrieve a program
             
             if(program.Id == 0)
@@ -184,7 +261,16 @@ namespace StudentActivity.Controllers
                 program = program,
                 club = _context.Clubs.ToList()
             };
-            return View("ProgramForm", viewModel);
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicProgram/ProgramForm.cshtml", viewModel);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishProgram/ProgramForm.cshtml", viewModel);
+            }
         }
 
         [Authorize(Roles = "CanManagePrograms")]
@@ -210,7 +296,15 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            return View();
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicProgram/RetrievePrg.cshtml");
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishProgram/RetrievePrg.cshtml");
+            }
         }
 
         // To save the program retrieve by admin
@@ -254,7 +348,15 @@ namespace StudentActivity.Controllers
 
             var programs = _context.Programs.Include(p => p.Club).ToList().Where(p => p.IsDeleted == false).Where(p => p.IsVisible == false);
 
-            return View(programs);
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicProgram/RequestedPrograms.cshtml", programs);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishProgram/RequestedPrograms.cshtml", programs);
+            }
         }
 
         [Authorize(Roles = "CanManagePrograms")]
@@ -293,9 +395,197 @@ namespace StudentActivity.Controllers
             return RedirectToAction("RequestedPrograms", "Program");
         }
 
-    // END OF ADMIN ACTIONS
-    
-    // STUDENT ACTIONS
+        [HttpPost]
+        public ActionResult WaterMarkExistingCertification(string student_name, string title, string lecturer_name, string date_time)
+        {
+            System.Drawing.Image bitmap = (System.Drawing.Image)Bitmap.FromFile(Server.MapPath("/Content/Images/Certificate.png"));
+            string sValue = student_name;
+            string tValue = title;
+            string lValue = lecturer_name;
+            string dValue = date_time;
+            string file = "Certificate" + ".png";
+            //using (Bitmap bitmap = new Bitmap(File.InputStream, false))
+            {
+                using (Graphics graphics = Graphics.FromImage(bitmap))
+                {
+                    if (student_name != null)
+                    {
+                        Brush brush = new SolidBrush(Color.Orange);
+
+                        Font font = new Font("Arial", 60, FontStyle.Italic, GraphicsUnit.Pixel);
+
+                        SizeF textSize = new SizeF();
+                        textSize = graphics.MeasureString(sValue, font);
+
+                        Point position = new Point(850, 400);
+
+                        // Set format of string.
+                        StringFormat drawFormat = new StringFormat();
+                        drawFormat.Alignment = StringAlignment.Center;
+
+                        graphics.DrawString(sValue, font, brush, position, drawFormat);
+                    }
+
+                    if (title != null)
+                    {
+                        Brush brush = new SolidBrush(Color.Black);
+
+                        Font font = new Font("Arial", 45, FontStyle.Italic, GraphicsUnit.Pixel);
+
+                        SizeF textSize = new SizeF();
+                        textSize = graphics.MeasureString(tValue, font);
+
+                        Point position = new Point(850, 500);
+
+                        // Set format of string.
+                        StringFormat drawFormat = new StringFormat();
+                        drawFormat.Alignment = StringAlignment.Center;
+
+                        graphics.DrawString(tValue, font, brush, position, drawFormat);
+                    }
+
+                    if (lecturer_name != null)
+                    {
+                        Brush brush = new SolidBrush(Color.Black);
+
+                        Font font = new Font("Arial", 45, FontStyle.Italic, GraphicsUnit.Pixel);
+
+                        SizeF textSize = new SizeF();
+                        textSize = graphics.MeasureString(lValue, font);
+
+                        Point position = new Point(850, 600);
+
+                        // Set format of string.
+                        StringFormat drawFormat = new StringFormat();
+                        drawFormat.Alignment = StringAlignment.Center;
+
+                        graphics.DrawString(lValue, font, brush, position, drawFormat);
+                    }
+
+                    if (lecturer_name != null)
+                    {
+                        Brush brush = new SolidBrush(Color.Black);
+
+                        Font font = new Font("Arial", 45, FontStyle.Italic, GraphicsUnit.Pixel);
+
+                        SizeF textSize = new SizeF();
+                        textSize = graphics.MeasureString(dValue, font);
+
+                        Point position = new Point(850, 700);
+
+                        // Set format of string.
+                        StringFormat drawFormat = new StringFormat();
+                        drawFormat.Alignment = StringAlignment.Center;
+
+                        graphics.DrawString(dValue, font, brush, position, drawFormat);
+                    }
+
+                    using (MemoryStream mStream = new MemoryStream())
+                    {
+                        bitmap.Save(mStream, ImageFormat.Png);
+                        mStream.Position = 0;
+                        return File(mStream.ToArray(), "image/png", file);
+                    }
+                }
+            }
+        }
+
+        [HttpPost]
+        public ActionResult WaterMarkNewCertification(string student_name, string title, string lecturer_name, string date_time, HttpPostedFileBase postedFile)
+        {
+            string sValue = student_name;
+            string tValue = title;
+            string lValue = lecturer_name;
+            string dValue = date_time;
+            string file = Path.GetFileNameWithoutExtension(postedFile.FileName) + ".png";
+            using (Bitmap bitmap = new Bitmap(postedFile.InputStream, false))
+            {
+                using (Graphics graphics = Graphics.FromImage(bitmap))
+                {
+                    if (postedFile != null)
+                    {
+                        Brush brush = new SolidBrush(Color.Orange);
+
+                        Font font = new Font("Arial", 60, FontStyle.Italic, GraphicsUnit.Pixel);
+
+                        SizeF textSize = new SizeF();
+                        textSize = graphics.MeasureString(sValue, font);
+
+                        Point position = new Point(850, 400);
+
+                        // Set format of string.
+                        StringFormat drawFormat = new StringFormat();
+                        drawFormat.Alignment = StringAlignment.Center;
+
+                        graphics.DrawString(sValue, font, brush, position, drawFormat);
+                    }
+
+                    if (title != null)
+                    {
+                        Brush brush = new SolidBrush(Color.Black);
+
+                        Font font = new Font("Arial", 45, FontStyle.Italic, GraphicsUnit.Pixel);
+
+                        SizeF textSize = new SizeF();
+                        textSize = graphics.MeasureString(tValue, font);
+
+                        Point position = new Point(850, 500);
+
+                        // Set format of string.
+                        StringFormat drawFormat = new StringFormat();
+                        drawFormat.Alignment = StringAlignment.Center;
+
+                        graphics.DrawString(tValue, font, brush, position, drawFormat);
+                    }
+
+                    if (lecturer_name != null)
+                    {
+                        Brush brush = new SolidBrush(Color.Black);
+
+                        Font font = new Font("Arial", 45, FontStyle.Italic, GraphicsUnit.Pixel);
+
+                        SizeF textSize = new SizeF();
+                        textSize = graphics.MeasureString(lValue, font);
+
+                        Point position = new Point(850, 600);
+
+                        // Set format of string.
+                        StringFormat drawFormat = new StringFormat();
+                        drawFormat.Alignment = StringAlignment.Center;
+
+                        graphics.DrawString(lValue, font, brush, position, drawFormat);
+                    }
+
+                    if (lecturer_name != null)
+                    {
+                        Brush brush = new SolidBrush(Color.Black);
+
+                        Font font = new Font("Arial", 45, FontStyle.Italic, GraphicsUnit.Pixel);
+
+                        SizeF textSize = new SizeF();
+                        textSize = graphics.MeasureString(dValue, font);
+
+                        Point position = new Point(850, 700);
+
+                        // Set format of string.
+                        StringFormat drawFormat = new StringFormat();
+                        drawFormat.Alignment = StringAlignment.Center;
+
+                        graphics.DrawString(dValue, font, brush, position, drawFormat);
+                    }
+
+                    using (MemoryStream mStream = new MemoryStream())
+                    {
+                        bitmap.Save(mStream, ImageFormat.Png);
+                        mStream.Position = 0;
+                        return File(mStream.ToArray(), "image/png", file);
+                    }
+                }
+            }
+        }
+        // END OF ADMIN ACTIONS
+
+        // STUDENT ACTIONS
         // To show registered programs for student
         public ActionResult StuPrograms(string language)
         {
@@ -303,7 +593,16 @@ namespace StudentActivity.Controllers
 
             var id = Session["Id"];
             var programs = _context.StudentPrograms.Include(p => p.Program).Include(c => c.Program.Club).Where(s => s.StudentId == id.ToString());
-            return View(programs); 
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicProgram/StuPrograms.cshtml", programs);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishProgram/StuPrograms.cshtml", programs);
+            }
         }
 
         
@@ -315,8 +614,16 @@ namespace StudentActivity.Controllers
 
             var studentId = Session["Id"].ToString();
             var StudentPrograms = new Student_Program(programId , studentId);
-      
-            return View("RegistrationForm",StudentPrograms);
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicProgram/RegistrationForm.cshtml", StudentPrograms);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishProgram/RegistrationForm.cshtml", StudentPrograms);
+            }
         }
 
         // To save new student register for a program
@@ -374,7 +681,15 @@ namespace StudentActivity.Controllers
 
             var programs = _context.Programs.Include(p => p.Club).ToList().Where(p => p.IsDeleted == false).Where(p => p.IsVisible == true);
 
-            return View(programs);
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicProgram/ShowPrgStu.cshtml", programs);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishProgram/ShowPrgStu.cshtml", programs);
+            }
         }
 
         // END OF STUDENT ACTION
@@ -393,8 +708,15 @@ namespace StudentActivity.Controllers
                 club = clubs
             };
 
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicProgram/RequestProgramForm.cshtml", viewModels);
+            }
 
-            return View("RequestProgramForm", viewModels);
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishProgram/RequestProgramForm.cshtml", viewModels);
+            }
         }
 
         [HttpPost]
@@ -404,16 +726,34 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            if (!ModelState.IsValid)
+            if (language.Equals("ar"))
             {
-                var viewModels = new ProgramViewModel()
+                if (!ModelState.IsValid)
                 {
-                    program = new Program(),
-                    club = _context.Clubs.ToList()
-                };
+                    var viewModels = new ProgramViewModel()
+                    {
+                        program = new Program(),
+                        club = _context.Clubs.ToList()
+                    };
 
-                return View("RequestProgramForm", viewModels);
+                    return View("~/Views/ArabicViews/ArabicProgram/RequestProgramForm.cshtml", viewModels);
+                }
             }
+
+            else
+            {
+                if (!ModelState.IsValid)
+                {
+                    var viewModels = new ProgramViewModel()
+                    {
+                        program = new Program(),
+                        club = _context.Clubs.ToList()
+                    };
+
+                    return View("~/Views/EnglishViews/EnglishProgram/RequestProgramForm.cshtml", viewModels);
+                }
+            }
+
             // To retrieve a program
 
             if (program.Id == 0)
@@ -450,7 +790,16 @@ namespace StudentActivity.Controllers
             ChangingLanguageFunction(language);
 
             var program = _context.Programs.Include(c => c.Club).SingleOrDefault(p => p.Id == id);
-            return View(program);
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicProgram/ProgramDetails.cshtml", program);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishProgram/ProgramDetails.cshtml", program);
+            }
         }
 
         // END OF SHARED ACTIONS

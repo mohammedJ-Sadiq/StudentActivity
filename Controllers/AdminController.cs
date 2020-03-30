@@ -31,7 +31,16 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            return View();
+            if (language.Equals("ar"))
+            {
+                return View();
+            }
+
+            else 
+            {
+                return View();
+            }
+            
         }
         
         // To Save the value of eligibility check box in eligilble list

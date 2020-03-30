@@ -1,0 +1,29 @@
+﻿@model StudentActivity.Models.Student_Program
+@{
+    ViewBag.Title = "RegistrationFormAdmin";
+    Layout = "~/Views/Shared/EnglishLayout/ParameterIdLayout/_AdminPIdLayout.cshtml";
+}
+
+<h2></h2>
+
+
+@using (Html.BeginForm("SaveFromAdmin", "Program"))
+{
+    <div class="form-group">
+        @StudentActivity.Resources.Language.Student_Id
+        @Html.TextBoxFor(m => m.StudentId, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StudentId)
+    </div>
+
+    @Html.HiddenFor(m => m.ProgramId)
+    @Html.AntiForgeryToken()
+
+    <button type="submit" class="btn btn-primary">
+        @StudentActivity.Resources.Language.Save
+    </button>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

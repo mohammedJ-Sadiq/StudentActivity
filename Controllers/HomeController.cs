@@ -15,11 +15,24 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            if (User.IsInRole("CanManagePrograms"))
-                return View("AdminHome");
-            else if (User.IsInRole("CanManageClubs"))
-                return View("ClubCorHome");
-            return View("StudentHome");
+            if (language.Equals("ar"))
+            {
+                if (User.IsInRole("CanManagePrograms"))
+                    return View("~/Views/ArabicViews/ArabicHome/AdminHome.cshtml");
+                else if (User.IsInRole("CanManageClubs"))
+                    return View("~/Views/ArabicViews/ArabicHome/ClubCorHome.cshtml");
+                return View("~/Views/ArabicViews/ArabicHome/StudentHome.cshtml");
+            }
+
+            else
+            {
+                if (User.IsInRole("CanManagePrograms"))
+                    return View("~/Views/EnglishViews/EnglishHome/AdminHome.cshtml");
+                else if (User.IsInRole("CanManageClubs"))
+                    return View("~/Views/EnglishViews/EnglishHome/ClubCorHome.cshtml");
+                return View("~/Views/EnglishViews/EnglishHome/StudentHome.cshtml");
+            }
+            
         }
 
         [AllowAnonymous]
@@ -27,14 +40,30 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            return View();
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicHome/Index.cshtml");
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishHome/Index.cshtml");
+            }
         }
 
         public ActionResult StudentHome(string language)
         {
             ChangingLanguageFunction(language);
 
-            return View();
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicHome/StudentHome.cshtml");
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishHome/StudentHome.cshtml");
+            }
         }
 
         [Authorize(Roles = "CanManagePrograms")]
@@ -42,7 +71,15 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            return View();
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicHome/AdminHome.cshtml");
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishHome/AdminHome.cshtml");
+            }
         }
 
         [Authorize(Roles ="CanManageClubs")]
@@ -50,7 +87,15 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            return View();
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicHome/ClubCorHome.cshtml");
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishHome/ClubCorHome.cshtml");
+            }
         }
 
 
@@ -60,7 +105,15 @@ namespace StudentActivity.Controllers
 
             ViewBag.Message = StudentActivity.Resources.Language.About_page;
 
-            return View();
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicHome/About.cshtml");
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishHome/About.cshtml");
+            }
         }
 
         public ActionResult Contact(string language)
@@ -69,7 +122,15 @@ namespace StudentActivity.Controllers
 
             ViewBag.Message = StudentActivity.Resources.Language.Contact_page;
 
-            return View();
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicHome/Contact.cshtml");
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishHome/Contact.cshtml");
+            }
         }
 
         public void ChangingLanguageFunction(string language)

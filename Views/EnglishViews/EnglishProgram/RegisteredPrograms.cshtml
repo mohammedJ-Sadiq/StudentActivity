@@ -1,0 +1,63 @@
+﻿
+@model IEnumerable<StudentActivity.Models.Program>
+
+@{
+    ViewBag.Title = "Programs";
+    Layout = "~/Views/Shared/EnglishLayout/_EnglishAdminLayout.cshtml";
+}
+
+<h2></h2>
+
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            @StudentActivity.Resources.Language.Title
+        </th>
+        <th>
+            @StudentActivity.Resources.Language.Time
+        </th>
+        <th>
+            @StudentActivity.Resources.Language.StartDate
+        </th>
+        <th>
+            @StudentActivity.Resources.Language.EndDate
+        </th>
+        <th>
+            @StudentActivity.Resources.Language.MaximumStudentNumber
+        </th>
+        <th>
+            @StudentActivity.Resources.Language.Club_Name
+        </th>
+        <th></th>
+
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @item.Title
+    </td>
+    <td>
+        @item.Time
+    </td>
+    <td>
+        @item.StartDate
+    </td>
+    <td>
+        @item.EndDate
+    </td>
+    <td>
+        @item.MaximumStudentNumber
+    </td>
+    <td>
+        @item.Club.Name
+    </td>
+    <td>
+        @Html.ActionLink(@StudentActivity.Resources.Language.Students_List, "EligibleList", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
+    </td>
+
+</tr>
+}
+
+</table>

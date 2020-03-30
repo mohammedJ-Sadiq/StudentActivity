@@ -1,0 +1,32 @@
+﻿@model StudentActivity.Models.Club
+@{
+    ViewBag.Title = "ClubForm";
+    Layout = "~/Views/Shared/EnglishLayout/ParameterIdLayout/_AdminPIdLayout.cshtml";
+}
+
+<h2></h2>
+
+@using (Html.BeginForm("SaveClub", "Club"))
+{
+
+    <div class="form-group">
+        @StudentActivity.Resources.Language.Club_Name
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    <div class="form-group">
+        @StudentActivity.Resources.Language.Student_Id
+        @Html.TextBoxFor(m => m.StudentId, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StudentId)
+    </div>
+    @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">
+        @StudentActivity.Resources.Language.Save
+    </button>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
