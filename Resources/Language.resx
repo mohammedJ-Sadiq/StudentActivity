@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="About page" xml:space="preserve">
+    <value>Your application description page.</value>
+  </data>
+  <data name="Add New Club" xml:space="preserve">
+    <value>Add New Club</value>
+  </data>
+  <data name="Add New Program" xml:space="preserve">
+    <value>Add New Program</value>
+  </data>
+  <data name="Add Student" xml:space="preserve">
+    <value>Add Student</value>
+  </data>
+  <data name="Added student already registerd in program" xml:space="preserve">
+    <value>The student you are trying to register a program for him is already registered in that program.</value>
+  </data>
+  <data name="AdminHome" xml:space="preserve">
+    <value>Admin Home Page</value>
+  </data>
+  <data name="AdminHome_can_do_1" xml:space="preserve">
+    <value>You can create and manage all programs</value>
+  </data>
+  <data name="AdminHome_can_do_2" xml:space="preserve">
+    <value>You can see the student list for a program</value>
+  </data>
+  <data name="AdminHome_can_do_3" xml:space="preserve">
+    <value>You can manage the eligiblity of students</value>
+  </data>
+  <data name="AdminHome_can_do_4" xml:space="preserve">
+    <value>You can Manage create and manage the clubs</value>
+  </data>
+  <data name="AdminHome_can_do_5" xml:space="preserve">
+    <value>You can approve or reject any requested program from club coordinator</value>
+  </data>
+  <data name="Already a member of the club" xml:space="preserve">
+    <value>The Club you are trying to join, you are already member of it!</value>
+  </data>
+  <data name="already registered" xml:space="preserve">
+    <value>You are already registered in this program</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="Approve program confirmation" xml:space="preserve">
+    <value>Are you sure you want to approve this program?</value>
+  </data>
+  <data name="Available Programs" xml:space="preserve">
+    <value>Available Programs</value>
+  </data>
+  <data name="Choose a program to register" xml:space="preserve">
+    <value>Choose a program to register in</value>
+  </data>
+  <data name="Club already Exist" xml:space="preserve">
+    <value>The Club you are trying to add is already Exist!</value>
+  </data>
+  <data name="Club Name" xml:space="preserve">
+    <value>Club Name</value>
+  </data>
+  <data name="ClubCorHome" xml:space="preserve">
+    <value>Club Coordinator Home Page</value>
+  </data>
+  <data name="ClubCorHome_can_do_1" xml:space="preserve">
+    <value>You can Request programs that can be approved later by the admin</value>
+  </data>
+  <data name="ClubId" xml:space="preserve">
+    <value>Club</value>
+  </data>
+  <data name="Clubs" xml:space="preserve">
+    <value>Clubs</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>ConfirmPassword</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Contact page" xml:space="preserve">
+    <value>Your contact page.</value>
+  </data>
+  <data name="Coordinator" xml:space="preserve">
+    <value>Coordinator</value>
+  </data>
+  <data name="Create a new account." xml:space="preserve">
+    <value>Create a new account.</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Delete field" xml:space="preserve">
+    <value>Delete field</value>
+  </data>
+  <data name="Delete Program" xml:space="preserve">
+    <value>Delete Program</value>
+  </data>
+  <data name="Delete Program Confirmation" xml:space="preserve">
+    <value>Are you sure you want to delete this Program ?</value>
+  </data>
+  <data name="DeleteConfirmation" xml:space="preserve">
+    <value>Are you sure you want to delete this field ?</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>EndDate</value>
+  </data>
+  <data name="Enter Student Name" xml:space="preserve">
+    <value>Enter Student Name:</value>
+  </data>
+  <data name="Enter the date of the program" xml:space="preserve">
+    <value>Enter the date of the program:</value>
+  </data>
+  <data name="Enter the lecturer name" xml:space="preserve">
+    <value>Enter the lecturer name:</value>
+  </data>
+  <data name="Enter the title of the program" xml:space="preserve">
+    <value>Enter the title of the program:</value>
+  </data>
+  <data name="Error occured" xml:space="preserve">
+    <value>An error has occurred.</value>
+  </data>
+  <data name="External login removed" xml:space="preserve">
+    <value>The external login was removed.</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hello</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Invalid code" xml:space="preserve">
+    <value>Invalid code.</value>
+  </data>
+  <data name="Invalid login" xml:space="preserve">
+    <value>Invalid login attempt.</value>
+  </data>
+  <data name="IsEligible" xml:space="preserve">
+    <value>IsEligible</value>
+  </data>
+  <data name="Join Club" xml:space="preserve">
+    <value>Join a Club</value>
+  </data>
+  <data name="JUC Activities Website" xml:space="preserve">
+    <value>Jubail University College Activities Website</value>
+  </data>
+  <data name="JUC intro" xml:space="preserve">
+    <value>This Website is going to allow the student to register for programs, and print them later on.</value>
+  </data>
+  <data name="Leave Club" xml:space="preserve">
+    <value>Leave Club</value>
+  </data>
+  <data name="leave this club" xml:space="preserve">
+    <value>Are you sure you want to leave this club</value>
+  </data>
+  <data name="local account to log in" xml:space="preserve">
+    <value>Use a local account to log in.</value>
+  </data>
+  <data name="Log in" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Log Off" xml:space="preserve">
+    <value>Log Off</value>
+  </data>
+  <data name="MaximumStudentNumber" xml:space="preserve">
+    <value>MaximumStudentNumber</value>
+  </data>
+  <data name="MobileNo" xml:space="preserve">
+    <value>MobileNo</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="No available programs" xml:space="preserve">
+    <value>There are no available programs</value>
+  </data>
+  <data name="No pending programs" xml:space="preserve">
+    <value>There Are no pending programs</value>
+  </data>
+  <data name="No programs registered" xml:space="preserve">
+    <value>There are no programs registered yet!</value>
+  </data>
+  <data name="No student registered" xml:space="preserve">
+    <value>There are no student registered in this program</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Password has been changed" xml:space="preserve">
+    <value>Your password has been changed.</value>
+  </data>
+  <data name="Password has been set" xml:space="preserve">
+    <value>Your password has been set.</value>
+  </data>
+  <data name="Password Register" xml:space="preserve">
+    <value>Password: (Requires one Capital letter, one small letter, one special character and numbers)</value>
+  </data>
+  <data name="Pending Programs" xml:space="preserve">
+    <value>Pending Programs</value>
+  </data>
+  <data name="Phone number added" xml:space="preserve">
+    <value>Your phone number was added.</value>
+  </data>
+  <data name="Phone number removed" xml:space="preserve">
+    <value>Your phone number was removed.</value>
+  </data>
+  <data name="Program already added" xml:space="preserve">
+    <value>The program you are 
+trying to add is already added</value>
+  </data>
+  <data name="Programs" xml:space="preserve">
+    <value>Programs</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Register as a new user" xml:space="preserve">
+    <value>Register as a new user</value>
+  </data>
+  <data name="Registered Programs" xml:space="preserve">
+    <value>Registered Programs</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Reject</value>
+  </data>
+  <data name="Reject program confirmation" xml:space="preserve">
+    <value>Are you sure you want to reject this program?</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>RememberMe</value>
+  </data>
+  <data name="Request Programs" xml:space="preserve">
+    <value>Request Programs</value>
+  </data>
+  <data name="Requested Programs" xml:space="preserve">
+    <value>Requested Programs</value>
+  </data>
+  <data name="Retrieve a program" xml:space="preserve">
+    <value>Retrieve a program</value>
+  </data>
+  <data name="Retrieve program already available" xml:space="preserve">
+    <value>The program you are 
+trying to retrieve is already avaliable</value>
+  </data>
+  <data name="Retrieve program not exist" xml:space="preserve">
+    <value>The program you are 
+trying to retrieve does not exist</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Select a Club" xml:space="preserve">
+    <value>Select a Club</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>StartDate</value>
+  </data>
+  <data name="Student already registered in program" xml:space="preserve">
+    <value>You are already registered in this program</value>
+  </data>
+  <data name="Student Id" xml:space="preserve">
+    <value>Student Id</value>
+  </data>
+  <data name="Student Name" xml:space="preserve">
+    <value>Student Name</value>
+  </data>
+  <data name="Student not registerd in website" xml:space="preserve">
+    <value>The student has not registered in the website yet!</value>
+  </data>
+  <data name="Student's Activity" xml:space="preserve">
+    <value>Student's Activity</value>
+  </data>
+  <data name="StudentHome" xml:space="preserve">
+    <value>StudentHome</value>
+  </data>
+  <data name="StudentHome_can_do_1" xml:space="preserve">
+    <value>You can register in any available program</value>
+  </data>
+  <data name="StudentHome_can_do_2" xml:space="preserve">
+    <value>You can view all registered programs</value>
+  </data>
+  <data name="StudentHome_can_do_3" xml:space="preserve">
+    <value>You can join a club</value>
+  </data>
+  <data name="StudentHome_can_do_4" xml:space="preserve">
+    <value>You can print a certificate for any completed program</value>
+  </data>
+  <data name="Students List" xml:space="preserve">
+    <value>Students List</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Two-factor authentication provider has been set" xml:space="preserve">
+    <value>Your two-factor authentication provider has been set.</value>
+  </data>
+  <data name="Verify phone failed" xml:space="preserve">
+    <value>Failed to verify phone</value>
+  </data>
+  <data name="Water Mark Certificate" xml:space="preserve">
+    <value>Water Mark a Certificate</value>
+  </data>
+</root>

@@ -7,6 +7,8 @@ using StudentActivity.Models;
 using System.Data.Entity;
 using StudentActivity.ViewModel;
 using System.Data.Entity.Infrastructure;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -18,8 +20,8 @@ namespace StudentActivity.Controllers
     public class ClubController : Controller
     {
         // GET: Club
-        string DeleteMsgContent = "Are you sure you want to delete this field ?";
-        string DeleteMsgTitle = "Delete field";
+        string DeleteMsgContent = StudentActivity.Resources.Language.DeleteConfirmation;
+        string DeleteMsgTitle = StudentActivity.Resources.Language.Delete_field;
         MessageBoxButtons DeleteMsgButtons = MessageBoxButtons.YesNo;
 
         private ApplicationDbContext _context;
@@ -68,15 +70,19 @@ namespace StudentActivity.Controllers
         // ADMIN ACTIONS
 
         [Authorize(Roles = "CanManagePrograms")]
-        public ActionResult Index()
+        public ActionResult Index(string language)
         {
+            ChangingLanguageFunction(language);
+            
             var clubs = _context.Clubs.Include(c => c.Student).ToList();
             return View(clubs);
         }
 
         [Authorize(Roles = "CanManagePrograms")]
-        public ActionResult AddClub()
+        public ActionResult AddClub(string language)
         {
+            ChangingLanguageFunction(language);
+
             var Club = new Club();
 
             return View("ClubForm",Club);
@@ -85,8 +91,10 @@ namespace StudentActivity.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "CanManagePrograms")]
-        public async Task<ActionResult> SaveClub(Club club)
+        public async Task<ActionResult> SaveClub(Club club, string language)
         {
+            ChangingLanguageFunction(language);
+
             if (!ModelState.IsValid)
             {
                 var Club = new Club();
@@ -119,16 +127,17 @@ namespace StudentActivity.Controllers
             }
             catch (DbUpdateException)
             {
-                MessageBox.Show("The Club you are " +
-                    "trying to add is already Exist");
+                MessageBox.Show(StudentActivity.Resources.Language.Club_already_Exist);
             }
 
             return RedirectToAction("Index", "Club");
         }
 
         [Authorize(Roles = "CanManagePrograms")]
-        public ActionResult EditClub(int id)
+        public ActionResult EditClub(int id, string language)
         {
+            ChangingLanguageFunction(language);
+
             var club = _context.Clubs.Include(s =>s.Student).SingleOrDefault(c => c.Id == id);
             if (club == null)
             {
@@ -140,8 +149,10 @@ namespace StudentActivity.Controllers
 
         // To let the admin delete a club permanently - not only from view
         [Authorize(Roles = "CanManagePrograms")]
-        public ActionResult DeleteClub(int id)
+        public ActionResult DeleteClub(int id, string language)
         {
+            ChangingLanguageFunction(language);
+
             var club = _context.Clubs.SingleOrDefault(c => c.Id == id);
             DialogResult result = MessageBox.Show(DeleteMsgContent, DeleteMsgTitle, DeleteMsgButtons);
             if (result == DialogResult.Yes)
@@ -156,8 +167,10 @@ namespace StudentActivity.Controllers
         
     // STUDENT ACTIONS
 
-        public ActionResult AddStuClubs()
+        public ActionResult AddStuClubs(string language)
         {
+            ChangingLanguageFunction(language);
+
             var clubs = _context.Clubs.ToList();
             //var studentId = Session["Id"].ToString();
             var viewModels = new StudentClubViewModel()
@@ -170,8 +183,10 @@ namespace StudentActivity.Controllers
         }
 
         [ValidateAntiForgeryToken]
-        public ActionResult SaveStuClub(Student_Club studentClub)
+        public ActionResult SaveStuClub(Student_Club studentClub, string language)
         {
+            ChangingLanguageFunction(language);
+
             if (!ModelState.IsValid)
             {
                 var clubs = _context.Clubs.ToList();
@@ -190,29 +205,31 @@ namespace StudentActivity.Controllers
             }
             catch (DbUpdateException)
             {
-                MessageBox.Show("The club you are " +
-                    "trying to join,\nyou are already part of it", "Existence Error");
+                MessageBox.Show(StudentActivity.Resources.Language.Already_a_member_of_the_club, "Existence Error");
             }
 
             return RedirectToAction("ShowClubs", "Club");
         }
 
         // To show all clubs registered by a specific student
-        public ActionResult ShowClubs()
+        public ActionResult ShowClubs(string language)
         {
+            ChangingLanguageFunction(language);
+
             var id = Session["Id"].ToString();
             var clubs = _context.StudentClubs.Include(c => c.Club).Where(s => s.StudentId == id);
             return View("ShowClubs", clubs);
         }
 
-        public ActionResult DeleteStuClub(String studentId, int clubId)
+        public ActionResult DeleteStuClub(String studentId, int clubId, string language)
         {
+            ChangingLanguageFunction(language);
+
             var studentClub = _context.StudentClubs.Where
                 (s => s.StudentId == studentId)
                 .Single(c => c.ClubId == clubId);
 
-            DialogResult result = MessageBox.Show("Are you sure " +
-                " you want to leave this club", DeleteMsgTitle, DeleteMsgButtons);
+            DialogResult result = MessageBox.Show(StudentActivity.Resources.Language.leave_this_club, DeleteMsgTitle, DeleteMsgButtons);
             if (result == DialogResult.Yes)
             {
                 _context.StudentClubs.Remove(studentClub);
@@ -223,7 +240,19 @@ namespace StudentActivity.Controllers
         }
 
         // END OF STUDENT ACTIONS
+        public void ChangingLanguageFunction(string language)
+        {
+            if (!string.IsNullOrEmpty(language))
+            {
+                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
 
+                HttpCookie cookie = new HttpCookie("Languages");
+                cookie.Value = language;
+                Response.Cookies.Add(cookie);
+            }
+
+        }
 
     }
 }

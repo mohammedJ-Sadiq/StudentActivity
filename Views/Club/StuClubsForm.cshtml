@@ -16,14 +16,14 @@ else
 {
 
     <div class="form-group">
-        @Html.LabelFor(m => m.StudentClub.ClubId)
-        @Html.DropDownListFor(m => m.StudentClub.ClubId, new SelectList(Model.Clubs, "Id", "Name"), "Select a Club", new { @class = "form-control" })
+        @StudentActivity.Resources.Language.ClubId
+        @Html.DropDownListFor(m => m.StudentClub.ClubId, new SelectList(Model.Clubs, "Id", "Name"), @StudentActivity.Resources.Language.Select_a_Club, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.StudentClub.ClubId)
     </div>
     @Html.HiddenFor(m => m.StudentClub.StudentId)
     @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">
-        Save
+        @StudentActivity.Resources.Language.Save
     </button>
 }
 

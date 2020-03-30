@@ -1,7 +1,7 @@
 ﻿@model StudentActivity.Models.Club
 @{
     ViewBag.Title = "ClubForm";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/EditLayout/_AdminEditLayout.cshtml";
 }
 
 <h2></h2>
@@ -10,19 +10,19 @@
 {
 
     <div class="form-group">
-        @Html.LabelFor(m => m.Name)
+        StudentActivity.Resources.Language.Name
         @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Name)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.StudentId)
+        StudentActivity.Resources.Language.StudentId
         @Html.TextBoxFor(m => m.StudentId, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.StudentId)
     </div>
     @Html.HiddenFor(m => m.Id)
     @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">
-        Save
+        @StudentActivity.Resources.Language.Save
     </button>
 }
 

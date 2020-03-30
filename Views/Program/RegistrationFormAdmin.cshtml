@@ -1,7 +1,7 @@
 ﻿@model StudentActivity.Models.Student_Program
 @{
     ViewBag.Title = "RegistrationFormAdmin";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/EditLayout/_AdminEditLayout.cshtml";
 }
 
 <h2></h2>
@@ -10,7 +10,7 @@
 @using (Html.BeginForm("SaveFromAdmin", "Program"))
 {
     <div class="form-group">
-        @Html.LabelFor(m => m.StudentId)
+        @StudentActivity.Resources.Language.Student_Id
         @Html.TextBoxFor(m => m.StudentId, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.StudentId)
     </div>
@@ -19,7 +19,7 @@
     @Html.AntiForgeryToken()
 
     <button type="submit" class="btn btn-primary">
-        Save
+        @StudentActivity.Resources.Language.Save
     </button>
 }
 

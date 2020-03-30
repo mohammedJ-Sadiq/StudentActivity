@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -60,8 +61,10 @@ namespace StudentActivity.Controllers
         //
         // GET: /Account/Login
         [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
+        public ActionResult Login(string returnUrl, string language)
         {
+            ChangingLanguageFunction(language);
+
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -71,8 +74,10 @@ namespace StudentActivity.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl, string language)
         {
+            ChangingLanguageFunction(language);
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -92,7 +97,7 @@ namespace StudentActivity.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", StudentActivity.Resources.Language.Invalid_login);
                     return View(model);
             }
             
@@ -101,8 +106,10 @@ namespace StudentActivity.Controllers
         //
         // GET: /Account/VerifyCode
         [AllowAnonymous]
-        public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
+        public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe, string language)
         {
+            ChangingLanguageFunction(language);
+
             // Require that the user has already logged in via username/password or external login
             if (!await SignInManager.HasBeenVerifiedAsync())
             {
@@ -116,8 +123,10 @@ namespace StudentActivity.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> VerifyCode(VerifyCodeViewModel model)
+        public async Task<ActionResult> VerifyCode(VerifyCodeViewModel model, string language)
         {
+            ChangingLanguageFunction(language);
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -136,7 +145,7 @@ namespace StudentActivity.Controllers
                     return View("Lockout");
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid code.");
+                    ModelState.AddModelError("", StudentActivity.Resources.Language.Invalid_code);
                     return View(model);
             }
         }
@@ -144,8 +153,10 @@ namespace StudentActivity.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
-        public ActionResult Register()
+        public ActionResult Register(string language)
         {
+            ChangingLanguageFunction(language);
+
             return View();
         }
 
@@ -154,8 +165,10 @@ namespace StudentActivity.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model, string language)
         {
+            ChangingLanguageFunction(language);
+
             if (ModelState.IsValid)
             {
                
@@ -207,8 +220,10 @@ namespace StudentActivity.Controllers
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
-        public async Task<ActionResult> ConfirmEmail(string userId, string code)
+        public async Task<ActionResult> ConfirmEmail(string userId, string code, string language)
         {
+            ChangingLanguageFunction(language);
+
             if (userId == null || code == null)
             {
                 return View("Error");
@@ -220,8 +235,10 @@ namespace StudentActivity.Controllers
         //
         // GET: /Account/ForgotPassword
         [AllowAnonymous]
-        public ActionResult ForgotPassword()
+        public ActionResult ForgotPassword(string language)
         {
+            ChangingLanguageFunction(language);
+
             return View();
         }
 
@@ -230,8 +247,10 @@ namespace StudentActivity.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model, string language)
         {
+            ChangingLanguageFunction(language);
+
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindByNameAsync(model.Email);
@@ -256,16 +275,20 @@ namespace StudentActivity.Controllers
         //
         // GET: /Account/ForgotPasswordConfirmation
         [AllowAnonymous]
-        public ActionResult ForgotPasswordConfirmation()
+        public ActionResult ForgotPasswordConfirmation(string language)
         {
+            ChangingLanguageFunction(language);
+
             return View();
         }
 
         //
         // GET: /Account/ResetPassword
         [AllowAnonymous]
-        public ActionResult ResetPassword(string code)
+        public ActionResult ResetPassword(string code, string language)
         {
+            ChangingLanguageFunction(language);
+
             return code == null ? View("Error") : View();
         }
 
@@ -274,8 +297,10 @@ namespace StudentActivity.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
+        public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model, string language)
         {
+            ChangingLanguageFunction(language);
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -298,8 +323,10 @@ namespace StudentActivity.Controllers
         //
         // GET: /Account/ResetPasswordConfirmation
         [AllowAnonymous]
-        public ActionResult ResetPasswordConfirmation()
+        public ActionResult ResetPasswordConfirmation(string language)
         {
+            ChangingLanguageFunction(language);
+
             return View();
         }
 
@@ -308,8 +335,10 @@ namespace StudentActivity.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult ExternalLogin(string provider, string returnUrl)
+        public ActionResult ExternalLogin(string provider, string returnUrl, string language)
         {
+            ChangingLanguageFunction(language);
+
             // Request a redirect to the external login provider
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
@@ -317,8 +346,10 @@ namespace StudentActivity.Controllers
         //
         // GET: /Account/SendCode
         [AllowAnonymous]
-        public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
+        public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe, string language)
         {
+            ChangingLanguageFunction(language);
+
             var userId = await SignInManager.GetVerifiedUserIdAsync();
             if (userId == null)
             {
@@ -334,8 +365,10 @@ namespace StudentActivity.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> SendCode(SendCodeViewModel model)
+        public async Task<ActionResult> SendCode(SendCodeViewModel model, string language)
         {
+            ChangingLanguageFunction(language);
+
             if (!ModelState.IsValid)
             {
                 return View();
@@ -352,8 +385,10 @@ namespace StudentActivity.Controllers
         //
         // GET: /Account/ExternalLoginCallback
         [AllowAnonymous]
-        public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
+        public async Task<ActionResult> ExternalLoginCallback(string returnUrl, string language)
         {
+            ChangingLanguageFunction(language);
+
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
             if (loginInfo == null)
             {
@@ -384,8 +419,10 @@ namespace StudentActivity.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
+        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl, string language)
         {
+            ChangingLanguageFunction(language);
+
             if (User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Index", "Manage");
@@ -420,8 +457,10 @@ namespace StudentActivity.Controllers
         //
         // POST: /Account/LogOff
         
-        public ActionResult LogOff()
+        public ActionResult LogOff(string language)
         {
+            ChangingLanguageFunction(language);
+
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             Session.Abandon();
             return RedirectToAction("Index", "Home");
@@ -430,8 +469,10 @@ namespace StudentActivity.Controllers
         //
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]
-        public ActionResult ExternalLoginFailure()
+        public ActionResult ExternalLoginFailure(string language)
         {
+            ChangingLanguageFunction(language);
+
             return View();
         }
 
@@ -454,7 +495,19 @@ namespace StudentActivity.Controllers
 
             base.Dispose(disposing);
         }
+        public void ChangingLanguageFunction(string language)
+        {
+            if (!string.IsNullOrEmpty(language))
+            {
+                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
 
+                HttpCookie cookie = new HttpCookie("Languages");
+                cookie.Value = language;
+                Response.Cookies.Add(cookie);
+            }
+
+        }
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";

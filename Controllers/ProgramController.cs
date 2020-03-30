@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Windows.Forms;
@@ -18,8 +20,8 @@ namespace StudentActivity.Controllers
         private ApplicationDbContext _context;
 
         // Attributes of delete pop warning message box 
-        string DeleteMsgContent = "Are you sure you want to delete this Program ?";
-        string DeleteMsgTitle = "Delete Program";
+        string DeleteMsgContent = StudentActivity.Resources.Language.Delete_Program_Confirmation;
+        string DeleteMsgTitle = StudentActivity.Resources.Language.Delete_Program;
         MessageBoxButtons DeleteMsgButtons = MessageBoxButtons.YesNo;
 
         public ProgramController()
@@ -34,24 +36,29 @@ namespace StudentActivity.Controllers
     // ADMIN ACTIONS   
 
         [Authorize(Roles ="CanManagePrograms")]
-        public ActionResult Index()
+        public ActionResult Index(string language)
         {
-            
+            ChangingLanguageFunction(language);
+
             var programs = _context.Programs.Include(p =>p.Club).ToList().Where(p => p.IsDeleted == false).Where(p => p.IsVisible == true);
 
             return View(programs);
         }
 
         [Authorize(Roles = "CanManagePrograms")]
-        public ActionResult RegisteredPrograms()
+        public ActionResult RegisteredPrograms(string language)
         {
+            ChangingLanguageFunction(language);
+
             var eligList = _context.Programs.Include(c => c.Club).ToList().Where(p => p.IsDeleted == false).Where(p => p.IsVisible == true);
             return View(eligList);
         }
 
         [Authorize(Roles = "CanManagePrograms")]
-        public ActionResult EligibleList(int id)
+        public ActionResult EligibleList(int id, string language)
         {
+            ChangingLanguageFunction(language);
+
             var students = _context.StudentPrograms.Include(s => s.Student).Where(p => p.ProgramId == id);
             return View(students);
         }
@@ -61,8 +68,10 @@ namespace StudentActivity.Controllers
         // To add new student registered manually from the admin
 
         [Authorize(Roles = "CanManagePrograms")]
-        public ActionResult RegistrationFromAdmin(int id)
+        public ActionResult RegistrationFromAdmin(int id, string language)
         {
+            ChangingLanguageFunction(language);
+
             var StudentPrograms = new Student_Program(id);
             
             return View("RegistrationFormAdmin", StudentPrograms);
@@ -72,8 +81,10 @@ namespace StudentActivity.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "CanManagePrograms")]
-        public ActionResult SaveFromAdmin(Student_Program studentProgram)
+        public ActionResult SaveFromAdmin(Student_Program studentProgram, string language)
         {
+            ChangingLanguageFunction(language);
+
             if (!ModelState.IsValid)
             {
                 var StudentPrograms = new Student_Program(studentProgram.ProgramId);
@@ -87,9 +98,7 @@ namespace StudentActivity.Controllers
             }
             catch (DbUpdateException)
             {
-                MessageBox.Show("The student you are " +
-                    "trying to register a program\nfor him is already registered in that program.\n\n" +
-                    "Or This student did not register in the website","Existence Error");
+                MessageBox.Show(StudentActivity.Resources.Language.Added_student_already_registerd_in_program + StudentActivity.Resources.Language.Student_not_registerd_in_website, "Existence Error");
             }
 
             return RedirectToAction("EligibleList", "Program", new {id = studentProgram.ProgramId });
@@ -97,8 +106,10 @@ namespace StudentActivity.Controllers
 
         // To add a new program 
         [Authorize(Roles = "CanManagePrograms")]
-        public ActionResult addProgram()
+        public ActionResult addProgram(string language)
         {
+            ChangingLanguageFunction(language);
+
             var clubs = _context.Clubs.ToList();
             var viewModels = new ProgramViewModel()
             {
@@ -114,8 +125,10 @@ namespace StudentActivity.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "CanManagePrograms")]
-        public ActionResult SavePrg(Program program)
+        public ActionResult SavePrg(Program program, string language)
         {
+            ChangingLanguageFunction(language);
+
             if (!ModelState.IsValid)
             {
                 var viewModels = new ProgramViewModel()
@@ -150,15 +163,16 @@ namespace StudentActivity.Controllers
             }
             catch (DbUpdateException)
             {
-                MessageBox.Show("The program you are " +
-                    "trying to add is already added","Existence Error");
+                MessageBox.Show(StudentActivity.Resources.Language.Program_already_added, "Existence Error");
             }
             return RedirectToAction("Index", "Program");
         }
 
         [Authorize(Roles = "CanManagePrograms")]
-        public ActionResult EditProgram(int id)
+        public ActionResult EditProgram(int id, string language)
         {
+            ChangingLanguageFunction(language);
+
             var program = _context.Programs.SingleOrDefault(p => p.Id == id);
             if (program == null)
             {
@@ -174,8 +188,10 @@ namespace StudentActivity.Controllers
         }
 
         [Authorize(Roles = "CanManagePrograms")]
-        public ActionResult DeleteProgram(int id)
+        public ActionResult DeleteProgram(int id, string language)
         {
+            ChangingLanguageFunction(language);
+
             var program = _context.Programs.Single(p => p.Id == id);
 
             DialogResult result = MessageBox.Show(DeleteMsgContent, DeleteMsgTitle, DeleteMsgButtons);
@@ -190,15 +206,19 @@ namespace StudentActivity.Controllers
         }
 
         [Authorize(Roles = "CanManagePrograms")]
-        public ActionResult RetrievePrg()
+        public ActionResult RetrievePrg(string language)
         {
+            ChangingLanguageFunction(language);
+
             return View();
         }
 
         // To save the program retrieve by admin
         [Authorize(Roles = "CanManagePrograms")]
-        public ActionResult SaveRetrievePrg(Program program)
+        public ActionResult SaveRetrievePrg(Program program, string language)
         {
+            ChangingLanguageFunction(language);
+
             var flag1 = false;
             var flag2 = false;
             foreach (var prg in _context.Programs)
@@ -215,13 +235,11 @@ namespace StudentActivity.Controllers
 
             if (flag1 == false && flag2 == false)
             {
-                MessageBox.Show("The program you are " +
-                    "trying to retrieve does not exist", "Existence Error");
+                MessageBox.Show(StudentActivity.Resources.Language.Retrieve_program_not_exist, "Existence Error");
             }
             else if (flag2 == true)
             {
-                MessageBox.Show("The program you are " +
-                    "trying to retrieve is already available", "Existence Error");
+                MessageBox.Show(StudentActivity.Resources.Language.Retrieve_program_already_available, "Existence Error");
             }
 
             _context.SaveChanges();
@@ -230,20 +248,23 @@ namespace StudentActivity.Controllers
         }
 
         [Authorize(Roles = "CanManagePrograms,CanManageClubs" )]
-        public ActionResult RequestedPrograms()
+        public ActionResult RequestedPrograms(string language)
         {
+            ChangingLanguageFunction(language);
+
             var programs = _context.Programs.Include(p => p.Club).ToList().Where(p => p.IsDeleted == false).Where(p => p.IsVisible == false);
 
             return View(programs);
         }
 
         [Authorize(Roles = "CanManagePrograms")]
-        public ActionResult ApproveProgram(int id)
+        public ActionResult ApproveProgram(int id, string language)
         {
+            ChangingLanguageFunction(language);
+
             var program = _context.Programs.Single(p => p.Id == id);
 
-            DialogResult result = MessageBox.Show("Are you sure you want to approve this program?"
-                                                , "Confirmation Message", DeleteMsgButtons);
+            DialogResult result = MessageBox.Show(StudentActivity.Resources.Language.Approve_program_confirmation, "Confirmation Message", DeleteMsgButtons);
 
             if (result == DialogResult.Yes)
             {
@@ -255,12 +276,13 @@ namespace StudentActivity.Controllers
         }
 
         [Authorize(Roles = "CanManagePrograms")]
-        public ActionResult RejectProgram(int id)
+        public ActionResult RejectProgram(int id, string language)
         {
+            ChangingLanguageFunction(language);
+
             var program = _context.Programs.Single(p => p.Id == id);
 
-            DialogResult result = MessageBox.Show("Are you sure you want to reject this program?"
-                                                , "Confirmation Message", DeleteMsgButtons);
+            DialogResult result = MessageBox.Show(StudentActivity.Resources.Language.Reject_program_confirmation, "Confirmation Message", DeleteMsgButtons);
 
             if (result == DialogResult.Yes)
             {
@@ -275,8 +297,10 @@ namespace StudentActivity.Controllers
     
     // STUDENT ACTIONS
         // To show registered programs for student
-        public ActionResult StuPrograms()
+        public ActionResult StuPrograms(string language)
         {
+            ChangingLanguageFunction(language);
+
             var id = Session["Id"];
             var programs = _context.StudentPrograms.Include(p => p.Program).Include(c => c.Program.Club).Where(s => s.StudentId == id.ToString());
             return View(programs); 
@@ -285,8 +309,10 @@ namespace StudentActivity.Controllers
         
 
         // To let the student register for a program
-        public ActionResult Registration(int programId)
+        public ActionResult Registration(int programId, string language)
         {
+            ChangingLanguageFunction(language);
+
             var studentId = Session["Id"].ToString();
             var StudentPrograms = new Student_Program(programId , studentId);
       
@@ -296,15 +322,17 @@ namespace StudentActivity.Controllers
         // To save new student register for a program
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(Student_Program studentProgram)
+        public ActionResult Save(Student_Program studentProgram, string language)
         {
-           /* if (!ModelState.IsValid)
-            {
+            ChangingLanguageFunction(language);
 
-                var StudentPrograms = new Student_Program();
-                 
-                return View("RegistrationForm", StudentPrograms);
-            }*/
+            /* if (!ModelState.IsValid)
+             {
+
+                 var StudentPrograms = new Student_Program();
+
+                 return View("RegistrationForm", StudentPrograms);
+             }*/
 
             _context.StudentPrograms.Add(studentProgram);
             try
@@ -313,7 +341,7 @@ namespace StudentActivity.Controllers
             }
             catch (DbUpdateException)
             {
-                MessageBox.Show("You are already registered in this program","Existence Error");
+                MessageBox.Show(StudentActivity.Resources.Language.Student_already_registered_in_program, "Existence Error");
                 return RedirectToAction("StuPrograms", "Program");
             }
             
@@ -321,8 +349,10 @@ namespace StudentActivity.Controllers
             return RedirectToAction("StuPrograms", "Program");
         }
 
-        public ActionResult DeleteStuPrg(String studentId, int programId)
+        public ActionResult DeleteStuPrg(String studentId, int programId, string language)
         {
+            ChangingLanguageFunction(language);
+
             var StuPrg = _context.StudentPrograms.Where
                 (s => s.StudentId == studentId)
                 .Single(p => p.ProgramId == programId);
@@ -338,8 +368,10 @@ namespace StudentActivity.Controllers
         }
 
         // Show all available programs for the student
-        public ActionResult ShowPrgStu()
+        public ActionResult ShowPrgStu(string language)
         {
+            ChangingLanguageFunction(language);
+
             var programs = _context.Programs.Include(p => p.Club).ToList().Where(p => p.IsDeleted == false).Where(p => p.IsVisible == true);
 
             return View(programs);
@@ -350,8 +382,10 @@ namespace StudentActivity.Controllers
         // CLUB COORDINATOR ACTIONS
 
         [Authorize(Roles = "CanManageClubs")]
-        public ActionResult RequestProgram()
+        public ActionResult RequestProgram(string language)
         {
+            ChangingLanguageFunction(language);
+
             var clubs = _context.Clubs.ToList();
             var viewModels = new ProgramViewModel()
             {
@@ -366,8 +400,10 @@ namespace StudentActivity.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "CanManageClubs")]
-        public ActionResult SaveReqPrg(Program program)
+        public ActionResult SaveReqPrg(Program program, string language)
         {
+            ChangingLanguageFunction(language);
+
             if (!ModelState.IsValid)
             {
                 var viewModels = new ProgramViewModel()
@@ -409,12 +445,28 @@ namespace StudentActivity.Controllers
         // SHARED ACTIONS
 
         // To show the details of a registered program in the student, admin and club cordinator view
-        public ActionResult ProgramDetails(int id)
+        public ActionResult ProgramDetails(int id, string language)
         {
+            ChangingLanguageFunction(language);
+
             var program = _context.Programs.Include(c => c.Club).SingleOrDefault(p => p.Id == id);
             return View(program);
         }
 
         // END OF SHARED ACTIONS
+
+        public void ChangingLanguageFunction(string language)
+        {
+            if (!string.IsNullOrEmpty(language))
+            {
+                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
+
+                HttpCookie cookie = new HttpCookie("Languages");
+                cookie.Value = language;
+                Response.Cookies.Add(cookie);
+            }
+
+        }
     }
 }

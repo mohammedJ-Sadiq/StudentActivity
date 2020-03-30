@@ -10,7 +10,7 @@
 {
 
     <div class="form-group">
-        @Html.LabelFor(m => m.program.Title)
+        @StudentActivity.Resources.Language.Title)
         @Html.TextBoxFor(m => m.program.Title, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.program.Title)
     </div>
@@ -18,7 +18,7 @@
     @Html.HiddenFor(m => m.program.Id)
     @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">
-        Save
+        @StudentActivity.Resources.Language.Save
     </button>
 }
 

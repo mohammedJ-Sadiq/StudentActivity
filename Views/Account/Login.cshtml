@@ -10,7 +10,7 @@
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h4>Use a local account to log in.</h4>
+                <h4>@StudentActivity.Resources.Language.local_account_to_log_in</h4>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <p>
-                    @Html.ActionLink("Register as a new user", "Register")
+                    @Html.ActionLink(@StudentActivity.Resources.Language.Register_as_a_new_user, "Register")
                 </p>
                 @* Enable this once you have account confirmation enabled for password reset functionality
                     <p>

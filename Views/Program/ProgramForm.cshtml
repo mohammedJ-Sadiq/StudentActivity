@@ -1,12 +1,12 @@
 ﻿@model StudentActivity.ViewModel.ProgramViewModel
 @{
     ViewBag.Title = "ProgramForm";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/EditLayout/_AdminEditLayout.cshtml";
 }
 
 <h2></h2>
 
-@Html.ActionLink("Retrieve a program", "RetrievePrg", "Program", new { @class ="btn btn-retrieve btn-redish"})
+@Html.ActionLink(@StudentActivity.Resources.Language.Retrieve_a_program, "RetrievePrg", "Program", new { @class = "btn btn-retrieve btn-redish" })
 
 <h2></h2>
 
@@ -14,44 +14,44 @@
 {
 
     <div class="form-group">
-        @Html.LabelFor(m => m.program.Title)
+        @StudentActivity.Resources.Language.Title
         @Html.TextBoxFor(m => m.program.Title, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.program.Title)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.program.Time)
+        @StudentActivity.Resources.Language.Time
         @Html.TextBoxFor(m => m.program.Time, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.program.Time)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.program.StartDate)
+        @StudentActivity.Resources.Language.StartDate
         @Html.TextBoxFor(m => m.program.StartDate, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.program.StartDate)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.program.EndDate)
+        @StudentActivity.Resources.Language.EndDate
         @Html.TextBoxFor(m => m.program.EndDate, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.program.EndDate)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.program.MaximumStudentNumber)
+        @StudentActivity.Resources.Language.MaximumStudentNumber
         @Html.TextBoxFor(m => m.program.MaximumStudentNumber, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.program.MaximumStudentNumber)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.program.ClubId)
+        @StudentActivity.Resources.Language.ClubId
         @Html.DropDownListFor(m => m.program.ClubId, new SelectList(Model.club, "Id", "Name"), "Select a Club", new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.program.ClubId)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.program.Description)
+        @StudentActivity.Resources.Language.Description
         @Html.TextAreaFor(m => m.program.Description, new { @class = "form-control" })
     </div>
 
     @Html.HiddenFor(m => m.program.Id)
     @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">
-        Save
+        @StudentActivity.Resources.Language.Save
     </button>
 }
 

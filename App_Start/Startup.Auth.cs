@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Routing;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -22,7 +25,7 @@ namespace StudentActivity
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider
             // Configure the sign in cookie
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
+            /*app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Account/Login"),
@@ -34,7 +37,44 @@ namespace StudentActivity
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
-            });            
+            });    */
+
+
+            UrlHelper url = new UrlHelper(HttpContext.Current.Request.RequestContext);
+
+            CookieAuthenticationProvider provider = new CookieAuthenticationProvider();
+
+            var originalHandler = provider.OnApplyRedirect;
+
+            //Our logic to dynamically modify the path 
+            provider.OnApplyRedirect = context =>
+            {
+                var mvcContext = new HttpContextWrapper(HttpContext.Current);
+                var routeData = RouteTable.Routes.GetRouteData(mvcContext);
+
+                //Get the current language  
+                RouteValueDictionary routeValues = new RouteValueDictionary();
+                routeValues.Add("language", routeData.Values["language"]);
+
+                //Reuse the RetrunUrl
+                Uri uri = new Uri(context.RedirectUri);
+                string returnUrl = HttpUtility.ParseQueryString(uri.Query)[context.Options.ReturnUrlParameter];
+                routeValues.Add(context.Options.ReturnUrlParameter, returnUrl);
+
+                //Overwrite the redirection uri
+                context.RedirectUri = url.Action("Login", "Account", routeValues);
+                originalHandler.Invoke(context);
+            };
+
+            app.UseCookieAuthentication(new CookieAuthenticationOptions
+            {
+                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+                LoginPath = new PathString(url.Action("Login", "Account")),
+                //Set the Provider
+                Provider = provider
+            });
+
+
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             // Enables the application to temporarily store user information when they are verifying the second factor in the two-factor authentication process.

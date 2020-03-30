@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -32,9 +34,9 @@ namespace StudentActivity.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -52,15 +54,17 @@ namespace StudentActivity.Controllers
 
         //
         // GET: /Manage/Index
-        public async Task<ActionResult> Index(ManageMessageId? message)
+        public async Task<ActionResult> Index(ManageMessageId? message, string language)
         {
+            ChangingLanguageFunction(language);
+
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
-                : message == ManageMessageId.Error ? "An error has occurred."
-                : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
-                : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
+                message == ManageMessageId.ChangePasswordSuccess ? StudentActivity.Resources.Language.Password_has_been_changed
+                : message == ManageMessageId.SetPasswordSuccess ? StudentActivity.Resources.Language.Password_has_been_set
+                : message == ManageMessageId.SetTwoFactorSuccess ? StudentActivity.Resources.Language.Two_factor_authentication_provider_has_been_set
+                : message == ManageMessageId.Error ? StudentActivity.Resources.Language.Error_occured
+                : message == ManageMessageId.AddPhoneSuccess ? StudentActivity.Resources.Language.Phone_number_added
+                : message == ManageMessageId.RemovePhoneSuccess ? StudentActivity.Resources.Language.Phone_number_removed
                 : "";
 
             var userId = User.Identity.GetUserId();
@@ -79,8 +83,10 @@ namespace StudentActivity.Controllers
         // POST: /Manage/RemoveLogin
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> RemoveLogin(string loginProvider, string providerKey)
+        public async Task<ActionResult> RemoveLogin(string loginProvider, string providerKey, string language)
         {
+            ChangingLanguageFunction(language);
+
             ManageMessageId? message;
             var result = await UserManager.RemoveLoginAsync(User.Identity.GetUserId(), new UserLoginInfo(loginProvider, providerKey));
             if (result.Succeeded)
@@ -101,8 +107,10 @@ namespace StudentActivity.Controllers
 
         //
         // GET: /Manage/AddPhoneNumber
-        public ActionResult AddPhoneNumber()
+        public ActionResult AddPhoneNumber(string language)
         {
+            ChangingLanguageFunction(language);
+
             return View();
         }
 
@@ -110,8 +118,10 @@ namespace StudentActivity.Controllers
         // POST: /Manage/AddPhoneNumber
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> AddPhoneNumber(AddPhoneNumberViewModel model)
+        public async Task<ActionResult> AddPhoneNumber(AddPhoneNumberViewModel model, string language)
         {
+            ChangingLanguageFunction(language);
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -134,8 +144,10 @@ namespace StudentActivity.Controllers
         // POST: /Manage/EnableTwoFactorAuthentication
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> EnableTwoFactorAuthentication()
+        public async Task<ActionResult> EnableTwoFactorAuthentication(string language)
         {
+            ChangingLanguageFunction(language);
+
             await UserManager.SetTwoFactorEnabledAsync(User.Identity.GetUserId(), true);
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             if (user != null)
@@ -149,8 +161,10 @@ namespace StudentActivity.Controllers
         // POST: /Manage/DisableTwoFactorAuthentication
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DisableTwoFactorAuthentication()
+        public async Task<ActionResult> DisableTwoFactorAuthentication(string language)
         {
+            ChangingLanguageFunction(language);
+
             await UserManager.SetTwoFactorEnabledAsync(User.Identity.GetUserId(), false);
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             if (user != null)
@@ -162,8 +176,10 @@ namespace StudentActivity.Controllers
 
         //
         // GET: /Manage/VerifyPhoneNumber
-        public async Task<ActionResult> VerifyPhoneNumber(string phoneNumber)
+        public async Task<ActionResult> VerifyPhoneNumber(string phoneNumber, string language)
         {
+            ChangingLanguageFunction(language);
+
             var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), phoneNumber);
             // Send an SMS through the SMS provider to verify the phone number
             return phoneNumber == null ? View("Error") : View(new VerifyPhoneNumberViewModel { PhoneNumber = phoneNumber });
@@ -173,8 +189,10 @@ namespace StudentActivity.Controllers
         // POST: /Manage/VerifyPhoneNumber
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> VerifyPhoneNumber(VerifyPhoneNumberViewModel model)
+        public async Task<ActionResult> VerifyPhoneNumber(VerifyPhoneNumberViewModel model, string language)
         {
+            ChangingLanguageFunction(language);
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -190,7 +208,7 @@ namespace StudentActivity.Controllers
                 return RedirectToAction("Index", new { Message = ManageMessageId.AddPhoneSuccess });
             }
             // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "Failed to verify phone");
+            ModelState.AddModelError("", StudentActivity.Resources.Language.Verify_phone_failed);
             return View(model);
         }
 
@@ -198,8 +216,10 @@ namespace StudentActivity.Controllers
         // POST: /Manage/RemovePhoneNumber
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> RemovePhoneNumber()
+        public async Task<ActionResult> RemovePhoneNumber(string language)
         {
+            ChangingLanguageFunction(language);
+
             var result = await UserManager.SetPhoneNumberAsync(User.Identity.GetUserId(), null);
             if (!result.Succeeded)
             {
@@ -215,8 +235,10 @@ namespace StudentActivity.Controllers
 
         //
         // GET: /Manage/ChangePassword
-        public ActionResult ChangePassword()
+        public ActionResult ChangePassword(string language)
         {
+            ChangingLanguageFunction(language);
+
             return View();
         }
 
@@ -224,8 +246,10 @@ namespace StudentActivity.Controllers
         // POST: /Manage/ChangePassword
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ChangePassword(ChangePasswordViewModel model)
+        public async Task<ActionResult> ChangePassword(ChangePasswordViewModel model, string language)
         {
+            ChangingLanguageFunction(language);
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -246,8 +270,10 @@ namespace StudentActivity.Controllers
 
         //
         // GET: /Manage/SetPassword
-        public ActionResult SetPassword()
+        public ActionResult SetPassword(string language)
         {
+            ChangingLanguageFunction(language);
+
             return View();
         }
 
@@ -255,8 +281,10 @@ namespace StudentActivity.Controllers
         // POST: /Manage/SetPassword
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> SetPassword(SetPasswordViewModel model)
+        public async Task<ActionResult> SetPassword(SetPasswordViewModel model, string language)
         {
+            ChangingLanguageFunction(language);
+
             if (ModelState.IsValid)
             {
                 var result = await UserManager.AddPasswordAsync(User.Identity.GetUserId(), model.NewPassword);
@@ -278,11 +306,13 @@ namespace StudentActivity.Controllers
 
         //
         // GET: /Manage/ManageLogins
-        public async Task<ActionResult> ManageLogins(ManageMessageId? message)
+        public async Task<ActionResult> ManageLogins(ManageMessageId? message, string language)
         {
+            ChangingLanguageFunction(language);
+
             ViewBag.StatusMessage =
-                message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
-                : message == ManageMessageId.Error ? "An error has occurred."
+                message == ManageMessageId.RemoveLoginSuccess ? StudentActivity.Resources.Language.External_login_removed
+                : message == ManageMessageId.Error ? StudentActivity.Resources.Language.Error_occured
                 : "";
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             if (user == null)
@@ -303,16 +333,20 @@ namespace StudentActivity.Controllers
         // POST: /Manage/LinkLogin
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult LinkLogin(string provider)
+        public ActionResult LinkLogin(string provider, string language)
         {
+            ChangingLanguageFunction(language);
+
             // Request a redirect to the external login provider to link a login for the current user
             return new AccountController.ChallengeResult(provider, Url.Action("LinkLoginCallback", "Manage"), User.Identity.GetUserId());
         }
 
         //
         // GET: /Manage/LinkLoginCallback
-        public async Task<ActionResult> LinkLoginCallback()
+        public async Task<ActionResult> LinkLoginCallback(string language)
         {
+            ChangingLanguageFunction(language);
+
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync(XsrfKey, User.Identity.GetUserId());
             if (loginInfo == null)
             {
@@ -332,8 +366,20 @@ namespace StudentActivity.Controllers
 
             base.Dispose(disposing);
         }
+        public void ChangingLanguageFunction(string language)
+        {
+            if (!string.IsNullOrEmpty(language))
+            {
+                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
 
-#region Helpers
+                HttpCookie cookie = new HttpCookie("Languages");
+                cookie.Value = language;
+                Response.Cookies.Add(cookie);
+            }
+
+        }
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -384,6 +430,6 @@ namespace StudentActivity.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }

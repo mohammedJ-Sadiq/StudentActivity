@@ -20,14 +20,16 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Available Programs", "ShowPrgStu", "Program")</li>
-                    <li>@Html.ActionLink("Resgistered Programs", "StuPrograms", "Program")</li>
-                    <li>@Html.ActionLink("Clubs", "ShowClubs", "Club")</li>
+                    <li>@Html.ActionLink(StudentActivity.Resources.Language.Available_Programs, "ShowPrgStu", "Program")</li>
+                    <li>@Html.ActionLink(StudentActivity.Resources.Language.Registered_Programs, "StuPrograms", "Program")</li>
+                    <li>@Html.ActionLink(StudentActivity.Resources.Language.Clubs, "ShowClubs", "Club")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li></li>
-                    <li>@Html.ActionLink("Log in", "Login", "Account")</li>
-                    <li>@Html.ActionLink("Register", "Register", "Account")</li>
+                    <li>@Html.ActionLink(StudentActivity.Resources.Language.Log_in, "Login", "Account")</li>
+                    <li>@Html.ActionLink(StudentActivity.Resources.Language.Register, "Register", "Account")</li>
+                    <li>@Html.ActionLink("English", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en" }, null)</li>
+                    <li>@Html.ActionLink("عربي", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "ar" }, null)</li>
                 </ul> 
             </div>
         </div>

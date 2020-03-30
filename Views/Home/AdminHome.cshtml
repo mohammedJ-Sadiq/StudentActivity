@@ -1,27 +1,25 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "AdminHome";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div>
-    <h2>Admin Home Page</h2>
+    <h2>@StudentActivity.Resources.Language.AdminHome</h2>
     <ul>
-        <li >
-            You can create and manage all programs
+        <li>
+            @StudentActivity.Resources.Language.AdminHome_can_do_1
         </li>
         <li>
-            You can see the student list for a program
+            @StudentActivity.Resources.Language.AdminHome_can_do_2
         </li>
         <li>
-            You can manage the eligiblity of students
+            @StudentActivity.Resources.Language.AdminHome_can_do_3
         </li>
         <li>
-            You can Manage create and manage the clubs
+            @StudentActivity.Resources.Language.AdminHome_can_do_4
         </li>
         <li>
-            You can approve or reject any requested program from
-            club coordinator
+            @StudentActivity.Resources.Language.AdminHome_can_do_5
         </li>
     </ul>
     <hr />
@@ -30,4 +28,4 @@
 
 <img class="col-lg-offset-4 col-md-offset-4 col-sm-offset-3
     col-xs-offset-2 col-lg-4 col-md-4 col-sm-6 col-xs-8"
-        alt="Juc logo" src="/images/Juc logo.png" />
+     alt="Juc logo" src="/images/Juc logo.png" />

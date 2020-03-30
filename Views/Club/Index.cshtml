@@ -8,32 +8,33 @@
 <h2></h2>
 
 <p>
-    @Html.ActionLink("+ Add New Club","addClub", "Club",new {@class ="btn btn-blue btn-left" } )
+    @Html.ActionLink("+ " + StudentActivity.Resources.Language.Add_New_Club, "addClub", "Club", new { @class = "btn btn-blue btn-left" })
 </p>
 <table class="table table-striped table-hover">
     <tr>
         <th>
-            Coordinator
+            @StudentActivity.Resources.Language.Coordinator
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @StudentActivity.Resources.Language.Name
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EditClub", "Club", new { id = item.Id }, new { @class = "btn btn-primary" })
-            @Html.ActionLink("Delete", "DeleteClub","Club", new { id = item.Id }, new { @class = "btn btn-primary" })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink(StudentActivity.Resources.Language.Edit, "EditClub", "Club", new { id = item.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink(StudentActivity.Resources.Language.Delete, "DeleteClub", "Club", new { id = item.Id }, new { @class = "btn btn-primary" })
+            </td>
+        </tr>
+    }
 
 </table>

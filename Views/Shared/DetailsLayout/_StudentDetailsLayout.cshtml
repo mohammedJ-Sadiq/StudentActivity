@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using StudentActivity.Resources
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -16,22 +17,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink(" ", "ClubCorHome", "Home", new { area = "" }, new { @class = "navbar-brand fas fa-home fa-lg fa-2x" })
+                @Html.ActionLink(" ", "StudentHome", "Home", new { area = "" }, new { @class = "navbar-brand fas fa-home fa-lg fa-2x" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink(StudentActivity.Resources.Language.Available_Programs, "ShowPrgStu", "Program")</li>
                     <li>@Html.ActionLink(StudentActivity.Resources.Language.Registered_Programs, "StuPrograms", "Program")</li>
                     <li>@Html.ActionLink(StudentActivity.Resources.Language.Clubs, "ShowClubs", "Club")</li>
-                    <li>@Html.ActionLink(StudentActivity.Resources.Language.Request_Programs, "RequestedPrograms", "Program")</li>
                 </ul>
                 <ul class="nav  navbar-right navbar-text">
                     <li class="">@Session["Id"].ToString()</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink(StudentActivity.Resources.Language.Log_Off, "LogOff", "Account")</li>
-                    <li>@Html.ActionLink("English", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en" }, null)</li>
-                    <li>@Html.ActionLink("عربي", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "ar" }, null)</li>
+                    <li>@Html.ActionLink("English", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en", id=1  }, null)</li>
+                    <li>@Html.ActionLink("عربي", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "ar", id=1  }, null)</li>
                 </ul>
 
             </div>
