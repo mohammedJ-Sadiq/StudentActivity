@@ -3,12 +3,12 @@
 @if (User.IsInRole("CanManageClubs"))
 {
     ViewBag.Title = "ShowPrgStu";
-    Layout = "~/Views/Shared/EnglishLayout/_EnglishClubCorLayout.cshtml";
+    Layout = "~/Views/Shared/ArabicLayout/_ArabicClubCorLayout.cshtml";
 }
 else
 {
     ViewBag.Title = "ShowPrgStu";
-    Layout = "~/Views/Shared/EnglishLayout/_EnglishStudentLayout.cshtml";
+    Layout = "~/Views/Shared/ArabicLayout/_ArabicStudentLayout.cshtml";
 }
 
     @if (!Model.Any())

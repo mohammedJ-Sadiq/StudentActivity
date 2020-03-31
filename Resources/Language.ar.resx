@@ -186,6 +186,9 @@
   <data name="Clubs" xml:space="preserve">
     <value>الأندية</value>
   </data>
+  <data name="CompletedPrograms" xml:space="preserve">
+    <value>البرامج المكتملة</value>
+  </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value>تأكيد كلمة المرور</value>
   </data>
@@ -213,6 +216,9 @@
   <data name="Delete Program Confirmation" xml:space="preserve">
     <value>هل أنت متأكد من أنك تريد حذف هذا البرنامج؟</value>
   </data>
+  <data name="DeleteClubConfirmation" xml:space="preserve">
+    <value>هل أنت متأكد من أنك تريد حذف هذا النادي؟</value>
+  </data>
   <data name="DeleteConfirmation" xml:space="preserve">
     <value>هل أنت متاكد من أنك تريد حذف هذا الحقل؟</value>
   </data>
@@ -229,7 +235,7 @@
     <value>البريد الالكتروني</value>
   </data>
   <data name="EndDate" xml:space="preserve">
-    <value>وقت النهاية</value>
+    <value>تاريخ النهاية</value>
   </data>
   <data name="Enter Student Name" xml:space="preserve">
     <value>:ادخل اسم الطالب</value>
@@ -277,7 +283,7 @@
     <value>الخروج من النادي</value>
   </data>
   <data name="leave this club" xml:space="preserve">
-    <value>هل أنت متاكد من أنك تريد حذف هذا  النادي؟</value>
+    <value>هل أنت متاكد من أنك تريد مغادرة هذا  النادي؟</value>
   </data>
   <data name="local account to log in" xml:space="preserve">
     <value>استخدم حساب داخلي لتسجيل الدخول</value>
@@ -287,6 +293,9 @@
   </data>
   <data name="Log Off" xml:space="preserve">
     <value>تسجيل الخروج</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>دخول</value>
   </data>
   <data name="MaximumStudentNumber" xml:space="preserve">
     <value>عدد الطلاب الأقصى</value>
@@ -309,6 +318,9 @@
   <data name="No student registered" xml:space="preserve">
     <value>لا توجد برامج مسجلة للطالب</value>
   </data>
+  <data name="NoCompletedPrograms" xml:space="preserve">
+    <value>لم تكمل أي برنامج الى الآن!</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>كلمة المرور</value>
   </data>
@@ -330,6 +342,9 @@
   <data name="Phone number removed" xml:space="preserve">
     <value>تمت ازالة رقم الجوال</value>
   </data>
+  <data name="PrintCertificate" xml:space="preserve">
+    <value>طباعة شهادة</value>
+  </data>
   <data name="Program already added" xml:space="preserve">
     <value>البرنامج الذي تحاول اضافته
  مضاف مسبقا</value>
@@ -338,7 +353,7 @@
     <value>البرامج</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>التسجيل</value>
+    <value>تسجيل جديد</value>
   </data>
   <data name="Register as a new user" xml:space="preserve">
     <value>تسجيل مستخدم جديد</value>
@@ -353,7 +368,7 @@
     <value>هل أنت متأكد من أنك تريد رفض هذا البرنامج؟</value>
   </data>
   <data name="RememberMe" xml:space="preserve">
-    <value>تذكرني</value>
+    <value>تذكرني!</value>
   </data>
   <data name="Request Programs" xml:space="preserve">
     <value>طلب برنامج</value>
@@ -379,7 +394,7 @@
     <value>اختر نادي</value>
   </data>
   <data name="StartDate" xml:space="preserve">
-    <value>وقت البداية</value>
+    <value>تاريخ البداية</value>
   </data>
   <data name="Student already registered in program" xml:space="preserve">
     <value>انت مسجل مسبقا في هذا البرنامج</value>
@@ -429,7 +444,7 @@
   <data name="Verify phone failed" xml:space="preserve">
     <value>فشل التحقق من رقم الجوال</value>
   </data>
-  <data name="Water Mark" xml:space="preserve">
+  <data name="Water Mark Certificate" xml:space="preserve">
     <value>انشاء شهادة</value>
   </data>
 </root>

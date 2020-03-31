@@ -219,6 +219,9 @@
   <data name="Delete Program Confirmation" xml:space="preserve">
     <value>Are you sure you want to delete this Program ?</value>
   </data>
+  <data name="DeleteClubConfirmation" xml:space="preserve">
+    <value>Are you sure you want to delete this Club?</value>
+  </data>
   <data name="DeleteConfirmation" xml:space="preserve">
     <value>Are you sure you want to delete this field ?</value>
   </data>
@@ -294,6 +297,9 @@
   <data name="Log Off" xml:space="preserve">
     <value>Log Off</value>
   </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>LogIn</value>
+  </data>
   <data name="MaximumStudentNumber" xml:space="preserve">
     <value>Maximum Student Number</value>
   </data>
@@ -314,6 +320,9 @@
   </data>
   <data name="No student registered" xml:space="preserve">
     <value>There are no student registered in this program</value>
+  </data>
+  <data name="NoCompletedPrograms" xml:space="preserve">
+    <value>You have not completed any programs yet!</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>

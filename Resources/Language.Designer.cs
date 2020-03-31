@@ -367,6 +367,15 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this Club?.
+        /// </summary>
+        public static string DeleteClubConfirmation {
+            get {
+                return ResourceManager.GetString("DeleteClubConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to delete this field ?.
         /// </summary>
         public static string DeleteConfirmation {
@@ -592,6 +601,15 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to LogIn.
+        /// </summary>
+        public static string LogIn {
+            get {
+                return ResourceManager.GetString("LogIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Maximum Student Number.
         /// </summary>
         public static string MaximumStudentNumber {
@@ -651,6 +669,15 @@ namespace StudentActivity.Resources {
         public static string No_student_registered {
             get {
                 return ResourceManager.GetString("No student registered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have not completed any programs yet!.
+        /// </summary>
+        public static string NoCompletedPrograms {
+            get {
+                return ResourceManager.GetString("NoCompletedPrograms", resourceCulture);
             }
         }
         

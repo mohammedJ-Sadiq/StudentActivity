@@ -404,7 +404,7 @@ namespace StudentActivity.Controllers
 
             if (language.Equals("ar"))
             {
-                return View("~/Views/ArabicViews/ArabicProgram/StuPrograms.cshtml", programs);
+                return View("~/Views/ArabicViews/ArabicProgram/CompletedStuPrograms.cshtml", programs);
             }
 
             else

@@ -524,6 +524,7 @@
     <Content Include="Views\ArabicViews\ArabicProgram\ShowPrgStu.cshtml" />
     <Content Include="Views\ArabicViews\ArabicProgram\StuPrograms.cshtml" />
     <Content Include="Views\EnglishViews\EnglishProgram\CompletedStuPrograms.cshtml" />
+    <Content Include="Views\ArabicViews\ArabicProgram\CompletedStuPrograms.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\ArabicViews\ArabicAdmin\" />
