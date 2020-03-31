@@ -189,6 +189,9 @@
   <data name="Clubs" xml:space="preserve">
     <value>Clubs</value>
   </data>
+  <data name="CompletedPrograms" xml:space="preserve">
+    <value>Completed Programs</value>
+  </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value>ConfirmPassword</value>
   </data>
@@ -332,6 +335,9 @@
   </data>
   <data name="Phone number removed" xml:space="preserve">
     <value>Your phone number was removed.</value>
+  </data>
+  <data name="PrintCertificate" xml:space="preserve">
+    <value>PrintCertificate</value>
   </data>
   <data name="Program already added" xml:space="preserve">
     <value>The program you are 

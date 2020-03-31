@@ -395,20 +395,38 @@ namespace StudentActivity.Controllers
             return RedirectToAction("RequestedPrograms", "Program");
         }
 
-        [HttpPost]
-        public ActionResult WaterMarkExistingCertification(string student_name, string title, string lecturer_name, string date_time)
+        public ActionResult CompletedStuPrograms(string language)
         {
-            System.Drawing.Image bitmap = (System.Drawing.Image)Bitmap.FromFile(Server.MapPath("/Content/Images/Certificate.png"));
-            string sValue = student_name;
-            string tValue = title;
-            string lValue = lecturer_name;
-            string dValue = date_time;
+            ChangingLanguageFunction(language);
+
+            var id = Session["Id"];
+            var programs = _context.StudentPrograms.Include(p => p.Program).Include(c => c.Program.Club).Where(s => s.StudentId == id.ToString());
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicProgram/StuPrograms.cshtml", programs);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishProgram/CompletedStuPrograms.cshtml", programs);
+            }
+        }
+
+        public ActionResult WaterMarkExistingCertification(string studentName, string programTitle, string programTime, string programStartDate, string programEndDate)
+        {
+            System.Drawing.Image bitmap = (System.Drawing.Image)Bitmap.FromFile(Server.MapPath("/Images/Certificate.png"));
+            string sValue = studentName;
+            string tValue = programTitle;
+            string lValue = programTime;
+            string dValue = "From " + programStartDate + " To " + programEndDate;
             string file = "Certificate" + ".png";
+            
             //using (Bitmap bitmap = new Bitmap(File.InputStream, false))
             {
                 using (Graphics graphics = Graphics.FromImage(bitmap))
                 {
-                    if (student_name != null)
+                    if (studentName != null)
                     {
                         Brush brush = new SolidBrush(Color.Orange);
 
@@ -426,7 +444,7 @@ namespace StudentActivity.Controllers
                         graphics.DrawString(sValue, font, brush, position, drawFormat);
                     }
 
-                    if (title != null)
+                    if (programTitle != null)
                     {
                         Brush brush = new SolidBrush(Color.Black);
 
@@ -444,7 +462,7 @@ namespace StudentActivity.Controllers
                         graphics.DrawString(tValue, font, brush, position, drawFormat);
                     }
 
-                    if (lecturer_name != null)
+                    if (programTime != null)
                     {
                         Brush brush = new SolidBrush(Color.Black);
 
@@ -462,7 +480,7 @@ namespace StudentActivity.Controllers
                         graphics.DrawString(lValue, font, brush, position, drawFormat);
                     }
 
-                    if (lecturer_name != null)
+                    if (programStartDate != null  && programEndDate != null)
                     {
                         Brush brush = new SolidBrush(Color.Black);
 

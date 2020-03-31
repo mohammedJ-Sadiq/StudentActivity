@@ -277,6 +277,15 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Completed Programs.
+        /// </summary>
+        public static string CompletedPrograms {
+            get {
+                return ResourceManager.GetString("CompletedPrograms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ConfirmPassword.
         /// </summary>
         public static string ConfirmPassword {
@@ -705,6 +714,15 @@ namespace StudentActivity.Resources {
         public static string Phone_number_removed {
             get {
                 return ResourceManager.GetString("Phone number removed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PrintCertificate.
+        /// </summary>
+        public static string PrintCertificate {
+            get {
+                return ResourceManager.GetString("PrintCertificate", resourceCulture);
             }
         }
         

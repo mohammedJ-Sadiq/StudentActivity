@@ -385,6 +385,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Certificate.png" />
+    <Content Include="Images\Juc logo.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="webfonts\fa-brands-400.svg" />
@@ -521,6 +523,7 @@
     <Content Include="Views\ArabicViews\ArabicProgram\RetrievePrg.cshtml" />
     <Content Include="Views\ArabicViews\ArabicProgram\ShowPrgStu.cshtml" />
     <Content Include="Views\ArabicViews\ArabicProgram\StuPrograms.cshtml" />
+    <Content Include="Views\EnglishViews\EnglishProgram\CompletedStuPrograms.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\ArabicViews\ArabicAdmin\" />
