@@ -40,7 +40,7 @@ else
                 <th>
                     @StudentActivity.Resources.Language.Club_Name
                 </th>
-                <th>
+                <th></th>
             </tr>
 
             @foreach (var item in Model)
@@ -57,6 +57,9 @@ else
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Program.EndDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Program.MaximumStudentNumber)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Program.Club.Name)

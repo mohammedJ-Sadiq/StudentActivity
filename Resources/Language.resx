@@ -235,7 +235,7 @@
     <value>Email</value>
   </data>
   <data name="EndDate" xml:space="preserve">
-    <value>EndDate</value>
+    <value>End Date</value>
   </data>
   <data name="Enter Student Name" xml:space="preserve">
     <value>Enter Student Name:</value>
@@ -268,7 +268,7 @@
     <value>Invalid login attempt.</value>
   </data>
   <data name="IsEligible" xml:space="preserve">
-    <value>IsEligible</value>
+    <value>Is Eligible</value>
   </data>
   <data name="Join Club" xml:space="preserve">
     <value>Join a Club</value>
@@ -295,10 +295,10 @@
     <value>Log Off</value>
   </data>
   <data name="MaximumStudentNumber" xml:space="preserve">
-    <value>MaximumStudentNumber</value>
+    <value>Maximum Student Number</value>
   </data>
   <data name="MobileNo" xml:space="preserve">
-    <value>MobileNo</value>
+    <value>Mobile No.</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
@@ -337,7 +337,7 @@
     <value>Your phone number was removed.</value>
   </data>
   <data name="PrintCertificate" xml:space="preserve">
-    <value>PrintCertificate</value>
+    <value>Print Certificate</value>
   </data>
   <data name="Program already added" xml:space="preserve">
     <value>The program you are 
@@ -362,7 +362,7 @@ trying to add is already added</value>
     <value>Are you sure you want to reject this program?</value>
   </data>
   <data name="RememberMe" xml:space="preserve">
-    <value>RememberMe</value>
+    <value>Remember Me</value>
   </data>
   <data name="Request Programs" xml:space="preserve">
     <value>Request Programs</value>
@@ -388,7 +388,7 @@ trying to retrieve does not exist</value>
     <value>Select a Club</value>
   </data>
   <data name="StartDate" xml:space="preserve">
-    <value>StartDate</value>
+    <value>Start Date</value>
   </data>
   <data name="Student already registered in program" xml:space="preserve">
     <value>You are already registered in this program</value>
@@ -406,7 +406,7 @@ trying to retrieve does not exist</value>
     <value>Student's Activity</value>
   </data>
   <data name="StudentHome" xml:space="preserve">
-    <value>StudentHome</value>
+    <value>Student Home</value>
   </data>
   <data name="StudentHome_can_do_1" xml:space="preserve">
     <value>You can register in any available program</value>

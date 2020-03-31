@@ -412,7 +412,7 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EndDate.
+        ///   Looks up a localized string similar to End Date.
         /// </summary>
         public static string EndDate {
             get {
@@ -511,7 +511,7 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to IsEligible.
+        ///   Looks up a localized string similar to Is Eligible.
         /// </summary>
         public static string IsEligible {
             get {
@@ -592,7 +592,7 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MaximumStudentNumber.
+        ///   Looks up a localized string similar to Maximum Student Number.
         /// </summary>
         public static string MaximumStudentNumber {
             get {
@@ -601,7 +601,7 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MobileNo.
+        ///   Looks up a localized string similar to Mobile No..
         /// </summary>
         public static string MobileNo {
             get {
@@ -718,7 +718,7 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PrintCertificate.
+        ///   Looks up a localized string similar to Print Certificate.
         /// </summary>
         public static string PrintCertificate {
             get {
@@ -791,7 +791,7 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to RememberMe.
+        ///   Looks up a localized string similar to Remember Me.
         /// </summary>
         public static string RememberMe {
             get {
@@ -865,7 +865,7 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to StartDate.
+        ///   Looks up a localized string similar to Start Date.
         /// </summary>
         public static string StartDate {
             get {
@@ -919,7 +919,7 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to StudentHome.
+        ///   Looks up a localized string similar to Student Home.
         /// </summary>
         public static string StudentHome {
             get {

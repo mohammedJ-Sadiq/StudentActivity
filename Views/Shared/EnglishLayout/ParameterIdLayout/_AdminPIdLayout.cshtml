@@ -27,7 +27,6 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>@Html.ActionLink(StudentActivity.Resources.Language.Log_Off, "LogOff", "Account")</li>
-                <li>@Html.ActionLink("English", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en", id=1 }, null)</li>
                 <li>@Html.ActionLink("عربي", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "ar",id=1 }, null)</li>
             </ul>
         </div>

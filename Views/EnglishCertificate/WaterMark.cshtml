@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "WaterMark";
+    Layout = "~/Views/Shared/EnglishLayout/_EnglishAdminLayout.cshtml";
+}
+
+<h2>WaterMark</h2>
+
+<div>
+    @using (Html.BeginForm("WaterMark", "EnglishCertificate", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="row">
+            <div class="form-group col-md-5">
+                <span>@StudentActivity.Resources.Language.Enter_Student_Name</span>
+                <input type="text" class="form-control" required name="student_Name" />
+            </div>
+
+            <div class="form-group col-md-5">
+                <span>@StudentActivity.Resources.Language.Enter_the_title_of_the_program:</span>
+                <input type="text" class="form-control" required name="title" />
+            </div>
+
+            <div class="form-group col-md-5">
+                <span>@StudentActivity.Resources.Language.Enter_the_lecturer_name</span>
+                <input type="text" class="form-control" required name="lecturer_Name" />
+            </div>
+
+            <div class="form-group col-md-5">
+                <span>@StudentActivity.Resources.Language.Enter_the_date_of_the_program</span>
+                <input type="text" class="form-control" required name="date_time" />
+            </div>
+
+        </div>
+        <input type="submit" class="btn btn-info" value="@StudentActivity.Resources.Language.Submit" />
+    }
+</div>

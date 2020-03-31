@@ -1,0 +1,60 @@
+﻿@model StudentActivity.Models.Program
+
+@if (User.IsInRole("CanManagePrograms"))
+{
+    ViewBag.Title = "ProgramDetails";
+    Layout = "~/Views/Shared/EnglishLayout/_EnglishAdminLayout.cshtml";
+}
+
+else if (User.IsInRole("CanManageClubs"))
+{
+    ViewBag.Title = "ProgramDetails";
+    Layout = "~/Views/Shared/EnglishLayout/_EnglishClubCorLayout.cshtml";
+}
+
+else
+{
+    ViewBag.Title = "ProgramDetails";
+    Layout = "~/Views/Shared/EnglishLayout/_EnglishStudentLayout.cshtml";
+}
+
+@{ 
+    int id = Convert.ToInt32(Url.RequestContext.RouteData.Values["id"]);
+}
+
+
+<h2>@StudentActivity.Resources.Language.Details</h2>
+
+<table class="table table-bordered table-hover table-short">
+    <th class="row-center">@StudentActivity.Resources.Language.Title</th>
+    <th class="row-center">@Model.Title</th>
+
+    <tr class="danger">
+        <td class="row-center">@StudentActivity.Resources.Language.Time</td>
+        <td class="row-center">@Model.Time</td>
+    </tr>
+
+    <tr>
+        <td class="row-center">@StudentActivity.Resources.Language.StartDate</td>
+        <td class="row-center">@Model.StartDate</td>
+    </tr>
+
+    <tr class="danger">
+        <td class="row-center">@StudentActivity.Resources.Language.EndDate</td>
+        <td class="row-center">@Model.EndDate</td>
+    </tr>
+
+    <tr>
+        <td class="row-center">@StudentActivity.Resources.Language.MaximumStudentNumber</td>
+        <td class="row-center" style="padding-top:27px">@Model.MaximumStudentNumber</td>
+    </tr>
+    @if (Model.Description != null)
+    {
+        <tr class="danger">
+            <td class="row-center" style="padding-top:35px">@StudentActivity.Resources.Language.Description</td>
+            <td>@Model.Description</td>
+        </tr>
+    }
+
+    @Html.HiddenFor(m => m.Id)
+</table>

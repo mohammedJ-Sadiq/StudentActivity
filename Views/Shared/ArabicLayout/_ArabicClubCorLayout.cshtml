@@ -27,9 +27,9 @@
                     <li>@Html.ActionLink(StudentActivity.Resources.Language.Clubs, "ShowClubs", "Club")</li>
                     <li>@Html.ActionLink(StudentActivity.Resources.Language.Request_Programs, "RequestedPrograms", "Program")</li>
                 </ul>
-                <ul class="nav  navbar-right navbar-text">
-                    <li class="">@Session["Id"].ToString()</li>
-                </ul>
+                @*<ul class="nav  navbar-right navbar-text">
+             <li class="">@Session["Id"].ToString()</li>
+        </ul>*@
                 <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink(StudentActivity.Resources.Language.Log_Off, "LogOff", "Account")</li>
                     <li>@Html.ActionLink("English", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en" }, null)</li>

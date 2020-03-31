@@ -1,0 +1,33 @@
+﻿@model  StudentActivity.Models.Student_Program
+
+@if (User.IsInRole("CanManageClubs"))
+{
+    ViewBag.Title = "RegistrationForm";
+    Layout = "~/Views/Shared/ArabicLayout/_ArabicClubCorLayout.cshtml";
+}
+
+else
+{
+    ViewBag.Title = "RegistrationForm";
+    Layout = "~/Views/Shared/ArabicLayout/_ArabicStudentLayout.cshtml";
+}
+
+<h2></h2>
+
+@using (Html.BeginForm("Save", "ArabicProgram"))
+{
+
+    @Html.HiddenFor(m => m.StudentId)
+    @Html.HiddenFor(m => m.ProgramId)
+    @Html.AntiForgeryToken()
+
+    <button type="submit" class="btn btn-primary">
+        Save
+    </button>
+}
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

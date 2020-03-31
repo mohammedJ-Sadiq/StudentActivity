@@ -1,0 +1,28 @@
+﻿@model StudentActivity.ViewModel.ProgramViewModel
+@{
+    ViewBag.Title = "RetrievePrg";
+    Layout = "~/Views/Shared/EnglishLayout/_EnglishAdminLayout.cshtml";
+}
+
+<h2></h2>
+
+@using (Html.BeginForm("SaveRetrievePrg", "EnglishProgram"))
+{
+
+    <div class="form-group">
+        @StudentActivity.Resources.Language.Title)
+        @Html.TextBoxFor(m => m.program.Title, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.program.Title)
+    </div>
+
+    @Html.HiddenFor(m => m.program.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">
+        @StudentActivity.Resources.Language.Save
+    </button>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
