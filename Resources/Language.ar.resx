@@ -393,6 +393,9 @@
   <data name="Select a Club" xml:space="preserve">
     <value>اختر نادي</value>
   </data>
+  <data name="Select a Program" xml:space="preserve">
+    <value>اختر برنامج</value>
+  </data>
   <data name="StartDate" xml:space="preserve">
     <value>تاريخ البداية</value>
   </data>

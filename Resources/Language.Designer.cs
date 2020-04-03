@@ -892,6 +892,15 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select a Program.
+        /// </summary>
+        public static string Select_a_Program {
+            get {
+                return ResourceManager.GetString("Select a Program", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start Date.
         /// </summary>
         public static string StartDate {

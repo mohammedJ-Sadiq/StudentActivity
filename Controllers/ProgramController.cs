@@ -294,50 +294,35 @@ namespace StudentActivity.Controllers
         [Authorize(Roles = "CanManagePrograms")]
         public ActionResult RetrievePrg(string language)
         {
+            var deletedPrograms = _context.Programs.Where(m => m.IsDeleted == true).ToList();
             ChangingLanguageFunction(language);
 
+            var delProgramViewModel = new ProgramViewModel
+            {
+                enumProgram = deletedPrograms,
+                program = new Program()
+            };
             if (language.Equals("ar"))
             {
-                return View("~/Views/ArabicViews/ArabicProgram/RetrievePrg.cshtml");
+                return View("~/Views/ArabicViews/ArabicProgram/RetrievePrg.cshtml",delProgramViewModel);
             }
 
             else
             {
-                return View("~/Views/EnglishViews/EnglishProgram/RetrievePrg.cshtml");
+                return View("~/Views/EnglishViews/EnglishProgram/RetrievePrg.cshtml", delProgramViewModel);
             }
         }
-
+        
         // To save the program retrieve by admin
         [Authorize(Roles = "CanManagePrograms")]
         public ActionResult SaveRetrievePrg(Program program, string language)
         {
             ChangingLanguageFunction(language);
 
-            var flag1 = false;
-            var flag2 = false;
-            foreach (var prg in _context.Programs)
-            {
-                if (program.Title == prg.Title && prg.IsDeleted == true)
-                {
-                    prg.IsDeleted = false;
-                    flag1 = true;
-                }
-
-                else if (program.Title == prg.Title && prg.IsDeleted == false)
-                    flag2 = true;
-            }
-
-            if (flag1 == false && flag2 == false)
-            {
-                MessageBox.Show(StudentActivity.Resources.Language.Retrieve_program_not_exist, "Existence Error");
-            }
-            else if (flag2 == true)
-            {
-                MessageBox.Show(StudentActivity.Resources.Language.Retrieve_program_already_available, "Existence Error");
-            }
-
+            var deletedProgram = _context.Programs.SingleOrDefault(m => m.Id == program.Id);
+            deletedProgram.IsDeleted = false;
             _context.SaveChanges();
-
+            
             return RedirectToAction("Index", "Program");
         }
 

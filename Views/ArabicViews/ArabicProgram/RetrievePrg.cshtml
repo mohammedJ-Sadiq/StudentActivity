@@ -11,8 +11,7 @@
 
     <div class="form-group">
         @StudentActivity.Resources.Language.Title
-        @Html.TextBoxFor(m => m.program.Title, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.program.Title)
+        @Html.DropDownListFor(m => m.program.Id, new SelectList(Model.enumProgram, "Id", "Title"), StudentActivity.Resources.Language.Select_a_Program, new { @class = "form-control" })
     </div>
 
     @Html.HiddenFor(m => m.program.Id)
