@@ -71,7 +71,8 @@ else
                 </td>
                 <td>
                     @Html.ActionLink(@StudentActivity.Resources.Language.Details, "ProgramDetails", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
-                    @Html.ActionLink(@StudentActivity.Resources.Language.Register, "Registration", "Program", new { programId = item.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink(@StudentActivity.Resources.Language.Register, "Registration", "Program", new { programId = item.Id },
+                    new { @class = "btn btn-primary", onclick = "return confirm('Are you sure you want to add this program?')"})
                 </td>
             </tr>
         }

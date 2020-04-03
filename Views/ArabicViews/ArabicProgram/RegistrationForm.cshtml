@@ -14,20 +14,23 @@ else
 
 <h2></h2>
 
-@using (Html.BeginForm("Save", "Program"))
+@using (Html.BeginForm("Save", "Program",FormMethod.Post ,new {id = "RegistrationForm" }))
 {
 
     @Html.HiddenFor(m => m.StudentId)
     @Html.HiddenFor(m => m.ProgramId)
     @Html.AntiForgeryToken()
 
-    <button type="submit" class="btn btn-primary">
-        @StudentActivity.Resources.Language.Save
-    </button>
 }
 
 
 @section scripts
 {
     @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+
+        var frm = document.getElementById("RegistrationForm");
+        frm.submit();
+
+    </script>
 }
