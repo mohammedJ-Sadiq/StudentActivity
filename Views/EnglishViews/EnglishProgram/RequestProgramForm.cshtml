@@ -47,6 +47,10 @@
 
     <input id="program.IsDeleted" name="program.IsVisible" type="hidden" value="False" />
 
+    <input id="program.PendingStatus" name="program.PendingStatus" type="hidden" value=3 />
+
+    <input id="program.clubCorVisible" name="program.clubCorVisible" type="hidden" value="True" />
+
     @Html.HiddenFor(m => m.program.Id)
     @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">

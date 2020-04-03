@@ -162,6 +162,9 @@
   <data name="Approve program confirmation" xml:space="preserve">
     <value>هل أنت متأكد من أنك تريد الموافقة على هذا البرنامج؟</value>
   </data>
+  <data name="Approved" xml:space="preserve">
+    <value>مقبول</value>
+  </data>
   <data name="Available Programs" xml:space="preserve">
     <value>البرامج المتاحة</value>
   </data>
@@ -333,8 +336,14 @@
   <data name="Password Register" xml:space="preserve">
     <value>كلمة المرور:(يجب أن تحتوي على حرف كبير, حرف صغير, رمز خاص و أرقام)</value>
   </data>
+  <data name="Pending" xml:space="preserve">
+    <value>قيد الانتظار</value>
+  </data>
   <data name="Pending Programs" xml:space="preserve">
     <value>البرامج قيد الانتظار</value>
+  </data>
+  <data name="Pending Status" xml:space="preserve">
+    <value>حالة الطلب</value>
   </data>
   <data name="Phone number added" xml:space="preserve">
     <value>تمت اضافة رقم الجوال</value>
@@ -367,8 +376,14 @@
   <data name="Reject program confirmation" xml:space="preserve">
     <value>هل أنت متأكد من أنك تريد رفض هذا البرنامج؟</value>
   </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>مرفوض</value>
+  </data>
   <data name="RememberMe" xml:space="preserve">
     <value>تذكرني!</value>
+  </data>
+  <data name="Remove Status" xml:space="preserve">
+    <value>إزالة الحالة</value>
   </data>
   <data name="Request Programs" xml:space="preserve">
     <value>طلب برنامج</value>

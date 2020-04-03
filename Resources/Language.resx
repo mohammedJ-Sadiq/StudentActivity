@@ -165,6 +165,9 @@
   <data name="Approve program confirmation" xml:space="preserve">
     <value>Are you sure you want to approve this program?</value>
   </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Approved</value>
+  </data>
   <data name="Available Programs" xml:space="preserve">
     <value>Available Programs</value>
   </data>
@@ -336,8 +339,14 @@
   <data name="Password Register" xml:space="preserve">
     <value>Password: (Requires one Capital letter, one small letter, one special character and numbers)</value>
   </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
   <data name="Pending Programs" xml:space="preserve">
     <value>Pending Programs</value>
+  </data>
+  <data name="Pending Status" xml:space="preserve">
+    <value>Pending Status</value>
   </data>
   <data name="Phone number added" xml:space="preserve">
     <value>Your phone number was added.</value>
@@ -370,8 +379,14 @@ trying to add is already added</value>
   <data name="Reject program confirmation" xml:space="preserve">
     <value>Are you sure you want to reject this program?</value>
   </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
   <data name="RememberMe" xml:space="preserve">
     <value>Remember Me</value>
+  </data>
+  <data name="Remove Status" xml:space="preserve">
+    <value>Remove Status</value>
   </data>
   <data name="Request Programs" xml:space="preserve">
     <value>Request Programs</value>

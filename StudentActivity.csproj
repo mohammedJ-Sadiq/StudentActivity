@@ -342,6 +342,14 @@
     <Compile Include="Migrations\202003211632108_AddingIsVisibleAttributeForPrograms.Designer.cs">
       <DependentUpon>202003211632108_AddingIsVisibleAttributeForPrograms.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004031409443_AddingPendingStatusToProgramModel.cs" />
+    <Compile Include="Migrations\202004031409443_AddingPendingStatusToProgramModel.Designer.cs">
+      <DependentUpon>202004031409443_AddingPendingStatusToProgramModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004031504590_AddingClubCorVisibleToProgramModel.cs" />
+    <Compile Include="Migrations\202004031504590_AddingClubCorVisibleToProgramModel.Designer.cs">
+      <DependentUpon>202004031504590_AddingClubCorVisibleToProgramModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -467,7 +475,7 @@
     <Content Include="Views\EnglishViews\EnglishProgram\RegisteredPrograms.cshtml" />
     <Content Include="Views\EnglishViews\EnglishProgram\RegistrationForm.cshtml" />
     <Content Include="Views\EnglishViews\EnglishProgram\RegistrationFormAdmin.cshtml" />
-    <Content Include="Views\EnglishViews\EnglishProgram\RequestedPrograms.cshtml" />
+    <Content Include="Views\EnglishViews\EnglishProgram\RequestedProgramsClubCor.cshtml" />
     <Content Include="Views\EnglishViews\EnglishProgram\RequestProgramForm.cshtml" />
     <Content Include="Views\EnglishViews\EnglishProgram\RetrievePrg.cshtml" />
     <Content Include="Views\EnglishViews\EnglishProgram\ShowPrgStu.cshtml" />
@@ -518,13 +526,15 @@
     <Content Include="Views\ArabicViews\ArabicProgram\RegisteredPrograms.cshtml" />
     <Content Include="Views\ArabicViews\ArabicProgram\RegistrationForm.cshtml" />
     <Content Include="Views\ArabicViews\ArabicProgram\RegistrationFormAdmin.cshtml" />
-    <Content Include="Views\ArabicViews\ArabicProgram\RequestedPrograms.cshtml" />
+    <Content Include="Views\ArabicViews\ArabicProgram\RequestedProgramsClubCor.cshtml" />
     <Content Include="Views\ArabicViews\ArabicProgram\RequestProgramForm.cshtml" />
     <Content Include="Views\ArabicViews\ArabicProgram\RetrievePrg.cshtml" />
     <Content Include="Views\ArabicViews\ArabicProgram\ShowPrgStu.cshtml" />
     <Content Include="Views\ArabicViews\ArabicProgram\StuPrograms.cshtml" />
     <Content Include="Views\EnglishViews\EnglishProgram\CompletedStuPrograms.cshtml" />
     <Content Include="Views\ArabicViews\ArabicProgram\CompletedStuPrograms.cshtml" />
+    <Content Include="Views\EnglishViews\EnglishProgram\RequestedProgramsAdmin.cshtml" />
+    <Content Include="Views\ArabicViews\ArabicProgram\RequestedProgramsAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\ArabicViews\ArabicAdmin\" />
@@ -668,6 +678,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003211632108_AddingIsVisibleAttributeForPrograms.resx">
       <DependentUpon>202003211632108_AddingIsVisibleAttributeForPrograms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004031409443_AddingPendingStatusToProgramModel.resx">
+      <DependentUpon>202004031409443_AddingPendingStatusToProgramModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004031504590_AddingClubCorVisibleToProgramModel.resx">
+      <DependentUpon>202004031504590_AddingClubCorVisibleToProgramModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Language.ar.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

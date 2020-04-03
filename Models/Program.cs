@@ -52,6 +52,11 @@ namespace StudentActivity.Models
         // for programs requested by club coordinator
         public bool IsVisible { get; set; }
 
+        // for club coordinator request status
+        public byte PendingStatus { get; set; }
+
+        public bool ClubCorVisible { get; set; }
+
         public IList<Student_Program> StudentPrograms { get; set; }
 
         public IList<Admin_Program> AdminProgram { get; set; }

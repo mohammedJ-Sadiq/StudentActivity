@@ -1,15 +1,9 @@
 ﻿@model IEnumerable<StudentActivity.Models.Program>
 
-@if(User.IsInRole("CanManagePrograms"))
-{
-    ViewBag.Title = "ShowPrgStu";
-    Layout = "~/Views/Shared/ArabicLayout/_ArabicAdminLayout.cshtml";
-}
 
-else if (User.IsInRole("CanManageClubs"))
-{
+@{
     ViewBag.Title = "ShowPrgStu";
-    Layout = "~/Views/Shared/ArabicLayout/_ArabicClubCorLayout.cshtml";
+    Layout = "~/Views/Shared/EnglishLayout/_EnglishClubCorLayout.cshtml";
 
     <h2></h2>
     <p>
@@ -20,7 +14,7 @@ else if (User.IsInRole("CanManageClubs"))
 
 @if (!Model.Any())
 {
-<h2>@StudentActivity.Resources.Language.No_pending_programs</h2>
+    <h2>@StudentActivity.Resources.Language.No_pending_programs</h2>
 }
 
 else
@@ -47,6 +41,9 @@ else
             <th>
                 @StudentActivity.Resources.Language.Club_Name
             </th>
+            <th>
+                @StudentActivity.Resources.Language.Pending_Status
+            </th>
             <th></th>
         </tr>
 
@@ -71,13 +68,34 @@ else
                 <td>
                     @item.Club.Name
                 </td>
-                @if (User.IsInRole("CanManagePrograms"))
+
+                @if (item.PendingStatus == 3)
                 {
                     <td>
-                        @Html.ActionLink(@StudentActivity.Resources.Language.Approve, "ApproveProgram", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
-                        @Html.ActionLink(@StudentActivity.Resources.Language.Reject, "RejectProgram", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
+                        @StudentActivity.Resources.Language.Pending
                     </td>
                 }
+                else if (item.PendingStatus == 1)
+                {
+                    <td>
+                        @StudentActivity.Resources.Language.Approved
+                    </td>
+                    <td>
+                        @Html.ActionLink(StudentActivity.Resources.Language.Remove_Status, "RemoveStatus", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    </td>
+
+                }
+                else if (item.PendingStatus == 2)
+                {
+                    <td>
+                        @StudentActivity.Resources.Language.Rejected
+                    </td>
+                    <td>
+                        @Html.ActionLink(StudentActivity.Resources.Language.Remove_Status, "RemoveStatus", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    </td>
+
+                }
+
 
             </tr>
         }

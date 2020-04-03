@@ -1,26 +1,15 @@
 ﻿@model IEnumerable<StudentActivity.Models.Program>
 
-@if(User.IsInRole("CanManagePrograms"))
-{
+
+@{
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/EnglishLayout/_EnglishAdminLayout.cshtml";
 }
 
-else if (User.IsInRole("CanManageClubs"))
-{
-    ViewBag.Title = "ShowPrgStu";
-    Layout = "~/Views/Shared/EnglishLayout/_EnglishClubCorLayout.cshtml";
-
-    <h2></h2>
-    <p>
-        @Html.ActionLink("+ " + @StudentActivity.Resources.Language.Request_Programs, "RequestProgram", "Program", "Program", new { @class = "btn  btn-blue btn-left" })
-    </p>
-
-}
 
 @if (!Model.Any())
 {
-<h2>@StudentActivity.Resources.Language.No_pending_programs</h2>
+    <h2>@StudentActivity.Resources.Language.No_pending_programs</h2>
 }
 
 else
@@ -71,13 +60,11 @@ else
                 <td>
                     @item.Club.Name
                 </td>
-                @if (User.IsInRole("CanManagePrograms"))
-                {
-                    <td>
-                        @Html.ActionLink(@StudentActivity.Resources.Language.Approve, "ApproveProgram", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
-                        @Html.ActionLink(@StudentActivity.Resources.Language.Reject, "RejectProgram", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
-                    </td>
-                }
+                <td>
+                    @Html.ActionLink(@StudentActivity.Resources.Language.Approve, "ApproveProgram", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink(@StudentActivity.Resources.Language.Reject, "RejectProgram", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
+                </td>
+                
 
             </tr>
         }
