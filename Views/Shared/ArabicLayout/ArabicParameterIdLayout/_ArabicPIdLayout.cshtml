@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Student activities</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/SiteRtl.css")
+    @Styles.Render("~/Content/Site.css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -27,8 +29,8 @@
                     <li></li>
                     <li>@Html.ActionLink(StudentActivity.Resources.Language.Log_in, "Login", "Account")</li>
                     <li>@Html.ActionLink(StudentActivity.Resources.Language.Register, "Register", "Account")</li>
-                    <li>@Html.ActionLink("عربي", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "ar" }, null)</li>
-                </ul>
+                    <li>@Html.ActionLink("English", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en", id = 1 }, null)</li>
+                </ul> 
             </div>
         </div>
     </div>

@@ -535,6 +535,14 @@
     <Content Include="Views\ArabicViews\ArabicProgram\CompletedStuPrograms.cshtml" />
     <Content Include="Views\EnglishViews\EnglishProgram\RequestedProgramsAdmin.cshtml" />
     <Content Include="Views\ArabicViews\ArabicProgram\RequestedProgramsAdmin.cshtml" />
+    <Content Include="Views\EnglishViews\EnglishProgram\VisitorAvailablePrograms.cshtml" />
+    <Content Include="Views\EnglishViews\EnglishClub\VisitorShowClubs.cshtml" />
+    <Content Include="Views\ArabicViews\ArabicClub\VisitorShowClubs.cshtml" />
+    <Content Include="Views\ArabicViews\ArabicProgram\VisitorAvailablePrograms.cshtml" />
+    <Content Include="Views\ArabicViews\ArabicProgram\VisitorProgramDetails.cshtml" />
+    <Content Include="Views\Shared\EnglishLayout\ParameterIdLayout\_EnglishPIdLayout.cshtml" />
+    <Content Include="Views\Shared\ArabicLayout\ArabicParameterIdLayout\_ArabicPIdLayout.cshtml" />
+    <Content Include="Views\EnglishViews\EnglishProgram\VisitorProgramDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\ArabicViews\ArabicAdmin\" />

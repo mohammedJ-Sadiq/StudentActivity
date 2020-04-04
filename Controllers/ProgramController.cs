@@ -697,6 +697,24 @@ namespace StudentActivity.Controllers
             }
         }
 
+        [AllowAnonymous]
+        public ActionResult VisitorAvailablePrograms(string language)
+        {
+            ChangingLanguageFunction(language);
+
+            var programs = _context.Programs.Include(p => p.Club).ToList().Where(p => p.IsDeleted == false).Where(p => p.IsVisible == true);
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicProgram/VisitorAvailablePrograms.cshtml", programs);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishProgram/VisitorAvailablePrograms.cshtml", programs);
+            }
+        }
+
         // END OF STUDENT ACTION
 
         // CLUB COORDINATOR ACTIONS
@@ -834,6 +852,24 @@ namespace StudentActivity.Controllers
             else
             {
                 return View("~/Views/EnglishViews/EnglishProgram/ProgramDetails.cshtml", program);
+            }
+        }
+
+        [AllowAnonymous]
+        public ActionResult VisitorProgramDetails(int id, string language)
+        {
+            ChangingLanguageFunction(language);
+
+            var program = _context.Programs.Include(c => c.Club).SingleOrDefault(p => p.Id == id);
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicProgram/VisitorProgramDetails.cshtml", program);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishProgram/VisitorProgramDetails.cshtml", program);
             }
         }
 

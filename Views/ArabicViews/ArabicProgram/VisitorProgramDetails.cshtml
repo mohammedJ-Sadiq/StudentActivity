@@ -1,0 +1,48 @@
+﻿@model StudentActivity.Models.Program
+
+@{
+    ViewBag.Title = "ProgramDetails";
+    Layout = "~/Views/Shared/ArabicLayout/ArabicParameterIdLayout/_ArabicPIdLayout.cshtml";
+
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "Index", "Home")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.ProgramDetails, "VisitorAvailablePrograms", "Program")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.ProgramDetails, "VisitorProgramDetails", "Program")</li>
+        </ul>
+    </div>
+}
+
+<h2>@StudentActivity.Resources.Language.Details</h2>
+
+<table class="table table-bordered table-hover table-short">
+    <th class="row-center">@StudentActivity.Resources.Language.Title</th>
+    <th class="row-center">@Model.Title</th>
+
+    <tr class="danger">
+        <td class="row-center">@StudentActivity.Resources.Language.Time</td>
+        <td class="row-center">@Model.Time</td>
+    </tr>
+
+    <tr>
+        <td class="row-center">@StudentActivity.Resources.Language.StartDate</td>
+        <td class="row-center">@Model.StartDate</td>
+    </tr>
+
+    <tr class="danger">
+        <td class="row-center">@StudentActivity.Resources.Language.EndDate</td>
+        <td class="row-center">@Model.EndDate</td>
+    </tr>
+
+    <tr>
+        <td class="row-center">@StudentActivity.Resources.Language.MaximumStudentNumber</td>
+        <td class="row-center" style="padding-top:27px">@Model.MaximumStudentNumber</td>
+    </tr>
+    @if (Model.Description != null)
+    {
+        <tr class="danger">
+            <td class="row-center" style="padding-top:35px">@StudentActivity.Resources.Language.Description</td>
+            <td>@Model.Description</td>
+        </tr>
+    }
+</table>
