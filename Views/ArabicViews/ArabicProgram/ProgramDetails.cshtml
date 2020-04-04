@@ -1,24 +1,45 @@
 ﻿@model StudentActivity.Models.Program
 
-@if(User.IsInRole("CanManagePrograms"))
+@if (User.IsInRole("CanManagePrograms"))
 {
     ViewBag.Title = "ProgramDetails";
     Layout = "~/Views/Shared/ArabicLayout/ArabicParameterIdLayout/_ArabicAdminPIDLayout.cshtml";
+
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.ProgramDetails, "ProgramDetails", "Program")</li>
+        </ul>
+    </div>
 }
 
 else if (User.IsInRole("CanManageClubs"))
 {
     ViewBag.Title = "ProgramDetails";
     Layout = "~/Views/Shared/ArabicLayout/ArabicParameterIdLayout/_ArabicClubCorPIdLayout.cshtml";
+
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "ClubCorHome", "Home")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.ProgramDetails, "ProgramDetails", "Program")</li>
+        </ul>
+    </div>
 }
 
 else
 {
     ViewBag.Title = "ProgramDetails";
     Layout = "~/Views/Shared/ArabicLayout/ArabicParameterIdLayout/_ArabicStudentPIdLayout.cshtml";
+
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "StudentHome", "Home")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.ProgramDetails, "ProgramDetails", "Program")</li>
+        </ul>
+    </div>
 }
 
-    <h2>@StudentActivity.Resources.Language.Details</h2>
+<h2>@StudentActivity.Resources.Language.Details</h2>
 
 <table class="table table-bordered table-hover table-short">
     <th class="row-center">@StudentActivity.Resources.Language.Title</th>
@@ -32,7 +53,7 @@ else
     <tr>
         <td class="row-center">@StudentActivity.Resources.Language.StartDate</td>
         <td class="row-center">@Model.StartDate</td>
-        </tr>
+    </tr>
 
     <tr class="danger">
         <td class="row-center">@StudentActivity.Resources.Language.EndDate</td>

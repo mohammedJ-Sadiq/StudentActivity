@@ -3,12 +3,19 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/ArabicLayout/_ArabicAdminLayout.cshtml";
+
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Clubs, "Index", "Club")</li>
+        </ul>
+    </div>
 }
 
 <h2></h2>
 
 <p>
-    @Html.ActionLink("+ " + StudentActivity.Resources.Language.Add_New_Club, "addClub","Club","Club", new { @class = "btn btn-blue btn-left" })
+    @Html.ActionLink("+ " + StudentActivity.Resources.Language.Add_New_Club, "addClub", "Club", "Club", new { @class = "btn btn-blue btn-left" })
 </p>
 <table class="table table-striped table-hover">
     <tr>

@@ -237,6 +237,9 @@
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="EditProgram" xml:space="preserve">
+    <value>Edit Program</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
@@ -312,6 +315,9 @@
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="NewRequest" xml:space="preserve">
+    <value>New Request</value>
+  </data>
   <data name="No available programs" xml:space="preserve">
     <value>There are no available programs</value>
   </data>
@@ -361,6 +367,12 @@
     <value>The program you are 
 trying to add is already added</value>
   </data>
+  <data name="ProgramDetails" xml:space="preserve">
+    <value>Program Details</value>
+  </data>
+  <data name="ProgramForm" xml:space="preserve">
+    <value>Program Form</value>
+  </data>
   <data name="Programs" xml:space="preserve">
     <value>Programs</value>
   </data>
@@ -372,6 +384,9 @@ trying to add is already added</value>
   </data>
   <data name="Registered Programs" xml:space="preserve">
     <value>Registered Programs</value>
+  </data>
+  <data name="RegisterInProgram" xml:space="preserve">
+    <value>Register in Program</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>Reject</value>

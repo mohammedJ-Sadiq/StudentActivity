@@ -5,6 +5,13 @@
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/ArabicLayout/_ArabicClubCorLayout.cshtml";
 
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "ClubCorHome", "Home")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Request_Programs, "RequestedProgramsClubCor", "Program")</li>
+        </ul>
+    </div>
+
     <h2></h2>
     <p>
         @Html.ActionLink("+ " + @StudentActivity.Resources.Language.Request_Programs, "RequestProgram", "Program", "Program", new { @class = "btn  btn-blue btn-left" })
@@ -14,7 +21,7 @@
 
 @if (!Model.Any())
 {
-<h2>@StudentActivity.Resources.Language.No_pending_programs</h2>
+    <h2>@StudentActivity.Resources.Language.No_pending_programs</h2>
 }
 
 else
@@ -68,34 +75,34 @@ else
                 <td>
                     @item.Club.Name
                 </td>
-                
-                    @if (item.PendingStatus == 3)
-                    {
-                        <td>
-                            @StudentActivity.Resources.Language.Pending
-                        </td>
-                    }
-                    else if (item.PendingStatus == 1)
-                    {
-                        <td>
-                            @StudentActivity.Resources.Language.Approved
-                        </td>
-                        <td>
-                            @Html.ActionLink(StudentActivity.Resources.Language.Remove_Status, "RemoveStatus", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
-                        </td>
-                        
-                    }
-                    else if (item.PendingStatus == 2)
-                    {
-                        <td>
-                            @StudentActivity.Resources.Language.Rejected
-                        </td>
-                        <td>
-                            @Html.ActionLink(StudentActivity.Resources.Language.Remove_Status, "RemoveStatus", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
-                        </td>
-                        
-                    }
-                
+
+                @if (item.PendingStatus == 3)
+                {
+                    <td>
+                        @StudentActivity.Resources.Language.Pending
+                    </td>
+                }
+                else if (item.PendingStatus == 1)
+                {
+                    <td>
+                        @StudentActivity.Resources.Language.Approved
+                    </td>
+                    <td>
+                        @Html.ActionLink(StudentActivity.Resources.Language.Remove_Status, "RemoveStatus", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    </td>
+
+                }
+                else if (item.PendingStatus == 2)
+                {
+                    <td>
+                        @StudentActivity.Resources.Language.Rejected
+                    </td>
+                    <td>
+                        @Html.ActionLink(StudentActivity.Resources.Language.Remove_Status, "RemoveStatus", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    </td>
+
+                }
+
 
             </tr>
         }

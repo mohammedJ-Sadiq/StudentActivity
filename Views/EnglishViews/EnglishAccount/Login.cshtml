@@ -3,9 +3,16 @@
 @{
     ViewBag.Title = "Log in";
     Layout = "~/Views/Shared/EnglishLayout/_EnglishLayout.cshtml";
+
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "Index", "Home")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Log_in, "Login", "Account")</li>
+        </ul>
+    </div>
 }
 
-    <h2>@StudentActivity.Resources.Language.Log_in</h2>
+<h2>@StudentActivity.Resources.Language.Log_in</h2>
 
 <section id="loginForm">
     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -28,8 +35,8 @@
                 @StudentActivity.Resources.Language.Password
             </div>
             <div class="col-md-10">
-                @Html.PasswordFor(m => m.Password, new {@class = "form-control"})
-                @Html.ValidationMessageFor(m => m.Password, "", new {@class = "text-danger"})
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">

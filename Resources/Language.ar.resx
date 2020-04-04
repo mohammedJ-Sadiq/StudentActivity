@@ -234,6 +234,9 @@
   <data name="Edit" xml:space="preserve">
     <value>تعديل</value>
   </data>
+  <data name="EditProgram" xml:space="preserve">
+    <value>تعديل برنامج</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>البريد الالكتروني</value>
   </data>
@@ -274,7 +277,7 @@
     <value>مستحق؟</value>
   </data>
   <data name="Join Club" xml:space="preserve">
-    <value>الانضمام للنادي</value>
+    <value>الانضمام لنادي</value>
   </data>
   <data name="JUC Activities Website" xml:space="preserve">
     <value>موقع الأنشطة الطلابية لكلية الجبيل الجامعية</value>
@@ -308,6 +311,9 @@
   </data>
   <data name="Name" xml:space="preserve">
     <value>الاسم</value>
+  </data>
+  <data name="NewRequest" xml:space="preserve">
+    <value>طلب جديد</value>
   </data>
   <data name="No available programs" xml:space="preserve">
     <value>لا توجد برامج متاحة</value>
@@ -358,6 +364,12 @@
     <value>البرنامج الذي تحاول اضافته
  مضاف مسبقا</value>
   </data>
+  <data name="ProgramDetails" xml:space="preserve">
+    <value>تفاصيل البرنامج</value>
+  </data>
+  <data name="ProgramForm" xml:space="preserve">
+    <value>نموذج برنامج</value>
+  </data>
   <data name="Programs" xml:space="preserve">
     <value>البرامج</value>
   </data>
@@ -369,6 +381,9 @@
   </data>
   <data name="Registered Programs" xml:space="preserve">
     <value>البرامج المسجلة</value>
+  </data>
+  <data name="RegisterInProgram" xml:space="preserve">
+    <value>التسجيل في البرنامج</value>
   </data>
   <data name="Reject" xml:space="preserve">
     <value>رفض</value>

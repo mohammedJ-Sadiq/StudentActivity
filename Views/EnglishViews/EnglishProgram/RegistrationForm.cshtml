@@ -4,17 +4,31 @@
 {
     ViewBag.Title = "RegistrationForm";
     Layout = "~/Views/Shared/EnglishLayout/_EnglishClubCorLayout.cshtml";
+
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "ClubCorHome", "Home")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Available_Programs, "ShowPrgStu", "Program")</li>
+        </ul>
+    </div>
 }
 
 else
 {
     ViewBag.Title = "RegistrationForm";
     Layout = "~/Views/Shared/EnglishLayout/_EnglishStudentLayout.cshtml";
+
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "StudentHome", "Home")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Available_Programs, "ShowPrgStu", "Program")</li>
+        </ul>
+    </div>
 }
 
 <h2></h2>
 
-@using (Html.BeginForm("Save", "Program", FormMethod.Post, new {id = "RegistrationForm" }))
+@using (Html.BeginForm("Save", "Program", FormMethod.Post, new { id = "RegistrationForm" }))
 {
 
     @Html.HiddenFor(m => m.StudentId)
@@ -27,10 +41,10 @@ else
 @section scripts
 {
     @Scripts.Render("~/bundles/jqueryval")
-<script type="text/javascript">
+    <script type="text/javascript">
 
         var frm = document.getElementById("RegistrationForm");
         frm.submit();
 
-</script>
+    </script>
 }

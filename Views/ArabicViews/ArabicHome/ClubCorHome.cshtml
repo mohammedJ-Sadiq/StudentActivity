@@ -1,9 +1,15 @@
 ﻿@{
     ViewBag.Title = "ClubCorHome";
     Layout = "~/Views/Shared/ArabicLayout/_ArabicClubCorLayout.cshtml";
+
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "ClubCorHome", "Home")</li>
+        </ul>
+    </div>
 }
 
-<div class="col-md-6 col-sm-8">
+<div>
     <h2>@StudentActivity.Resources.Language.ClubCorHome</h2>
     <ul>
         <li>

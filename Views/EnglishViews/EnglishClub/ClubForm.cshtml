@@ -2,6 +2,13 @@
 @{
     ViewBag.Title = "ClubForm";
     Layout = "~/Views/Shared/EnglishLayout/ParameterIdLayout/_AdminPIdLayout.cshtml";
+
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
+            @*<li>@Html.ActionLink(StudentActivity.Resources.Language.ClubForm, "", "Club")</li>*@
+        </ul>
+    </div>
 }
 
 <h2></h2>

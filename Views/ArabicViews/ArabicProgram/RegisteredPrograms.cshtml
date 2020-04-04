@@ -4,6 +4,13 @@
 @{
     ViewBag.Title = "Programs";
     Layout = "~/Views/Shared/ArabicLayout/_ArabicAdminLayout.cshtml";
+
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Registered_Programs, "RegisteredPrograms", "Program")</li>
+        </ul>
+    </div>
 }
 
 <h2></h2>
@@ -33,31 +40,32 @@
 
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @item.Title
-    </td>
-    <td>
-        @item.Time
-    </td>
-    <td>
-        @item.StartDate
-    </td>
-    <td>
-        @item.EndDate
-    </td>
-    <td>
-        @item.MaximumStudentNumber
-    </td>
-    <td>
-        @item.Club.Name
-    </td>
-    <td>
-        @Html.ActionLink(@StudentActivity.Resources.Language.Students_List, "EligibleList", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
-    </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Title
+            </td>
+            <td>
+                @item.Time
+            </td>
+            <td>
+                @item.StartDate
+            </td>
+            <td>
+                @item.EndDate
+            </td>
+            <td>
+                @item.MaximumStudentNumber
+            </td>
+            <td>
+                @item.Club.Name
+            </td>
+            <td>
+                @Html.ActionLink(@StudentActivity.Resources.Language.Students_List, "EligibleList", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
+            </td>
 
-</tr>
-}
+        </tr>
+    }
 
 </table>

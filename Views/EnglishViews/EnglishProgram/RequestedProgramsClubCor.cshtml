@@ -5,6 +5,13 @@
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/EnglishLayout/_EnglishClubCorLayout.cshtml";
 
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "ClubCorHome", "Home")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Request_Programs, "RequestedProgramsClubCor", "Program")</li>
+        </ul>
+    </div>
+
     <h2></h2>
     <p>
         @Html.ActionLink("+ " + @StudentActivity.Resources.Language.Request_Programs, "RequestProgram", "Program", "Program", new { @class = "btn  btn-blue btn-left" })

@@ -1,6 +1,12 @@
 ﻿@{
     ViewBag.Title = "AdminHome";
     Layout = "~/Views/Shared/ArabicLayout/_ArabicAdminLayout.cshtml";
+
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
+        </ul>
+    </div>
 }
 
 <div>

@@ -4,6 +4,13 @@
 @{
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/ArabicLayout/_ArabicAdminLayout.cshtml";
+
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Requested_Programs, "RequestedProgramsAdmin", "Program")</li>
+        </ul>
+    </div>
 }
 
 

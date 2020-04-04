@@ -421,6 +421,15 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Program.
+        /// </summary>
+        public static string EditProgram {
+            get {
+                return ResourceManager.GetString("EditProgram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
@@ -646,6 +655,15 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Request.
+        /// </summary>
+        public static string NewRequest {
+            get {
+                return ResourceManager.GetString("NewRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There are no available programs.
         /// </summary>
         public static string No_available_programs {
@@ -791,6 +809,24 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Program Details.
+        /// </summary>
+        public static string ProgramDetails {
+            get {
+                return ResourceManager.GetString("ProgramDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Program Form.
+        /// </summary>
+        public static string ProgramForm {
+            get {
+                return ResourceManager.GetString("ProgramForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Programs.
         /// </summary>
         public static string Programs {
@@ -823,6 +859,15 @@ namespace StudentActivity.Resources {
         public static string Registered_Programs {
             get {
                 return ResourceManager.GetString("Registered Programs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register in Program.
+        /// </summary>
+        public static string RegisterInProgram {
+            get {
+                return ResourceManager.GetString("RegisterInProgram", resourceCulture);
             }
         }
         

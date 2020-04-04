@@ -3,11 +3,27 @@
 {
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/ArabicLayout/_ArabicClubCorLayout.cshtml";
+
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "ClubCorHome", "Home")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Clubs, "ShowClubs", "Club")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Join_Club, "AddStuClubs", "Club")</li>
+        </ul>
+    </div>
 }
 else
 {
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/ArabicLayout/_ArabicStudentLayout.cshtml";
+
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "StudentHome", "Home")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Clubs, "ShowClubs", "Club")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Join_Club, "AddStuClubs", "Club")</li>
+        </ul>
+    </div>
 }
 
 <h2></h2>

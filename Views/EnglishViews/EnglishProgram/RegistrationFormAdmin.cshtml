@@ -2,6 +2,15 @@
 @{
     ViewBag.Title = "RegistrationFormAdmin";
     Layout = "~/Views/Shared/EnglishLayout/ParameterIdLayout/_AdminPIdLayout.cshtml";
+
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Registered_Programs, "RegisteredPrograms", "Program")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Students_List, "EligibleList", "Program", new { id = Convert.ToInt32(Url.RequestContext.RouteData.Values["id"]) },null )</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Add_Student, "RegistrationFromAdmin", "Program")</li>
+        </ul>
+    </div>
 }
 
 <h2></h2>

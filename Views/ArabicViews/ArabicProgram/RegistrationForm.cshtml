@@ -4,6 +4,13 @@
 {
     ViewBag.Title = "RegistrationForm";
     Layout = "~/Views/Shared/ArabicLayout/_ArabicClubCorLayout.cshtml";
+
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "ClubCorHome", "Home")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Available_Programs, "ShowPrgStu", "Program")</li>
+        </ul>
+    </div>
 }
 
 else
@@ -14,7 +21,7 @@ else
 
 <h2></h2>
 
-@using (Html.BeginForm("Save", "Program",FormMethod.Post ,new {id = "RegistrationForm" }))
+@using (Html.BeginForm("Save", "Program", FormMethod.Post, new { id = "RegistrationForm" }))
 {
 
     @Html.HiddenFor(m => m.StudentId)

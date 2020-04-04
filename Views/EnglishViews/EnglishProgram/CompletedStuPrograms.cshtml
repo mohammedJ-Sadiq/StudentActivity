@@ -4,70 +4,84 @@
 {
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/EnglishLayout/_EnglishClubCorLayout.cshtml";
+
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "ClubCorHome", "Home")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.CompletedPrograms, "CompletedStuPrograms", "Program")</li>
+        </ul>
+    </div>
 }
 else
 {
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/EnglishLayout/_EnglishStudentLayout.cshtml";
+
+    <div>
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "StudentHome", "Home")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.CompletedPrograms, "CompletedStuPrograms", "Program")</li>
+        </ul>
+    </div>
 }
 
-    @if (!Model.Any())
-    {
+@if (!Model.Any())
+{
     <h1>@StudentActivity.Resources.Language.NoCompletedPrograms</h1>
-    }
-    
-    else
-    {
-        <h2>@StudentActivity.Resources.Language.CompletedPrograms</h2>
-        <h2></h2>
-        <table class="table table-striped table-hover">
-            <tr>
-                <th>
-                    @StudentActivity.Resources.Language.Title
-                </th>
-                <th>
-                    @StudentActivity.Resources.Language.Time
-                </th>
-                <th>
-                    @StudentActivity.Resources.Language.StartDate
-                </th>
-                <th>
-                    @StudentActivity.Resources.Language.EndDate
-                </th>
-                <th>
-                    @StudentActivity.Resources.Language.MaximumStudentNumber
-                </th>
-                <th>
-                    @StudentActivity.Resources.Language.Club_Name
-                </th>
-                <th></th>
-            </tr>
+}
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Program.Title)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Program.Time)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Program.StartDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Program.EndDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Program.MaximumStudentNumber)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Program.Club.Name)
-                    </td>
-                    <td>
-                        @Html.ActionLink(@StudentActivity.Resources.Language.PrintCertificate, "WaterMarkExistingCertification", "Program", new { studentName = item.Student.Name, programTitle = item.Program.Title, programTime = item.Program.Time, programStartDate = item.Program.StartDate, programEndDate = item.Program.EndDate }, new { @class = "btn btn-primary" })
-                    </td>
-                </tr>
-            }
-        </table>
-    }
+else
+{
+    <h2>@StudentActivity.Resources.Language.CompletedPrograms</h2>
+    <h2></h2>
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>
+                @StudentActivity.Resources.Language.Title
+            </th>
+            <th>
+                @StudentActivity.Resources.Language.Time
+            </th>
+            <th>
+                @StudentActivity.Resources.Language.StartDate
+            </th>
+            <th>
+                @StudentActivity.Resources.Language.EndDate
+            </th>
+            <th>
+                @StudentActivity.Resources.Language.MaximumStudentNumber
+            </th>
+            <th>
+                @StudentActivity.Resources.Language.Club_Name
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Program.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Program.Time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Program.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Program.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Program.MaximumStudentNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Program.Club.Name)
+                </td>
+                <td>
+                    @Html.ActionLink(@StudentActivity.Resources.Language.PrintCertificate, "WaterMarkExistingCertification", "Program", new { studentName = item.Student.Name, programTitle = item.Program.Title, programTime = item.Program.Time, programStartDate = item.Program.StartDate, programEndDate = item.Program.EndDate }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+    </table>
+}
