@@ -18,33 +18,40 @@
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#myPage">JUC</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#Home">ABOUT</a></li>
-                    <li><a href="#services">SERVICES</a></li>
-                    <li><a href="#portfolio">PORTFOLIO</a></li>
-                    <li><a href="#AvailablePrograms">AvailablePrograms</a></li>
-                    <li><a href="#Clubs">Clubs</a></li>
-                    <li><a href="#contact">CONTACT</a></li>
-
-                    <li>@Html.ActionLink(StudentActivity.Resources.Language.Log_in, "Login", "Account")</li>
-                    <li>@Html.ActionLink(StudentActivity.Resources.Language.Register, "Register", "Account")</li>
-                    <li>@Html.ActionLink("عربي", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "ar" }, null)</li>
-                </ul>
-            </div>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#myPage">JUC</a>
         </div>
-    </nav>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li>@Html.ActionLink(StudentActivity.Resources.Language.Log_in, "Login", "Account")</li>
+                <li>@Html.ActionLink(StudentActivity.Resources.Language.Register, "Register", "Account")</li>
+                <li>@Html.ActionLink("عربي", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "ar" }, null)</li>
+            </ul>
+        </div>
+    </div>
+    
+</nav>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="#Home">ABOUT</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="#portfolio">PORTFOLIO</a></li>
+                <li><a href="#AvailablePrograms">AvailablePrograms</a></li>
+                <li><a href="#Clubs">Clubs</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
     <div class="jumbotron text-center">
         <h1><strong>@StudentActivity.Resources.Language.Student_s_Activity</strong></h1>
@@ -57,7 +64,7 @@
 
     @Html.Partial("~/Views/Shared/NewTheme/_SecondPage.cshtml");
 
-    <div class="container body-content">
+<div class="container body-content">
         @RenderBody()
         <hr />
         <footer class="container-fluid text-center">

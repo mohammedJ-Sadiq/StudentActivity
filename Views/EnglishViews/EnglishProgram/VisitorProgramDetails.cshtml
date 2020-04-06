@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "ProgramDetails";
-    Layout = "~/Views/Shared/NewTheme/_Layout.cshtml";
+    Layout = "~/Views/Shared/EnglishLayout/_EnglishLayout.cshtml";
 
     <div>
         <ul class="breadcrumb">
@@ -40,7 +40,7 @@
     @if (Model.Description != null)
     {
         <tr class="danger">
-            <td class="row-center" @*style="padding-top:35px"*@>@StudentActivity.Resources.Language.Description</td>
+            <td class="row-center" style="padding-top:35px">@StudentActivity.Resources.Language.Description</td>
             <td>@Model.Description</td>
         </tr>
     }

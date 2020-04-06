@@ -22,7 +22,6 @@
 
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
-
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar"></span>
@@ -33,21 +32,23 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#Home">ABOUT</a></li>
-                    <li><a href="#services">SERVICES</a></li>
-                    <li><a href="#portfolio">PORTFOLIO</a></li>
-                    <li><a href="#AvailablePrograms">AvailablePrograms</a></li>
-                    <li><a href="#Clubs">Clubs</a></li>
-                    <li><a href="#contact">CONTACT</a></li>
-
                     <li>@Html.ActionLink(StudentActivity.Resources.Language.Log_in, "Login", "Account")</li>
                     <li>@Html.ActionLink(StudentActivity.Resources.Language.Register, "Register", "Account")</li>
                     <li>@Html.ActionLink("English", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en" }, null)</li>
                 </ul>
             </div>
         </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="#Home">ABOUT</a></li>
+                    <li><a href="#services">SERVICES</a></li>
+                    <li><a href="#portfolio">PORTFOLIO</a></li>
+                    <li><a href="#AvailablePrograms">AvailablePrograms</a></li>
+                    <li><a href="#Clubs">Clubs</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </div>
     </nav>
-
     <div class="jumbotron text-center">
         <h1><strong>@StudentActivity.Resources.Language.Student_s_Activity</strong></h1>
         <p>The Way To Make Student's Life More Interesting!!</p>
