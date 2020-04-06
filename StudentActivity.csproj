@@ -372,6 +372,7 @@
       <DependentUpon>Language.resx</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\ProgramViewModel.cs" />
+    <Compile Include="ViewModel\ProgramClubsViewModel.cs" />
     <Compile Include="ViewModel\StudentClubViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -395,6 +396,12 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\Certificate.png" />
     <Content Include="Images\Juc logo.png" />
+    <Content Include="Images\JUCGate.JPG" />
+    <Content Include="Images\JUCGate1.JPG" />
+    <Content Include="Images\JUCMap.JPG" />
+    <Content Include="Images\program.JPG" />
+    <Content Include="Images\Visit.jpg" />
+    <Content Include="Scripts\DynamicView.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="webfonts\fa-brands-400.svg" />
@@ -543,6 +550,13 @@
     <Content Include="Views\Shared\EnglishLayout\ParameterIdLayout\_EnglishPIdLayout.cshtml" />
     <Content Include="Views\Shared\ArabicLayout\ArabicParameterIdLayout\_ArabicPIdLayout.cshtml" />
     <Content Include="Views\EnglishViews\EnglishProgram\VisitorProgramDetails.cshtml" />
+    <Content Include="Views\Shared\NewTheme\_FirstPage.cshtml" />
+    <Content Include="Views\Shared\NewTheme\_FourthPage.cshtml" />
+    <Content Include="Views\Shared\NewTheme\_HomePage.cshtml" />
+    <Content Include="Views\Shared\NewTheme\_EnglishLayout.cshtml" />
+    <Content Include="Views\Shared\NewTheme\_SecondPage.cshtml" />
+    <Content Include="Views\Shared\NewTheme\_ThirdPage.cshtml" />
+    <Content Include="Views\Shared\NewTheme\_ArabicLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\ArabicViews\ArabicAdmin\" />

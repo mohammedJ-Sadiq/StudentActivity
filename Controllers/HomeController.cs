@@ -1,16 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
+using StudentActivity.Models;
+using StudentActivity.ViewModel;
 
 namespace StudentActivity.Controllers
 {
-    
     public class HomeController : Controller
     {
+        private ApplicationDbContext _context;
+        public HomeController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         public ActionResult Home(string language)
         {
             ChangingLanguageFunction(language);
@@ -40,14 +52,23 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
+            var programs = _context.Programs.Include(p => p.Club).ToList().Where(p => p.IsDeleted == false).Where(p => p.IsVisible == true);
+
+            var clubs = _context.Clubs.ToList();
+
+            List<ProgramClubsViewModel> list = new List<ProgramClubsViewModel>();
+
+            list.Add(new ProgramClubsViewModel { Programs = programs });
+            list.Add(new ProgramClubsViewModel { Clubs = clubs });
+
             if (language.Equals("ar"))
             {
-                return View("~/Views/ArabicViews/ArabicHome/Index.cshtml");
+                return View("~/Views/ArabicViews/ArabicHome/Index.cshtml", programs);
             }
 
             else
             {
-                return View("~/Views/EnglishViews/EnglishHome/Index.cshtml");
+                return View("~/Views/EnglishViews/EnglishHome/Index.cshtml", programs);
             }
         }
 

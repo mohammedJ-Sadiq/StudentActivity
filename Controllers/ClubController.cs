@@ -284,6 +284,10 @@ namespace StudentActivity.Controllers
 
             var clubs = _context.Clubs.ToList();
 
+            List<ProgramClubsViewModel> list = new List<ProgramClubsViewModel>();
+
+            list.Add(new ProgramClubsViewModel { Clubs = clubs});
+
             if (language.Equals("ar"))
             {
                 return View("~/Views/ArabicViews/ArabicClub/VisitorShowClubs.cshtml", clubs);

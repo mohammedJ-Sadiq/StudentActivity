@@ -2,12 +2,11 @@
 
 @{
     ViewBag.Title = "ProgramDetails";
-    Layout = "~/Views/Shared/EnglishLayout/ParameterIdLayout/_EnglishPIdLayout.cshtml";
+    Layout = "~/Views/Shared/NewTheme/_Layout.cshtml";
 
     <div>
         <ul class="breadcrumb">
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "Index", "Home")</li>
-            <li>@Html.ActionLink(StudentActivity.Resources.Language.ProgramDetails, "VisitorAvailablePrograms", "Program")</li>
             <li>@Html.ActionLink(StudentActivity.Resources.Language.ProgramDetails, "VisitorProgramDetails", "Program")</li>
         </ul>
     </div>
@@ -36,12 +35,12 @@
 
     <tr>
         <td class="row-center">@StudentActivity.Resources.Language.MaximumStudentNumber</td>
-        <td class="row-center" style="padding-top:27px">@Model.MaximumStudentNumber</td>
+        <td class="row-center">@Model.MaximumStudentNumber</td>
     </tr>
     @if (Model.Description != null)
     {
         <tr class="danger">
-            <td class="row-center" style="padding-top:35px">@StudentActivity.Resources.Language.Description</td>
+            <td class="row-center" @*style="padding-top:35px"*@>@StudentActivity.Resources.Language.Description</td>
             <td>@Model.Description</td>
         </tr>
     }

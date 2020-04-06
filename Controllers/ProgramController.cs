@@ -704,6 +704,13 @@ namespace StudentActivity.Controllers
 
             var programs = _context.Programs.Include(p => p.Club).ToList().Where(p => p.IsDeleted == false).Where(p => p.IsVisible == true);
 
+            var clubs = _context.Clubs.ToList();
+
+            List<ProgramClubsViewModel> list = new List<ProgramClubsViewModel>();
+
+            list.Add(new ProgramClubsViewModel { Programs = programs });
+            list.Add(new ProgramClubsViewModel { Clubs = clubs });
+
             if (language.Equals("ar"))
             {
                 return View("~/Views/ArabicViews/ArabicProgram/VisitorAvailablePrograms.cshtml", programs);

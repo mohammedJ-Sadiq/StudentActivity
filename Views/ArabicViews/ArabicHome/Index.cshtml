@@ -1,22 +1,95 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-    Layout = "~/Views/Shared/ArabicLayout/_ArabicLayout.cshtml";
+﻿@*@{
+        ViewBag.Title = "Home Page";
+        Layout = "~/Views/Shared/ArabicLayout/_ArabicLayout.cshtml";
 
-    <div>
-        <ul class="breadcrumb">
-            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "Index", "Home")</li>
-        </ul>
+        <div>
+            <ul class="breadcrumb">
+                <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "Index", "Home")</li>
+            </ul>
+        </div>
+    }
+
+    <div class="jumbotron">
+        <h1>@StudentActivity.Resources.Language.JUC_Activities_Website</h1>
+        <p class="lead">@StudentActivity.Resources.Language.JUC_intro</p>
+    </div>
+    <img class="col-lg-offset-4 col-md-offset-4 col-sm-offset-3
+         col-xs-offset-2 col-lg-4 col-md-4 col-sm-6 col-xs-8"
+         alt="Juc logo" src="/images/Juc logo.png" />
+
+            <div class="row" style="margin-right: 100px;">
+                <div class="col-md-6"><button>Mechanical Engineering</button></div>
+        </div>*@
+
+@{
+    Layout = "~/Views/Shared/NewTheme/_ArabicLayout.cshtml";
+}
+
+@model IEnumerable<StudentActivity.Models.Program>
+
+@if (!Model.Any())
+{
+    <h1>@StudentActivity.Resources.Language.No_available_programs</h1>
+}
+
+else
+{
+    <h2>@StudentActivity.Resources.Language.Choose_a_program_to_register</h2>
+
+    <div id="AvailablePrograms" class="container-fluid">
+        <div class="text-center">
+            <h2>Available Programs</h2>
+            <h4>Here is a list of the current provided programs</h4>
+        </div>
+
+        <div class="row slideanim">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-4 col-xs-12">
+                    <div class="panel panel-default text-center">
+                        <div class="panel-heading">
+                            <h5>@item.Title</h5>
+                        </div>
+                        <div class="panel-body">
+                            <p><strong>@StudentActivity.Resources.Language.Time</strong> @item.Time</p>
+                            <p><strong>@StudentActivity.Resources.Language.StartDate</strong> @item.StartDate</p>
+                            <p><strong>@StudentActivity.Resources.Language.EndDate</strong> @item.EndDate</p>
+                            <p><strong>@StudentActivity.Resources.Language.MaximumStudentNumber</strong> @item.MaximumStudentNumber</p>
+                            <p><strong> @StudentActivity.Resources.Language.Club_Name</strong> @item.Club.Name</p>
+                        </div>
+                        <div class="panel-footer">
+                            @Html.ActionLink(@StudentActivity.Resources.Language.Details, "VisitorProgramDetails", "Program", new { id = item.Id }, new { @class = "btn btn-lg" })
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
     </div>
 }
 
-<div class="jumbotron">
-    <h1>@StudentActivity.Resources.Language.JUC_Activities_Website</h1>
-    <p class="lead">@StudentActivity.Resources.Language.JUC_intro</p>
+<div id="Clubs" class="container-fluid bg-grey">
+    <div class="row slideanim">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-4 col-xs-12">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading">
+                        <h3>@item.Club.Name</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p><strong></strong></p>
+                    </div>
+                    <div class="panel-footer">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+
 </div>
-<img class="col-lg-offset-4 col-md-offset-4 col-sm-offset-3
-     col-xs-offset-2 col-lg-4 col-md-4 col-sm-6 col-xs-8"
-     alt="Juc logo" src="/images/Juc logo.png" />
-@*
-        <div class="row" style="margin-right: 100px;">
-            <div class="col-md-6"><button>Mechanical Engineering</button></div>
-    </div>*@
+
+@Html.Partial("~/Views/Shared/NewTheme/_FourthPage.cshtml")
+

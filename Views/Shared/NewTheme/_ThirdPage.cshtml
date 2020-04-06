@@ -1,0 +1,49 @@
+﻿@model IEnumerable<StudentActivity.ViewModel.ProgramClubsViewModel>
+
+@if (!Model.Any())
+{
+    @*<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">*@
+    <h1>@StudentActivity.Resources.Language.No_available_programs</h1>
+    @*</div>*@
+}
+
+else
+{
+    <h2>@StudentActivity.Resources.Language.Choose_a_program_to_register</h2>
+
+    <div id="AvailablePrograms" class="container-fluid">
+        <div class="text-center">
+            <h2>Available Programs</h2>
+            <h4>Here is a list of the current provided programs</h4>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="row slideanim">
+                <div class="col-sm-4 col-xs-12">
+                    <div class="panel panel-default text-center">
+                        <div class="panel-heading">
+                            <h1>@item.</h1>
+                        </div>
+                        <div class="panel-body">
+                            @*<p><strong>@StudentActivity.Resources.Language.Time</strong> @item.</p>
+                            <p><strong>@StudentActivity.Resources.Language.StartDate</strong> @item.StartDate</p>
+                            <p><strong>@StudentActivity.Resources.Language.EndDate</strong> @item.EndDate</p>
+                            <p><strong>@StudentActivity.Resources.Language.MaximumStudentNumber</strong> @item.MaximumStudentNumber</p>
+                            <p><strong> @StudentActivity.Resources.Language.Club_Name</strong> @item.Club.Name</p>*@
+                        </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-lg">
+                                @Html.ActionLink(@StudentActivity.Resources.Language.Details, "VisitorProgramDetails", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        }
+    </div>
+}
+
+
+<!-- Container (Pricing Section) -->
