@@ -54,21 +54,27 @@ namespace StudentActivity.Controllers
 
             var programs = _context.Programs.Include(p => p.Club).ToList().Where(p => p.IsDeleted == false).Where(p => p.IsVisible == true);
 
-            var clubs = _context.Clubs.ToList();
+            var clubs = _context.Clubs.Include(p => p.Student).ToList();
 
-            List<ProgramClubsViewModel> list = new List<ProgramClubsViewModel>();
+            var programViewModel = new ProgramClubsViewModel()
+            {
+                Programs = programs,
+                Clubs = clubs
+            };
+
+            /*List<ProgramClubsViewModel> list = new List<ProgramClubsViewModel>();
 
             list.Add(new ProgramClubsViewModel { Programs = programs });
-            list.Add(new ProgramClubsViewModel { Clubs = clubs });
+            list.Add(new ProgramClubsViewModel { Clubs = clubs });*/
 
             if (language.Equals("ar"))
             {
-                return View("~/Views/ArabicViews/ArabicHome/Index.cshtml", programs);
+                return View("~/Views/ArabicViews/ArabicHome/Index.cshtml", programViewModel);
             }
 
             else
             {
-                return View("~/Views/EnglishViews/EnglishHome/Index.cshtml", programs);
+                return View("~/Views/EnglishViews/EnglishHome/Index.cshtml", programViewModel);
             }
         }
 

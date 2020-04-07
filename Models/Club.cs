@@ -21,6 +21,10 @@ namespace StudentActivity.Models
         [Display(Name ="Club Coordinator")]
         public String StudentId { get; set; }
 
+        [Display (Name ="Club Vision")]
+        [StringLength(1000)]
+        public String ClubVision { get; set; }
+
         public virtual ICollection<Program> Programs { get; set; }
 
         public IList<Student_Club> StudentClub { get; set; }

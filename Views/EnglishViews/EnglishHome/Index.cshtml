@@ -25,15 +25,12 @@
     Layout = "~/Views/Shared/NewTheme/_EnglishLayout.cshtml";
 }
 
-@model IEnumerable<StudentActivity.Models.Program>
+@model  StudentActivity.ViewModel.ProgramClubsViewModel
 
-@if (!Model.Any())
-{
-    <h1>@StudentActivity.Resources.Language.No_available_programs</h1>
-}
 
-else
-{
+
+
+@{
     <h2>@StudentActivity.Resources.Language.Choose_a_program_to_register</h2>
 
     <div id="AvailablePrograms" class="container-fluid">
@@ -43,7 +40,7 @@ else
         </div>
 
         <div class="row slideanim">
-            @foreach (var item in Model)
+            @foreach (var item in Model.Programs)
             {
                 <div class="col-sm-4 col-xs-12">
                     <div class="panel panel-default text-center">
@@ -117,18 +114,18 @@ else
 
 <div id="Clubs" class="container-fluid bg-grey">
     <div class="row slideanim">
-        @foreach (var item in Model)
+        @foreach (var item in Model.Clubs)
         {
             <div class="col-sm-4 col-xs-12">
                 <div class="panel panel-default text-center">
                     <div class="panel-heading">
-                        <h3>@item.Club.Name</h3>
+                        <h3>@item.Name</h3>
                     </div>
                     <div class="panel-body">
-                        <p><strong></strong></p>
+                        <p><strong>@item.ClubVision</strong></p>
                     </div>
                     <div class="panel-footer">
-                        <p></p>
+                        <p>Club Coordinator:<br /> @item.Student.Name</p>
                     </div>
                 </div>
             </div>

@@ -350,6 +350,14 @@
     <Compile Include="Migrations\202004031504590_AddingClubCorVisibleToProgramModel.Designer.cs">
       <DependentUpon>202004031504590_AddingClubCorVisibleToProgramModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004071753540_AddingClubVisionToClubModel.cs" />
+    <Compile Include="Migrations\202004071753540_AddingClubVisionToClubModel.Designer.cs">
+      <DependentUpon>202004071753540_AddingClubVisionToClubModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004071756059_populateClubVision.cs" />
+    <Compile Include="Migrations\202004071756059_populateClubVision.Designer.cs">
+      <DependentUpon>202004071756059_populateClubVision.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -706,6 +714,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004031504590_AddingClubCorVisibleToProgramModel.resx">
       <DependentUpon>202004031504590_AddingClubCorVisibleToProgramModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004071753540_AddingClubVisionToClubModel.resx">
+      <DependentUpon>202004071753540_AddingClubVisionToClubModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004071756059_populateClubVision.resx">
+      <DependentUpon>202004071756059_populateClubVision.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Language.ar.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

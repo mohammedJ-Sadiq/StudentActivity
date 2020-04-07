@@ -8,6 +8,7 @@ namespace StudentActivity.ViewModel
 {
     public class ProgramClubsViewModel
     {
+        public Program prg { get; set; }
         public IEnumerable<Program> Programs { get; set; }
        
         public IEnumerable<Club> Clubs { get; set; }
