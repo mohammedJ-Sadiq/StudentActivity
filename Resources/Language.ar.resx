@@ -177,6 +177,9 @@
   <data name="Club Name" xml:space="preserve">
     <value>اسم النادي</value>
   </data>
+  <data name="ClubCoordinator" xml:space="preserve">
+    <value>رئيس النادي</value>
+  </data>
   <data name="ClubCorHome" xml:space="preserve">
     <value>صفحة رئيس النادي الرئيسية</value>
   </data>
@@ -206,6 +209,9 @@
   </data>
   <data name="Create a new account." xml:space="preserve">
     <value>انشاء حساب جديد</value>
+  </data>
+  <data name="CurrentProgramsList" xml:space="preserve">
+    <value>قائمة البرامج المتاحة:</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>حذف</value>
@@ -278,6 +284,9 @@
   </data>
   <data name="Join Club" xml:space="preserve">
     <value>الانضمام لنادي</value>
+  </data>
+  <data name="JUC" xml:space="preserve">
+    <value>JUC</value>
   </data>
   <data name="JUC Activities Website" xml:space="preserve">
     <value>موقع الأنشطة الطلابية لكلية الجبيل الجامعية</value>
@@ -357,6 +366,9 @@
   <data name="Phone number removed" xml:space="preserve">
     <value>تمت ازالة رقم الجوال</value>
   </data>
+  <data name="Portfolio" xml:space="preserve">
+    <value>الملف التعريفي</value>
+  </data>
   <data name="PrintCertificate" xml:space="preserve">
     <value>طباعة شهادة</value>
   </data>
@@ -426,6 +438,9 @@
   <data name="Select a Program" xml:space="preserve">
     <value>اختر برنامج</value>
   </data>
+  <data name="Services" xml:space="preserve">
+    <value>الخدمات</value>
+  </data>
   <data name="StartDate" xml:space="preserve">
     <value>تاريخ البداية</value>
   </data>
@@ -443,6 +458,9 @@
   </data>
   <data name="Student's Activity" xml:space="preserve">
     <value>الأنشطة الطلابية </value>
+  </data>
+  <data name="StudentActivityShortIntro" xml:space="preserve">
+    <value>الطريق الأفضل لجعل حياة الطالب أكثر مرحاُ!!</value>
   </data>
   <data name="StudentHome" xml:space="preserve">
     <value>صفحة الطالب الرئيسية</value>

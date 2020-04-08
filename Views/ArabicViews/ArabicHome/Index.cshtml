@@ -25,25 +25,23 @@
     Layout = "~/Views/Shared/NewTheme/_ArabicLayout.cshtml";
 }
 
-@model IEnumerable<StudentActivity.Models.Program>
+@model  StudentActivity.ViewModel.ProgramClubsViewModel
 
-@if (!Model.Any())
+@if (!Model.Programs.Any())
 {
     <h1>@StudentActivity.Resources.Language.No_available_programs</h1>
 }
 
 else
 {
-    <h2>@StudentActivity.Resources.Language.Choose_a_program_to_register</h2>
-
     <div id="AvailablePrograms" class="container-fluid">
         <div class="text-center">
-            <h2>Available Programs</h2>
-            <h4>Here is a list of the current provided programs</h4>
+            <h2>@StudentActivity.Resources.Language.Available_Programs</h2>
+            <h4>@StudentActivity.Resources.Language.CurrentProgramsList</h4>
         </div>
 
         <div class="row slideanim">
-            @foreach (var item in Model)
+            @foreach (var item in Model.Programs)
             {
                 <div class="col-sm-4 col-xs-12">
                     <div class="panel panel-default text-center">
@@ -51,45 +49,89 @@ else
                             <h5>@item.Title</h5>
                         </div>
                         <div class="panel-body">
-                            <p><strong>@StudentActivity.Resources.Language.Time</strong> @item.Time</p>
-                            <p><strong>@StudentActivity.Resources.Language.StartDate</strong> @item.StartDate</p>
-                            <p><strong>@StudentActivity.Resources.Language.EndDate</strong> @item.EndDate</p>
-                            <p><strong>@StudentActivity.Resources.Language.MaximumStudentNumber</strong> @item.MaximumStudentNumber</p>
-                            <p><strong> @StudentActivity.Resources.Language.Club_Name</strong> @item.Club.Name</p>
+                            <p><strong>@StudentActivity.Resources.Language.Time:</strong> @item.Time</p>
+                            <p><strong>@StudentActivity.Resources.Language.StartDate:</strong> @item.StartDate</p>
+                            <p><strong>@StudentActivity.Resources.Language.EndDate:</strong> @item.EndDate</p>
+                            <p><strong>@StudentActivity.Resources.Language.MaximumStudentNumber:</strong> @item.MaximumStudentNumber</p>
+                            <p><strong> @StudentActivity.Resources.Language.Club_Name:</strong> @item.Club.Name</p>
                         </div>
                         <div class="panel-footer">
-                            @Html.ActionLink(@StudentActivity.Resources.Language.Details, "VisitorProgramDetails", "Program", new { id = item.Id }, new { @class = "btn btn-lg" })
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#@item.Id">
+                                @StudentActivity.Resources.Language.Details
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h3 class="modal-title text-center" id="exampleModalLabel">@item.Title</h3>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table table-bordered table-hover">
+                                                <tr class="danger">
+                                                    <td class="row-center">@StudentActivity.Resources.Language.Time:</td>
+                                                    <td class="row-center">@item.Time</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="row-center">@StudentActivity.Resources.Language.StartDate:</td>
+                                                    <td class="row-center">@item.StartDate</td>
+                                                </tr>
+
+                                                <tr class="danger">
+                                                    <td class="row-center">@StudentActivity.Resources.Language.EndDate:</td>
+                                                    <td class="row-center">@item.EndDate</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="row-center">@StudentActivity.Resources.Language.MaximumStudentNumber:</td>
+                                                    <td class="row-center">@item.MaximumStudentNumber</td>
+                                                </tr>
+                                                @if (item.Description != null)
+                                                {
+                                                    <tr class="danger">
+                                                        <td class="row-center">@StudentActivity.Resources.Language.Description:</td>
+                                                        <td>@item.Description</td>
+                                                    </tr>
+                                                }
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             }
         </div>
-
     </div>
 }
 
 <div id="Clubs" class="container-fluid bg-grey">
     <div class="row slideanim">
-        @foreach (var item in Model)
+        @foreach (var item in Model.Clubs)
         {
             <div class="col-sm-4 col-xs-12">
                 <div class="panel panel-default text-center">
                     <div class="panel-heading">
-                        <h3>@item.Club.Name</h3>
+                        <h3>@item.Name</h3>
                     </div>
                     <div class="panel-body">
-                        <p><strong></strong></p>
+                        <p><strong>@item.ClubVision</strong></p>
                     </div>
                     <div class="panel-footer">
-                        <p></p>
+                        <p>@StudentActivity.Resources.Language.ClubCoordinator:<br /> @item.Student.Name</p>
                     </div>
                 </div>
             </div>
-
         }
     </div>
 
 </div>
 
 @Html.Partial("~/Views/Shared/NewTheme/_FourthPage.cshtml")
-
