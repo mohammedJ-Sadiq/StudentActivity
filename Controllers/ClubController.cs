@@ -148,6 +148,8 @@ namespace StudentActivity.Controllers
                 var ClubInDb = _context.Clubs.Single(c => c.Id == club.Id);
                 ClubInDb.Name = club.Name;
                 ClubInDb.StudentId = club.StudentId;
+                ClubInDb.ClubVisionEng = club.ClubVisionEng;
+                ClubInDb.ClubVisionAr = club.ClubVisionAr;
             }
 
             try

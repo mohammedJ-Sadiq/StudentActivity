@@ -250,6 +250,24 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Club Vision in Arabic.
+        /// </summary>
+        public static string Club_Vision_in_Arabic {
+            get {
+                return ResourceManager.GetString("Club Vision in Arabic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Club Vision in English.
+        /// </summary>
+        public static string Club_Vision_in_English {
+            get {
+                return ResourceManager.GetString("Club Vision in English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Club Coordinator.
         /// </summary>
         public static string ClubCoordinator {

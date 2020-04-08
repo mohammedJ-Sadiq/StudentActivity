@@ -23,7 +23,12 @@ namespace StudentActivity.Models
 
         [Display (Name ="Club Vision")]
         [StringLength(1000)]
-        public String ClubVision { get; set; }
+        public String ClubVisionEng { get; set; }
+
+
+        [Display(Name = "رؤية النادي")]
+        [StringLength(1000)]
+        public String ClubVisionAr { get; set; }
 
         public virtual ICollection<Program> Programs { get; set; }
 

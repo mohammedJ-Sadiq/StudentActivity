@@ -26,6 +26,16 @@
         @Html.TextBoxFor(m => m.StudentId, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.StudentId)
     </div>
+    <div class="form-group">
+        @StudentActivity.Resources.Language.Club_Vision_in_English
+        @Html.TextAreaFor(m => m.ClubVisionEng, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ClubVisionEng)
+    </div>
+    <div class="form-group">
+        @StudentActivity.Resources.Language.Club_Vision_in_Arabic
+        @Html.TextAreaFor(m => m.ClubVisionAr, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ClubVisionAr)
+    </div>
     @Html.HiddenFor(m => m.Id)
     @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">

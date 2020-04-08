@@ -177,6 +177,12 @@
   <data name="Club Name" xml:space="preserve">
     <value>اسم النادي</value>
   </data>
+  <data name="Club Vision in Arabic" xml:space="preserve">
+    <value>رؤية النادي باللغة العربية</value>
+  </data>
+  <data name="Club Vision in English" xml:space="preserve">
+    <value>رؤية النادي باللغة الإنجليزية</value>
+  </data>
   <data name="ClubCoordinator" xml:space="preserve">
     <value>رئيس النادي</value>
   </data>

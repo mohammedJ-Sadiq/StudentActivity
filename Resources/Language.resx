@@ -180,6 +180,12 @@
   <data name="Club Name" xml:space="preserve">
     <value>Club Name</value>
   </data>
+  <data name="Club Vision in Arabic" xml:space="preserve">
+    <value>Club Vision in Arabic</value>
+  </data>
+  <data name="Club Vision in English" xml:space="preserve">
+    <value>Club Vision in English</value>
+  </data>
   <data name="ClubCoordinator" xml:space="preserve">
     <value>Club Coordinator</value>
   </data>
