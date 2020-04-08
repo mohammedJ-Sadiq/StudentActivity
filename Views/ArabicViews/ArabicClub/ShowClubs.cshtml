@@ -45,7 +45,8 @@ else
                 @item.Club.Name
             </td>
             <td>
-                @Html.ActionLink(StudentActivity.Resources.Language.Leave_Club, "DeleteStuClub", "Club", new { studentId = item.StudentId, clubId = item.ClubId }, new { @class = "btn btn-primary" })
+                @Html.ActionLink(StudentActivity.Resources.Language.Leave_Club, "DeleteStuClub", "Club", new { studentId = item.StudentId, clubId = item.ClubId }, new { @class = "btn btn-primary" ,
+                onclick = "return confirm('Are you sure you want to leave this club ?')" })
             </td>
         </tr>
     }

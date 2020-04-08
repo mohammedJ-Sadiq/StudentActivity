@@ -310,12 +310,10 @@ namespace StudentActivity.Controllers
                 (s => s.StudentId == studentId)
                 .Single(c => c.ClubId == clubId);
 
-            DialogResult result = MessageBox.Show(StudentActivity.Resources.Language.leave_this_club, DeleteMsgTitle, DeleteMsgButtons);
-            if (result == DialogResult.Yes)
-            {
+            
                 _context.StudentClubs.Remove(studentClub);
                 _context.SaveChanges();
-            }
+            
 
             return RedirectToAction("ShowClubs", "Club");
         }

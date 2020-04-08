@@ -280,13 +280,10 @@ namespace StudentActivity.Controllers
 
             var program = _context.Programs.Single(p => p.Id == id);
 
-            DialogResult result = MessageBox.Show(DeleteMsgContent, DeleteMsgTitle, DeleteMsgButtons);
-            if (result == DialogResult.Yes)
-            {
-                // If IsDeleted set true then it is simply deleted in the view
-                program.IsDeleted = true;
-                _context.SaveChanges();
-            } 
+            // If IsDeleted set true then it is simply deleted in the view
+            program.IsDeleted = true;
+            _context.SaveChanges();
+            
 
             return RedirectToAction("Index", "Program");
         }
@@ -353,13 +350,12 @@ namespace StudentActivity.Controllers
 
             DialogResult result = MessageBox.Show(StudentActivity.Resources.Language.Approve_program_confirmation, "Confirmation Message", DeleteMsgButtons);
 
-            if (result == DialogResult.Yes)
-            {
-                // If IsVisible set true then it is approved and will be added to other views
-                program.IsVisible = true;
-                program.PendingStatus = 1;  // 1 is for approved programs
-                _context.SaveChanges();
-            }
+           
+            // If IsVisible set true then it is approved and will be added to other views
+            program.IsVisible = true;
+            program.PendingStatus = 1;  // 1 is for approved programs
+            _context.SaveChanges();
+            
             return RedirectToAction("RequestedProgramsAdmin", "Program");
         }
 
@@ -372,13 +368,12 @@ namespace StudentActivity.Controllers
 
             DialogResult result = MessageBox.Show(StudentActivity.Resources.Language.Reject_program_confirmation, "Confirmation Message", DeleteMsgButtons);
 
-            if (result == DialogResult.Yes)
-            {
-                // If IsVisible set true then it is approved and will be added to other views
-                program.IsDeleted = true;
-                program.PendingStatus = 2; // 2 stands for rejected Programs
-                _context.SaveChanges();
-            }
+            
+            // If IsVisible set true then it is approved and will be added to other views
+            program.IsDeleted = true;
+            program.PendingStatus = 2; // 2 stands for rejected Programs
+            _context.SaveChanges();
+            
             return RedirectToAction("RequestedProgramsAdmin", "Program");
         }
 
@@ -669,12 +664,9 @@ namespace StudentActivity.Controllers
                 (s => s.StudentId == studentId)
                 .Single(p => p.ProgramId == programId);
 
-            DialogResult result = MessageBox.Show(DeleteMsgContent, DeleteMsgTitle, DeleteMsgButtons);
-            if (result == DialogResult.Yes)
-            {
-                _context.StudentPrograms.Remove(StuPrg);
-                _context.SaveChanges();
-            }
+            _context.StudentPrograms.Remove(StuPrg);
+            _context.SaveChanges();
+            
 
             return RedirectToAction("StuPrograms", "Program", new { id = StuPrg.StudentId });
         }

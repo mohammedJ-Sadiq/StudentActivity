@@ -79,7 +79,8 @@ else
                 </td>
                 <td>
                     @Html.ActionLink(@StudentActivity.Resources.Language.Details, "ProgramDetails", "Program", new { id = item.ProgramId }, new { @class = "btn btn-primary" })
-                    @Html.ActionLink(@StudentActivity.Resources.Language.Delete, "DeleteStuPrg", "Program", new { studentId = item.StudentId, programId = item.ProgramId }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink(@StudentActivity.Resources.Language.Delete, "DeleteStuPrg", "Program", new { studentId = item.StudentId, programId = item.ProgramId }, new { @class = "btn btn-primary",
+                    onclick = "return confirm('Are you sure you want to delete this program?')" })
                 </td>
             </tr>
         }

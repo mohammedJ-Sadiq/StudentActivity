@@ -39,7 +39,9 @@
             </td>
             <td>
                 @Html.ActionLink(StudentActivity.Resources.Language.Edit, "EditClub", "Club", new { id = item.Id }, new { @class = "btn btn-primary" })
-                @Html.ActionLink(StudentActivity.Resources.Language.Delete, "DeleteClub", "Club", new { id = item.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink(StudentActivity.Resources.Language.Delete, "DeleteClub", "Club", new { id = item.Id }, new{@class = "btn btn-primary",
+                onclick = "return confirm('Are you sure you want to delete this club?')"
+                })
             </td>
         </tr>
     }
