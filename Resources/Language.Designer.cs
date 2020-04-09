@@ -881,6 +881,15 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Program Name.
+        /// </summary>
+        public static string ProgramName {
+            get {
+                return ResourceManager.GetString("ProgramName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Programs.
         /// </summary>
         public static string Programs {

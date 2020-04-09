@@ -388,6 +388,9 @@
   <data name="ProgramForm" xml:space="preserve">
     <value>نموذج برنامج</value>
   </data>
+  <data name="ProgramName" xml:space="preserve">
+    <value>اسم البرنامج</value>
+  </data>
   <data name="Programs" xml:space="preserve">
     <value>البرامج</value>
   </data>
