@@ -123,6 +123,9 @@
   <data name="About page" xml:space="preserve">
     <value>Your application description page.</value>
   </data>
+  <data name="AboutStudentsActivities" xml:space="preserve">
+    <value>About Student's Activities</value>
+  </data>
   <data name="Add New Club" xml:space="preserve">
     <value>Add New Club</value>
   </data>
@@ -171,6 +174,15 @@
   <data name="Available Programs" xml:space="preserve">
     <value>Available Programs</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Certified" xml:space="preserve">
+    <value>Certified</value>
+  </data>
+  <data name="CertifiedIntro" xml:space="preserve">
+    <value>We offer an easy way for students who completed any program to print their Certification for these programs whenever and from wherever they want..</value>
+  </data>
   <data name="Choose a program to register" xml:space="preserve">
     <value>Choose a program to register in</value>
   </data>
@@ -206,6 +218,12 @@
   </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value>ConfirmPassword</value>
+  </data>
+  <data name="Connectivity" xml:space="preserve">
+    <value>Connectivity</value>
+  </data>
+  <data name="ConnectivityIntro" xml:space="preserve">
+    <value>We keep in touch with students through our website by providing a special page to show the latest news in the university..</value>
   </data>
   <data name="Contact" xml:space="preserve">
     <value>Contact</value>
@@ -246,6 +264,15 @@
   <data name="Details" xml:space="preserve">
     <value>Details</value>
   </data>
+  <data name="DeveloperAhmed" xml:space="preserve">
+    <value>Ahmed, Developer</value>
+  </data>
+  <data name="DeveloperSomeone" xml:space="preserve">
+    <value>Someone, Developer</value>
+  </data>
+  <data name="DevelopingLeaderMohammed" xml:space="preserve">
+    <value>Mohammed, Developing leader</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
@@ -276,6 +303,15 @@
   <data name="External login removed" xml:space="preserve">
     <value>The external login was removed.</value>
   </data>
+  <data name="FinishedPrograms" xml:space="preserve">
+    <value>Finished Programs</value>
+  </data>
+  <data name="HardWork" xml:space="preserve">
+    <value>Hard Work</value>
+  </data>
+  <data name="HardWorkIntro" xml:space="preserve">
+    <value>Putting more effort on developing our services to serve students in an easy way..</value>
+  </data>
   <data name="Hello" xml:space="preserve">
     <value>Hello</value>
   </data>
@@ -303,6 +339,12 @@
   <data name="JUC intro" xml:space="preserve">
     <value>This Website is going to allow the student to register for programs, and print them later on.</value>
   </data>
+  <data name="JUCGate" xml:space="preserve">
+    <value>JUCGate</value>
+  </data>
+  <data name="JUCGateBody" xml:space="preserve">
+    <value>The Main Gate of JUC</value>
+  </data>
   <data name="Leave Club" xml:space="preserve">
     <value>Leave Club</value>
   </data>
@@ -321,17 +363,38 @@
   <data name="LogIn" xml:space="preserve">
     <value>LogIn</value>
   </data>
+  <data name="Love" xml:space="preserve">
+    <value>Love</value>
+  </data>
+  <data name="LoveIntro" xml:space="preserve">
+    <value>Trying our best to provide whatever students want depending on their wishes..</value>
+  </data>
   <data name="MaximumStudentNumber" xml:space="preserve">
     <value>Maximum Student Number</value>
   </data>
+  <data name="MISSION" xml:space="preserve">
+    <value>MISSION</value>
+  </data>
+  <data name="MISSIONBody" xml:space="preserve">
+    <value>Our mission is to make Student's life easier and funnier.</value>
+  </data>
   <data name="MobileNo" xml:space="preserve">
     <value>Mobile No.</value>
+  </data>
+  <data name="Mobility" xml:space="preserve">
+    <value>Mobility</value>
+  </data>
+  <data name="MobilityIntro" xml:space="preserve">
+    <value>We provide many services through our website to make student's life easier..</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
   <data name="NewRequest" xml:space="preserve">
     <value>New Request</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
   </data>
   <data name="No available programs" xml:space="preserve">
     <value>There are no available programs</value>
@@ -347,6 +410,9 @@
   </data>
   <data name="NoCompletedPrograms" xml:space="preserve">
     <value>You have not completed any programs yet!</value>
+  </data>
+  <data name="OurValues" xml:space="preserve">
+    <value>Our Values</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
@@ -378,12 +444,18 @@
   <data name="Portfolio" xml:space="preserve">
     <value>Portfolio</value>
   </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Previous</value>
+  </data>
   <data name="PrintCertificate" xml:space="preserve">
     <value>Print Certificate</value>
   </data>
   <data name="Program already added" xml:space="preserve">
     <value>The program you are 
 trying to add is already added</value>
+  </data>
+  <data name="ProgramBody" xml:space="preserve">
+    <value>A program in the MPH</value>
   </data>
   <data name="ProgramDetails" xml:space="preserve">
     <value>Program Details</value>
@@ -396,6 +468,9 @@ trying to add is already added</value>
   </data>
   <data name="Programs" xml:space="preserve">
     <value>Programs</value>
+  </data>
+  <data name="ProgramsOfferedIntro" xml:space="preserve">
+    <value>We provide different kinds of programs such as courses, out-side visits, and activities..</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
@@ -453,6 +528,15 @@ trying to retrieve does not exist</value>
   <data name="Services" xml:space="preserve">
     <value>Services</value>
   </data>
+  <data name="Slider1" xml:space="preserve">
+    <value>"This Website is Made for JUC Students By JUC Students. We Are so happy with this result!"</value>
+  </data>
+  <data name="Slider2" xml:space="preserve">
+    <value>"One word... WOW!!"</value>
+  </data>
+  <data name="Slider3" xml:space="preserve">
+    <value>"Could I... BE any more happy with this Achievement?"</value>
+  </data>
   <data name="StartDate" xml:space="preserve">
     <value>Start Date</value>
   </data>
@@ -492,6 +576,12 @@ trying to retrieve does not exist</value>
   <data name="Students List" xml:space="preserve">
     <value>Students List</value>
   </data>
+  <data name="StudentsActivitiesIntro" xml:space="preserve">
+    <value>Student's Activities is a part of the Student's Affairs, which is a department of the university that serves as the gate between the student and the academic departments.</value>
+  </data>
+  <data name="StudentsActivitiesMainGoal" xml:space="preserve">
+    <value>The main goal of Student's Activities is to make the lives of the students easier and more interesting while they are studying at the university by providing special programs such as courses, visits, and activities that support the students in their studies</value>
+  </data>
   <data name="Submit" xml:space="preserve">
     <value>Submit</value>
   </data>
@@ -507,7 +597,22 @@ trying to retrieve does not exist</value>
   <data name="Verify phone failed" xml:space="preserve">
     <value>Failed to verify phone</value>
   </data>
+  <data name="VISION" xml:space="preserve">
+    <value>VISION</value>
+  </data>
+  <data name="VISIONBody" xml:space="preserve">
+    <value>Our vision is to graduate qualified students with both academic and communicate skills that will help them to succeed in their own lives.</value>
+  </data>
+  <data name="Visit" xml:space="preserve">
+    <value>Visit</value>
+  </data>
+  <data name="VisitBody" xml:space="preserve">
+    <value>A Site Visit done by Civil Club</value>
+  </data>
   <data name="Water Mark Certificate" xml:space="preserve">
     <value>Water Mark a Certificate</value>
+  </data>
+  <data name="WhatWeOffer" xml:space="preserve">
+    <value>WhatWeOffer</value>
   </data>
 </root>

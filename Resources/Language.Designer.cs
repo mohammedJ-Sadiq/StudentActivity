@@ -79,6 +79,15 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About Student&apos;s Activities.
+        /// </summary>
+        public static string AboutStudentsActivities {
+            get {
+                return ResourceManager.GetString("AboutStudentsActivities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add New Club.
         /// </summary>
         public static string Add_New_Club {
@@ -223,6 +232,33 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Certified.
+        /// </summary>
+        public static string Certified {
+            get {
+                return ResourceManager.GetString("Certified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We offer an easy way for students who completed any program to print their Certification for these programs whenever and from wherever they want...
+        /// </summary>
+        public static string CertifiedIntro {
+            get {
+                return ResourceManager.GetString("CertifiedIntro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose a program to register in.
         /// </summary>
         public static string Choose_a_program_to_register {
@@ -327,6 +363,24 @@ namespace StudentActivity.Resources {
         public static string ConfirmPassword {
             get {
                 return ResourceManager.GetString("ConfirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connectivity.
+        /// </summary>
+        public static string Connectivity {
+            get {
+                return ResourceManager.GetString("Connectivity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We keep in touch with students through our website by providing a special page to show the latest news in the university...
+        /// </summary>
+        public static string ConnectivityIntro {
+            get {
+                return ResourceManager.GetString("ConnectivityIntro", resourceCulture);
             }
         }
         
@@ -448,6 +502,33 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ahmed, Developer.
+        /// </summary>
+        public static string DeveloperAhmed {
+            get {
+                return ResourceManager.GetString("DeveloperAhmed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Someone, Developer.
+        /// </summary>
+        public static string DeveloperSomeone {
+            get {
+                return ResourceManager.GetString("DeveloperSomeone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mohammed, Developing leader.
+        /// </summary>
+        public static string DevelopingLeaderMohammed {
+            get {
+                return ResourceManager.GetString("DevelopingLeaderMohammed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
         public static string Edit {
@@ -538,6 +619,33 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Finished Programs.
+        /// </summary>
+        public static string FinishedPrograms {
+            get {
+                return ResourceManager.GetString("FinishedPrograms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hard Work.
+        /// </summary>
+        public static string HardWork {
+            get {
+                return ResourceManager.GetString("HardWork", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Putting more effort on developing our services to serve students in an easy way...
+        /// </summary>
+        public static string HardWorkIntro {
+            get {
+                return ResourceManager.GetString("HardWorkIntro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hello.
         /// </summary>
         public static string Hello {
@@ -619,6 +727,24 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to JUCGate.
+        /// </summary>
+        public static string JUCGate {
+            get {
+                return ResourceManager.GetString("JUCGate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Main Gate of JUC.
+        /// </summary>
+        public static string JUCGateBody {
+            get {
+                return ResourceManager.GetString("JUCGateBody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Leave Club.
         /// </summary>
         public static string Leave_Club {
@@ -673,6 +799,24 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Love.
+        /// </summary>
+        public static string Love {
+            get {
+                return ResourceManager.GetString("Love", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trying our best to provide whatever students want depending on their wishes...
+        /// </summary>
+        public static string LoveIntro {
+            get {
+                return ResourceManager.GetString("LoveIntro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Maximum Student Number.
         /// </summary>
         public static string MaximumStudentNumber {
@@ -682,11 +826,47 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MISSION.
+        /// </summary>
+        public static string MISSION {
+            get {
+                return ResourceManager.GetString("MISSION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Our mission is to make Student&apos;s life easier and funnier..
+        /// </summary>
+        public static string MISSIONBody {
+            get {
+                return ResourceManager.GetString("MISSIONBody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mobile No..
         /// </summary>
         public static string MobileNo {
             get {
                 return ResourceManager.GetString("MobileNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mobility.
+        /// </summary>
+        public static string Mobility {
+            get {
+                return ResourceManager.GetString("Mobility", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We provide many services through our website to make student&apos;s life easier...
+        /// </summary>
+        public static string MobilityIntro {
+            get {
+                return ResourceManager.GetString("MobilityIntro", resourceCulture);
             }
         }
         
@@ -705,6 +885,15 @@ namespace StudentActivity.Resources {
         public static string NewRequest {
             get {
                 return ResourceManager.GetString("NewRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next.
+        /// </summary>
+        public static string Next {
+            get {
+                return ResourceManager.GetString("Next", resourceCulture);
             }
         }
         
@@ -750,6 +939,15 @@ namespace StudentActivity.Resources {
         public static string NoCompletedPrograms {
             get {
                 return ResourceManager.GetString("NoCompletedPrograms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Our Values.
+        /// </summary>
+        public static string OurValues {
+            get {
+                return ResourceManager.GetString("OurValues", resourceCulture);
             }
         }
         
@@ -844,6 +1042,15 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Previous.
+        /// </summary>
+        public static string Previous {
+            get {
+                return ResourceManager.GetString("Previous", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Print Certificate.
         /// </summary>
         public static string PrintCertificate {
@@ -859,6 +1066,15 @@ namespace StudentActivity.Resources {
         public static string Program_already_added {
             get {
                 return ResourceManager.GetString("Program already added", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A program in the MPH.
+        /// </summary>
+        public static string ProgramBody {
+            get {
+                return ResourceManager.GetString("ProgramBody", resourceCulture);
             }
         }
         
@@ -895,6 +1111,15 @@ namespace StudentActivity.Resources {
         public static string Programs {
             get {
                 return ResourceManager.GetString("Programs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We provide different kinds of programs such as courses, out-side visits, and activities...
+        /// </summary>
+        public static string ProgramsOfferedIntro {
+            get {
+                return ResourceManager.GetString("ProgramsOfferedIntro", resourceCulture);
             }
         }
         
@@ -1063,6 +1288,33 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &quot;This Website is Made for JUC Students By JUC Students. We Are so happy with this result!&quot;.
+        /// </summary>
+        public static string Slider1 {
+            get {
+                return ResourceManager.GetString("Slider1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;One word... WOW!!&quot;.
+        /// </summary>
+        public static string Slider2 {
+            get {
+                return ResourceManager.GetString("Slider2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Could I... BE any more happy with this Achievement?&quot;.
+        /// </summary>
+        public static string Slider3 {
+            get {
+                return ResourceManager.GetString("Slider3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start Date.
         /// </summary>
         public static string StartDate {
@@ -1180,6 +1432,24 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Student&apos;s Activities is a part of the Student&apos;s Affairs, which is a department of the university that serves as the gate between the student and the academic departments..
+        /// </summary>
+        public static string StudentsActivitiesIntro {
+            get {
+                return ResourceManager.GetString("StudentsActivitiesIntro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The main goal of Student&apos;s Activities is to make the lives of the students easier and more interesting while they are studying at the university by providing special programs such as courses, visits, and activities that support the students in their studies.
+        /// </summary>
+        public static string StudentsActivitiesMainGoal {
+            get {
+                return ResourceManager.GetString("StudentsActivitiesMainGoal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Submit.
         /// </summary>
         public static string Submit {
@@ -1225,11 +1495,56 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to VISION.
+        /// </summary>
+        public static string VISION {
+            get {
+                return ResourceManager.GetString("VISION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Our vision is to graduate qualified students with both academic and communicate skills that will help them to succeed in their own lives..
+        /// </summary>
+        public static string VISIONBody {
+            get {
+                return ResourceManager.GetString("VISIONBody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visit.
+        /// </summary>
+        public static string Visit {
+            get {
+                return ResourceManager.GetString("Visit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A Site Visit done by Civil Club.
+        /// </summary>
+        public static string VisitBody {
+            get {
+                return ResourceManager.GetString("VisitBody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Water Mark a Certificate.
         /// </summary>
         public static string Water_Mark_Certificate {
             get {
                 return ResourceManager.GetString("Water Mark Certificate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WhatWeOffer.
+        /// </summary>
+        public static string WhatWeOffer {
+            get {
+                return ResourceManager.GetString("WhatWeOffer", resourceCulture);
             }
         }
     }

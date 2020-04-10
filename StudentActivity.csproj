@@ -566,12 +566,11 @@
     <Content Include="Views\Shared\EnglishLayout\ParameterIdLayout\_EnglishPIdLayout.cshtml" />
     <Content Include="Views\Shared\ArabicLayout\ArabicParameterIdLayout\_ArabicPIdLayout.cshtml" />
     <Content Include="Views\EnglishViews\EnglishProgram\VisitorProgramDetails.cshtml" />
-    <Content Include="Views\Shared\NewTheme\_FirstPage.cshtml" />
-    <Content Include="Views\Shared\NewTheme\_FourthPage.cshtml" />
-    <Content Include="Views\Shared\NewTheme\_HomePage.cshtml" />
+    <Content Include="Views\Shared\NewTheme\_ServicesPage.cshtml" />
+    <Content Include="Views\Shared\NewTheme\_ContactPage.cshtml" />
+    <Content Include="Views\Shared\NewTheme\_AboutPage.cshtml" />
     <Content Include="Views\Shared\NewTheme\_EnglishLayout.cshtml" />
-    <Content Include="Views\Shared\NewTheme\_SecondPage.cshtml" />
-    <Content Include="Views\Shared\NewTheme\_ThirdPage.cshtml" />
+    <Content Include="Views\Shared\NewTheme\_PortfolioPage.cshtml" />
     <Content Include="Views\Shared\NewTheme\_ArabicLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>

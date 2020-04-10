@@ -348,9 +348,6 @@ namespace StudentActivity.Controllers
 
             var program = _context.Programs.Single(p => p.Id == id);
 
-            DialogResult result = MessageBox.Show(StudentActivity.Resources.Language.Approve_program_confirmation, "Confirmation Message", DeleteMsgButtons);
-
-           
             // If IsVisible set true then it is approved and will be added to other views
             program.IsVisible = true;
             program.PendingStatus = 1;  // 1 is for approved programs
@@ -366,9 +363,6 @@ namespace StudentActivity.Controllers
 
             var program = _context.Programs.Single(p => p.Id == id);
 
-            DialogResult result = MessageBox.Show(StudentActivity.Resources.Language.Reject_program_confirmation, "Confirmation Message", DeleteMsgButtons);
-
-            
             // If IsVisible set true then it is approved and will be added to other views
             program.IsDeleted = true;
             program.PendingStatus = 2; // 2 stands for rejected Programs

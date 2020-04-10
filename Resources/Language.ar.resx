@@ -123,6 +123,9 @@
   <data name="About page" xml:space="preserve">
     <value>صفحة وصف البرنامج</value>
   </data>
+  <data name="AboutStudentsActivities" xml:space="preserve">
+    <value>عن الأنشطة الطلابية</value>
+  </data>
   <data name="Add New Club" xml:space="preserve">
     <value>اضافة نادي جديد</value>
   </data>
@@ -168,6 +171,15 @@
   <data name="Available Programs" xml:space="preserve">
     <value>البرامج المتاحة</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>الغاء</value>
+  </data>
+  <data name="Certified" xml:space="preserve">
+    <value>التوثيق</value>
+  </data>
+  <data name="CertifiedIntro" xml:space="preserve">
+    <value>نقدم طريقة سهلة للطلاب الذين أكملوا أحد البرامج لطباعة الشهادة الخاصة بهذه البرامج من أي مكان وفي اي وقت.</value>
+  </data>
   <data name="Choose a program to register" xml:space="preserve">
     <value>اختر برنامج للتسجيل:</value>
   </data>
@@ -203,6 +215,12 @@
   </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value>تأكيد كلمة المرور</value>
+  </data>
+  <data name="Connectivity" xml:space="preserve">
+    <value>الاتصال</value>
+  </data>
+  <data name="ConnectivityIntro" xml:space="preserve">
+    <value>We keep in touch with students through our website by providing a special page to show the latest news in the university..</value>
   </data>
   <data name="Contact" xml:space="preserve">
     <value>معلومات الاتصال</value>
@@ -243,6 +261,15 @@
   <data name="Details" xml:space="preserve">
     <value>تفاصيل</value>
   </data>
+  <data name="DeveloperAhmed" xml:space="preserve">
+    <value>أحمد, مطور</value>
+  </data>
+  <data name="DeveloperSomeone" xml:space="preserve">
+    <value>شخص ما, مطور</value>
+  </data>
+  <data name="DevelopingLeaderMohammed" xml:space="preserve">
+    <value>محمد, قائد فريق المطورين</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>تعديل</value>
   </data>
@@ -273,6 +300,15 @@
   <data name="External login removed" xml:space="preserve">
     <value>تمت ازالة تسجيل الدخول الخارجي</value>
   </data>
+  <data name="FinishedPrograms" xml:space="preserve">
+    <value>البرامج المنتهية</value>
+  </data>
+  <data name="HardWork" xml:space="preserve">
+    <value>العمل الجاد</value>
+  </data>
+  <data name="HardWorkIntro" xml:space="preserve">
+    <value>بذل الجهد الكثير لتطوير الخدمات المقدمة من اجل خدمة الطلاب</value>
+  </data>
   <data name="Hello" xml:space="preserve">
     <value>مرحبا بك!</value>
   </data>
@@ -300,6 +336,12 @@
   <data name="JUC intro" xml:space="preserve">
     <value>هذا الموقع يتيح للطلاب التسجيل في البرامج, وطباعة شهادات هذه البرامج</value>
   </data>
+  <data name="JUCGate" xml:space="preserve">
+    <value>بوابة كلية الجبيل الجامعية</value>
+  </data>
+  <data name="JUCGateBody" xml:space="preserve">
+    <value>البوابة  الرئيسية للجامعة</value>
+  </data>
   <data name="Leave Club" xml:space="preserve">
     <value>الخروج من النادي</value>
   </data>
@@ -318,17 +360,38 @@
   <data name="LogIn" xml:space="preserve">
     <value>دخول</value>
   </data>
+  <data name="Love" xml:space="preserve">
+    <value>الحب</value>
+  </data>
+  <data name="LoveIntro" xml:space="preserve">
+    <value>العمل بكل جهد لتوفير ما يريده الطلاب بناءا على رغباتهم </value>
+  </data>
   <data name="MaximumStudentNumber" xml:space="preserve">
     <value>عدد الطلاب الأقصى</value>
   </data>
+  <data name="MISSION" xml:space="preserve">
+    <value>المهمة</value>
+  </data>
+  <data name="MISSIONBody" xml:space="preserve">
+    <value>مهمتنا تتمحور حول جعل حياة الطالب أسهل وأكثر مرحا..</value>
+  </data>
   <data name="MobileNo" xml:space="preserve">
     <value>رقم الجوال</value>
+  </data>
+  <data name="Mobility" xml:space="preserve">
+    <value>التنقل</value>
+  </data>
+  <data name="MobilityIntro" xml:space="preserve">
+    <value>We provide many services through our website to make student's life easier..</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>الاسم</value>
   </data>
   <data name="NewRequest" xml:space="preserve">
     <value>طلب جديد</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>التالي</value>
   </data>
   <data name="No available programs" xml:space="preserve">
     <value>لا توجد برامج متاحة</value>
@@ -344,6 +407,9 @@
   </data>
   <data name="NoCompletedPrograms" xml:space="preserve">
     <value>لم تكمل أي برنامج الى الآن!</value>
+  </data>
+  <data name="OurValues" xml:space="preserve">
+    <value>قيمنا</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>كلمة المرور</value>
@@ -375,12 +441,18 @@
   <data name="Portfolio" xml:space="preserve">
     <value>الملف التعريفي</value>
   </data>
+  <data name="Previous" xml:space="preserve">
+    <value>السابق</value>
+  </data>
   <data name="PrintCertificate" xml:space="preserve">
     <value>طباعة شهادة</value>
   </data>
   <data name="Program already added" xml:space="preserve">
     <value>البرنامج الذي تحاول اضافته
  مضاف مسبقا</value>
+  </data>
+  <data name="ProgramBody" xml:space="preserve">
+    <value>اقامة برنامج في قاعة الاغراض المتعددة</value>
   </data>
   <data name="ProgramDetails" xml:space="preserve">
     <value>تفاصيل البرنامج</value>
@@ -393,6 +465,9 @@
   </data>
   <data name="Programs" xml:space="preserve">
     <value>البرامج</value>
+  </data>
+  <data name="ProgramsOfferedIntro" xml:space="preserve">
+    <value>نحن نوفر العديد من البرامج كالدورات, الزيارات الخارجية والأنشطة.</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>تسجيل جديد</value>
@@ -450,6 +525,15 @@
   <data name="Services" xml:space="preserve">
     <value>الخدمات</value>
   </data>
+  <data name="Slider1" xml:space="preserve">
+    <value>"هذا الموقع تم انشاؤه لطلاب كلية الجبيل الجماعية من قبل طلاب الكلية... نحن نفتخر بهذه النتيجة!"</value>
+  </data>
+  <data name="Slider2" xml:space="preserve">
+    <value>"كلمة واحدة... رائع جدا!!"</value>
+  </data>
+  <data name="Slider3" xml:space="preserve">
+    <value>"وهل أكون... أسعد بشيء غير هذا الانجاز؟"</value>
+  </data>
   <data name="StartDate" xml:space="preserve">
     <value>تاريخ البداية</value>
   </data>
@@ -489,6 +573,12 @@
   <data name="Students List" xml:space="preserve">
     <value>قائمة الطلاب</value>
   </data>
+  <data name="StudentsActivitiesIntro" xml:space="preserve">
+    <value>Student's Activities is a part of the Student's Affairs, which is a department of the university that serves as the gate between the student and the academic departments.</value>
+  </data>
+  <data name="StudentsActivitiesMainGoal" xml:space="preserve">
+    <value>The main goal of Student's Activities is to make the lives of the students easier and more interesting while they are studying at the university by providing special programs such as courses, visits, and activities that support the students in their studies</value>
+  </data>
   <data name="Submit" xml:space="preserve">
     <value>ارسل</value>
   </data>
@@ -504,7 +594,22 @@
   <data name="Verify phone failed" xml:space="preserve">
     <value>فشل التحقق من رقم الجوال</value>
   </data>
+  <data name="VISION" xml:space="preserve">
+    <value>الرؤية</value>
+  </data>
+  <data name="VISIONBody" xml:space="preserve">
+    <value>Our vision is to graduate qualified students with both academic and communicate skills that will help them to succeed in their own lives.</value>
+  </data>
+  <data name="Visit" xml:space="preserve">
+    <value>زيارة</value>
+  </data>
+  <data name="VisitBody" xml:space="preserve">
+    <value>زيارة لموقع عمل لنادي الهندسة المدنية</value>
+  </data>
   <data name="Water Mark Certificate" xml:space="preserve">
     <value>انشاء شهادة</value>
+  </data>
+  <data name="WhatWeOffer" xml:space="preserve">
+    <value>ماذا نقدم!</value>
   </data>
 </root>

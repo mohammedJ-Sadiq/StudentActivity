@@ -30,7 +30,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a href="#Home">@StudentActivity.Resources.Language.About</a></li>
+                    <li><a href="#About">@StudentActivity.Resources.Language.About</a></li>
                     <li><a href="#services">@StudentActivity.Resources.Language.Services</a></li>
                     <li><a href="#portfolio">@StudentActivity.Resources.Language.Portfolio</a></li>
                     <li><a href="#AvailablePrograms">@StudentActivity.Resources.Language.Available_Programs</a></li>
@@ -57,11 +57,11 @@
         <p>@StudentActivity.Resources.Language.StudentActivityShortIntro</p>
     </div>
 
-    @Html.Partial("~/Views/Shared/NewTheme/_HomePage.cshtml");
+    @Html.Partial("~/Views/Shared/NewTheme/_AboutPage.cshtml");
 
-    @Html.Partial("~/Views/Shared/NewTheme/_FirstPage.cshtml");
+    @Html.Partial("~/Views/Shared/NewTheme/_ServicesPage.cshtml");
 
-    @Html.Partial("~/Views/Shared/NewTheme/_SecondPage.cshtml");
+    @Html.Partial("~/Views/Shared/NewTheme/_PortfolioPage.cshtml");
 
     <div class="container body-content">
         @RenderBody()
