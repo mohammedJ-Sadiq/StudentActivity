@@ -3,12 +3,27 @@
     ViewBag.Title = "ClubForm";
     Layout = "~/Views/Shared/ArabicLayout/ArabicParameterIdLayout/_ArabicAdminPIdLayout.cshtml";
 
-    <div>
-        <ul class="breadcrumb">
-            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
-            @*<li>@Html.ActionLink(StudentActivity.Resources.Language.ClubForm, "", "Club")</li>*@
-        </ul>
-    </div>
+    if (ViewContext.RouteData.Values["action"].ToString().Equals("EditClub"))
+    {
+        <div>
+            <ul class="breadcrumb">
+                <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
+                <li>@Html.ActionLink(StudentActivity.Resources.Language.Clubs, "Index", "Club")</li>
+                <li>@Html.ActionLink(StudentActivity.Resources.Language.EditClub, "EditClub", "Club")</li>
+            </ul>
+        </div>
+    }
+
+    else
+    {
+        <div>
+            <ul class="breadcrumb">
+                <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
+                <li>@Html.ActionLink(StudentActivity.Resources.Language.Clubs, "Index", "Club")</li>
+                <li>@Html.ActionLink(StudentActivity.Resources.Language.Add_New_Club, "AddClub", "Club")</li>
+            </ul>
+        </div>
+    }
 }
 
 <h2></h2>
@@ -38,6 +53,10 @@
     </div>
     @Html.HiddenFor(m => m.Id)
     @Html.AntiForgeryToken()
+
+    <button type="button" onclick="location.href = '@Url.Action("Index", "Club")'" class="btn btn-default">
+        @StudentActivity.Resources.Language.Cancel
+    </button>
     <button type="submit" class="btn btn-primary">
         @StudentActivity.Resources.Language.Save
     </button>

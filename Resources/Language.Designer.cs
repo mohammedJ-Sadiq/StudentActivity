@@ -538,6 +538,15 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Club.
+        /// </summary>
+        public static string EditClub {
+            get {
+                return ResourceManager.GetString("EditClub", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Program.
         /// </summary>
         public static string EditProgram {

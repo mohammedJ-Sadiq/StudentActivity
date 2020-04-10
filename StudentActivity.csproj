@@ -494,7 +494,7 @@
     <Content Include="Views\EnglishViews\EnglishProgram\EligibleList.cshtml" />
     <Content Include="Views\EnglishViews\EnglishProgram\Index.cshtml" />
     <Content Include="Views\EnglishViews\EnglishProgram\ProgramDetails.cshtml" />
-    <Content Include="Views\EnglishViews\EnglishProgram\ProgramForm.cshtml" />
+    <Content Include="Views\EnglishViews\EnglishProgram\AddProgramForm.cshtml" />
     <Content Include="Views\EnglishViews\EnglishProgram\RegisteredPrograms.cshtml" />
     <Content Include="Views\EnglishViews\EnglishProgram\RegistrationForm.cshtml" />
     <Content Include="Views\EnglishViews\EnglishProgram\RegistrationFormAdmin.cshtml" />
@@ -545,7 +545,6 @@
     <Content Include="Views\ArabicViews\ArabicProgram\EligibleList.cshtml" />
     <Content Include="Views\ArabicViews\ArabicProgram\Index.cshtml" />
     <Content Include="Views\ArabicViews\ArabicProgram\ProgramDetails.cshtml" />
-    <Content Include="Views\ArabicViews\ArabicProgram\ProgramForm.cshtml" />
     <Content Include="Views\ArabicViews\ArabicProgram\RegisteredPrograms.cshtml" />
     <Content Include="Views\ArabicViews\ArabicProgram\RegistrationForm.cshtml" />
     <Content Include="Views\ArabicViews\ArabicProgram\RegistrationFormAdmin.cshtml" />
@@ -558,20 +557,17 @@
     <Content Include="Views\ArabicViews\ArabicProgram\CompletedStuPrograms.cshtml" />
     <Content Include="Views\EnglishViews\EnglishProgram\RequestedProgramsAdmin.cshtml" />
     <Content Include="Views\ArabicViews\ArabicProgram\RequestedProgramsAdmin.cshtml" />
-    <Content Include="Views\EnglishViews\EnglishProgram\VisitorAvailablePrograms.cshtml" />
-    <Content Include="Views\EnglishViews\EnglishClub\VisitorShowClubs.cshtml" />
-    <Content Include="Views\ArabicViews\ArabicClub\VisitorShowClubs.cshtml" />
-    <Content Include="Views\ArabicViews\ArabicProgram\VisitorAvailablePrograms.cshtml" />
-    <Content Include="Views\ArabicViews\ArabicProgram\VisitorProgramDetails.cshtml" />
     <Content Include="Views\Shared\EnglishLayout\ParameterIdLayout\_EnglishPIdLayout.cshtml" />
     <Content Include="Views\Shared\ArabicLayout\ArabicParameterIdLayout\_ArabicPIdLayout.cshtml" />
-    <Content Include="Views\EnglishViews\EnglishProgram\VisitorProgramDetails.cshtml" />
     <Content Include="Views\Shared\NewTheme\_ServicesPage.cshtml" />
     <Content Include="Views\Shared\NewTheme\_ContactPage.cshtml" />
     <Content Include="Views\Shared\NewTheme\_AboutPage.cshtml" />
     <Content Include="Views\Shared\NewTheme\_EnglishLayout.cshtml" />
     <Content Include="Views\Shared\NewTheme\_PortfolioPage.cshtml" />
     <Content Include="Views\Shared\NewTheme\_ArabicLayout.cshtml" />
+    <Content Include="Views\EnglishViews\EnglishProgram\EditProgramForm.cshtml" />
+    <Content Include="Views\ArabicViews\ArabicProgram\EditProgramForm.cshtml" />
+    <Content Include="Views\ArabicViews\ArabicProgram\AddProgramForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\ArabicViews\ArabicAdmin\" />

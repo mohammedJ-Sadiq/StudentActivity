@@ -6,8 +6,8 @@
     <div>
         <ul class="breadcrumb">
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
-            <li>@Html.ActionLink(StudentActivity.Resources.Language.Programs, "Index", "Program")</li>
-            @*<li>@Html.ActionLink(StudentActivity.Resources.Language.ProgramForm, "", "Program")</li>*@
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Available_Programs, "Index", "Program")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Add_New_Program, "addProgram", "Program")</li>
         </ul>
     </div>
 }
@@ -56,15 +56,19 @@
         @Html.TextAreaFor(m => m.program.Description, new { @class = "form-control" })
     </div>
 
+    <input id="program.PendingStatus" name="program.PendingStatus" type="hidden" value="1" />
+
+    <input id="program.IsVisible" name="program.IsVisible" type="hidden" value="True" />
+
     @Html.HiddenFor(m => m.program.Id)
     @Html.AntiForgeryToken()
+    <button type="button" onclick="location.href = '@Url.Action("Index", "Program")'" class="btn btn-default">
+        @StudentActivity.Resources.Language.Cancel
+    </button>
     <button type="submit" class="btn btn-primary">
         @StudentActivity.Resources.Language.Save
     </button>
 
-    <input id="program.PendingStatus" name="program.PendingStatus" type="hidden" value="1" />
-
-    <input id="program.IsVisible" name="program.IsVisible" type="hidden" value="True" />
 }
 
 @section scripts

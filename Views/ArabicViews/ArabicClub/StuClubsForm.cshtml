@@ -38,6 +38,10 @@ else
     </div>
     @Html.HiddenFor(m => m.StudentClub.StudentId)
     @Html.AntiForgeryToken()
+
+    <button type="button" onclick="location.href = '@Url.Action("ShowClubs", "Club")'" class="btn btn-default">
+        @StudentActivity.Resources.Language.Cancel
+    </button>
     <button type="submit" class="btn btn-primary">
         @StudentActivity.Resources.Language.Save
     </button>

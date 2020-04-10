@@ -279,29 +279,6 @@ namespace StudentActivity.Controllers
 
         }
 
-        [AllowAnonymous]
-        public ActionResult VisitorShowClubs(string language)
-        {
-            ChangingLanguageFunction(language);
-
-            var clubs = _context.Clubs.ToList();
-
-            List<ProgramClubsViewModel> list = new List<ProgramClubsViewModel>();
-
-            list.Add(new ProgramClubsViewModel { Clubs = clubs});
-
-            if (language.Equals("ar"))
-            {
-                return View("~/Views/ArabicViews/ArabicClub/VisitorShowClubs.cshtml", clubs);
-            }
-
-            else
-            {
-                return View("~/Views/EnglishViews/EnglishClub/VisitorShowClubs.cshtml", clubs);
-            }
-
-        }
-
         public ActionResult DeleteStuClub(String studentId, int clubId, string language)
         {
             ChangingLanguageFunction(language);

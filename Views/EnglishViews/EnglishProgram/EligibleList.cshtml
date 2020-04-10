@@ -6,13 +6,11 @@
     <div>
         <ul class="breadcrumb">
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
-            <li>@Html.ActionLink(StudentActivity.Resources.Language.Registered_Programs, "RegisteredPrograms", "Program")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.FinishedPrograms, "RegisteredPrograms", "Program")</li>
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Students_List, "EligibleList", "Program")</li>
         </ul>
     </div>
 }
-
-<h2></h2>
 
 @if (!Model.Any())
 {
@@ -30,54 +28,55 @@ else
     </p>
     using (Html.BeginForm("SaveEligibility", "Admin"))
     {
-        <table class="table table-striped table-hover">
-            <tr>
-                <th>
-                    @StudentActivity.Resources.Language.Student_Id
-                </th>
-                <th>
-                    @StudentActivity.Resources.Language.Student_Name
-                </th>
-                <th>
-                    @StudentActivity.Resources.Language.IsEligible
-                </th>
-            </tr>
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            @StudentActivity.Resources.Language.Student_Id
+        </th>
+        <th>
+            @StudentActivity.Resources.Language.Student_Name
+        </th>
+        <th>
+            @StudentActivity.Resources.Language.IsEligible
+        </th>
+    </tr>
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Student.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Student.Name)
-                    </td>
-                    <td>
-                        @if (item.IsEligible == true)
-                        {
-                            <input type="checkbox" name="@item.StudentId" value="true" checked />
-                        }
-                        else
-                        {
-                            <input type="checkbox" name="@item.StudentId" value="true" />
-                        }
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.Name)
+            </td>
+            <td>
+                @if (item.IsEligible == true)
+                {
+                    <input type="checkbox" name="@item.StudentId" value="true" checked />
+                }
+                else
+                {
+                    <input type="checkbox" name="@item.StudentId" value="true" />
+                }
 
-                    </td>
-                </tr>
+            </td>
+        </tr>
 
-            }
+    }
 
-        </table>
+</table>
 
         @Html.HiddenFor(m => m.First().ProgramId)
 
+        <button type="button" onclick="location.href = '@Url.Action("RegisteredPrograms", "Program")'" class="btn btn-default">
+            @StudentActivity.Resources.Language.Cancel
+        </button>
         <button type="submit" class="btn btn-primary">
             @StudentActivity.Resources.Language.Save
         </button>
-        <button type="button" onclick="location.href = '@Url.Action("RegisteredPrograms", "Program")'" class="btn btn-primary">
-            @StudentActivity.Resources.Language.Cancel
-        </button>
-        
+
+
 
     }
 }

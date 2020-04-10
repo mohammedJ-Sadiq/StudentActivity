@@ -29,7 +29,7 @@
                     <li></li>
                     <li>@Html.ActionLink(StudentActivity.Resources.Language.Log_in, "Login", "Account")</li>
                     <li>@Html.ActionLink(StudentActivity.Resources.Language.Register, "Register", "Account")</li>
-                    <li>@Html.ActionLink("English", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en", id = 1 }, null)</li>
+                    <li>@Html.ActionLink("English", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en", id = Url.RequestContext.RouteData.Values["id"] }, null)</li>
                 </ul> 
             </div>
         </div>

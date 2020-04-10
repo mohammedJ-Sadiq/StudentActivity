@@ -6,8 +6,9 @@
     <div>
         <ul class="breadcrumb">
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
-            <li>@Html.ActionLink(StudentActivity.Resources.Language.Programs, "Index", "Program")</li>
-            @*<li>@Html.ActionLink(StudentActivity.Resources.Language.ProgramForm, "", "Program")</li>*@
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Available_Programs, "Index", "Program")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Add_New_Program, "addProgram", "Program")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Retrieve_a_program, "RetrievePrg", "Program")</li>
         </ul>
     </div>
 }
@@ -24,6 +25,9 @@
 
     @Html.HiddenFor(m => m.program.Id)
     @Html.AntiForgeryToken()
+    <button type="button" onclick="location.href = '@Url.Action("addProgram", "Program")'" class="btn btn-default">
+        @StudentActivity.Resources.Language.Cancel
+    </button>
     <button type="submit" class="btn btn-primary">
         @StudentActivity.Resources.Language.Save
     </button>

@@ -1,21 +1,24 @@
 ﻿@model StudentActivity.ViewModel.ProgramViewModel
 @{
-    ViewBag.Title = "RequestProgramForm";
-    Layout = "~/Views/Shared/EnglishLayout/_EnglishClubCorLayout.cshtml";
+    ViewBag.Title = "ProgramForm";
+    Layout = "~/Views/Shared/EnglishLayout/ParameterIdLayout/_AdminPIdLayout.cshtml";
 
     <div>
         <ul class="breadcrumb">
-            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "ClubCorHome", "Home")</li>
-            <li>@Html.ActionLink(StudentActivity.Resources.Language.Request_Programs, "RequestedProgramsClubCor", "Program")</li>
-            <li>@Html.ActionLink(StudentActivity.Resources.Language.NewRequest, "RequestProgram", "Program")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Available_Programs, "Index", "Program")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Add_New_Program, "addProgram", "Program")</li>
         </ul>
     </div>
 }
 
 <h2></h2>
 
+@Html.ActionLink(@StudentActivity.Resources.Language.Retrieve_a_program, "RetrievePrg", "Program", "Program", new { @class = "btn btn-retrieve btn-redish" })
 
-@using (Html.BeginForm("SaveReqPrg", "Program"))
+<h2></h2>
+
+@using (Html.BeginForm("SavePrg", "Program"))
 {
 
     <div class="form-group">
@@ -53,21 +56,19 @@
         @Html.TextAreaFor(m => m.program.Description, new { @class = "form-control" })
     </div>
 
-    <input id="program.IsDeleted" name="program.IsVisible" type="hidden" value="False" />
+    <input id="program.PendingStatus" name="program.PendingStatus" type="hidden" value="1" />
 
-    <input id="program.PendingStatus" name="program.PendingStatus" type="hidden" value=3 />
-
-    <input id="program.clubCorVisible" name="program.clubCorVisible" type="hidden" value="True" />
+    <input id="program.IsVisible" name="program.IsVisible" type="hidden" value="True" />
 
     @Html.HiddenFor(m => m.program.Id)
     @Html.AntiForgeryToken()
-
-    <button type="button" onclick="location.href = '@Url.Action("RequestedProgramsClubCor", "Program")'" class="btn btn-default">
+    <button type="button" onclick="location.href = '@Url.Action("Index", "Program")'" class="btn btn-default">
         @StudentActivity.Resources.Language.Cancel
     </button>
     <button type="submit" class="btn btn-primary">
         @StudentActivity.Resources.Language.Save
     </button>
+
 }
 
 @section scripts

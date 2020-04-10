@@ -6,15 +6,11 @@
     <div>
         <ul class="breadcrumb">
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
-            <li>@Html.ActionLink(StudentActivity.Resources.Language.Programs, "Index", "Program")</li>
-            @*<li>@Html.ActionLink(StudentActivity.Resources.Language.ProgramForm, "", "Program")</li>*@
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.Available_Programs, "Index", "Program")</li>
+            <li>@Html.ActionLink(StudentActivity.Resources.Language.EditProgram, "EditProgram", "Program")</li>
         </ul>
     </div>
 }
-
-<h2></h2>
-
-@Html.ActionLink(@StudentActivity.Resources.Language.Retrieve_a_program, "RetrievePrg", "Program", "Program", new { @class = "btn btn-retrieve btn-redish" })
 
 <h2></h2>
 
@@ -62,12 +58,13 @@
 
     @Html.HiddenFor(m => m.program.Id)
     @Html.AntiForgeryToken()
+    <button type="button" onclick="location.href = '@Url.Action("Index", "Program")'" class="btn btn-default">
+        @StudentActivity.Resources.Language.Cancel
+    </button>
     <button type="submit" class="btn btn-primary">
         @StudentActivity.Resources.Language.Save
     </button>
-    @*<button type="" class="btn btn-primary">
-        @StudentActivity.Resources.Language.Cancel
-    </button>*@
+
 }
 
 @section scripts

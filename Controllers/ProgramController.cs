@@ -171,12 +171,12 @@ namespace StudentActivity.Controllers
 
             if (language.Equals("ar"))
             {
-                return View("~/Views/ArabicViews/ArabicProgram/ProgramForm.cshtml", viewModels);
+                return View("~/Views/ArabicViews/ArabicProgram/AddProgramForm.cshtml", viewModels);
             }
 
             else
             {
-                return View("~/Views/EnglishViews/EnglishProgram/ProgramForm.cshtml", viewModels);
+                return View("~/Views/EnglishViews/EnglishProgram/AddProgramForm.cshtml", viewModels);
             }
         }
 
@@ -264,12 +264,12 @@ namespace StudentActivity.Controllers
 
             if (language.Equals("ar"))
             {
-                return View("~/Views/ArabicViews/ArabicProgram/ProgramForm.cshtml", viewModel);
+                return View("~/Views/ArabicViews/ArabicProgram/EditProgramForm.cshtml", viewModel);
             }
 
             else
             {
-                return View("~/Views/EnglishViews/EnglishProgram/ProgramForm.cshtml", viewModel);
+                return View("~/Views/EnglishViews/EnglishProgram/EditProgramForm.cshtml", viewModel);
             }
         }
 
@@ -683,31 +683,6 @@ namespace StudentActivity.Controllers
             }
         }
 
-        [AllowAnonymous]
-        public ActionResult VisitorAvailablePrograms(string language)
-        {
-            ChangingLanguageFunction(language);
-
-            var programs = _context.Programs.Include(p => p.Club).ToList().Where(p => p.IsDeleted == false).Where(p => p.IsVisible == true);
-
-            var clubs = _context.Clubs.ToList();
-
-            List<ProgramClubsViewModel> list = new List<ProgramClubsViewModel>();
-
-            list.Add(new ProgramClubsViewModel { Programs = programs });
-            list.Add(new ProgramClubsViewModel { Clubs = clubs });
-
-            if (language.Equals("ar"))
-            {
-                return View("~/Views/ArabicViews/ArabicProgram/VisitorAvailablePrograms.cshtml", programs);
-            }
-
-            else
-            {
-                return View("~/Views/EnglishViews/EnglishProgram/VisitorAvailablePrograms.cshtml", programs);
-            }
-        }
-
         // END OF STUDENT ACTION
 
         // CLUB COORDINATOR ACTIONS
@@ -845,24 +820,6 @@ namespace StudentActivity.Controllers
             else
             {
                 return View("~/Views/EnglishViews/EnglishProgram/ProgramDetails.cshtml", program);
-            }
-        }
-
-        [AllowAnonymous]
-        public ActionResult VisitorProgramDetails(int id, string language)
-        {
-            ChangingLanguageFunction(language);
-
-            var program = _context.Programs.Include(c => c.Club).SingleOrDefault(p => p.Id == id);
-
-            if (language.Equals("ar"))
-            {
-                return View("~/Views/ArabicViews/ArabicProgram/VisitorProgramDetails.cshtml", program);
-            }
-
-            else
-            {
-                return View("~/Views/EnglishViews/EnglishProgram/VisitorProgramDetails.cshtml", program);
             }
         }
 

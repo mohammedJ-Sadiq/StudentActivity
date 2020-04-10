@@ -276,6 +276,9 @@
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="EditClub" xml:space="preserve">
+    <value>Edit Club</value>
+  </data>
   <data name="EditProgram" xml:space="preserve">
     <value>Edit Program</value>
   </data>
