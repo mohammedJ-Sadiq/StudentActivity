@@ -38,13 +38,11 @@
                     <li><a href="#contact">@StudentActivity.Resources.Language.Contact</a></li>
                 </ul>
                 <div class="nav navbar-nav navbar-right">
-                    <div class="nav navbar-nav navbar-right">
                         <ul class="nav navbar-nav navbar-right">
                             <li>@Html.ActionLink(StudentActivity.Resources.Language.Log_in, "Login", "Account")</li>
                             <li>@Html.ActionLink(StudentActivity.Resources.Language.Register, "Register", "Account")</li>
                             <li>@Html.ActionLink("عربي", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "ar" }, null)</li>
                         </ul>
-                    </div>
                 </div>
             </div>
         </div>
