@@ -20,11 +20,14 @@ namespace StudentActivity
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/jquery-ui-1.12.1.min.js"
+                      ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-united.css",
                       "~/Content/fontawesome.css",
+                      "~/Content/jquery-ui.min.css",
                       "~/Content/site.css"));
         }
     }

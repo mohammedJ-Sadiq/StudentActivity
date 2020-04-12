@@ -30,12 +30,12 @@
     </div>
     <div class="form-group">
         @StudentActivity.Resources.Language.StartDate
-        @Html.TextBoxFor(m => m.program.StartDate, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.program.StartDate, new { @class = "form-control datepicker", @readonly = "readonly" })
         @Html.ValidationMessageFor(m => m.program.StartDate)
     </div>
     <div class="form-group">
         @StudentActivity.Resources.Language.EndDate
-        @Html.TextBoxFor(m => m.program.EndDate, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.program.EndDate, new { @class = "form-control datepicker", @readonly = "readonly" })
         @Html.ValidationMessageFor(m => m.program.EndDate)
     </div>
     <div class="form-group">
@@ -72,5 +72,6 @@
 
 @section scripts
 {
+    @Scripts.Render("~/Scripts/DatePicker.js")
     @Scripts.Render("~/bundles/jqueryval")
 }
