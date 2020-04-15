@@ -203,6 +203,24 @@ namespace StudentActivity.Controllers
             return RedirectToAction("Index","Club");
         }
 
+        [Authorize(Roles = "CanManagePrograms")]
+        public ActionResult ShowStuOfClub(int id, string language)
+        {
+            ChangingLanguageFunction(language);
+
+            var students = _context.StudentClubs.Include(s => s.Student).
+                Where(c => c.ClubId == id);
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicClub/ShowStuOfClub.cshtml", students);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishClub/ShowStuOfClub.cshtml", students);
+            }
+        }
+
     // END OF ADMIN ACTIONS
         
     // STUDENT ACTIONS

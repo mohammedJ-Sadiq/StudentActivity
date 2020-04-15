@@ -586,7 +586,8 @@ namespace StudentActivity.Controllers
             ChangingLanguageFunction(language);
 
             var id = Session["Id"];
-            var programs = _context.StudentPrograms.Include(p => p.Program).Include(c => c.Program.Club).Where(s => s.StudentId == id.ToString());
+            var programs = _context.StudentPrograms.Include(p => p.Program).Include
+            (c => c.Program.Club).Where(s => s.StudentId == id.ToString());
 
             if (language.Equals("ar"))
             {
