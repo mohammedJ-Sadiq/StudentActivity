@@ -37,7 +37,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Student.Name)
             </td>
-            <td>
+            <td align="right">
                 @Html.ActionLink(StudentActivity.Resources.Language.Students_List, "ShowStuOfClub", "Club", new { id = item.Id }, new { @class = "btn btn-primary" })
                 @Html.ActionLink(StudentActivity.Resources.Language.EditClub, "EditClub", "Club", new { id = item.Id }, new { @class = "btn btn-primary" })
                 @Html.ActionLink(StudentActivity.Resources.Language.Delete, "DeleteClub", "Club", new { id = item.Id }, new

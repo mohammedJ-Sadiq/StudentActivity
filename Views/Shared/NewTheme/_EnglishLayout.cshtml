@@ -9,11 +9,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/jquery-3.4.1.min.js")
     @Scripts.Render("~/Scripts/DynamicView.js")
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -28,7 +27,7 @@
                 </button>
                 <a class="navbar-brand" href="#myPage">@StudentActivity.Resources.Language.JUC</a>
             </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
+            <div class="navbar-collapse collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-left">
                     <li><a href="#About">@StudentActivity.Resources.Language.About</a></li>
                     <li><a href="#services">@StudentActivity.Resources.Language.Services</a></li>
@@ -37,13 +36,13 @@
                     <li><a href="#Clubs">@StudentActivity.Resources.Language.Clubs</a></li>
                     <li><a href="#contact">@StudentActivity.Resources.Language.Contact</a></li>
                 </ul>
-                <div class="nav navbar-nav navbar-right">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>@Html.ActionLink(StudentActivity.Resources.Language.Log_in, "Login", "Account")</li>
-                            <li>@Html.ActionLink(StudentActivity.Resources.Language.Register, "Register", "Account")</li>
-                            <li>@Html.ActionLink("عربي", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "ar" }, null)</li>
-                        </ul>
-                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink(StudentActivity.Resources.Language.Log_in, "Login", "Account")</li>
+                    <li>@Html.ActionLink(StudentActivity.Resources.Language.Register, "Register", "Account")</li>
+                    <li>@Html.ActionLink("عربي", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "ar" }, null)</li>
+                </ul>
+
             </div>
         </div>
     </nav>

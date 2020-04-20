@@ -4,6 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Student activities</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/SiteRtl.css")
     @Styles.Render("~/Content/Site.css")
@@ -18,14 +23,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand fas fa-home fa-lg fa-2x" })
+                <a class="navbar-brand" href="~/ar/#myPage">@StudentActivity.Resources.Language.JUC</a>
             </div>
             <div>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink(StudentActivity.Resources.Language.Available_Programs, "VisitorAvailablePrograms", "Program")</li>
-                    <li>@Html.ActionLink(StudentActivity.Resources.Language.Clubs, "VisitorShowClubs", "Club")</li>
+                    <li><a href="~/ar/#About">@StudentActivity.Resources.Language.About</a></li>
+                    <li><a href="~/ar/#services">@StudentActivity.Resources.Language.Services</a></li>
+                    <li><a href="~/ar/#portfolio">@StudentActivity.Resources.Language.Portfolio</a></li>
+                    <li><a href="~/ar/#AvailablePrograms">@StudentActivity.Resources.Language.Available_Programs</a></li>
+                    <li><a href="~/ar/#Clubs">@StudentActivity.Resources.Language.Clubs</a></li>
+                    <li><a href="~/ar/#contact">@StudentActivity.Resources.Language.Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li></li>

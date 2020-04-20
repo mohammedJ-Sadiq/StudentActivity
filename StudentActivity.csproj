@@ -458,6 +458,9 @@
     <Content Include="Images\JUCMap.JPG" />
     <Content Include="Images\program.JPG" />
     <Content Include="Images\Visit.jpg" />
+    <Content Include="Scripts\Alert.js" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\DatePicker.js" />
     <Content Include="Scripts\DynamicView.js" />
     <Content Include="Scripts\bootstrap.js" />

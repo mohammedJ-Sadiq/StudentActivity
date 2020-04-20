@@ -79,7 +79,7 @@ else
                 </td>
                 <td>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#@item.Program.Id">
-                        Details
+                        @StudentActivity.Resources.Language.Details
                     </button>
 
                     <!-- Modal -->
@@ -126,8 +126,20 @@ else
                             </div>
                         </div>
                     </div>
-                    @Html.ActionLink(@StudentActivity.Resources.Language.Delete, "DeleteStuPrg", "Program", new { studentId = item.StudentId, programId = item.ProgramId }, new{ @class = "btn btn-primary",
-                    onclick = "return confirm('Are you sure you want to delete this program?')" })
+                    @Html.ActionLink(StudentActivity.Resources.Language.Delete_Program, "DeleteStuPrg", "Program", new { studentId = item.StudentId, programId = item.ProgramId },
+                    new { @class = "btn btn-primary", onclick = "return confirm('Are you sure you want to Delete this program?')" })
+
+                    @*<button type="button" onclick="DeletePAlertBootBoxEn();" class="btn btn-default">
+                            @StudentActivity.Resources.Language.Delete
+                        </button>
+
+                        @using (Html.BeginForm("DeleteStuPrg", "Program", FormMethod.Post, new { id = "DeleteStuProgram" }))
+                        {
+                            <input name="studentId" type="hidden" value="@item.StudentId" />
+
+                            <input name="programId" type="hidden" value="@item.ProgramId" />
+
+                        }*@
                 </td>
             </tr>
         }

@@ -20,7 +20,9 @@ namespace StudentActivity
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/bootstrap.js", 
+                      "~/Scripts/bootbox.js",
+                      "~/Scripts/Alert.js",
                       "~/Scripts/jquery-ui-1.12.1.min.js"
                       ));
 
