@@ -5,6 +5,7 @@
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/EnglishLayout/_EnglishClubCorLayout.cshtml";
 
+    //HistoryBar Showing the Pages History
     <div>
         <ul class="breadcrumb">
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "ClubCorHome", "Home")</li>
@@ -12,11 +13,13 @@
         </ul>
     </div>
 }
+
 else
 {
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/EnglishLayout/_EnglishStudentLayout.cshtml";
 
+    //HistoryBar Showing the Pages History
     <div>
         <ul class="breadcrumb">
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "StudentHome", "Home")</li>
@@ -24,12 +27,47 @@ else
         </ul>
     </div>
 }
+@{
+    if (ViewBag.StudentClubRegisteredErrorMessage == 1)
+    {
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+            <strong>@StudentActivity.Resources.Language.Error</strong> @StudentActivity.Resources.Language.Already_a_member_of_the_club
+        </div>
 
-<h2></h2>
+        ViewBag.StudentClubRegisteredErrorMessage = 0;
+
+    }
+
+    if (ViewBag.StudentClubLeaveMessage == 1)
+    {
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+            <strong>@StudentActivity.Resources.Language.Success</strong> @StudentActivity.Resources.Language.LeftClubSuccessfully
+        </div>
+
+        ViewBag.StudentClubLeaveMessage = 0;
+
+    }
+
+    if (ViewBag.StudentClubAddedMessage == 1)
+    {
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+            <strong>@StudentActivity.Resources.Language.Success</strong> @StudentActivity.Resources.Language.StudentClubAddedSuccessfully
+        </div>
+
+        ViewBag.StudentClubAddedMessage = 0;
+
+    }
+}
 
 <p>
     @Html.ActionLink("+ " + StudentActivity.Resources.Language.Join_Club, "AddStuClubs", "Club", "Club", new { @class = "btn btn-blue btn-left" })
 </p>
+
+<h2>@StudentActivity.Resources.Language.RegisterdStuClubs</h2>
+
 <table class="table table-striped table-hover">
     <tr>
         <th>
@@ -44,9 +82,14 @@ else
             <td>
                 @item.Club.Name
             </td>
-            <td>
-                @Html.ActionLink(StudentActivity.Resources.Language.Leave_Club, "DeleteStuClub", "Club", new { studentId = item.StudentId, clubId = item.ClubId }, new { @class = "btn btn-primary",
-                onclick = "return confirm('Are you sure you want to leave this club ?')" })
+            <td align="right">
+                @*@Html.ActionLink(StudentActivity.Resources.Language.Leave_Club, "DeleteStuClub", "Club", new { studentId = item.StudentId, clubId = item.ClubId }, new{@class = "btn btn-primary",
+                    onclick = "return confirm('Are you sure you want to leave this club ?')"
+                    })*@
+
+                @* This href is going to call  LeaveClubConfirmationEng javascrip function to show the confrimatio message before it goes to the action*@
+                <a href="@Url.Action("DeleteStuClub", "Club", new { studentId = item.StudentId, clubId = item.ClubId })" class="LeaveClubConfirmationEng btn btn-danger">@StudentActivity.Resources.Language.Leave_Club</a>
+
             </td>
         </tr>
     }

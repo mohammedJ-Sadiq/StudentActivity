@@ -36,18 +36,44 @@ namespace StudentActivity.Controllers
         {
             _context.Dispose();
         }
-    // ADMIN ACTIONS   
+        // ADMIN ACTIONS   
 
-        [Authorize(Roles ="CanManagePrograms")]
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult Index(string language)
         {
             ChangingLanguageFunction(language);
 
-            var programs = _context.Programs.Include(p =>p.Club).ToList().Where(p => p.IsDeleted == false).Where(p => p.IsVisible == true);
+            var programs = _context.Programs.Include(p => p.Club).ToList().Where(p => p.IsDeleted == false).Where(p => p.IsVisible == true);
+
+            //-----------------------------------------------------------------------------------------------------------------------------------
+            //Checks if the Specified TempData has Data or not, then Create a ViewBag with a Variable that sppecifies The Name of the Alert in Integer Value
+            // Then Send it to The View
+
+            if (TempData.ContainsKey("AddProgramByAdminSuccessMessage"))
+            {
+                ViewBag.AddProgramByAdminSuccessMessage = int.Parse(TempData["AddProgramByAdminSuccessMessage"].ToString());
+            }
+
+            if (TempData.ContainsKey("EditProgramByAdminSuccessMessage"))
+            {
+                ViewBag.EditProgramByAdminSuccessMessage = int.Parse(TempData["EditProgramByAdminSuccessMessage"].ToString());
+            }
+
+            if (TempData.ContainsKey("DeleteProgramByAdminSuccessMessage"))
+            {
+                ViewBag.DeleteProgramByAdminSuccessMessage = int.Parse(TempData["DeleteProgramByAdminSuccessMessage"].ToString());
+            }
+
+            if (TempData.ContainsKey("RetrieveProgramSuccessMessage"))
+            {
+                ViewBag.RetrieveProgramSuccessMessage = int.Parse(TempData["RetrieveProgramSuccessMessage"].ToString());
+            }
+
+            //-----------------------------------------------------------------------------------------------------------------------------------
 
             if (language.Equals("ar"))
             {
-                return View("~/Views/ArabicViews/ArabicProgram/Index.cshtml",programs);
+                return View("~/Views/ArabicViews/ArabicProgram/Index.cshtml", programs);
             }
 
             else
@@ -81,6 +107,40 @@ namespace StudentActivity.Controllers
 
             var students = _context.StudentPrograms.Include(s => s.Student).Where(p => p.ProgramId == id);
 
+            var program = _context.Programs.SingleOrDefault(p => p.Id == id);
+
+            // Sends the program tiltle to the eligible list view using ViewBag
+            ViewBag.EligListProgramTitle = program.Title;
+
+            // Sends the program tilte to the another action using the TempData
+            TempData["EligListProgramTitle"] = program.Title;
+
+
+            //-----------------------------------------------------------------------------------------------------------------------------------
+            //Checks if the Specified TempData has Data or not, then Create a ViewBag with a Variable that sppecifies The Name of the Alert in Integer Value
+            // Then Send it to The View
+
+            if (TempData.ContainsKey("SaveChangesOnEligableListMessage"))
+            {
+                ViewBag.SaveChangesOnEligableListMessage = int.Parse(TempData["SaveChangesOnEligableListMessage"].ToString());
+            }
+
+            if (TempData.ContainsKey("AddingStudentToProgramByAdminRegisterdErrorMessage"))
+            {
+                ViewBag.AddingStudentToProgramByAdminRegisterdErrorMessage = int.Parse(TempData["AddingStudentToProgramByAdminRegisterdErrorMessage"].ToString());
+            }
+
+            if (TempData.ContainsKey("AddingStudentToProgramByAdminExistingErrorMessage"))
+            {
+                ViewBag.AddingStudentToProgramByAdminExistingErrorMessage = int.Parse(TempData["AddingStudentToProgramByAdminExistingErrorMessage"].ToString());
+            }
+
+            if (TempData.ContainsKey("AddingStudentToProgramByAdminSuccsessMessage"))
+            {
+                ViewBag.AddingStudentToProgramByAdminSuccsessMessage = int.Parse(TempData["AddingStudentToProgramByAdminSuccsessMessage"].ToString());
+            }
+
+            //----------------------------------------------------------------------------------------------------------------------------------------
 
             if (language.Equals("ar"))
             {
@@ -103,6 +163,23 @@ namespace StudentActivity.Controllers
             ChangingLanguageFunction(language);
 
             var StudentPrograms = new Student_Program(id);
+
+            // To Get The Title of The Program, Then Send it To The View Using ViewBag
+            var ProgTitle = _context.Programs.SingleOrDefault(p => p.Id == id);
+
+            // Sends the program tilte to the AddStudentToProgram View using the ViewBag
+            ViewBag.AddStuToEligListProgramTitle = ProgTitle.Title;
+
+            //-----------------------------------------------------------------------------------------------------------------------------------
+            // Checks if the Specified TempData has Data or not, then Create a ViewBag with a Variable that sppecifies The Name of the Alert in Integer Value
+            // Then Send it to The View
+
+            if (TempData.ContainsKey("SaveChangesOnEligableListMessage"))
+            {
+                ViewBag.SaveChangesOnEligableListMessage = int.Parse(TempData["SaveChangesOnEligableListMessage"].ToString());
+            }
+
+            //-----------------------------------------------------------------------------------------------------------------------------------
 
             if (language.Equals("ar"))
             {
@@ -144,16 +221,43 @@ namespace StudentActivity.Controllers
             }
 
             _context.StudentPrograms.Add(studentProgram);
+
+            // Searches in the database to find if the specified student exists in the database or not, returns boolean
+            var StuProg = _context.StudentPrograms.Where(p => p.ProgramId == studentProgram.ProgramId).Where(s => s.StudentId == studentProgram.StudentId).Any();
+
             try
             {
                 _context.SaveChanges();
+
+                // Sends the Successfull message of Adding Student to the Program to another action using the TempData
+                TempData["AddingStudentToProgramByAdminSuccsessMessage"] = 1;
             }
             catch (DbUpdateException)
             {
-                MessageBox.Show(StudentActivity.Resources.Language.Added_student_already_registerd_in_program + StudentActivity.Resources.Language.Student_not_registerd_in_website, "Existence Error");
+                //MessageBox.Show(StudentActivity.Resources.Language.Added_student_already_registerd_in_program + StudentActivity.Resources.Language.Student_not_registerd_in_website, "Existence Error");
+
+                // Checks If student exists in the database 
+
+                if (StuProg == true)
+                {
+                    // Sends the error message of Adding Student to the Program who is already registered in the program to another action using the TempData
+                    TempData["AddingStudentToProgramByAdminRegisterdErrorMessage"] = 1;
+
+                    return RedirectToAction("EligibleList", "Program", new { id = studentProgram.ProgramId });
+
+                }
+
+                if (StuProg == false)
+                {
+                    // Sends the error message of Adding Student to the Program who does not exist in the database to another action using the TempData
+                    TempData["AddingStudentToProgramByAdminExistingErrorMessage"] = 1;
+
+                    return RedirectToAction("EligibleList", "Program", new { id = studentProgram.ProgramId });
+
+                }
             }
 
-            return RedirectToAction("EligibleList", "Program", new {id = studentProgram.ProgramId });
+            return RedirectToAction("EligibleList", "Program", new { id = studentProgram.ProgramId });
         }
 
         // To add a new program 
@@ -166,7 +270,7 @@ namespace StudentActivity.Controllers
             var viewModels = new ProgramViewModel()
             {
                 program = new Program(),
-                club = clubs          
+                club = clubs
             };
 
             if (language.Equals("ar"))
@@ -215,11 +319,16 @@ namespace StudentActivity.Controllers
                     return View("~/Views/EnglishViews/EnglishProgram/ProgramForm.cshtml", viewModels);
                 }
             }
-            
+
             // To retrieve a program
-            
-            if(program.Id == 0)
+
+            if (program.Id == 0)
+            {
                 _context.Programs.Add(program);
+
+                //  Sends the AddProgramByAdminSuccessM Message to another action using the TempData
+                TempData["AddProgramByAdminSuccessMessage"] = 1;
+            }
             else
             {
                 var programInDb = _context.Programs.Single(p => p.Id == program.Id);
@@ -230,6 +339,9 @@ namespace StudentActivity.Controllers
                 programInDb.MaximumStudentNumber = program.MaximumStudentNumber;
                 programInDb.ClubId = program.ClubId;
                 programInDb.Description = program.Description;
+
+                // Sends the Edit ProgramByAdminSuccessMessage to another action using the TempData
+                TempData["EditProgramByAdminSuccessMessage"] = 1;
             }
 
             /* This exception will never occur because program id
@@ -240,7 +352,8 @@ namespace StudentActivity.Controllers
             }
             catch (DbUpdateException)
             {
-                MessageBox.Show(StudentActivity.Resources.Language.Program_already_added, "Existence Error");
+                //MessageBox.Show(StudentActivity.Resources.Language.Program_already_added, "Existence Error");
+                TempData["AddProgramByAdminErrorMessage"] = 1;
             }
             return RedirectToAction("Index", "Program");
         }
@@ -261,6 +374,9 @@ namespace StudentActivity.Controllers
                 program = program,
                 club = _context.Clubs.ToList()
             };
+
+            // Sends The Program Title to the editProgramForm using ViewBag
+            ViewBag.EditedProgramName = program.Title;
 
             if (language.Equals("ar"))
             {
@@ -283,7 +399,10 @@ namespace StudentActivity.Controllers
             // If IsDeleted set true then it is simply deleted in the view
             program.IsDeleted = true;
             _context.SaveChanges();
-            
+
+            //Set a Value for the TempData to Handle The Delete Alert Message, Then Send It to Another Action
+            TempData["DeleteProgramByAdminSuccessMessage"] = 1;
+
 
             return RedirectToAction("Index", "Program");
         }
@@ -291,17 +410,19 @@ namespace StudentActivity.Controllers
         [Authorize(Roles = "CanManagePrograms")]
         public ActionResult RetrievePrg(string language)
         {
-            var deletedPrograms = _context.Programs.Where(m => m.IsDeleted == true).ToList();
             ChangingLanguageFunction(language);
+
+            var deletedPrograms = _context.Programs.Where(m => m.IsDeleted == true).ToList();
 
             var delProgramViewModel = new ProgramViewModel
             {
                 enumProgram = deletedPrograms,
                 program = new Program()
             };
+
             if (language.Equals("ar"))
             {
-                return View("~/Views/ArabicViews/ArabicProgram/RetrievePrg.cshtml",delProgramViewModel);
+                return View("~/Views/ArabicViews/ArabicProgram/RetrievePrg.cshtml", delProgramViewModel);
             }
 
             else
@@ -309,7 +430,7 @@ namespace StudentActivity.Controllers
                 return View("~/Views/EnglishViews/EnglishProgram/RetrievePrg.cshtml", delProgramViewModel);
             }
         }
-        
+
         // To save the program retrieve by admin
         [Authorize(Roles = "CanManagePrograms")]
         public ActionResult SaveRetrievePrg(Program program, string language)
@@ -319,16 +440,36 @@ namespace StudentActivity.Controllers
             var deletedProgram = _context.Programs.SingleOrDefault(m => m.Id == program.Id);
             deletedProgram.IsDeleted = false;
             _context.SaveChanges();
-            
+
+            //  Sends RetrieveProgramSuccessMessage to another action using TempData
+            TempData["RetrieveProgramSuccessMessage"] = 1;
+
+
             return RedirectToAction("Index", "Program");
         }
 
-        [Authorize(Roles = "CanManagePrograms" )]
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult RequestedProgramsAdmin(string language)
         {
             ChangingLanguageFunction(language);
 
             var programs = _context.Programs.Include(p => p.Club).ToList().Where(p => p.IsVisible == false).Where(p => p.IsDeleted == false);
+
+            //-----------------------------------------------------------------------------------------------------------------------------------
+            // Checks if the Specified TempData has Data or not, then Create a ViewBag with a Variable that sppecifies The Name of the Alert in Integer Value
+            // Then Send it to The View
+
+            if (TempData.ContainsKey("ApproveProgramSuccessMessage"))
+            {
+                ViewBag.ApproveProgramSuccessMessage = int.Parse(TempData["ApproveProgramSuccessMessage"].ToString());
+            }
+
+            if (TempData.ContainsKey("RejectProgramSuccessMessage"))
+            {
+                ViewBag.RejectProgramSuccessMessage = int.Parse(TempData["RejectProgramSuccessMessage"].ToString());
+            }
+
+            //-----------------------------------------------------------------------------------------------------------------------------------
 
             if (language.Equals("ar"))
             {
@@ -352,7 +493,11 @@ namespace StudentActivity.Controllers
             program.IsVisible = true;
             program.PendingStatus = 1;  // 1 is for approved programs
             _context.SaveChanges();
-            
+
+            //  Sends ApproveProgramSuccessMessage to another action using the TempData
+            TempData["ApproveProgramSuccessMessage"] = 1;
+
+
             return RedirectToAction("RequestedProgramsAdmin", "Program");
         }
 
@@ -367,7 +512,11 @@ namespace StudentActivity.Controllers
             program.IsDeleted = true;
             program.PendingStatus = 2; // 2 stands for rejected Programs
             _context.SaveChanges();
-            
+
+            //  Sends The RejectProgramSuccessMessage to another action using the TempData
+            TempData["RejectProgramSuccessMessage"] = 1;
+
+
             return RedirectToAction("RequestedProgramsAdmin", "Program");
         }
 
@@ -397,7 +546,7 @@ namespace StudentActivity.Controllers
             string lValue = programTime;
             string dValue = "From " + programStartDate + " To " + programEndDate;
             string file = "Certificate" + ".png";
-            
+
             //using (Bitmap bitmap = new Bitmap(File.InputStream, false))
             {
                 using (Graphics graphics = Graphics.FromImage(bitmap))
@@ -456,7 +605,7 @@ namespace StudentActivity.Controllers
                         graphics.DrawString(lValue, font, brush, position, drawFormat);
                     }
 
-                    if (programStartDate != null  && programEndDate != null)
+                    if (programStartDate != null && programEndDate != null)
                     {
                         Brush brush = new SolidBrush(Color.Black);
 
@@ -586,8 +735,36 @@ namespace StudentActivity.Controllers
             ChangingLanguageFunction(language);
 
             var id = Session["Id"];
-            var programs = _context.StudentPrograms.Include(p => p.Program).Include
+            var programs = _context.StudentPrograms.Include(p => p.Program).Where(p => p.Program.IsDeleted == false).Include
             (c => c.Program.Club).Where(s => s.StudentId == id.ToString());
+
+            //-----------------------------------------------------------------------------------------------------------------------------------
+            // Checks if the Specified TempData has Data or not, then Create a ViewBag with a Variable that sppecifies The Name of the Alert in Integer Value
+            // Then Send it to The View
+
+            if (TempData.ContainsKey("DeleteStuProgramSuccess"))
+            {
+                ViewBag.DeleteStuProgramSuccess = int.Parse(TempData["DeleteStuProgramSuccess"].ToString());
+            }
+
+            // Gets the DeletedStuProgramName, then send it to the StuPrograms view using the ViewBag
+            if (TempData.ContainsKey("DeletedStuProgramName"))
+            {
+                ViewBag.DeletedStuProgramName = TempData["DeletedStuProgramName"].ToString();
+            }
+
+            if (TempData.ContainsKey("RegisterStuProgramSuccess"))
+            {
+                ViewBag.RegisterStuProgramSuccess = int.Parse(TempData["RegisterStuProgramSuccess"].ToString());
+            }
+
+            // Gets the RegisterStuProgramName, then send it to the StuPrograms view using the ViewBag
+            if (TempData.ContainsKey("RegisterStuProgramName"))
+            {
+                ViewBag.RegisterStuProgramName = TempData["RegisterStuProgramName"].ToString();
+            }
+
+            //-----------------------------------------------------------------------------------------------------------------------------------
 
             if (language.Equals("ar"))
             {
@@ -600,7 +777,7 @@ namespace StudentActivity.Controllers
             }
         }
 
-        
+
 
         // To let the student register for a program
         public ActionResult Registration(int programId, string language)
@@ -608,7 +785,11 @@ namespace StudentActivity.Controllers
             ChangingLanguageFunction(language);
 
             var studentId = Session["Id"].ToString();
-            var StudentPrograms = new Student_Program(programId , studentId);
+            var StudentPrograms = new Student_Program(programId, studentId);
+
+            // Gets the StuProgramName from the database using the programId, then send it to another action using the TempData
+            var StuPrgName = _context.Programs.SingleOrDefault(p => p.Id == programId);
+            TempData["RegisterStuProgramName"] = StuPrgName.Title;
 
             if (language.Equals("ar"))
             {
@@ -643,10 +824,15 @@ namespace StudentActivity.Controllers
             }
             catch (DbUpdateException)
             {
-                MessageBox.Show(StudentActivity.Resources.Language.Student_already_registered_in_program, "Existence Error");
-                return RedirectToAction("StuPrograms", "Program");
+
+                // Sends the programRegisteredErrorMessage to another action using the TempData
+                TempData["programRegisteredErrorMessage"] = 1;
+
+                return RedirectToAction("ShowPrgStu", "Program");
             }
-            
+
+            // Sends the RegisterStuProgramSuccess to another action using the TempData
+            TempData["RegisterStuProgramSuccess"] = 1;
 
             return RedirectToAction("StuPrograms", "Program");
         }
@@ -659,9 +845,15 @@ namespace StudentActivity.Controllers
                 (s => s.StudentId == studentId)
                 .Single(p => p.ProgramId == programId);
 
+            // Gets the program Name from the database, then Sends it to another action using the TempData
+            var StuPrgName = _context.Programs.SingleOrDefault(p => p.Id == programId);
+            TempData["DeletedStuProgramName"] = StuPrgName.Title;
+
             _context.StudentPrograms.Remove(StuPrg);
             _context.SaveChanges();
-            
+
+            // Sends the DeleteStuProgramSuccess to another action using the TempData
+            TempData["DeleteStuProgramSuccess"] = 1;
 
             return RedirectToAction("StuPrograms", "Program", new { id = StuPrg.StudentId });
         }
@@ -670,6 +862,17 @@ namespace StudentActivity.Controllers
         public ActionResult ShowPrgStu(string language)
         {
             ChangingLanguageFunction(language);
+
+            //-----------------------------------------------------------------------------------------------------------------------------------
+            // Checks if the Specified TempData has Data or not, then Create a ViewBag with a Variable that sppecifies The Name of the Alert in Integer Value
+            // Then Send it to The View
+
+            if (TempData.ContainsKey("programRegisteredErrorMessage"))
+            {
+                ViewBag.errorMessage = int.Parse(TempData["programRegisteredErrorMessage"].ToString());
+            }
+
+            //-----------------------------------------------------------------------------------------------------------------------------------
 
             var programs = _context.Programs.Include(p => p.Club).ToList().Where(p => p.IsDeleted == false).Where(p => p.IsVisible == true);
 
@@ -751,7 +954,8 @@ namespace StudentActivity.Controllers
             if (program.Id == 0)
             {
                 _context.Programs.Add(program);
-
+                // Sends the RequestProgramSuccessMessage to another action using the TempData
+                TempData["RequestProgramSuccessMessage"] = 1;
             }
 
             else
@@ -780,6 +984,10 @@ namespace StudentActivity.Controllers
             prg.ClubCorVisible = false;
 
             _context.SaveChanges();
+
+            // Sends the RemoveStatusOfReqProgSuccessMessage to another action using the TempData
+            TempData["RemoveStatusOfReqProgSuccessMessage"] = 1;
+
             return RedirectToAction("RequestedProgramsClubCor", "Program");
         }
 
@@ -789,6 +997,22 @@ namespace StudentActivity.Controllers
             ChangingLanguageFunction(language);
 
             var programs = _context.Programs.Include(p => p.Club).ToList().Where(p => p.ClubCorVisible == true);
+
+            //-----------------------------------------------------------------------------------------------------------------------------------
+            // Checks if the Specified TempData has Data or not, then Create a ViewBag with a Variable that sppecifies The Name of the Alert in Integer Value
+            // Then Send it to The View
+
+            if (TempData.ContainsKey("RequestProgramSuccessMessage"))
+            {
+                ViewBag.RequestProgramSuccessMessage = int.Parse(TempData["RequestProgramSuccessMessage"].ToString());
+            }
+
+            if (TempData.ContainsKey("RemoveStatusOfReqProgSuccessMessage"))
+            {
+                ViewBag.RemoveStatusOfReqProgSuccessMessage = int.Parse(TempData["RemoveStatusOfReqProgSuccessMessage"].ToString());
+            }
+
+            //-----------------------------------------------------------------------------------------------------------------------------------
 
             if (language.Equals("ar"))
             {

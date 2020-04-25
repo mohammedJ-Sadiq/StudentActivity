@@ -5,6 +5,7 @@
     ViewBag.Title = "Programs";
     Layout = "~/Views/Shared/EnglishLayout/_EnglishAdminLayout.cshtml";
 
+    //HistoryBar Showing the Pages History
     <div>
         <ul class="breadcrumb">
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
@@ -55,13 +56,13 @@
             <td>
                 @item.EndDate
             </td>
-            <td>
+            <td align="center">
                 @item.MaximumStudentNumber
             </td>
             <td>
                 @item.Club.Name
             </td>
-            <td>
+            <td align="right">
                 @Html.ActionLink(@StudentActivity.Resources.Language.Students_List, "EligibleList", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
             </td>
 

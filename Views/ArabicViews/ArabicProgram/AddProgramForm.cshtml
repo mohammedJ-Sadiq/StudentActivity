@@ -1,8 +1,10 @@
 ﻿@model StudentActivity.ViewModel.ProgramViewModel
+
 @{
     ViewBag.Title = "ProgramForm";
     Layout = "~/Views/Shared/ArabicLayout/ArabicParameterIdLayout/_ArabicAdminPIdLayout.cshtml";
 
+    //HistoryBar Showing the Pages History
     <div>
         <ul class="breadcrumb">
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
@@ -28,22 +30,22 @@
     </div>
     <div class="form-group">
         @StudentActivity.Resources.Language.Time
-        @Html.TextBoxFor(m => m.program.Time, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.program.Time, new { @class = "form-control", Value = DateTime.Now.ToString("hh:mm tt") })
         @Html.ValidationMessageFor(m => m.program.Time)
     </div>
     <div class="form-group">
         @StudentActivity.Resources.Language.StartDate
-        @Html.TextBoxFor(m => m.program.StartDate, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.program.StartDate, new { @class = "form-control datepicker", @readonly = "readonly", Value = DateTime.Today.ToString("dd/MM/yyyy") })
         @Html.ValidationMessageFor(m => m.program.StartDate)
     </div>
     <div class="form-group">
         @StudentActivity.Resources.Language.EndDate
-        @Html.TextBoxFor(m => m.program.EndDate, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.program.EndDate, new { @class = "form-control datepicker", @readonly = "readonly", Value = DateTime.Today.ToString("dd/MM/yyyy") })
         @Html.ValidationMessageFor(m => m.program.EndDate)
     </div>
     <div class="form-group">
         @StudentActivity.Resources.Language.MaximumStudentNumber
-        @Html.TextBoxFor(m => m.program.MaximumStudentNumber, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.program.MaximumStudentNumber, new { @class = "form-control", Value = 20 })
         @Html.ValidationMessageFor(m => m.program.MaximumStudentNumber)
     </div>
     <div class="form-group">
@@ -62,16 +64,41 @@
 
     @Html.HiddenFor(m => m.program.Id)
     @Html.AntiForgeryToken()
+
     <button type="button" onclick="location.href = '@Url.Action("Index", "Program")'" class="btn btn-default">
-        @StudentActivity.Resources.Language.Cancel
+        <i class="fa fa-times"></i> @StudentActivity.Resources.Language.Cancel
     </button>
-    <button type="submit" class="btn btn-primary">
-        @StudentActivity.Resources.Language.Save
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddNewProgramByAdminConfirmationMessage">
+        <i class="fa fa-check"></i> @StudentActivity.Resources.Language.Submit
     </button>
+
+    <!-- Custom Confirmation Message Using Modal -->
+    <div class="modal fade" id="AddNewProgramByAdminConfirmationMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title text-center" id="exampleModalLabel">@StudentActivity.Resources.Language.ConfirmationMessage</h4>
+                </div>
+                <div class="modal-body text-center">
+                    @StudentActivity.Resources.Language.AddProgramConfirmationMessage
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times"></i> @StudentActivity.Resources.Language.Cancel</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> @StudentActivity.Resources.Language.Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 }
 
 @section scripts
 {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/DatePicker.js")
+
 }

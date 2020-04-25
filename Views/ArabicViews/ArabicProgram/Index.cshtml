@@ -4,12 +4,61 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/ArabicLayout/_ArabicAdminLayout.cshtml";
 
+    //HistoryBar Showing the Pages History
     <div>
         <ul class="breadcrumb">
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Available_Programs, "Index", "Program")</li>
         </ul>
     </div>
+}
+
+@{
+    // Receiving The Alerts From The Controller using The ViewBag
+
+    if (ViewBag.AddProgramByAdminSuccessMessage == 1)
+    {
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+            <strong>@StudentActivity.Resources.Language.Success</strong> @StudentActivity.Resources.Language.ProgramAddedSuccessflully
+        </div>
+
+        ViewBag.AddProgramByAdminSuccessMessage = 0;
+
+    }
+
+    if (ViewBag.EditProgramByAdminSuccessMessage == 1)
+    {
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+            <strong>@StudentActivity.Resources.Language.Success</strong> @StudentActivity.Resources.Language.ProgramEditedSuccessflully
+        </div>
+
+        ViewBag.EditProgramByAdminSuccessMessage = 0;
+
+    }
+
+    if (ViewBag.DeleteProgramByAdminSuccessMessage == 1)
+    {
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+            <strong>@StudentActivity.Resources.Language.Success</strong> @StudentActivity.Resources.Language.ProgramDeletedSuccessflully
+        </div>
+
+        ViewBag.DeleteProgramByAdminSuccessMessage = 0;
+
+    }
+
+    if (ViewBag.RetrieveProgramSuccessMessage == 1)
+    {
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+            <strong>@StudentActivity.Resources.Language.Success</strong> @StudentActivity.Resources.Language.ProgramRetrievedSuccessflully
+        </div>
+
+        ViewBag.RetrieveProgramSuccessMessage = 0;
+
+    }
 }
 
 <h2></h2>
@@ -55,20 +104,26 @@
             <td>
                 @item.EndDate
             </td>
-            <td>
+            <td class="text-center">
                 @item.MaximumStudentNumber
             </td>
             <td>
                 @item.Club.Name
             </td>
-            <td>
-                @Html.ActionLink(@StudentActivity.Resources.Language.EditProgram, "EditProgram", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
+            <td align="left">
+                @Html.ActionLink(@StudentActivity.Resources.Language.EditProgram, "EditProgram", "Program", new { id = item.Id }, new { @class = "btn btn-blue" })
+
+                @*
+                    This href button is in case we want to set a confirmation message for the Edit program button
+
+                    <a href="@Url.Action("EditProgram", "Program", new { studentId = item.Id})" class="DeleteProgramByAdminConfirmationEng btn btn-blue">@StudentActivity.Resources.Language.EditProgram</a>
+                *@
 
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#@item.Id">
                     @StudentActivity.Resources.Language.Details
                 </button>
 
-                <!-- Modal -->
+                <!-- Details Modal -->
                 <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -112,11 +167,16 @@
                         </div>
                     </div>
                 </div>
-                @Html.ActionLink(@StudentActivity.Resources.Language.Delete, "DeleteProgram", "Program", new { id = item.Id }, new
-                {
-                    @class = "btn btn-primary",
-                onclick = "return confirm('Are you sure you want to delete this program?')"
-                })
+
+                @*@Html.ActionLink(@StudentActivity.Resources.Language.Delete, "DeleteProgram", "Program", new { id = item.Id }, new
+                    {
+                        @class = "btn btn-primary",
+                    onclick = "return confirm('Are you sure you want to delete this program?')"
+                    })*@
+
+                @* This href is going to call  LeaveClubConfirmationEng javascrip function to show the confrimatio message before it goes to the action*@
+                <a href="@Url.Action("DeleteProgram", "Program", new { id = item.Id})" class="DeleteProgramByAdminConfirmationAr btn btn-danger">@StudentActivity.Resources.Language.Delete</a>
+
             </td>
         </tr>
     }

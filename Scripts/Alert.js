@@ -1,4 +1,298 @@
-﻿
+﻿//--------------------------------------------------------------------------------------------------
+    //Delete Program Confirmation Messages
+//--------------------------------------------------------------------------------------------------
+
+
+$(document).on("click", ".DeleteProgramConfirmationEng", function (e) {
+    var link = $(this).attr("href"); // "get" the intended link from the button and save it in a var 
+    e.preventDefault();
+    bootbox.confirm({
+        title: "Confitmation Message!",
+        message: "Are You Sure You Want to Delete This Program?",
+        buttons: {
+            confirm: { label: '<i class="fa fa-check"></i>' + ' Confirm', className: 'btn-danger' },
+            cancel: { label: '<i class="fa fa-times"></i>' + ' Cancel', className: 'btn-default' }
+        },
+        callback: function (result) {
+            if (result) {
+                document.location.href = link;  // Return to the button to Continue its job
+            }
+        }
+    }).find('.modal-content').css({ 'text-align': 'center' });;
+});
+
+$(document).on("click", ".DeleteProgramConfirmationAr", function (e) {
+    var link = $(this).attr("href"); // "get" the intended link from the button and save it in a var 
+    e.preventDefault();
+    bootbox.confirm({
+        title: "رسالة تأكيد",
+        message: "هل انت متاكد انك تريد حذف هذا البرنامج؟",
+        buttons: {
+            confirm: { label: '<i class="fa fa-check"></i>' + ' تأكيد', className: 'btn-danger' },
+            cancel: { label: '<i class="fa fa-times"></i> الغاء', className: 'btn-default' }
+        },
+        callback: function (result) {
+            if (result) {
+                document.location.href = link;  // Return to the button to Continue its job
+            }
+        }
+    }).find('.modal-content').css({ 'text-align': 'center' });;
+});
+
+//--------------------------------------------------------------------------------------------------
+        //Register Program Confirmation Messages
+//--------------------------------------------------------------------------------------------------
+
+
+$(document).on("click", ".RegisterProgramConfirmationEng", function (e) {
+    var link = $(this).attr("href"); // "get" the intended link from the button and save it in a var 
+    e.preventDefault();
+    bootbox.confirm({
+        title: "Confitmation Message!",
+        message: "Are You Sure You Want to Register in This Program?",
+        buttons: {
+            confirm: { label: '<i class="fa fa-check"></i>' + ' Confirm', className: 'btn-primary' },
+            cancel: { label: '<i class="fa fa-times"></i>' + ' Cancel', className: 'btn-default' }
+        },
+        callback: function (result) {
+            if (result) {
+                document.location.href = link;  // Return to the button to Continue its job
+            }
+        }
+    }).find('.modal-content').css({ 'text-align': 'center' });;
+});
+
+$(document).on("click", ".RegisterProgramConfirmationAr", function (e) {
+    var link = $(this).attr("href"); // "get" the intended link from the button and save it in a var 
+    e.preventDefault();
+    bootbox.confirm({
+        title: "رسالة تأكيد",
+        message: "هل انت متاكد انك تريد التسجيل في هذا البرنامج؟",
+        buttons: {
+            confirm: { label: '<i class="fa fa-check"></i>' + ' تأكيد', className: 'btn-danger' },
+            cancel: { label: '<i class="fa fa-times"></i> الغاء', className: 'btn-default' }
+        },
+        callback: function (result) {
+            if (result) {
+                document.location.href = link;  // Return to the button to Continue its job
+            }
+        }
+    }).find('.modal-content').css({ 'text-align': 'center' });;
+});
+
+//--------------------------------------------------------------------------------------------------
+        //Leave Club Confirmation Messages
+//--------------------------------------------------------------------------------------------------
+
+
+$(document).on("click", ".LeaveClubConfirmationEng", function (e) {
+    var link = $(this).attr("href"); // "get" the intended link from the button and save it in a var 
+    e.preventDefault();
+    bootbox.confirm({
+        title: "Confitmation Message!",
+        message: "Are You Sure You Want to Leave This Club?",
+        buttons: {
+            confirm: { label: '<i class="fa fa-check"></i>' + ' Confirm', className: 'btn-danger' },
+            cancel: { label: '<i class="fa fa-times"></i>' + ' Cancel', className: 'btn-default' }
+        },
+        callback: function (result) {
+            if (result) {
+                document.location.href = link;  // Return to the button to Continue its job
+            }
+        }
+    }).find('.modal-content').css({ 'text-align': 'center' });;
+});
+
+$(document).on("click", ".LeaveClubConfirmationAr", function (e) {
+    var link = $(this).attr("href"); // "get" the intended link from the button and save it in a var 
+    e.preventDefault();
+    bootbox.confirm({
+        title: "رسالة تأكيد",
+        message: "هل انت متاكد انك تريد مغادرة هذا النادي؟",
+        buttons: {
+            confirm: { label: '<i class="fa fa-check"></i>' + ' تأكيد', className: 'btn-danger' },
+            cancel: { label: '<i class="fa fa-times"></i> الغاء', className: 'btn-default' }
+        },
+        callback: function (result) {
+            if (result) {
+                document.location.href = link;  // Return to the button to Continue its job
+            }
+        }
+    }).find('.modal-content').css({ 'text-align': 'center' });;
+});
+
+
+//--------------------------------------------------------------------------------------------------
+        //Delete Program By Admin Confirmation Messages
+//--------------------------------------------------------------------------------------------------
+
+
+$(document).on("click", ".DeleteProgramByAdminConfirmationEng", function (e) {
+    var link = $(this).attr("href"); // "get" the intended link from the button and save it in a var 
+    e.preventDefault();
+    bootbox.confirm({
+        title: "Confitmation Message!",
+        message: "Are You Sure You Want to Delete This Program?",
+        buttons: {
+            confirm: { label: '<i class="fa fa-check"></i>' + ' Confirm', className: 'btn-danger' },
+            cancel: { label: '<i class="fa fa-times"></i>' + ' Cancel', className: 'btn-default' }
+        },
+        callback: function (result) {
+            if (result) {
+                document.location.href = link;  // Return to the button to Continue its job
+            }
+        }
+    }).find('.modal-content').css({ 'text-align': 'center' });;
+});
+
+$(document).on("click", ".DeleteProgramByAdminConfirmationAr", function (e) {
+    var link = $(this).attr("href"); // "get" the intended link from the button and save it in a var 
+    e.preventDefault();
+    bootbox.confirm({
+        title: "رسالة تأكيد",
+        message: "هل انت متاكد انك تريد حذف هذا البرنامج؟",
+        buttons: {
+            confirm: { label: '<i class="fa fa-check"></i>' + ' تأكيد', className: 'btn-danger' },
+            cancel: { label: '<i class="fa fa-times"></i> الغاء', className: 'btn-default' }
+        },
+        callback: function (result) {
+            if (result) {
+                document.location.href = link;  // Return to the button to Continue its job
+            }
+        }
+    }).find('.modal-content').css({ 'text-align': 'center' });;
+});
+
+//--------------------------------------------------------------------------------------------------
+        //Approve Program By Admin Confirmation Messages
+//--------------------------------------------------------------------------------------------------
+
+
+$(document).on("click", ".ApproveProgramConfirmationEng", function (e) {
+    var link = $(this).attr("href"); // "get" the intended link from the button and save it in a var 
+    e.preventDefault();
+    bootbox.confirm({
+        title: "Confitmation Message!",
+        message: "Are You Sure You Want to Approve This Program?",
+        buttons: {
+            confirm: { label: '<i class="fa fa-check"></i>' + ' Confirm', className: 'btn-primary' },
+            cancel: { label: '<i class="fa fa-times"></i>' + ' Cancel', className: 'btn-default' }
+        },
+        callback: function (result) {
+            if (result) {
+                document.location.href = link;  // Return to the button to Continue its job
+            }
+        }
+    }).find('.modal-content').css({ 'text-align': 'center' });;
+});
+
+$(document).on("click", ".ApproveProgramConfirmationAr", function (e) {
+    var link = $(this).attr("href"); // "get" the intended link from the button and save it in a var 
+    e.preventDefault();
+    bootbox.confirm({
+        title: "رسالة تأكيد",
+        message: "هل انت متاكد انك تريد الموافقة هذا البرنامج؟",
+        buttons: {
+            confirm: { label: '<i class="fa fa-check"></i>' + ' تأكيد', className: 'btn-primary' },
+            cancel: { label: '<i class="fa fa-times"></i> الغاء', className: 'btn-default' }
+        },
+        callback: function (result) {
+            if (result) {
+                document.location.href = link;  // Return to the button to Continue its job
+            }
+        }
+    }).find('.modal-content').css({ 'text-align': 'center' });;
+});
+
+//--------------------------------------------------------------------------------------------------
+        //Reject Program By Admin Confirmation Messages
+//--------------------------------------------------------------------------------------------------
+
+
+$(document).on("click", ".RejectProgramConfirmationEng", function (e) {
+    var link = $(this).attr("href"); // "get" the intended link from the button and save it in a var 
+    e.preventDefault();
+    bootbox.confirm({
+        title: "Confitmation Message!",
+        message: "Are You Sure You Want to Reject This Program?",
+        buttons: {
+            confirm: { label: '<i class="fa fa-check"></i>' + ' Confirm', className: 'btn-danger' },
+            cancel: { label: '<i class="fa fa-times"></i>' + ' Cancel', className: 'btn-default' }
+        },
+        callback: function (result) {
+            if (result) {
+                document.location.href = link;  // Return to the button to Continue its job
+            }
+        }
+    }).find('.modal-content').css({ 'text-align': 'center' });;
+});
+
+$(document).on("click", ".RejectProgramConfirmationAr", function (e) {
+    var link = $(this).attr("href"); // "get" the intended link from the button and save it in a var 
+    e.preventDefault();
+    bootbox.confirm({
+        title: "رسالة تأكيد",
+        message: "هل انت متاكد انك تريد رفض هذا البرنامج؟",
+        buttons: {
+            confirm: { label: '<i class="fa fa-check"></i>' + ' تأكيد', className: 'btn-danger' },
+            cancel: { label: '<i class="fa fa-times"></i> الغاء', className: 'btn-default' }
+        },
+        callback: function (result) {
+            if (result) {
+                document.location.href = link;  // Return to the button to Continue its job
+            }
+        }
+    }).find('.modal-content').css({ 'text-align': 'center' });;
+});
+
+//-------------------------------End----------------------------------
+
+
+//--------------------------------------------------------------------------------------------------
+        // From Now The Code Are Not Used In The Website.
+//--------------------------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------------------
+//Alert message
+function AlertBootBoxEng() {
+    event.preventDefault();
+    bootbox.alert({
+        message: "This is an alert with a callback!",
+        callback: function () {
+            console.log('This was logged in the callback!');
+        }
+    }).find('.modal-content').css({ 'text-align': 'center' });
+}
+
+
+//------------------------------------------------------------------------------------
+        //InComplete Alerts
+//------------------------------------------------------------------------------------
+
+
+//Mosh Code half correct
+
+//$("#programs").on("click", function () {
+//    var button = $(this);
+//    var studentId = item.StudentId;
+//    var programId = item.ProgramId;
+//    box.confirm("Are u sure"), function (result) {
+//        if (result) {
+//            $.ajax({
+//                url: "/api/Program/DeleteStuPrg",
+//                data: { studentId, programId},
+//                method: "DELETE",
+//                success: function () {
+//                    button.parents("tr").remove();
+//                }
+//            });
+//        }
+//    }
+//});
+
+
 //bootbox.setDefaults({ 'locale': 'ar' });
 
 function SaveAlertBootBoxEng() {
@@ -43,14 +337,17 @@ function SaveAlertBootBoxAr() {
 
 //---------------------------------
 function DeletePAlertBootBoxEn() {
-    event.preventDefault();
+
     bootbox.dialog({
         title: "Confitmation Message!",
         message: "Are You Sure You Want to Delete This Program?", title: "Confirmation Message",
         buttons: {
             main: { label: '<i class="fa fa-times"></i> Cancel', callback: function () { return true; } },
-            success: { label: '<i class="fa fa-check"></i> Confirm', callback: function () { $('#DeleteStuProgram').submit(); } }
+            success: { label: '<i class="fa fa-check"></i> Confirm', callback: function () { return false; } }
+            //success: { label: '<i class="fa fa-check"></i> Confirm', callback: function () { $("#input").attr("width", "500")$('#DeleteStuProgram').submit(); } }
+
         }
+
     }).find('.modal-content').css({ 'text-align': 'center' });
 }
 
@@ -67,7 +364,7 @@ function DeletePAlertBootBoxAr() {
 }
 
 //---------------------------------
-    //RegirsterProgramAlerts
+//RegirsterProgramAlerts
 //---------------------------------
 function RegirsterPAlertBootBoxEn(programId) {
     event.preventDefault();
@@ -135,24 +432,3 @@ $(function () {
         });
     });
 });
-
-
-//Mosh Code half correct
-
-//$("#programs").on("click", function () {
-//    var button = $(this);
-//    var studentId = item.StudentId;
-//    var programId = item.ProgramId;
-//    box.confirm("Are u sure"), function (result) {
-//        if (result) {
-//            $.ajax({
-//                url: "/api/Program/DeleteStuPrg",
-//                data: { studentId, programId},
-//                method: "DELETE",
-//                success: function () {
-//                    button.parents("tr").remove();
-//                }
-//            });
-//        }
-//    }
-//});

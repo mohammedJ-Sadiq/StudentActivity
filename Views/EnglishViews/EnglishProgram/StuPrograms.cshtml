@@ -5,6 +5,7 @@
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/EnglishLayout/_EnglishClubCorLayout.cshtml";
 
+    //HistoryBar Showing the Pages History
     <div>
         <ul class="breadcrumb">
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "ClubCorHome", "Home")</li>
@@ -12,17 +13,46 @@
         </ul>
     </div>
 }
+
 else
 {
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/EnglishLayout/_EnglishStudentLayout.cshtml";
 
+    //HistoryBar Showing the Pages History
     <div>
         <ul class="breadcrumb">
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "StudentHome", "Home")</li>
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Registered_Programs, "StuPrograms", "Program")</li>
         </ul>
     </div>
+}
+
+@{
+    // Receiving The Alerts From The Controller using The ViewBag
+
+    if (ViewBag.DeleteStuProgramSuccess == 1)
+    {
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+            <strong>@StudentActivity.Resources.Language.Success</strong> @ViewBag.DeletedStuProgramName @StudentActivity.Resources.Language.DeletedSuccessfully
+        </div>
+
+        ViewBag.DeleteStuProgramSuccess = 0;
+
+    }
+
+    if (ViewBag.RegisterStuProgramSuccess == 1)
+    {
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+            <strong>@StudentActivity.Resources.Language.Success</strong> @ViewBag.RegisterStuProgramName @StudentActivity.Resources.Language.ProgramRegisterSuccessfully
+        </div>
+
+        ViewBag.RegisterStuProgramSuccess = 0;
+
+    }
+
 }
 
 @if (!Model.Any())
@@ -47,7 +77,7 @@ else
             <th>
                 @StudentActivity.Resources.Language.EndDate
             </th>
-            <th>
+            <th class="row-center">
                 @StudentActivity.Resources.Language.MaximumStudentNumber
             </th>
             <th>
@@ -71,18 +101,18 @@ else
                 <td>
                     @Html.DisplayFor(modelItem => item.Program.EndDate)
                 </td>
-                <td>
+                <td align="center">
                     @Html.DisplayFor(modelItem => item.Program.MaximumStudentNumber)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Program.Club.Name)
                 </td>
-                <td>
+                <td align="right">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#@item.Program.Id">
                         @StudentActivity.Resources.Language.Details
                     </button>
 
-                    <!-- Modal -->
+                    <!-- Details Modal -->
                     <div class="modal fade" id="@item.Program.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -126,20 +156,9 @@ else
                             </div>
                         </div>
                     </div>
-                    @Html.ActionLink(StudentActivity.Resources.Language.Delete_Program, "DeleteStuPrg", "Program", new { studentId = item.StudentId, programId = item.ProgramId },
-                    new { @class = "btn btn-primary", onclick = "return confirm('Are you sure you want to Delete this program?')" })
 
-                    @*<button type="button" onclick="DeletePAlertBootBoxEn();" class="btn btn-default">
-                            @StudentActivity.Resources.Language.Delete
-                        </button>
-
-                        @using (Html.BeginForm("DeleteStuPrg", "Program", FormMethod.Post, new { id = "DeleteStuProgram" }))
-                        {
-                            <input name="studentId" type="hidden" value="@item.StudentId" />
-
-                            <input name="programId" type="hidden" value="@item.ProgramId" />
-
-                        }*@
+                    @* This href is going to call  LeaveClubConfirmationEng javascrip function to show the confrimatio message before it goes to the action*@
+                    <a href="@Url.Action("DeleteStuPrg", "Program", new { studentId = item.StudentId, programId = item.ProgramId })" class="DeleteProgramConfirmationEng btn btn-danger">@StudentActivity.Resources.Language.Delete</a>
                 </td>
             </tr>
         }

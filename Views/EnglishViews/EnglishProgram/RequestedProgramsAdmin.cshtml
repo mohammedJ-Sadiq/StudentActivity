@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<StudentActivity.Models.Program>
 
-
 @{
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/EnglishLayout/_EnglishAdminLayout.cshtml";
 
+    //HistoryBar Showing the Pages History
     <div>
         <ul class="breadcrumb">
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
@@ -13,6 +13,31 @@
     </div>
 }
 
+@{
+    // Receiving The Alerts From The Controller using The ViewBag
+
+    if (ViewBag.ApproveProgramSuccessMessage == 1)
+    {
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+            <strong>@StudentActivity.Resources.Language.Success</strong> @StudentActivity.Resources.Language.ProramApprovedSuccessfully
+        </div>
+
+        ViewBag.ApproveProgramSuccessMessage = 0;
+
+    }
+
+    if (ViewBag.RejectProgramSuccessMessage == 1)
+    {
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+            <strong>@StudentActivity.Resources.Language.Success</strong> @StudentActivity.Resources.Language.ProramRejectedSuccessfully
+        </div>
+
+        ViewBag.RejectProgramSuccessMessage = 0;
+
+    }
+}
 
 @if (!Model.Any())
 {
@@ -61,17 +86,24 @@ else
                 <td>
                     @item.EndDate
                 </td>
-                <td>
+                <td align="center">
                     @item.MaximumStudentNumber
                 </td>
                 <td>
                     @item.Club.Name
                 </td>
-                <td>
-                    @Html.ActionLink(@StudentActivity.Resources.Language.Approve, "ApproveProgram", "Program", new { id = item.Id }, new{ @class = "btn btn-primary",
-                    onclick = "return confirm('Are you sure you want to approve this program?')" })
-                    @Html.ActionLink(@StudentActivity.Resources.Language.Reject, "RejectProgram", "Program", new { id = item.Id }, new{ @class = "btn btn-primary",
-                    onclick = "return confirm('Are you sure you want to reject this program?')" })
+                <td align="right">
+                    @*@Html.ActionLink(@StudentActivity.Resources.Language.Approve, "ApproveProgram", "Program", new { id = item.Id }, new{ @class = "btn btn-primary",
+                        onclick = "return confirm('Are you sure you want to approve this program?')" })
+                        @Html.ActionLink(@StudentActivity.Resources.Language.Reject, "RejectProgram", "Program", new { id = item.Id }, new{ @class = "btn btn-primary",
+                        onclick = "return confirm('Are you sure you want to reject this program?')" })*@
+
+                    @* This href is going to call  LeaveClubConfirmationEng javascrip function to show the confrimatio message before it goes to the action*@
+
+                    <a href="@Url.Action("RejectProgram", "Program", new { id = item.Id})" class="RejectProgramConfirmationEng btn btn-danger">@StudentActivity.Resources.Language.Reject</a>
+
+                    <a href="@Url.Action("ApproveProgram", "Program", new { id = item.Id})" class="ApproveProgramConfirmationEng btn btn-blue">@StudentActivity.Resources.Language.Approve</a>
+
                 </td>
 
 

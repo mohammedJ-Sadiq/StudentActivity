@@ -73,17 +73,43 @@ namespace StudentActivity.Controllers
         public ActionResult Index(string language)
         {
             ChangingLanguageFunction(language);
-            
+
             var clubs = _context.Clubs.Include(c => c.Student).ToList();
+
+            //-----------------------------------------------------------------------------------------------------------------------------------
+            // Checks if the Specified TempData has Data or not, then Create a ViewBag with a Variable that specifies The Name of the Alert in Integer Value
+            // Then Send it to The View
+
+            if (TempData.ContainsKey("AddingClubByAdminExistingErrorMessage"))
+            {
+                ViewBag.AddingClubByAdminExistingErrorMessage = int.Parse(TempData["AddingClubByAdminExistingErrorMessage"].ToString());
+            }
+
+            if (TempData.ContainsKey("EditingClubByAdminSuccessMessage"))
+            {
+                ViewBag.EditingClubByAdminSuccessMessage = int.Parse(TempData["EditingClubByAdminSuccessMessage"].ToString());
+            }
+
+            if (TempData.ContainsKey("AddingClubByAdminSuccessMessage"))
+            {
+                ViewBag.AddingClubByAdminSuccessMessage = int.Parse(TempData["AddingClubByAdminSuccessMessage"].ToString());
+            }
+
+            if (TempData.ContainsKey("DeletingClubByAdminSuccessMessage"))
+            {
+                ViewBag.DeletingClubByAdminSuccessMessage = int.Parse(TempData["DeletingClubByAdminSuccessMessage"].ToString());
+            }
+
+            //-----------------------------------------------------------------------------------------------------------------------------------
 
             if (language.Equals("ar"))
             {
-                return View("~/Views/ArabicViews/ArabicClub/Index.cshtml",clubs);
+                return View("~/Views/ArabicViews/ArabicClub/Index.cshtml", clubs);
             }
 
             else
             {
-                return View("~/Views/EnglishViews/EnglishClub/Index.cshtml",clubs);
+                return View("~/Views/EnglishViews/EnglishClub/Index.cshtml", clubs);
             }
         }
 
@@ -131,8 +157,8 @@ namespace StudentActivity.Controllers
                     return View("~/Views/EnglishViews/EnglishClub/ClubForm.cshtml");
                 }
             }
-            
-            if(club.Id == 0)
+
+            if (club.Id == 0)
             {
                 _context.Clubs.Add(club);
                 var student = _context.Users.SingleOrDefault(c => c.UserName == club.StudentId);
@@ -142,6 +168,9 @@ namespace StudentActivity.Controllers
                 await UserManager.AddToRoleAsync(student.Id, "CanManageClubs");
                 //SignInManager.SignIn(student, isPersistent: false, rememberBrowser: false);
 
+                // Sends AddingClubByAdminSuccessMessage to the another action using the TempData
+                TempData["AddingClubByAdminSuccessMessage"] = 1;
+
             }
             else
             {
@@ -150,6 +179,10 @@ namespace StudentActivity.Controllers
                 ClubInDb.StudentId = club.StudentId;
                 ClubInDb.ClubVisionEng = club.ClubVisionEng;
                 ClubInDb.ClubVisionAr = club.ClubVisionAr;
+
+                // Sends EditingClubByAdminSuccessMessage to the another action using the TempData
+                TempData["EditingClubByAdminSuccessMessage"] = 1;
+
             }
 
             try
@@ -158,7 +191,10 @@ namespace StudentActivity.Controllers
             }
             catch (DbUpdateException)
             {
-                MessageBox.Show(StudentActivity.Resources.Language.Club_already_Exist);
+                //MessageBox.Show(StudentActivity.Resources.Language.Club_already_Exist);
+
+                // Sends AddingClubByAdminExistingErrorMessage to the another action using the TempData
+                TempData["AddingClubByAdminExistingErrorMessage"] = 1;
             }
 
             return RedirectToAction("Index", "Club");
@@ -169,7 +205,10 @@ namespace StudentActivity.Controllers
         {
             ChangingLanguageFunction(language);
 
-            var club = _context.Clubs.Include(s =>s.Student).SingleOrDefault(c => c.Id == id);
+            var club = _context.Clubs.Include(s => s.Student).SingleOrDefault(c => c.Id == id);
+
+            ViewBag.EditedClubName = club.Name;
+
             if (club == null)
             {
                 return HttpNotFound();
@@ -200,7 +239,11 @@ namespace StudentActivity.Controllers
                 _context.Clubs.Remove(club);
                 _context.SaveChanges();
             }
-            return RedirectToAction("Index","Club");
+
+            // Sends DeletingClubByAdminSuccessMessage to the another action using the TempData
+            TempData["DeletingClubByAdminSuccessMessage"] = 1;
+
+            return RedirectToAction("Index", "Club");
         }
 
         [Authorize(Roles = "CanManagePrograms")]
@@ -221,9 +264,9 @@ namespace StudentActivity.Controllers
             }
         }
 
-    // END OF ADMIN ACTIONS
-        
-    // STUDENT ACTIONS
+        // END OF ADMIN ACTIONS
+
+        // STUDENT ACTIONS
 
         public ActionResult AddStuClubs(string language)
         {
@@ -236,6 +279,7 @@ namespace StudentActivity.Controllers
                 StudentClub = new Student_Club(Session["Id"].ToString()),
                 Clubs = clubs
             };
+
 
             if (language.Equals("ar"))
             {
@@ -268,10 +312,18 @@ namespace StudentActivity.Controllers
             try
             {
                 _context.SaveChanges();
+
+                // Sends StudentClubAddedMessage to the another action using the TempData
+                TempData["StudentClubAddedMessage"] = 1;
             }
             catch (DbUpdateException)
             {
-                MessageBox.Show(StudentActivity.Resources.Language.Already_a_member_of_the_club, "Existence Error");
+                //MessageBox.Show(StudentActivity.Resources.Language.Already_a_member_of_the_club, "Existence Error");
+
+                // Sends StudentClubRegisteredErrorMessage to the another action using the TempData
+                TempData["StudentClubRegisteredErrorMessage"] = 1;
+
+                return RedirectToAction("ShowClubs", "Club");
             }
 
             return RedirectToAction("ShowClubs", "Club");
@@ -281,6 +333,27 @@ namespace StudentActivity.Controllers
         public ActionResult ShowClubs(string language)
         {
             ChangingLanguageFunction(language);
+
+            //-----------------------------------------------------------------------------------------------------------------------------------
+            // Checks if the Specified TempData has Data or not, then Create a ViewBag with a Variable that specifies The Name of the Alert in Integer Value
+            // Then Send it to The View
+
+            if (TempData.ContainsKey("StudentClubRegisteredErrorMessage"))
+            {
+                ViewBag.StudentClubRegisteredErrorMessage = int.Parse(TempData["StudentClubRegisteredErrorMessage"].ToString());
+            }
+
+            if (TempData.ContainsKey("StudentClubLeaveMessage"))
+            {
+                ViewBag.StudentClubLeaveMessage = int.Parse(TempData["StudentClubLeaveMessage"].ToString());
+            }
+
+            if (TempData.ContainsKey("StudentClubAddedMessage"))
+            {
+                ViewBag.StudentClubAddedMessage = int.Parse(TempData["StudentClubAddedMessage"].ToString());
+            }
+
+            //-----------------------------------------------------------------------------------------------------------------------------------
 
             var id = Session["Id"].ToString();
             var clubs = _context.StudentClubs.Include(c => c.Club).Where(s => s.StudentId == id);
@@ -305,10 +378,13 @@ namespace StudentActivity.Controllers
                 (s => s.StudentId == studentId)
                 .Single(c => c.ClubId == clubId);
 
-            
-                _context.StudentClubs.Remove(studentClub);
-                _context.SaveChanges();
-            
+
+            _context.StudentClubs.Remove(studentClub);
+            _context.SaveChanges();
+
+            // Sends StudentClubLeaveMessage to the another action using the TempData
+            TempData["StudentClubLeaveMessage"] = 1;
+
 
             return RedirectToAction("ShowClubs", "Club");
         }

@@ -124,6 +124,42 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Student is Added to The Program Successfully.
+        /// </summary>
+        public static string AddedStudentToProgramSuccessfully {
+            get {
+                return ResourceManager.GetString("AddedStudentToProgramSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are You Sure You Want To Add This Student To This Program?.
+        /// </summary>
+        public static string AddNewStudentToProgramConfirmMessage {
+            get {
+                return ResourceManager.GetString("AddNewStudentToProgramConfirmMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Program.
+        /// </summary>
+        public static string AddProgram {
+            get {
+                return ResourceManager.GetString("AddProgram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are You Sure You Want to Add This Program?.
+        /// </summary>
+        public static string AddProgramConfirmationMessage {
+            get {
+                return ResourceManager.GetString("AddProgramConfirmationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Admin Home Page.
         /// </summary>
         public static string AdminHome {
@@ -232,6 +268,15 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        public static string Back {
+            get {
+                return ResourceManager.GetString("Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Cancel {
@@ -264,6 +309,15 @@ namespace StudentActivity.Resources {
         public static string Choose_a_program_to_register {
             get {
                 return ResourceManager.GetString("Choose a program to register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
             }
         }
         
@@ -304,6 +358,15 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Club is Added Successfully.
+        /// </summary>
+        public static string ClubAddedSuccessfully {
+            get {
+                return ResourceManager.GetString("ClubAddedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Club Coordinator.
         /// </summary>
         public static string ClubCoordinator {
@@ -331,6 +394,24 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Club is Deleted Successfully.
+        /// </summary>
+        public static string ClubDeletedSuccessfully {
+            get {
+                return ResourceManager.GetString("ClubDeletedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Club is Edited Successfully.
+        /// </summary>
+        public static string ClubEditedSuccessfully {
+            get {
+                return ResourceManager.GetString("ClubEditedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Club.
         /// </summary>
         public static string ClubId {
@@ -354,6 +435,24 @@ namespace StudentActivity.Resources {
         public static string CompletedPrograms {
             get {
                 return ResourceManager.GetString("CompletedPrograms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        public static string Confirm {
+            get {
+                return ResourceManager.GetString("Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ConfirmationMessage.
+        /// </summary>
+        public static string ConfirmationMessage {
+            get {
+                return ResourceManager.GetString("ConfirmationMessage", resourceCulture);
             }
         }
         
@@ -484,6 +583,15 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to is Deleted Successfully.
+        /// </summary>
+        public static string DeletedSuccessfully {
+            get {
+                return ResourceManager.GetString("DeletedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
         public static string Description {
@@ -556,6 +664,24 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are You Sure You Want to Edit This Program?.
+        /// </summary>
+        public static string EditProgramConfirmationMessage {
+            get {
+                return ResourceManager.GetString("EditProgramConfirmationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Changes on Eligable List Saved Succesfully.
+        /// </summary>
+        public static string EligableListChangesSaveSuccesfully {
+            get {
+                return ResourceManager.GetString("EligableListChangesSaveSuccesfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
@@ -606,6 +732,15 @@ namespace StudentActivity.Resources {
         public static string Enter_the_title_of_the_program {
             get {
                 return ResourceManager.GetString("Enter the title of the program", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error!.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
             }
         }
         
@@ -700,11 +835,29 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Join.
+        /// </summary>
+        public static string Join {
+            get {
+                return ResourceManager.GetString("Join", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Join a Club.
         /// </summary>
         public static string Join_Club {
             get {
                 return ResourceManager.GetString("Join Club", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are You Sure You Want To Join This Club?.
+        /// </summary>
+        public static string JoinClubConfirmation {
+            get {
+                return ResourceManager.GetString("JoinClubConfirmation", resourceCulture);
             }
         }
         
@@ -768,6 +921,15 @@ namespace StudentActivity.Resources {
         public static string leave_this_club {
             get {
                 return ResourceManager.GetString("leave this club", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You Have Left The Club Successfully.
+        /// </summary>
+        public static string LeftClubSuccessfully {
+            get {
+                return ResourceManager.GetString("LeftClubSuccessfully", resourceCulture);
             }
         }
         
@@ -898,6 +1060,15 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are You sure You Want to Send This Request?.
+        /// </summary>
+        public static string NewRequestConfirmation {
+            get {
+                return ResourceManager.GetString("NewRequestConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Next.
         /// </summary>
         public static string Next {
@@ -916,7 +1087,7 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There Are no pending programs.
+        ///   Looks up a localized string similar to There are no pending programs.
         /// </summary>
         public static string No_pending_programs {
             get {
@@ -934,7 +1105,7 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There are no student registered in this program.
+        ///   Looks up a localized string similar to There are no students registered in this program.
         /// </summary>
         public static string No_student_registered {
             get {
@@ -948,6 +1119,15 @@ namespace StudentActivity.Resources {
         public static string NoCompletedPrograms {
             get {
                 return ResourceManager.GetString("NoCompletedPrograms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are no requested programs.
+        /// </summary>
+        public static string NoRequestedPrograms {
+            get {
+                return ResourceManager.GetString("NoRequestedPrograms", resourceCulture);
             }
         }
         
@@ -1079,6 +1259,15 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Program is Added Successfully.
+        /// </summary>
+        public static string ProgramAddedSuccessflully {
+            get {
+                return ResourceManager.GetString("ProgramAddedSuccessflully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A program in the MPH.
         /// </summary>
         public static string ProgramBody {
@@ -1088,11 +1277,29 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Program is Deleted Successfully.
+        /// </summary>
+        public static string ProgramDeletedSuccessflully {
+            get {
+                return ResourceManager.GetString("ProgramDeletedSuccessflully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Program Details.
         /// </summary>
         public static string ProgramDetails {
             get {
                 return ResourceManager.GetString("ProgramDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Program is Edited Successfully.
+        /// </summary>
+        public static string ProgramEditedSuccessflully {
+            get {
+                return ResourceManager.GetString("ProgramEditedSuccessflully", resourceCulture);
             }
         }
         
@@ -1115,6 +1322,42 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to is Register Successfully.
+        /// </summary>
+        public static string ProgramRegisterSuccessfully {
+            get {
+                return ResourceManager.GetString("ProgramRegisterSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your Request is Sent Successfully.
+        /// </summary>
+        public static string ProgramRequestedSuccessflully {
+            get {
+                return ResourceManager.GetString("ProgramRequestedSuccessflully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are You Sure You Want to Retrieve This Program?.
+        /// </summary>
+        public static string ProgramRetrieveConfirmation {
+            get {
+                return ResourceManager.GetString("ProgramRetrieveConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Program is Retrieved Successfully.
+        /// </summary>
+        public static string ProgramRetrievedSuccessflully {
+            get {
+                return ResourceManager.GetString("ProgramRetrievedSuccessflully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Programs.
         /// </summary>
         public static string Programs {
@@ -1133,6 +1376,42 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are You Sure You Want To Approve This Program?.
+        /// </summary>
+        public static string ProramApproveConfirmation {
+            get {
+                return ResourceManager.GetString("ProramApproveConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Proram is Approved Successfully.
+        /// </summary>
+        public static string ProramApprovedSuccessfully {
+            get {
+                return ResourceManager.GetString("ProramApprovedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are You Sure You Want To Reject This Program?.
+        /// </summary>
+        public static string ProramRejectConfirmation {
+            get {
+                return ResourceManager.GetString("ProramRejectConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Proram is Rejected Successfully.
+        /// </summary>
+        public static string ProramRejectedSuccessfully {
+            get {
+                return ResourceManager.GetString("ProramRejectedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         public static string Register {
@@ -1147,6 +1426,15 @@ namespace StudentActivity.Resources {
         public static string Register_as_a_new_user {
             get {
                 return ResourceManager.GetString("Register as a new user", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registerd Clubs.
+        /// </summary>
+        public static string RegisterdStuClubs {
+            get {
+                return ResourceManager.GetString("RegisterdStuClubs", resourceCulture);
             }
         }
         
@@ -1214,7 +1502,16 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Request Programs.
+        ///   Looks up a localized string similar to Request Status is Remove Successfully.
+        /// </summary>
+        public static string RemoveStatusOfReqProgSuccessMessage {
+            get {
+                return ResourceManager.GetString("RemoveStatusOfReqProgSuccessMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Request Program.
         /// </summary>
         public static string Request_Programs {
             get {
@@ -1266,6 +1563,24 @@ namespace StudentActivity.Resources {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SaveChanges.
+        /// </summary>
+        public static string SaveChanges {
+            get {
+                return ResourceManager.GetString("SaveChanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are You Sure You Want To Save These Changes?.
+        /// </summary>
+        public static string SaveConfirmationMessage {
+            get {
+                return ResourceManager.GetString("SaveConfirmationMessage", resourceCulture);
             }
         }
         
@@ -1387,6 +1702,15 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You Have Joined This Club Successfully.
+        /// </summary>
+        public static string StudentClubAddedSuccessfully {
+            get {
+                return ResourceManager.GetString("StudentClubAddedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Student Home.
         /// </summary>
         public static string StudentHome {
@@ -1464,6 +1788,24 @@ namespace StudentActivity.Resources {
         public static string Submit {
             get {
                 return ResourceManager.GetString("Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are You sure You Want to Submit This Form?.
+        /// </summary>
+        public static string SubmitFormConfirmation {
+            get {
+                return ResourceManager.GetString("SubmitFormConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success!.
+        /// </summary>
+        public static string Success {
+            get {
+                return ResourceManager.GetString("Success", resourceCulture);
             }
         }
         

@@ -4,6 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/EnglishLayout/_EnglishAdminLayout.cshtml";
 
+    //HistoryBar for The Pages
     <div>
         <ul class="breadcrumb">
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
@@ -13,6 +14,54 @@
 }
 
 <h2></h2>
+
+@{
+    // Receiving The Alerts From The Controller using The ViewBag
+
+    if (ViewBag.AddingClubByAdminExistingErrorMessage == 1)
+    {
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+            <strong>@StudentActivity.Resources.Language.Error</strong> @StudentActivity.Resources.Language.Club_already_Exist
+        </div>
+
+        ViewBag.AddingClubByAdminExistingErrorMessage = 0;
+
+    }
+
+    if (ViewBag.AddingClubByAdminSuccessMessage == 1)
+    {
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+            <strong>@StudentActivity.Resources.Language.Success</strong> @StudentActivity.Resources.Language.ClubAddedSuccessfully
+        </div>
+
+        ViewBag.AddingClubByAdminSuccessMessage = 0;
+
+    }
+
+    if (ViewBag.EditingClubByAdminSuccessMessage == 1)
+    {
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+            <strong>@StudentActivity.Resources.Language.Success</strong> @StudentActivity.Resources.Language.ClubEditedSuccessfully
+        </div>
+
+        ViewBag.EditingClubByAdminSuccessMessage = 0;
+
+    }
+
+    if (ViewBag.DeletingClubByAdminSuccessMessage == 1)
+    {
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+            <strong>@StudentActivity.Resources.Language.Success</strong> @StudentActivity.Resources.Language.ClubDeletedSuccessfully
+        </div>
+
+        ViewBag.DeletingClubByAdminSuccessMessage = 0;
+
+    }
+}
 
 <p>
     @Html.ActionLink("+ " + StudentActivity.Resources.Language.Add_New_Club, "addClub", "Club", "Club", new { @class = "btn btn-blue btn-left" })
@@ -39,12 +88,37 @@
             </td>
             <td align="right">
                 @Html.ActionLink(StudentActivity.Resources.Language.Students_List, "ShowStuOfClub", "Club", new { id = item.Id }, new { @class = "btn btn-primary" })
-                @Html.ActionLink(StudentActivity.Resources.Language.EditClub, "EditClub", "Club", new { id = item.Id }, new { @class = "btn btn-primary" })
-                @Html.ActionLink(StudentActivity.Resources.Language.Delete, "DeleteClub", "Club", new { id = item.Id }, new
-                {
-                    @class = "btn btn-primary",
-                    onclick = "return confirm('Are you sure you want to delete this club?')"
-                })
+                @Html.ActionLink(StudentActivity.Resources.Language.EditClub, "EditClub", "Club", new { id = item.Id }, new { @class = "btn btn-blue" })
+                @*@Html.ActionLink(StudentActivity.Resources.Language.Delete, "DeleteClub", "Club", new { id = item.Id }, new
+                    {
+                        @class = "btn btn-primary",
+                        onclick = "return confirm('Are you sure you want to delete this club?')"
+                    })*@
+
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteClubConfirmation">
+                    @StudentActivity.Resources.Language.Delete
+                </button>
+
+                <!-- Custom Confirmation Message Using Modal -->
+                <div class="modal fade" id="DeleteClubConfirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header text-center">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="exampleModalLabel">@StudentActivity.Resources.Language.ConfirmationMessage</h4>
+                            </div>
+                            <div class="modal-body text-center">
+                                @StudentActivity.Resources.Language.DeleteClubConfirmation
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times"></i> @StudentActivity.Resources.Language.Close</button>
+                                <button type="button" onclick="location.href = '@Url.Action("DeleteClub", "Club", new { id = item.Id })'" class="btn btn-primary"><i class="fa fa-check"></i> @StudentActivity.Resources.Language.Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </td>
         </tr>
     }

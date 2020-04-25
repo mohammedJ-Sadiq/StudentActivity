@@ -64,6 +64,9 @@ namespace StudentActivity.Controllers
             }
             _context.SaveChanges();
 
+            //  Sends SaveChangesOnEligableListMessage to another action in another controller using the TempData
+            TempData["SaveChangesOnEligableListMessage"] = 1;
+
             return RedirectToAction("EligibleList", "Program", new { id = studentProgram.ProgramId });
            
         }

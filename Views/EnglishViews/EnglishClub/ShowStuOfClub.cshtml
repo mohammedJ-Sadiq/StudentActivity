@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<StudentActivity.Models.Student_Club>
+
 @{
     ViewBag.Title = "View";
     Layout = "~/Views/Shared/EnglishLayout/ParameterIdLayout/_AdminPIdLayout.cshtml";
 
+    //HistoryBar Showing the Pages History
     <div>
         <ul class="breadcrumb">
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
@@ -39,3 +41,7 @@
     }
 
 </table>
+
+<button type="button" onclick="location.href = '@Url.Action("Index", "Club")'" class="btn btn-default">
+    @StudentActivity.Resources.Language.Back
+</button>

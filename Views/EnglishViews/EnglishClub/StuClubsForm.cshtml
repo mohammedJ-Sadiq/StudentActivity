@@ -1,9 +1,11 @@
 ﻿@model StudentActivity.ViewModel.StudentClubViewModel
+
 @if (User.IsInRole("CanManageClubs"))
 {
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/EnglishLayout/_EnglishClubCorLayout.cshtml";
 
+    //HistoryBar Showing the Pages History
     <div>
         <ul class="breadcrumb">
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "ClubCorHome", "Home")</li>
@@ -17,6 +19,7 @@ else
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/EnglishLayout/_EnglishStudentLayout.cshtml";
 
+    //HistoryBar Showing the Pages History
     <div>
         <ul class="breadcrumb">
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "StudentHome", "Home")</li>
@@ -28,7 +31,7 @@ else
 
 <h2></h2>
 
-@using (Html.BeginForm("SaveStuClub", "Club"))
+@using (Html.BeginForm("SaveStuClub", "Club", FormMethod.Post, new { id = "SaveStudentInClub" }))
 {
 
     <div class="form-group">
@@ -40,11 +43,33 @@ else
     @Html.AntiForgeryToken()
 
     <button type="button" onclick="location.href = '@Url.Action("ShowClubs", "Club")'" class="btn btn-default">
-        @StudentActivity.Resources.Language.Cancel
+        <i class="fa fa-times"></i> @StudentActivity.Resources.Language.Cancel
     </button>
-    <button type="submit" class="btn btn-primary">
-        @StudentActivity.Resources.Language.Save
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#JoiningClubConfirmation">
+        <i class="fa fa-check"></i> @StudentActivity.Resources.Language.Join
     </button>
+
+    <!-- Custom Confirmation Message Using Modal -->
+    <div class="modal fade" id="JoiningClubConfirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">@StudentActivity.Resources.Language.ConfirmationMessage</h4>
+                </div>
+                <div class="modal-body text-center">
+                    @StudentActivity.Resources.Language.JoinClubConfirmation
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times"></i> @StudentActivity.Resources.Language.Cancel</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> @StudentActivity.Resources.Language.Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
 }
 
 @section scripts

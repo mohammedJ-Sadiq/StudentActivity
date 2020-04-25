@@ -5,6 +5,7 @@
     ViewBag.Title = "ShowPrgStu";
     Layout = "~/Views/Shared/ArabicLayout/_ArabicClubCorLayout.cshtml";
 
+    //HistoryBar Showing the Pages History
     <div>
         <ul class="breadcrumb">
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "ClubCorHome", "Home")</li>
@@ -15,7 +16,7 @@
 else
 {
     ViewBag.Title = "ShowPrgStu";
-    Layout = "~/Views/Shared/ArabicLayout/_ArabicStudentLayout.cshtml";
+    Layout = "~/Views/Shared/EnglishLayout/_EnglishStudentLayout.cshtml";
 
     <div>
         <ul class="breadcrumb">
@@ -48,10 +49,10 @@ else
             <th>
                 @StudentActivity.Resources.Language.EndDate
             </th>
-            <th>
+            <th class="row-center">
                 @StudentActivity.Resources.Language.MaximumStudentNumber
             </th>
-            <th>
+            <th class="row-center">
                 @StudentActivity.Resources.Language.Club_Name
             </th>
             <th></th>
@@ -72,13 +73,13 @@ else
                 <td>
                     @Html.DisplayFor(modelItem => item.Program.EndDate)
                 </td>
-                <td>
+                <td align="center">
                     @Html.DisplayFor(modelItem => item.Program.MaximumStudentNumber)
                 </td>
-                <td>
+                <td align="center">
                     @Html.DisplayFor(modelItem => item.Program.Club.Name)
                 </td>
-                <td>
+                <td align="left">
                     @Html.ActionLink(@StudentActivity.Resources.Language.PrintCertificate, "WaterMarkExistingCertification", "Program", new { studentName = item.Student.Name, programTitle = item.Program.Title, programTime = item.Program.Time, programStartDate = item.Program.StartDate, programEndDate = item.Program.EndDate }, new { @class = "btn btn-primary" })
                 </td>
             </tr>

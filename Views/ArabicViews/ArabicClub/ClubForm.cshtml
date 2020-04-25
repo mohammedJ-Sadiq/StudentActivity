@@ -9,7 +9,10 @@
             <ul class="breadcrumb">
                 <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "AdminHome", "Home")</li>
                 <li>@Html.ActionLink(StudentActivity.Resources.Language.Clubs, "Index", "Club")</li>
-                <li>@Html.ActionLink(StudentActivity.Resources.Language.EditClub, "EditClub", "Club")</li>
+                @*<li>@Html.ActionLink(StudentActivity.Resources.Language.EditClub, "EditClub", "Club")</li>*@
+                <li>
+                    <a href="@Url.Action("EditClub", "Club")">@ViewBag.EditedClubName</a>
+                </li>
             </ul>
         </div>
     }
@@ -24,6 +27,7 @@
             </ul>
         </div>
     }
+
 }
 
 <h2></h2>
@@ -55,11 +59,33 @@
     @Html.AntiForgeryToken()
 
     <button type="button" onclick="location.href = '@Url.Action("Index", "Club")'" class="btn btn-default">
-        @StudentActivity.Resources.Language.Cancel
+        <i class="fa fa-times"></i> @StudentActivity.Resources.Language.Cancel
     </button>
-    <button type="submit" class="btn btn-primary">
-        @StudentActivity.Resources.Language.Save
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#SaveClubFormConfirmation">
+        <i class="fa fa-check"></i> @StudentActivity.Resources.Language.Submit
     </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="SaveClubFormConfirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">@StudentActivity.Resources.Language.ConfirmationMessage</h4>
+                </div>
+                <div class="modal-body text-center">
+                    @StudentActivity.Resources.Language.SubmitFormConfirmation
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times"></i> @StudentActivity.Resources.Language.Cancel</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> @StudentActivity.Resources.Language.Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
 }
 
 @section scripts

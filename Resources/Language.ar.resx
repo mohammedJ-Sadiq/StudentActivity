@@ -138,6 +138,18 @@
   <data name="Added student already registerd in program" xml:space="preserve">
     <value>الطالب الذي تحاول اضافته للبرنامج مسجل في البرنامج مسبقا</value>
   </data>
+  <data name="AddedStudentToProgramSuccessfully" xml:space="preserve">
+    <value>تمت إضافة الطالب للبرنامج بنجاح</value>
+  </data>
+  <data name="AddNewStudentToProgramConfirmMessage" xml:space="preserve">
+    <value>هل أنت متأكد من أنك تريد إضافة الطالب الى هذا البرنامج؟</value>
+  </data>
+  <data name="AddProgram" xml:space="preserve">
+    <value>Add Program</value>
+  </data>
+  <data name="AddProgramConfirmationMessage" xml:space="preserve">
+    <value>Are You Sure You Want to Add This Program?</value>
+  </data>
   <data name="AdminHome" xml:space="preserve">
     <value>صفحة المسؤول الرئيسية</value>
   </data>
@@ -171,6 +183,9 @@
   <data name="Available Programs" xml:space="preserve">
     <value>البرامج المتاحة</value>
   </data>
+  <data name="Back" xml:space="preserve">
+    <value>تراجع</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>الغاء</value>
   </data>
@@ -182,6 +197,9 @@
   </data>
   <data name="Choose a program to register" xml:space="preserve">
     <value>اختر برنامج للتسجيل:</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>اغلاق</value>
   </data>
   <data name="Club already Exist" xml:space="preserve">
     <value>النادي الذي تحاول اضافته موجود مسبقا!</value>
@@ -195,6 +213,9 @@
   <data name="Club Vision in English" xml:space="preserve">
     <value>رؤية النادي باللغة الإنجليزية</value>
   </data>
+  <data name="ClubAddedSuccessfully" xml:space="preserve">
+    <value>تمت إضافة النادي بنجاح</value>
+  </data>
   <data name="ClubCoordinator" xml:space="preserve">
     <value>رئيس النادي</value>
   </data>
@@ -204,6 +225,12 @@
   <data name="ClubCorHome_can_do_1" xml:space="preserve">
     <value>تستطيع تقديم طلب إقامة برنامج لمسؤول الأنشطة الطلابية</value>
   </data>
+  <data name="ClubDeletedSuccessfully" xml:space="preserve">
+    <value>تم حذف النادي بنجاح</value>
+  </data>
+  <data name="ClubEditedSuccessfully" xml:space="preserve">
+    <value>تم التعديل على النادي بنجاح</value>
+  </data>
   <data name="ClubId" xml:space="preserve">
     <value>النادي</value>
   </data>
@@ -212,6 +239,12 @@
   </data>
   <data name="CompletedPrograms" xml:space="preserve">
     <value>البرامج المكتملة</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>تأكيد</value>
+  </data>
+  <data name="ConfirmationMessage" xml:space="preserve">
+    <value>رسالة تأكيد!</value>
   </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value>تأكيد كلمة المرور</value>
@@ -255,6 +288,9 @@
   <data name="DeleteConfirmation" xml:space="preserve">
     <value>هل أنت متاكد من أنك تريد حذف هذا الحقل؟</value>
   </data>
+  <data name="DeletedSuccessfully" xml:space="preserve">
+    <value>تم حذف</value>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>الوصف</value>
   </data>
@@ -279,6 +315,12 @@
   <data name="EditProgram" xml:space="preserve">
     <value>تعديل برنامج</value>
   </data>
+  <data name="EditProgramConfirmationMessage" xml:space="preserve">
+    <value>هل أنت متأكد من أنك تريد التعديل على هذا البرنامج؟</value>
+  </data>
+  <data name="EligableListChangesSaveSuccesfully" xml:space="preserve">
+    <value>تم حفظ التعديلات على قائمة الطلاب المستقين بنجاح</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>البريد الالكتروني</value>
   </data>
@@ -296,6 +338,9 @@
   </data>
   <data name="Enter the title of the program" xml:space="preserve">
     <value>:ادخل اسم البرنامج</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>خطأ!</value>
   </data>
   <data name="Error occured" xml:space="preserve">
     <value>حدث خطأ!</value>
@@ -327,8 +372,14 @@
   <data name="IsEligible" xml:space="preserve">
     <value>مستحق؟</value>
   </data>
+  <data name="Join" xml:space="preserve">
+    <value>انضمام</value>
+  </data>
   <data name="Join Club" xml:space="preserve">
     <value>الانضمام لنادي</value>
+  </data>
+  <data name="JoinClubConfirmation" xml:space="preserve">
+    <value>هل أنت متأكد من أنك تريد الانضمام لهذا البرنامج؟</value>
   </data>
   <data name="JUC" xml:space="preserve">
     <value>JUC</value>
@@ -350,6 +401,9 @@
   </data>
   <data name="leave this club" xml:space="preserve">
     <value>هل أنت متاكد من أنك تريد مغادرة هذا  النادي؟</value>
+  </data>
+  <data name="LeftClubSuccessfully" xml:space="preserve">
+    <value>لقد غادرت النادي بنجاح</value>
   </data>
   <data name="local account to log in" xml:space="preserve">
     <value>استخدم حساب داخلي لتسجيل الدخول</value>
@@ -393,6 +447,9 @@
   <data name="NewRequest" xml:space="preserve">
     <value>طلب جديد</value>
   </data>
+  <data name="NewRequestConfirmation" xml:space="preserve">
+    <value>هل انت متأكد من أنك تريد ارسال هذا الطلب؟</value>
+  </data>
   <data name="Next" xml:space="preserve">
     <value>التالي</value>
   </data>
@@ -410,6 +467,9 @@
   </data>
   <data name="NoCompletedPrograms" xml:space="preserve">
     <value>لم تكمل أي برنامج الى الآن!</value>
+  </data>
+  <data name="NoRequestedPrograms" xml:space="preserve">
+    <value>لا توجد برامج تحت الطلب</value>
   </data>
   <data name="OurValues" xml:space="preserve">
     <value>قيمنا</value>
@@ -454,11 +514,20 @@
     <value>البرنامج الذي تحاول اضافته
  مضاف مسبقا</value>
   </data>
+  <data name="ProgramAddedSuccessflully" xml:space="preserve">
+    <value>تمت إضافة البرنامج بنجاح</value>
+  </data>
   <data name="ProgramBody" xml:space="preserve">
     <value>اقامة برنامج في قاعة الاغراض المتعددة</value>
   </data>
+  <data name="ProgramDeletedSuccessflully" xml:space="preserve">
+    <value>تم حذف البرنامج بنجاح</value>
+  </data>
   <data name="ProgramDetails" xml:space="preserve">
     <value>تفاصيل البرنامج</value>
+  </data>
+  <data name="ProgramEditedSuccessflully" xml:space="preserve">
+    <value>تم التعديل على البرنامج بنجاح</value>
   </data>
   <data name="ProgramForm" xml:space="preserve">
     <value>نموذج برنامج</value>
@@ -466,17 +535,47 @@
   <data name="ProgramName" xml:space="preserve">
     <value>اسم البرنامج</value>
   </data>
+  <data name="ProgramRegisteredSuccessflully" xml:space="preserve">
+    <value>تم تسجيل</value>
+  </data>
+  <data name="ProgramRegisterSuccessfully" xml:space="preserve">
+    <value>تم التسجيل في</value>
+  </data>
+  <data name="ProgramRequestedSuccessflully" xml:space="preserve">
+    <value>تم ارسال الطلب بنجاح</value>
+  </data>
+  <data name="ProgramRetrieveConfirmation" xml:space="preserve">
+    <value>هل أنت متأكد من أنك تريد استعادة هذا البرنامج؟</value>
+  </data>
+  <data name="ProgramRetrievedSuccessflully" xml:space="preserve">
+    <value>تمت استعادة البرنامج بنجاح</value>
+  </data>
   <data name="Programs" xml:space="preserve">
     <value>البرامج</value>
   </data>
   <data name="ProgramsOfferedIntro" xml:space="preserve">
     <value>نحن نوفر العديد من البرامج كالدورات, الزيارات الخارجية والأنشطة.</value>
   </data>
+  <data name="ProramApproveConfirmation" xml:space="preserve">
+    <value>هل أنت متأكد من أنك تريد الموافقة على هذا البرنامج؟</value>
+  </data>
+  <data name="ProramApprovedSuccessfully" xml:space="preserve">
+    <value>تمت الموافقة على البرنامج بنجاح</value>
+  </data>
+  <data name="ProramRejectConfirmation" xml:space="preserve">
+    <value>هل أنت متأكد من أنك تريد رفض هذا البرنامج؟</value>
+  </data>
+  <data name="ProramRejectedSuccessfully" xml:space="preserve">
+    <value>تم رفض البرنامج بنجاح</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>تسجيل جديد</value>
   </data>
   <data name="Register as a new user" xml:space="preserve">
     <value>تسجيل مستخدم جديد</value>
+  </data>
+  <data name="RegisterdStuClubs" xml:space="preserve">
+    <value>الأندية المسجلة </value>
   </data>
   <data name="Registered Programs" xml:space="preserve">
     <value>البرامج المسجلة</value>
@@ -499,6 +598,9 @@
   <data name="Remove Status" xml:space="preserve">
     <value>إزالة الحالة</value>
   </data>
+  <data name="RemoveStatusOfReqProgSuccessMessage" xml:space="preserve">
+    <value>تم مسح حالة الطلب بنجاح</value>
+  </data>
   <data name="Request Programs" xml:space="preserve">
     <value>طلب برنامج</value>
   </data>
@@ -518,6 +620,12 @@
   </data>
   <data name="Save" xml:space="preserve">
     <value>حفظ</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>حفظ التغييرات</value>
+  </data>
+  <data name="SaveConfirmationMessage" xml:space="preserve">
+    <value>هل انت متأكد من أنك تريد حفظ التغييرات؟</value>
   </data>
   <data name="Select a Club" xml:space="preserve">
     <value>اختر نادي</value>
@@ -558,6 +666,9 @@
   <data name="StudentActivityShortIntro" xml:space="preserve">
     <value>الطريق الأفضل لجعل حياة الطالب أكثر مرحاُ!!</value>
   </data>
+  <data name="StudentClubAddedSuccessfully" xml:space="preserve">
+    <value>تم الانضمام للنادي بنجاح</value>
+  </data>
   <data name="StudentHome" xml:space="preserve">
     <value>صفحة الطالب الرئيسية</value>
   </data>
@@ -584,6 +695,12 @@
   </data>
   <data name="Submit" xml:space="preserve">
     <value>ارسل</value>
+  </data>
+  <data name="SubmitFormConfirmation" xml:space="preserve">
+    <value>هل انت متأكد من أنك تريد ارسال هذا النموذج؟</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>نجاح!</value>
   </data>
   <data name="Time" xml:space="preserve">
     <value>الوقت</value>
