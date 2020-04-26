@@ -8,3 +8,10 @@ $(function () {
         //maxDate: new Date(2018, 0, 1),
     });
 });
+
+$(document).ready(function () {
+    $("#Time").datetimepicker({
+        timeFormat: 'hh:mm TT',
+        timeOnly: true,
+    });
+});

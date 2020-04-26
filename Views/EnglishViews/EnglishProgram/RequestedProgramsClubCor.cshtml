@@ -134,3 +134,17 @@ else
 
     </table>
 }
+
+@section scripts
+{
+    <script type="text/javascript">
+                    $.ajax({
+                        url: "/api/en/Program/RequestedProgramsClubCor",
+                        data: { studentId, programId },
+                        method: "Add",
+                        success: function () {
+                            (this).parents("tr").append;
+                        }
+                    });
+    </script>
+}

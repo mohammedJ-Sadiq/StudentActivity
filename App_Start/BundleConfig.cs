@@ -23,13 +23,16 @@ namespace StudentActivity
                       "~/Scripts/bootstrap.js", 
                       "~/Scripts/bootbox.js",
                       "~/Scripts/Alert.js",
-                      "~/Scripts/jquery-ui-1.12.1.min.js"
+                      "~/Scripts/jquery-ui-1.12.1.min.js",
+                      "~/Scripts/jquery-ui-sliderAccess.js",
+                      "~/Scripts/jquery-ui-timepicker-addon.js"
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-united.css",
                       "~/Content/fontawesome.css",
                       "~/Content/jquery-ui.min.css",
+                      "~/Content/jquery-ui-timepicker-addon.css",
                       "~/Content/site.css"));
         }
     }
