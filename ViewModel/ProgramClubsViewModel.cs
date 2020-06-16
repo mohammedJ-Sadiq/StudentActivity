@@ -13,5 +13,6 @@ namespace StudentActivity.ViewModel
        
         public IEnumerable<Club> Clubs { get; set; }
 
+
     }
 }
