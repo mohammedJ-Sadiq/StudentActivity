@@ -91,94 +91,114 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @item.Title
-            </td>
-            <td>
-                @item.Time
-            </td>
-            <td>
-                @item.StartDate
-            </td>
-            <td>
-                @item.EndDate
-            </td>
-            <td class="text-center">
-                @item.MaximumStudentNumber
-            </td>
-            <td>
-                @item.Club.Name
-            </td>
-            <td align="left">
-                @Html.ActionLink(@StudentActivity.Resources.Language.EditProgram, "EditProgram", "Program", new { id = item.Id }, new { @class = "btn btn-blue" })
+        // To compare the Today's date and time with the ProgramEnd Date and time
+        var EndDateValidate = DateTime.Today.ToString("dd/MM/yyyy").CompareTo(item.EndDate);
+        var EndTimeValidate = DateTime.Now.ToString("hh:mm tt").CompareTo(item.Time);
 
-                @*
-                    This href button is in case we want to set a confirmation message for the Edit program button
+        // Checks if the Today's date is greater than the ProgramEndDate, skip this program since it is finished, go to the next iteration
+        if (EndDateValidate > 0)
+        {
+            continue;
+        }
 
-                    <a href="@Url.Action("EditProgram", "Program", new { studentId = item.Id})" class="DeleteProgramByAdminConfirmationEng btn btn-blue">@StudentActivity.Resources.Language.EditProgram</a>
-                *@
+        // Checks if the Today's date is greater than the ProgramEndDate and the Today's time is greater than or equal to the ProgramTime, skip this program since it is finished, go to the next iteration
+        else if (EndDateValidate == 0 && EndTimeValidate <= 0)
+        {
+            continue;
+        }
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#@item.Id">
-                    @StudentActivity.Resources.Language.Details
-                </button>
+        // Program is still available, show it
+        else
+        {
+            <tr>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Time
+                </td>
+                <td>
+                    @item.StartDate
+                </td>
+                <td>
+                    @item.EndDate
+                </td>
+                <td class="text-center">
+                    @item.MaximumStudentNumber
+                </td>
+                <td>
+                    @item.Club.Name
+                </td>
+                <td align="left">
+                    @Html.ActionLink(@StudentActivity.Resources.Language.EditProgram, "EditProgram", "Program", new { id = item.Id }, new { @class = "btn btn-blue" })
 
-                <!-- Details Modal -->
-                <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <h3 class="modal-title text-center" id="exampleModalLabel">@item.Title</h3>
-                            </div>
-                            <div class="modal-body">
-                                <table class="table table-bordered table-hover">
-                                    <tr class="danger">
-                                        <td class="row-center">@StudentActivity.Resources.Language.Time:</td>
-                                        <td class="row-center">@item.Time</td>
-                                    </tr>
+                    @*
+                        This href button is in case we want to set a confirmation message for the Edit program button
 
-                                    <tr>
-                                        <td class="row-center">@StudentActivity.Resources.Language.StartDate:</td>
-                                        <td class="row-center">@item.StartDate</td>
-                                    </tr>
+                        <a href="@Url.Action("EditProgram", "Program", new { studentId = item.Id})" class="DeleteProgramByAdminConfirmationAr btn btn-blue">@StudentActivity.Resources.Language.EditProgram</a>
+                    *@
 
-                                    <tr class="danger">
-                                        <td class="row-center">@StudentActivity.Resources.Language.EndDate:</td>
-                                        <td class="row-center">@item.EndDate</td>
-                                    </tr>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#@item.Id">
+                        @StudentActivity.Resources.Language.Details
+                    </button>
 
-                                    <tr>
-                                        <td class="row-center">@StudentActivity.Resources.Language.MaximumStudentNumber:</td>
-                                        <td class="row-center">@item.MaximumStudentNumber</td>
-                                    </tr>
-                                    @if (item.Description != null)
-                                    {
+                    <!-- Details Modal -->
+                    <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h3 class="modal-title text-center" id="exampleModalLabel">@item.Title</h3>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table table-bordered table-hover">
                                         <tr class="danger">
-                                            <td class="row-center">@StudentActivity.Resources.Language.Description:</td>
-                                            <td>@item.Description</td>
+                                            <td class="row-center">@StudentActivity.Resources.Language.Time:</td>
+                                            <td class="row-center">@item.Time</td>
                                         </tr>
-                                    }
-                                </table>
-                            </div>
 
+                                        <tr>
+                                            <td class="row-center">@StudentActivity.Resources.Language.StartDate:</td>
+                                            <td class="row-center">@item.StartDate</td>
+                                        </tr>
+
+                                        <tr class="danger">
+                                            <td class="row-center">@StudentActivity.Resources.Language.EndDate:</td>
+                                            <td class="row-center">@item.EndDate</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="row-center">@StudentActivity.Resources.Language.MaximumStudentNumber:</td>
+                                            <td class="row-center">@item.MaximumStudentNumber</td>
+                                        </tr>
+                                        @if (item.Description != null)
+                                        {
+                                            <tr class="danger">
+                                                <td class="row-center">@StudentActivity.Resources.Language.Description:</td>
+                                                <td>@item.Description</td>
+                                            </tr>
+                                        }
+                                    </table>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                @*@Html.ActionLink(@StudentActivity.Resources.Language.Delete, "DeleteProgram", "Program", new { id = item.Id }, new
-                    {
-                        @class = "btn btn-primary",
-                    onclick = "return confirm('Are you sure you want to delete this program?')"
-                    })*@
+                    @*@Html.ActionLink(@StudentActivity.Resources.Language.Delete, "DeleteProgram", "Program", new { id = item.Id }, new
+                        {
+                            @class = "btn btn-primary",
+                        onclick = "return confirm('Are you sure you want to delete this program?')"
+                        })*@
 
-                @* This href is going to call  LeaveClubConfirmationEng javascrip function to show the confrimatio message before it goes to the action*@
-                <a href="@Url.Action("DeleteProgram", "Program", new { id = item.Id})" class="DeleteProgramByAdminConfirmationAr btn btn-danger">@StudentActivity.Resources.Language.Delete</a>
+                    @* This href is going to call  LeaveClubConfirmationAr javascrip function to show the confrimatio message before it goes to the action*@
+                    <a href="@Url.Action("DeleteProgram", "Program", new { id = item.Id})" class="DeleteProgramByAdminConfirmationAr btn btn-danger">@StudentActivity.Resources.Language.Delete</a>
 
-            </td>
-        </tr>
+                </td>
+            </tr>
+        }
     }
 
 </table>

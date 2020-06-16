@@ -32,7 +32,7 @@
     </div>
     <div class="form-group">
         @StudentActivity.Resources.Language.Time
-        @Html.TextBoxFor(m => m.program.Time, new { @id = "Time", @class = "form-control", @readonly = "readonly", Value = DateTime.Now.ToString("hh:mm tt") })
+        @Html.TextBoxFor(m => m.program.Time, new { @id = "Time", @class = "form-control", @readonly = "readonly" })
         @Html.ValidationMessageFor(m => m.program.Time)
     </div>
     <div class="form-group">
@@ -85,7 +85,7 @@
                     <h4 class="modal-title text-center" id="exampleModalLabel">@StudentActivity.Resources.Language.ConfirmationMessage</h4>
                 </div>
                 <div class="modal-body text-center">
-                    @StudentActivity.Resources.Language.EditProgramConfirmationMessage
+                    @StudentActivity.Resources.Language.SaveConfirmationMessage
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times"></i> @StudentActivity.Resources.Language.Cancel</button>

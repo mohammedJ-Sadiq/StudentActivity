@@ -42,30 +42,72 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @item.Title
-            </td>
-            <td>
-                @item.Time
-            </td>
-            <td>
-                @item.StartDate
-            </td>
-            <td>
-                @item.EndDate
-            </td>
-            <td align="center">
-                @item.MaximumStudentNumber
-            </td>
-            <td>
-                @item.Club.Name
-            </td>
-            <td align="left">
-                @Html.ActionLink(@StudentActivity.Resources.Language.Students_List, "EligibleList", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
-            </td>
+        // To compare the Today's date and time with the ProgramEnd Date and time
+        var EndDateValidate = DateTime.Today.ToString("dd/MM/yyyy").CompareTo(item.EndDate);
+        var EndTimeValidate = DateTime.Now.ToString("hh:mm tt").CompareTo(item.Time);
 
-        </tr>
+        // Checks if the Today's date is greater than the ProgramEndDate, skip this program since it is finished, go to the next iteration
+        if (EndDateValidate > 0)
+        {
+            <tr>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Time
+                </td>
+                <td>
+                    @item.StartDate
+                </td>
+                <td>
+                    @item.EndDate
+                </td>
+                <td align="center">
+                    @item.MaximumStudentNumber
+                </td>
+                <td>
+                    @item.Club.Name
+                </td>
+                <td align="right">
+                    @Html.ActionLink(@StudentActivity.Resources.Language.Students_List, "EligibleList", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
+                </td>
+
+            </tr>
+        }
+
+        // Checks if the Today's date is greater than the ProgramEndDate and the Today's time is greater than or equal to the ProgramTime, skip this program since it is finished, go to the next iteration
+        else if (EndDateValidate == 0 && EndTimeValidate <= 0)
+        {
+            <tr>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Time
+                </td>
+                <td>
+                    @item.StartDate
+                </td>
+                <td>
+                    @item.EndDate
+                </td>
+                <td align="center">
+                    @item.MaximumStudentNumber
+                </td>
+                <td>
+                    @item.Club.Name
+                </td>
+                <td align="right">
+                    @Html.ActionLink(@StudentActivity.Resources.Language.Students_List, "EligibleList", "Program", new { id = item.Id }, new { @class = "btn btn-primary" })
+                </td>
+
+            </tr>
+        }
+
+        // Program is still available, show it
+        else
+        {
+            continue;
+        }
     }
-
 </table>

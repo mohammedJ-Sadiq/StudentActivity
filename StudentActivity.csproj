@@ -668,6 +668,7 @@
     <Content Include="Views\ArabicViews\ArabicProgram\AddProgramForm.cshtml" />
     <Content Include="Views\EnglishViews\EnglishClub\ShowStuOfClub.cshtml" />
     <Content Include="Views\ArabicViews\ArabicClub\ShowStuOfClub.cshtml" />
+    <Content Include="Views\EnglishViews\EnglishProgram\AvailablePrograms.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\ArabicViews\ArabicAdmin\" />

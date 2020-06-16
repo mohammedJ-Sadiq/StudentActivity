@@ -17,7 +17,7 @@
 else
 {
     ViewBag.Title = "ShowPrgStu";
-    Layout = "~/Views/Shared/EnglishLayout/_EnglishStudentLayout.cshtml";
+    Layout = "~/Views/Shared/ArabicLayout/_ArabicStudentLayout.cshtml";
 
     //HistoryBar Showing the Pages History
     <div>
@@ -157,7 +157,7 @@ else
                         </div>
                     </div>
 
-                    @* This href is going to call  LeaveClubConfirmationEng javascrip function to show the confrimatio message before it goes to the action*@
+                    @* This href is going to call  LeaveClubConfirmationAr javascrip function to show the confrimatio message before it goes to the action*@
                     <a href="@Url.Action("DeleteStuPrg", "Program", new { studentId = item.StudentId, programId = item.ProgramId })" class="DeleteProgramConfirmationAr btn btn-danger">@StudentActivity.Resources.Language.Delete</a>
                 </td>
             </tr>

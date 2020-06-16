@@ -16,14 +16,41 @@
 else
 {
     ViewBag.Title = "ShowPrgStu";
-    Layout = "~/Views/Shared/EnglishLayout/_EnglishStudentLayout.cshtml";
+    Layout = "~/Views/Shared/ArabicLayout/_ArabicStudentLayout.cshtml";
 
+    //HistoryBar Showing the Pages History
     <div>
         <ul class="breadcrumb">
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Home, "StudentHome", "Home")</li>
             <li>@Html.ActionLink(StudentActivity.Resources.Language.Available_Programs, "ShowPrgStu", "Program")</li>
         </ul>
     </div>
+}
+
+@{
+    // Receiving The Alerts From The Controller using The ViewBag
+
+    if (ViewBag.errorMessage == 1)
+    {
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+            <strong>@StudentActivity.Resources.Language.Error</strong> @StudentActivity.Resources.Language.Student_already_registered_in_program
+        </div>
+
+        ViewBag.errorMessage = 0;
+
+    }
+
+    if (ViewBag.programRegisteredIsFullErrorMessage == 1)
+    {
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+            <strong>@StudentActivity.Resources.Language.Error</strong> @StudentActivity.Resources.Language.ProgramIsFull
+        </div>
+
+        ViewBag.programRegisteredIsFullErrorMessage = 0;
+
+    }
 }
 
 @if (!Model.Any())
@@ -33,22 +60,6 @@ else
 
 else
 {
-    {
-        // Receiving The Alerts From The Controller using The ViewBag
-
-        if (ViewBag.errorMessage == 1)
-        {
-            <div class="alert alert-danger alert-dismissible" role="alert">
-                <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
-                <strong>@StudentActivity.Resources.Language.Error</strong> @StudentActivity.Resources.Language.Student_already_registered_in_program
-            </div>
-
-            ViewBag.errorMessage = 0;
-
-        }
-
-    }
-
     <h2>@StudentActivity.Resources.Language.Choose_a_program_to_register</h2>
 
     <table class="table table-striped table-hover">
@@ -72,87 +83,213 @@ else
                 @StudentActivity.Resources.Language.Club_Name
             </th>
             <th></th>
+            <th></th>
         </tr>
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @item.Title
-                </td>
-                <td>
-                    @item.Time
-                </td>
-                <td>
-                    @item.StartDate
-                </td>
-                <td>
-                    @item.EndDate
-                </td>
-                <td align="center">
-                    @item.MaximumStudentNumber
-                </td>
-                <td align="center">
-                    @item.Club.Name
-                </td>
-                <td align="left">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#@item.Id">
-                        @StudentActivity.Resources.Language.Details
-                    </button>
 
-                    <!-- Details Modal -->
-                    <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h3 class="modal-title text-center" id="exampleModalLabel">@item.Title</h3>
-                                </div>
-                                <div class="modal-body">
-                                    <table class="table table-bordered table-hover">
-                                        <tr class="danger">
-                                            <td class="row-center">@StudentActivity.Resources.Language.Time</td>
-                                            <td class="row-center">@item.Time</td>
-                                        </tr>
+            var CurrentDate = ViewBag.CurrentDate;
+            var CurrentTime = ViewBag.CurrentTime;
 
-                                        <tr>
-                                            <td class="row-center">@StudentActivity.Resources.Language.StartDate</td>
-                                            <td class="row-center">@item.StartDate</td>
-                                        </tr>
+            //------
 
-                                        <tr class="danger">
-                                            <td class="row-center">@StudentActivity.Resources.Language.EndDate</td>
-                                            <td class="row-center">@item.EndDate</td>
-                                        </tr>
+            var CurrentYear = CurrentDate.Substring(CurrentDate.Length - 4);
+            var PrgramEndYear = item.EndDate.Substring(item.EndDate.Length - 4);
+            var PrgramStartYear = item.StartDate.Substring(item.StartDate.Length - 4);
 
-                                        <tr>
-                                            <td class="row-center">@StudentActivity.Resources.Language.MaximumStudentNumber</td>
-                                            <td class="row-center">@item.MaximumStudentNumber</td>
-                                        </tr>
-                                        @if (item.Description != null)
-                                        {
-                                            <tr class="danger">
-                                                <td class="row-center">@StudentActivity.Resources.Language.Description</td>
-                                                <td>@item.Description</td>
-                                            </tr>
+            var EndYearValidate = CurrentYear.CompareTo(PrgramEndYear);
+            var StartYearValidate = CurrentYear.CompareTo(PrgramStartYear);
+
+            //-----
+
+            var CurrentMonth = CurrentDate.Substring(2, 4);
+            var PrgramEndMonth = item.EndDate.Substring(2, 4);
+            var PrgramStartMonth = item.StartDate.Substring(2, 4);
+
+            var EndMonthValidate = CurrentMonth.CompareTo(PrgramEndMonth);
+            var StartMonthValidate = CurrentMonth.CompareTo(PrgramStartMonth);
+
+            //----
+
+            var CurrentDay = CurrentDate.Substring(0, 2);
+            var PrgramEndDay = item.EndDate.Substring(0, 2);
+            var PrgramStartDay = item.StartDate.Substring(0, 2);
+
+            var EndDayValidate = CurrentDay.CompareTo(PrgramEndDay);
+            var StartDayValidate = CurrentDay.CompareTo(PrgramStartDay);
+
+            // To compare the Today's date and time with the ProgramEnd Date and time
+            var EndDateValidate = CurrentDate.CompareTo(item.EndDate);
+
+            var StartDateValidate = CurrentDate.CompareTo(item.StartDate);
+
+            var EndTimeValidate = CurrentTime.CompareTo(item.Time);
+
+            // These string are for dealing with hour 12:00 AM that is grather than other hours in number. However, 12 comes before other hours in time.
+
+            string str = item.Time.Substring(0, 3);                     // Getting the first three chars
+            string str1 = item.Time.Substring(item.Time.Length - 5);    // Getting the last chars
+            string str2 = item.Time.Substring(item.Time.Length - 2);    // Getting the last two chars (AM)
+
+            if (str2.Equals("AM"))
+            {
+                // Checks if the first chars equals the 12 hour
+                if (str.Equals("12:"))
+                {
+                    // Combining
+                    string ProgramTime = "00:" + str1;
+                    EndTimeValidate = CurrentTime.CompareTo(ProgramTime);
+
+                }
+            }
+
+            if (EndYearValidate > 0)
+            {
+                continue;
+            }
+
+            else
+            {
+                if (EndMonthValidate > 0)
+                {
+                    continue;
+                }
+
+                else
+                {
+                    if (EndDayValidate > 0)
+                    {
+                        continue;
+                    }
+
+                    // Program is still available, show it
+                    else
+                    {
+                        if (EndDayValidate == 0 && EndTimeValidate > 0)
+                        {
+                            continue;
+                        }
+
+                        else
+                        {
+                            if (EndDayValidate == 0 && EndTimeValidate > 0)
+                            {
+                                continue;
+                            }
+
+                            else
+                            {
+                                <tr>
+                                    <td>
+                                        @item.Title
+                                    </td>
+                                    <td>
+                                        @item.Time
+                                    </td>
+                                    <td>
+                                        @item.StartDate
+                                    </td>
+                                    <td>
+                                        @item.EndDate
+                                    </td>
+                                    <td align="center">
+                                        @item.MaximumStudentNumber
+                                    </td>
+                                    <td align="center">
+                                        @item.Club.Name
+                                    </td>
+                                    <td align="right">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#@item.Id">
+                                            @StudentActivity.Resources.Language.Details
+                                        </button>
+
+                                        <!-- Details Modal -->
+                                        <div class="modal fade" id="@item.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        <h3 class="modal-title text-center" id="exampleModalLabel">@item.Title</h3>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <table class="table table-bordered table-hover">
+                                                            <tr class="danger">
+                                                                <td class="row-center">@StudentActivity.Resources.Language.Time</td>
+                                                                <td class="row-center">@item.Time</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td class="row-center">@StudentActivity.Resources.Language.StartDate</td>
+                                                                <td class="row-center">@item.StartDate</td>
+                                                            </tr>
+
+                                                            <tr class="danger">
+                                                                <td class="row-center">@StudentActivity.Resources.Language.EndDate</td>
+                                                                <td class="row-center">@item.EndDate</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td class="row-center">@StudentActivity.Resources.Language.MaximumStudentNumber</td>
+                                                                <td class="row-center">@item.MaximumStudentNumber</td>
+                                                            </tr>
+                                                            @if (item.Description != null)
+                                                            {
+                                                                <tr class="danger">
+                                                                    <td class="row-center">@StudentActivity.Resources.Language.Description</td>
+                                                                    <td>@item.Description</td>
+                                                                </tr>
+                                                            }
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                    <td align="right">
+                                        @*@Html.ActionLink(@StudentActivity.Resources.Language.RegisterInProgram, "Registration", "Program", new { programId = item.Id },
+                                            new { @class = "btn btn-primary", onclick = "return confirm('Are you sure you want to add this program?')" })*@
+
+                                        @{
+                                            if (StartYearValidate < 0 && StartMonthValidate < 0 && StartDayValidate < 0)
+                                            {
+                                                //This href is going to call  LeaveClubConfirmationEng javascrip function to show the confrimatio message before it goes to the action
+                                                <a href="@Url.Action("Registration", "Program", new { programId = item.Id })" class="RegisterProgramConfirmationEng btn btn-default btn-block" style="pointer-events: none; cursor: default; ">@StudentActivity.Resources.Language.OpeningSoon</a>
+                                            }
+
+                                            else
+                                            {
+                                                //This href is going to call LeaveClubConfirmationEng javascrip function to show the confrimatio message before it goes to the action
+                                                <a href="@Url.Action("Registration", "Program", new { programId = item.Id })" class="RegisterProgramConfirmationEng btn btn-blue btn-block">@StudentActivity.Resources.Language.RegisterInProgram</a>
+                                            }
                                         }
-                                    </table>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    @*@Html.ActionLink(@StudentActivity.Resources.Language.RegisterInProgram, "Registration", "Program", new { programId = item.Id },
-                        new { @class = "btn btn-primary", onclick = "return confirm('Are you sure you want to add this program?')" })*@
+                                    </td>
+                                </tr>
+                            }
+                        }
 
 
-                    @* This href is going to call  LeaveClubConfirmationEng javascrip function to show the confrimatio message before it goes to the action*@
-                    <a href="@Url.Action("Registration", "Program", new { programId = item.Id })" class="RegisterProgramConfirmationAr btn btn-blue">@StudentActivity.Resources.Language.RegisterInProgram</a>
 
-                </td>
-            </tr>
+
+                    }
+                }
+            }
+
+            //// Checks if the Today's date is greater than the ProgramEndDate, skip this program since it is finished, go to the next iteration
+            //if (EndDateValidate > 0)
+            //{
+            //    continue;
+            //}
+
+            //// Checks if the Today's date is greater than the ProgramEndDate and the Today's time is greater than or equal to the ProgramTime, skip this program since it is finished, go to the next iteration
+            //else if (EndDateValidate == 0 && EndTimeValidate <= 0)
+            //{
+            //    continue;
+            //}
         }
 
     </table>

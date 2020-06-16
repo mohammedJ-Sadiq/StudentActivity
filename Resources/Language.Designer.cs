@@ -214,6 +214,15 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All Programs.
+        /// </summary>
+        public static string AllPrograms {
+            get {
+                return ResourceManager.GetString("AllPrograms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Club you are trying to join, you are already member of it!.
         /// </summary>
         public static string Already_a_member_of_the_club {
@@ -1132,6 +1141,24 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Will Open Soon.
+        /// </summary>
+        public static string OpeningSoon {
+            get {
+                return ResourceManager.GetString("OpeningSoon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Messages from our Team...
+        /// </summary>
+        public static string OurMessages {
+            get {
+                return ResourceManager.GetString("OurMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Our Values.
         /// </summary>
         public static string OurValues {
@@ -1313,11 +1340,29 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This Program is Full.
+        /// </summary>
+        public static string ProgramIsFull {
+            get {
+                return ResourceManager.GetString("ProgramIsFull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Program Name.
         /// </summary>
         public static string ProgramName {
             get {
                 return ResourceManager.GetString("ProgramName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Program is Available Now.
+        /// </summary>
+        public static string ProgramOpened {
+            get {
+                return ResourceManager.GetString("ProgramOpened", resourceCulture);
             }
         }
         

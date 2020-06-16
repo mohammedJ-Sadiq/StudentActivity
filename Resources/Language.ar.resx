@@ -145,10 +145,10 @@
     <value>هل أنت متأكد من أنك تريد إضافة الطالب الى هذا البرنامج؟</value>
   </data>
   <data name="AddProgram" xml:space="preserve">
-    <value>Add Program</value>
+    <value>اضافة برنامج</value>
   </data>
   <data name="AddProgramConfirmationMessage" xml:space="preserve">
-    <value>Are You Sure You Want to Add This Program?</value>
+    <value>هل أنت متأكد من أنك تريد إضافة هذا البرنامج؟</value>
   </data>
   <data name="AdminHome" xml:space="preserve">
     <value>صفحة المسؤول الرئيسية</value>
@@ -253,7 +253,7 @@
     <value>الاتصال</value>
   </data>
   <data name="ConnectivityIntro" xml:space="preserve">
-    <value>We keep in touch with students through our website by providing a special page to show the latest news in the university..</value>
+    <value>نبقى على تواصل مع الطلاب من خلال موقعنا الإلكتروني من خلال توفير صفحة خاصة لعرض آخر الأخبار في الجامعة</value>
   </data>
   <data name="Contact" xml:space="preserve">
     <value>معلومات الاتصال</value>
@@ -439,7 +439,7 @@
     <value>التنقل</value>
   </data>
   <data name="MobilityIntro" xml:space="preserve">
-    <value>We provide many services through our website to make student's life easier..</value>
+    <value>نحن نقدم العديد من الخدمات من خلال موقعنا لجعل حياة الطالب أسهل ..</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>الاسم</value>
@@ -470,6 +470,12 @@
   </data>
   <data name="NoRequestedPrograms" xml:space="preserve">
     <value>لا توجد برامج تحت الطلب</value>
+  </data>
+  <data name="OpeningSoon" xml:space="preserve">
+    <value>سيفتح قريبا</value>
+  </data>
+  <data name="OurMessages" xml:space="preserve">
+    <value>رسائل من فريقنا..</value>
   </data>
   <data name="OurValues" xml:space="preserve">
     <value>قيمنا</value>
@@ -531,6 +537,9 @@
   </data>
   <data name="ProgramForm" xml:space="preserve">
     <value>نموذج برنامج</value>
+  </data>
+  <data name="ProgramIsFull" xml:space="preserve">
+    <value>هذا البرنامج ممتلئ</value>
   </data>
   <data name="ProgramName" xml:space="preserve">
     <value>اسم البرنامج</value>
@@ -688,10 +697,10 @@
     <value>قائمة الطلاب</value>
   </data>
   <data name="StudentsActivitiesIntro" xml:space="preserve">
-    <value>Student's Activities is a part of the Student's Affairs, which is a department of the university that serves as the gate between the student and the academic departments.</value>
+    <value>أنشطة الطلاب هي جزء من شؤون الطلاب ، وهي قسم من الجامعة يعمل بمثابة البوابة بين الطالب والأقسام الأكاديمية.</value>
   </data>
   <data name="StudentsActivitiesMainGoal" xml:space="preserve">
-    <value>The main goal of Student's Activities is to make the lives of the students easier and more interesting while they are studying at the university by providing special programs such as courses, visits, and activities that support the students in their studies</value>
+    <value>الهدف الرئيسي من أنشطة الطلاب هو جعل حياة الطلاب أسهل وأكثر إثارة للاهتمام أثناء دراستهم في الجامعة من خلال توفير برامج خاصة مثل الدورات والزيارات والأنشطة التي تدعم الطلاب في دراساتهم</value>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>ارسل</value>
@@ -718,7 +727,7 @@
     <value>الرؤية</value>
   </data>
   <data name="VISIONBody" xml:space="preserve">
-    <value>Our vision is to graduate qualified students with both academic and communicate skills that will help them to succeed in their own lives.</value>
+    <value>رؤيتنا هي تخريج الطلاب المؤهلين من ذوي المهارات الأكاديمية والتواصلية التي ستساعدهم على النجاح في حياتهم الخاصة.</value>
   </data>
   <data name="Visit" xml:space="preserve">
     <value>زيارة</value>

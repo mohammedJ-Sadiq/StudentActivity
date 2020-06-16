@@ -41,6 +41,9 @@ namespace StudentActivity.Controllers
         [Authorize(Roles = "CanManagePrograms")]
         public ActionResult Index(string language)
         {
+            ViewBag.CurrentDate = DateTime.Today.ToString("dd/MM/yyyy");
+            ViewBag.CurrentTime = DateTime.Now.ToString("hh:mm tt");
+
             ChangingLanguageFunction(language);
 
             var programs = _context.Programs.Include(p => p.Club).ToList().Where(p => p.IsDeleted == false).Where(p => p.IsVisible == true);
@@ -83,6 +86,53 @@ namespace StudentActivity.Controllers
         }
 
         [Authorize(Roles = "CanManagePrograms")]
+        public ActionResult AvailablePrograms(string language)
+        {
+            ViewBag.CurrentDate = DateTime.Today.ToString("dd/MM/yyyy");
+            ViewBag.CurrentTime = DateTime.Now.ToString("hh:mm tt");
+
+            ChangingLanguageFunction(language);
+
+            var programs = _context.Programs.Include(p => p.Club).ToList().Where(p => p.IsDeleted == false).Where(p => p.IsVisible == true);
+
+            //-----------------------------------------------------------------------------------------------------------------------------------
+            //Checks if the Specified TempData has Data or not, then Create a ViewBag with a Variable that sppecifies The Name of the Alert in Integer Value
+            // Then Send it to The View
+
+            if (TempData.ContainsKey("AddProgramByAdminSuccessMessage"))
+            {
+                ViewBag.AddProgramByAdminSuccessMessage = int.Parse(TempData["AddProgramByAdminSuccessMessage"].ToString());
+            }
+
+            if (TempData.ContainsKey("EditProgramByAdminSuccessMessage"))
+            {
+                ViewBag.EditProgramByAdminSuccessMessage = int.Parse(TempData["EditProgramByAdminSuccessMessage"].ToString());
+            }
+
+            if (TempData.ContainsKey("DeleteProgramByAdminSuccessMessage"))
+            {
+                ViewBag.DeleteProgramByAdminSuccessMessage = int.Parse(TempData["DeleteProgramByAdminSuccessMessage"].ToString());
+            }
+
+            if (TempData.ContainsKey("RetrieveProgramSuccessMessage"))
+            {
+                ViewBag.RetrieveProgramSuccessMessage = int.Parse(TempData["RetrieveProgramSuccessMessage"].ToString());
+            }
+
+            //-----------------------------------------------------------------------------------------------------------------------------------
+
+            if (language.Equals("ar"))
+            {
+                return View("~/Views/ArabicViews/ArabicProgram/AvailablePrograms.cshtml", programs);
+            }
+
+            else
+            {
+                return View("~/Views/EnglishViews/EnglishProgram/AvailablePrograms.cshtml", programs);
+            }
+        }
+
+        [Authorize(Roles = "CanManagePrograms")]
         public ActionResult RegisteredPrograms(string language)
         {
             ChangingLanguageFunction(language);
@@ -112,9 +162,9 @@ namespace StudentActivity.Controllers
             // Sends the program tiltle to the eligible list view using ViewBag
             ViewBag.EligListProgramTitle = program.Title;
 
+            // This has no benefit at all
             // Sends the program tilte to the another action using the TempData
             TempData["EligListProgramTitle"] = program.Title;
-
 
             //-----------------------------------------------------------------------------------------------------------------------------------
             //Checks if the Specified TempData has Data or not, then Create a ViewBag with a Variable that sppecifies The Name of the Alert in Integer Value
@@ -264,6 +314,9 @@ namespace StudentActivity.Controllers
         [Authorize(Roles = "CanManagePrograms")]
         public ActionResult addProgram(string language)
         {
+            ViewBag.CurrentDate = DateTime.Today.ToString("dd/MM/yyyy");
+            ViewBag.CurrentTime = DateTime.Now.ToString("hh:mm tt");
+
             ChangingLanguageFunction(language);
 
             var clubs = _context.Clubs.ToList();
@@ -816,25 +869,53 @@ namespace StudentActivity.Controllers
 
                  return View("RegistrationForm", StudentPrograms);
              }*/
+            var count = _context.StudentPrograms.Include(s => s.Student).Where(p => p.ProgramId == studentProgram.ProgramId).Count();
+            var program = _context.Programs.SingleOrDefault(p => p.Id == studentProgram.ProgramId);
+            var maxStudNumber = program.MaximumStudentNumber;
+            var StuProg = _context.StudentPrograms.Where(p => p.ProgramId == studentProgram.ProgramId).Where(s => s.StudentId == studentProgram.StudentId).Any();
 
-            _context.StudentPrograms.Add(studentProgram);
-            try
+            // Checks if the number of students registered in the program greater or equal than the maximum number of students of the program
+            if (count >= maxStudNumber)
             {
-                _context.SaveChanges();
+                // Checks of the student is already registered in the program
+                if (StuProg == true)
+                {
+                    // Sends the programRegisteredErrorMessage to another action using the TempData
+                    TempData["programRegisteredErrorMessage"] = 1;
+
+                    return RedirectToAction("ShowPrgStu", "Program");
+                }
+                else
+                {
+                    // Sends the programRegisteredIsFullErrorMessage to another action using the TempData
+                    TempData["programRegisteredIsFullErrorMessage"] = 1;
+
+                    return RedirectToAction("ShowPrgStu", "Program");
+                }
+                
             }
-            catch (DbUpdateException)
+            else
             {
+                _context.StudentPrograms.Add(studentProgram);
+                try
+                {
+                    _context.SaveChanges();
+                }
+                catch (DbUpdateException)
+                {
 
-                // Sends the programRegisteredErrorMessage to another action using the TempData
-                TempData["programRegisteredErrorMessage"] = 1;
+                    // Sends the programRegisteredErrorMessage to another action using the TempData
+                    TempData["programRegisteredErrorMessage"] = 1;
 
-                return RedirectToAction("ShowPrgStu", "Program");
+                    return RedirectToAction("ShowPrgStu", "Program");
+                }
+
+                // Sends the RegisterStuProgramSuccess to another action using the TempData
+                TempData["RegisterStuProgramSuccess"] = 1;
+
+                return RedirectToAction("StuPrograms", "Program");
             }
 
-            // Sends the RegisterStuProgramSuccess to another action using the TempData
-            TempData["RegisterStuProgramSuccess"] = 1;
-
-            return RedirectToAction("StuPrograms", "Program");
         }
 
         public ActionResult DeleteStuPrg(String studentId, int programId, string language)
@@ -861,6 +942,9 @@ namespace StudentActivity.Controllers
         // Show all available programs for the student
         public ActionResult ShowPrgStu(string language)
         {
+            ViewBag.CurrentDate = DateTime.Today.ToString("dd/MM/yyyy");
+            ViewBag.CurrentTime = DateTime.Now.ToString("hh:mm tt");
+
             ChangingLanguageFunction(language);
 
             //-----------------------------------------------------------------------------------------------------------------------------------
@@ -870,6 +954,11 @@ namespace StudentActivity.Controllers
             if (TempData.ContainsKey("programRegisteredErrorMessage"))
             {
                 ViewBag.errorMessage = int.Parse(TempData["programRegisteredErrorMessage"].ToString());
+            }
+
+            if (TempData.ContainsKey("programRegisteredIsFullErrorMessage"))
+            {
+                ViewBag.programRegisteredIsFullErrorMessage = int.Parse(TempData["programRegisteredIsFullErrorMessage"].ToString());
             }
 
             //-----------------------------------------------------------------------------------------------------------------------------------
@@ -894,6 +983,9 @@ namespace StudentActivity.Controllers
         [Authorize(Roles = "CanManageClubs")]
         public ActionResult RequestProgram(string language)
         {
+            ViewBag.CurrentDate = DateTime.Today.ToString("dd/MM/yyyy");
+            ViewBag.CurrentTime = DateTime.Now.ToString("hh:mm tt");
+
             ChangingLanguageFunction(language);
 
             var clubs = _context.Clubs.ToList();

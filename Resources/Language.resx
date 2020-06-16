@@ -168,6 +168,9 @@
   <data name="AdminHome_can_do_5" xml:space="preserve">
     <value>You can approve or reject any requested program from club coordinator</value>
   </data>
+  <data name="AllPrograms" xml:space="preserve">
+    <value>All Programs</value>
+  </data>
   <data name="Already a member of the club" xml:space="preserve">
     <value>The Club you are trying to join, you are already member of it!</value>
   </data>
@@ -474,6 +477,12 @@
   <data name="NoRequestedPrograms" xml:space="preserve">
     <value>There are no requested programs</value>
   </data>
+  <data name="OpeningSoon" xml:space="preserve">
+    <value>Will Open Soon</value>
+  </data>
+  <data name="OurMessages" xml:space="preserve">
+    <value>Messages from our Team..</value>
+  </data>
   <data name="OurValues" xml:space="preserve">
     <value>Our Values</value>
   </data>
@@ -535,8 +544,14 @@ trying to add is already added</value>
   <data name="ProgramForm" xml:space="preserve">
     <value>Program Form</value>
   </data>
+  <data name="ProgramIsFull" xml:space="preserve">
+    <value>This Program is Full</value>
+  </data>
   <data name="ProgramName" xml:space="preserve">
     <value>Program Name</value>
+  </data>
+  <data name="ProgramOpened" xml:space="preserve">
+    <value>Program is Available Now</value>
   </data>
   <data name="ProgramRegisterSuccessfully" xml:space="preserve">
     <value>is Register Successfully</value>

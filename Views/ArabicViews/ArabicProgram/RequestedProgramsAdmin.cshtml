@@ -98,7 +98,7 @@ else
                         @Html.ActionLink(@StudentActivity.Resources.Language.Reject, "RejectProgram", "Program", new { id = item.Id }, new{ @class = "btn btn-primary",
                         onclick = "return confirm('Are you sure you want to reject this program?')" })*@
 
-                    @* This href is going to call  LeaveClubConfirmationEng javascrip function to show the confrimatio message before it goes to the action*@
+                    @* This href is going to call  LeaveClubConfirmationAr javascrip function to show the confrimatio message before it goes to the action*@
 
                     <a href="@Url.Action("RejectProgram", "Program", new { id = item.Id})" class="RejectProgramConfirmationAr btn btn-danger">@StudentActivity.Resources.Language.Reject</a>
 
