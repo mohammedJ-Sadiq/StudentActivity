@@ -50,7 +50,7 @@ namespace StudentActivity.Controllers
             ChangingLanguageFunction(language);
 
             var StuPrgInDb = _context.StudentPrograms.ToList().Where(p => p.ProgramId == studentProgram.ProgramId);
-
+            
             var id = Request.Form[""];
             
             foreach (var item in StuPrgInDb)

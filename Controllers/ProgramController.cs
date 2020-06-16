@@ -948,7 +948,7 @@ namespace StudentActivity.Controllers
             ChangingLanguageFunction(language);
 
             //-----------------------------------------------------------------------------------------------------------------------------------
-            // Checks if the Specified TempData has Data or not, then Create a ViewBag with a Variable that sppecifies The Name of the Alert in Integer Value
+            // Checks if the Specified TempData has Data or not, then Create a ViewBag with a Variable that specifies The Name of the Alert in Integer Value
             // Then Send it to The View
 
             if (TempData.ContainsKey("programRegisteredErrorMessage"))

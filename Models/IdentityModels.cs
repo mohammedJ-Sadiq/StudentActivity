@@ -75,9 +75,6 @@ namespace StudentActivity.Models
             modelBuilder.Entity<Admin_Program>()
                 .HasKey(ap => new { ap.AdminId, ap.ProgramId });
 
-
-
-
         }
 
         public static ApplicationDbContext Create()
