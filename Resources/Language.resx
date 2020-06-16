@@ -554,7 +554,7 @@ trying to add is already added</value>
     <value>Program is Available Now</value>
   </data>
   <data name="ProgramRegisterSuccessfully" xml:space="preserve">
-    <value>is Register Successfully</value>
+    <value>is Registered Successfully</value>
   </data>
   <data name="ProgramRequestedSuccessflully" xml:space="preserve">
     <value>Your Request is Sent Successfully</value>

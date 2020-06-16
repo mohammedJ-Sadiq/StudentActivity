@@ -1367,7 +1367,7 @@ namespace StudentActivity.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to is Register Successfully.
+        ///   Looks up a localized string similar to is Registered Successfully.
         /// </summary>
         public static string ProgramRegisterSuccessfully {
             get {
